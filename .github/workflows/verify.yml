@@ -1,0 +1,22 @@
+name: Verify portfolio
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '24'
+      - name: Rebuild static pages
+        run: node scripts/build.mjs
+      - name: Validate content, routes and publication boundaries
+        run: node --test tests/site.test.mjs
+      - name: Ensure generated pages match source
+        run: git diff --exit-code
