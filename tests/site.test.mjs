@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const companySlugs = ['jianyou', 'hero-games', 'bolang', 'quwan', 'muyou', 'beta', 'xingqi', 'haoteng', 'iceshi'];
 const layouts = ['producer', 'workbench', 'duology', 'quest', 'blueprint', 'board', 'storyboard', 'archive', 'lab'];
+const publicNotes = ['gameplay', 'team', 'data'];
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const hasClass = (node, name) => (node.attrs.class || '').split(/\s+/u).includes(name);
 
@@ -82,7 +83,11 @@ function site() {
     const companies = await Promise.all(companySlugs.map(slug => page(`experience/${slug}/index.html`)));
     const projectRecords = content.jobs.flatMap(job => job.projects.map(project => ({ ...project, companySlug: job.slug })));
     const projects = await Promise.all(projectRecords.map(project => page(`projects/${project.slug}/index.html`)));
-    return { content, home, companies, projects, projectRecords, pages: [home, ...companies, ...projects] };
+    const notes = (await Promise.all(publicNotes.map(slug => page(`projects/sheep-match/${slug}/index.html`).catch(error => {
+      if (error.code === 'ENOENT') return null;
+      throw error;
+    })))).filter(Boolean);
+    return { content, home, companies, projects, notes, projectRecords, pages: [home, ...companies, ...projects, ...notes] };
   })();
   return sitePromise;
 }
@@ -148,6 +153,18 @@ test('home presents the full timeline and semantic company, role, project, and s
   assert.match(textOf(entries[1]), /2026[.\-/]07[.\-/]23/u);
 });
 
+test('the introduction chapter rail navigates nine real career records in their timeline order', async () => {
+  const { home, content } = await site();
+  const rail = one(home.document, node => node.tag === 'nav' && hasClass(node, 'chapter-rail'), 'Career chapter navigation');
+  const links = nodes(rail, node => node.tag === 'a');
+  assert.equal(links.length, 9);
+  for (const [index, link] of links.entries()) {
+    assert.equal(routeFor(link.attrs.href, home.path).hash, `company-${companySlugs[index]}`);
+    assert.ok(link.attrs['aria-label']?.includes(content.jobs[index].employer), 'Numbered chapter has its real company in the accessible label');
+    assert.match(textOf(link), new RegExp(String(index + 1).padStart(2, '0'), 'u'));
+  }
+});
+
 test('all detail routes retain independent layouts, factual panels, illustrations, and exact return hashes', async () => {
   const { companies, projects, projectRecords, content } = await site();
   const illustrationRoutes = [];
@@ -208,6 +225,33 @@ test('skills show six concrete evidence groups without empty or placeholder anch
     assert.ok(evidence.length > 0, `${textOf(card).slice(0, 30)} has evidence links`);
     assert.ok(evidence.every(node => node.attrs.href && node.attrs.href !== '#' && textOf(node)), 'Evidence links have destinations and names');
   }
+});
+
+test('Sheep Match offers three clearly sourced public responsibility notes without presenting internal material as evidence', async () => {
+  const { projects, notes } = await site();
+  const project = projects.find(value => value.path === 'projects/sheep-match/index.html');
+  const reading = one(project.document, node => node.attrs.id === 'project-reading', 'Sheep Match public reading section');
+  const links = nodes(reading, node => node.tag === 'a' && hasClass(node, 'note-link'));
+  assert.deepEqual(links.map(node => routeFor(node.attrs.href, project.path).path), publicNotes.map(slug => `projects/sheep-match/${slug}/index.html`));
+  assert.equal(notes.length, 3, 'All public notes are real directly addressable pages');
+  for (const [index, note] of notes.entries()) {
+    one(note.document, node => node.tag === 'body' && node.attrs['data-page'] === 'document', `${note.path} readable document`);
+    one(note.document, node => node.tag === 'h1', `${note.path} title`);
+    const provenance = one(note.document, node => hasClass(node, 'note-provenance'), `${note.path} source statement`);
+    assert.match(textOf(provenance), /已确认/u);
+    assert.match(textOf(provenance), /公开摘要/u);
+    const figure = one(note.document, node => node.tag === 'figure' && hasClass(node, 'note-figure'), `${note.path} responsibility illustration`);
+    assert.match(textOf(figure), /职责图示/u);
+    const image = one(figure, node => node.tag === 'img', `${note.path} image`);
+    assert.equal(routeFor(image.attrs.src, note.path).path, `assets/diagrams/sheep-match-${publicNotes[index]}.svg`);
+    assert.ok(Number(image.attrs.width) && Number(image.attrs.height) && image.attrs.alt?.length > 4);
+    const back = one(note.document, node => node.tag === 'a' && hasClass(node, 'note-return'), `${note.path} project return`);
+    assert.equal(routeFor(back.attrs.href, note.path).path, project.path);
+    assert.equal(routeFor(back.attrs.href, note.path).hash, 'project-reading');
+    assert.doesNotMatch(note.html, /(?:Tower|飞书|VitaMahjongUnity|\.docx|\.xlsx|\.csv|原始报告下载|已实现增长|独立完成全部)/iu);
+  }
+  assert.match(textOf(notes[1].document), /项目团队共 6 人/u);
+  assert.match(textOf(notes[1].document), /不等同于 6 名直接下属/u);
 });
 
 test('every local href, src, and fragment resolves inside the public site', async () => {
