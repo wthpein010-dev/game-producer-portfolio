@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -284,6 +285,46 @@ test('every local href, src, and fragment resolves inside the public site', asyn
         }
       }
     }
+  }
+});
+
+test('Sheep Match design references retain reviewed originals, readable alternatives, and clear role attribution', async () => {
+  const { projects, companies, notes } = await site();
+  const project = projects.find(value => value.path === 'projects/sheep-match/index.html');
+  const gallery = one(project.document, node => node.attrs.id === 'project-design', 'Project design references');
+  assert.match(textOf(gallery), /项目设计资料/u);
+  assert.match(textOf(gallery), /游戏制作人/u);
+  assert.match(textOf(gallery), /美术执行由团队相应岗位承担/u);
+  assert.match(textOf(gallery), /设计方案[^。]*不代表[^。]*上线/u);
+  const cards = nodes(gallery, node => node.tag === 'article' && hasClass(node, 'design-reference'));
+  const originals = [
+    ['save-recovery.png', 'ad51a365327490b0e6a0698afc61bb8fcb8395aab2462fc858b78039f918bce4'],
+    ['tile-patterns.png', '095cee2f642884d15ecce6c9b44ca68c1b1479de969bc2ad8b7bd305e1fd5e75'],
+    ['lucky-items-flow.jpg', 'c245367bc7c256c7d0b192e9aaf830e37fededce54815556fd745885342a4db4'],
+  ];
+  assert.equal(cards.length, originals.length);
+  for (const [index, card] of cards.entries()) {
+    const [filename, sha] = originals[index];
+    const link = one(card, node => node.tag === 'a' && hasClass(node, 'design-original'), 'Full resolution reference');
+    const target = routeFor(link.attrs.href, project.path).path;
+    assert.equal(target, `assets/project-design/${filename}`);
+    assert.equal(createHash('sha256').update(await readFile(join(root, target))).digest('hex'), sha, 'Reviewed original is copied without replacement or generated edits');
+    const images = nodes(card, node => node.tag === 'img');
+    assert.equal(images.length, 2, 'Overview and scrollable large image use the same original');
+    for (const image of images) {
+      assert.equal(routeFor(image.attrs.src, project.path).path, target);
+      assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0 && image.attrs.alt?.length > 12);
+    }
+    const reading = one(card, node => node.tag === 'details' && hasClass(node, 'design-inspect'), 'Native image disclosure');
+    one(reading, node => node.tag === 'summary', 'Keyboard accessible image disclosure');
+    const scroll = one(reading, node => hasClass(node, 'design-scroll'), 'Large image reading region');
+    assert.equal(scroll.attrs.tabindex, '0');
+    assert.equal(scroll.attrs.role, 'region');
+    assert.ok(scroll.attrs['aria-label']?.includes('大图'));
+    assert.ok(nodes(card, node => node.tag === 'li').length >= 2, 'Text explains the readable design decisions');
+  }
+  for (const other of [...companies, ...notes, ...projects.filter(value => value !== project)]) {
+    assert.equal(nodes(other.document, node => node.attrs.id === 'project-design').length, 0, 'Project references stay with their actual project');
   }
 });
 
