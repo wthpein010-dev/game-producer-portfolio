@@ -216,6 +216,31 @@ test('all detail routes retain independent layouts, factual panels, illustration
   assert.equal(new Set(illustrationRoutes).size, 24, 'Each company and project has its own original illustration');
 });
 
+test('all career pages lead with work value and distinguish project evidence from shared company duties', async()=>{
+  const {home,companies,projects,content}=await site();
+  for(const p of [...companies,...projects]){
+    const section=one(p.document,n=>n.attrs.id==='work-value','Work-first resume section');
+    assert.match(textOf(section),/工作.*价值/u);
+    const items=nodes(section,n=>hasClass(n,'work-value-item'));assert.ok(items.length>=1&&items.length<=3);
+    for(const item of items){assert.match(textOf(item),/具体工作/u);assert.match(textOf(item),/工作价值/u);assert.ok(textOf(item).length>70);}
+    const main=one(p.document,n=>n.tag==='main','Main');
+    assert.ok(main.children.indexOf(section)<main.children.findIndex(n=>typeof n!=='string'&&hasClass(n,'detail-grid')),'Work value precedes archival panels');
+    assert.doesNotMatch(textOf(section),/提升\s*\d+%|增长\s*\d+%|独立完成全部|保证上线|全部由我/u);
+    assert.doesNotMatch(textOf(one(p.document,n=>hasClass(n,'detail-lede'),'Lead')),/参与的项目之一|以现代都市为背景|围绕人生选择/u);
+  }
+  for(const slug of ['zuoyaoji-x','words-with-colors','train-king','versatile-dog','paper-girl','creation-factory']){
+    const target=projects.find(p=>p.path===`projects/${slug}/index.html`);
+    const section=one(target.document,n=>n.attrs.id==='work-value','Shared duty scope');
+    assert.equal(section.attrs['data-work-basis'],'company');
+    assert.match(textOf(section),/任职.*共同|公司.*职责/u);assert.match(textOf(section),/未.*逐项|不.*专属/u);
+    for(const link of nodes(section,n=>n.tag==='a'))assert.match(link.attrs.href,/^\.\.\/\.\.\/experience\//u,'Shared scope must not reuse another project evidence');
+    for(const item of nodes(section,n=>hasClass(n,'work-value-item')))assert.doesNotMatch(textOf(item),/撰写.*锦标赛|填字判定|小镇.*流程图/u,'No other project-specific contribution in shared scope');
+  }
+  const word=projects.find(p=>p.path==='projects/word-villas/index.html');assert.match(textOf(one(word.document,n=>n.attrs.id==='work-value','Authored contribution')),/署名|撰写/u);
+  const match=projects.find(p=>p.path==='projects/matchmaking-inc/index.html');assert.match(textOf(one(match.document,n=>n.attrs.id==='work-value','Revision contribution')),/修订|重构/u);
+  for(const job of content.jobs){const entry=one(home.document,n=>n.attrs.id===`company-${job.slug}`,'Timeline work summary');assert.ok(textOf(entry).includes(job.lead));}
+});
+
 test('skills show six concrete evidence groups without empty or placeholder anchors', async () => {
   const { home } = await site();
   const cards = nodes(home.document, node => hasClass(node, 'skill-card'));
@@ -405,7 +430,8 @@ test('Idiom Scholar exposes sourced systems, gameplay and interaction evidence w
     assert.ok(image.attrs.alt?.length > 12);
   }
   const company = companies.find(value => value.path === 'experience/haoteng/index.html');
-  one(company.document, node => node.tag === 'a' && node.attrs.href === '../../projects/idiom-scholar/#idiom-design', 'Company evidence entry');
+  const companyEntry = one(company.document, node => hasClass(node, 'idiom-company-entry'), 'Original company evidence section');
+  one(companyEntry, node => node.tag === 'a' && node.attrs.href === '../../projects/idiom-scholar/#idiom-design', 'Company evidence entry');
   const summary = await page('projects/idiom-scholar/design-summary/index.html');
   one(summary.document, node => node.attrs.id === 'idiom-design', 'Directly accessible design summary');
   assert.equal(nodes(summary.document, node => node.tag === 'h1').length, 1);
@@ -461,7 +487,8 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   const summary=await page('projects/my-town/design-summary/index.html');
   one(summary.document,n=>n.attrs.id==='town-design','Town summary');
   const company=companies.find(c=>c.path==='experience/muyou/index.html');
-  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/my-town/#town-design','Town company entry');
+  const companyEntry=one(company.document,n=>hasClass(n,'idiom-company-entry'),'Original town company evidence section');
+  one(companyEntry,n=>n.tag==='a'&&n.attrs.href==='../../projects/my-town/#town-design','Town company entry');
   for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='town-design').length,0);
   const {townMaps}=await import('../src/town-design.mjs');
   assert.equal(townMaps.length,3);
