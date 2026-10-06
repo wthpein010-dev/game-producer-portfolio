@@ -473,6 +473,29 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   }
 });
 
+test('Beta authored evidence connects Word Villas, company and summary with explicit document and art attribution', async()=>{
+  const {projects,companies}=await site();
+  const targets=[projects.find(p=>p.path==='projects/word-villas/index.html'),companies.find(c=>c.path==='experience/beta/index.html')];
+  for(const target of targets){
+    const design=one(target.document,n=>n.attrs.id==='beta-design','Beta design evidence');
+    assert.equal(nodes(design,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,4);
+    assert.match(textOf(design),/文档撰写人：吴天昊/u);
+    assert.match(textOf(design),/未领奖/u);
+    assert.match(textOf(design),/重玩/u);
+    assert.match(textOf(design),/每日任务/u);
+    assert.match(textOf(design),/美术[^。]*团队/u);
+    assert.match(textOf(design),/设计目标[^。]*业绩/u);
+    one(design,n=>n.tag==='a'&&n.attrs.href==='../../projects/word-villas/design-summary/','Beta summary entry');
+  }
+  const summary=await page('projects/word-villas/design-summary/index.html');
+  one(summary.document,n=>n.attrs.id==='beta-design','Beta summary evidence');
+  for(const other of projects.filter(p=>p.path!=='projects/word-villas/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='beta-design').length,0);
+  const {betaAssets,betaDocuments}=await import('../src/beta-design.mjs');
+  assert.equal(betaAssets.length,6);assert.equal(betaDocuments.length,3);
+  for(const doc of betaDocuments){assert.equal(doc.author,'吴天昊');assert.equal(doc.signature,'文档撰写人：吴天昊');}
+  for(const item of betaAssets){const bytes=await readFile(join(root,'assets/project-design/word-villas',item.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);assert.equal(bytes.readUInt32BE(16),item.width);assert.equal(bytes.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');

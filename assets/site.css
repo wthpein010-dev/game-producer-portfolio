@@ -1008,6 +1008,11 @@ button:disabled { cursor: default; }
 
 /* Real project references keep their own visual language and original pixels. */
 .matchmaking-design { min-width: 0; }
+.beta-document-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-block: 20px 28px; }
+.beta-document-list > div { border-top: 2px solid var(--line); padding-top: 14px; min-width: 0; }
+.beta-document-list h4 { font-size: 18px; margin-block: 0 12px; }
+.beta-document-list p { font-size: 15px; line-height: 1.9; }
+@media (max-width: 700px) { .beta-document-list { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
 .matchmaking-design h2 { font-size: 28px; line-height: 1.4; margin-block: 12px 20px; }
 .matchmaking-intro { max-width: 52em; line-height: 1.9; }
 .matchmaking-boundary { font-size: 13px; line-height: 1.9; color: var(--muted); max-width: 72em; }
