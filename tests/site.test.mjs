@@ -398,7 +398,7 @@ test('homepage independent games retain original screenshots and confirmed two-p
     const [title, filename, hash] = originals[index];
     assert.equal(textOf(one(game, node => node.tag === 'h4', 'Game title')), title);
     const image = one(game, node => node.tag === 'img', 'Actual game screenshot');
-    const link = one(game, node => node.tag === 'a', 'Original image link');
+    const link = one(game, node => node.tag === 'a' && node.attrs.href === image.attrs.src, 'Original image link');
     assert.equal(image.attrs.src, `assets/project-design/${filename}`);
     assert.equal(link.attrs.href, image.attrs.src);
     assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
@@ -600,6 +600,27 @@ test('Hero evidence separates authored design, chronology gaps and team backgrou
   for(const other of projects.filter(p=>p.path!=='projects/crisis-dawn/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='hero-design').length,0);
   const {heroAssets}=await import('../src/hero-design.mjs');assert.equal(heroAssets.length,5);
   for(const asset of heroAssets){const bytes=await readFile(join(root,'assets/project-design/crisis-dawn',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert.ok(asset.width>0&&asset.height>0&&asset.source.length>10);}
+});
+
+test('official Steam context stays separate from personal contribution and links to the four supplied products', async()=>{
+  const {home,projects}=await site();
+  const indie=one(home.document,n=>n.attrs.id==='indie-games','Indie area');
+  assert.match(textOf(indie),/闲暇时间.*一位程序员.*两人团队/u);
+  for(const [title,id] of [['舌尖上的魔术师','2904420'],['除灵事务所','3408380']]){
+    const card=one(indie,n=>n.tag==='article'&&textOf(n).includes(title),'Indie product');
+    one(card,n=>n.tag==='a'&&n.attrs.href===`https://store.steampowered.com/app/${id}/?l=schinese`,'Official store entry');
+    assert.match(textOf(card),/玩法简介依据官方 Steam 页面/u);
+    one(card,n=>n.tag==='a'&&/assets\/project-design\/.*-steam\.png/u.test(n.attrs.href),'Preserved original screenshot');
+  }
+  for(const [slug,id] of [['matchmaking-inc','2103130'],['vanity-fair','2758000']]){
+    const target=projects.find(p=>p.path===`projects/${slug}/index.html`);
+    const context=one(target.document,n=>hasClass(n,'official-product-context'),'Official product context');
+    assert.match(textOf(context),/官方产品背景/u);
+    one(context,n=>n.tag==='a'&&n.attrs.href===`https://store.steampowered.com/app/${id}/?l=schinese`,'Correct official source');
+    assert.doesNotMatch(textOf(context),/我负责|独立完成/u);
+    one(target.document,n=>n.attrs.id==='work-value','Preserved personal work');
+    assert.ok(target.html.indexOf('id="work-value"')<target.html.indexOf('class="official-product-context"'));
+  }
 });
 
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
