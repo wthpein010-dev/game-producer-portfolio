@@ -87,7 +87,7 @@ async function noOverflow(page) {
   const measurement = await page.evaluate(() => {
     const viewport = document.documentElement.clientWidth;
     const offenders = [...document.querySelectorAll('body *')].flatMap(element => {
-      if (!element.getClientRects().length) return [];
+      if (!element.checkVisibility() || !element.getClientRects().length) return [];
       const bounds = element.getBoundingClientRect();
       return bounds.width && (bounds.left < -1 || bounds.right > viewport + 1)
         ? [{ tag: element.tagName, id: element.id, class: element.className?.baseVal ?? element.className, left: Math.round(bounds.left), right: Math.round(bounds.right) }]
