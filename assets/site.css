@@ -1038,6 +1038,11 @@ button:disabled { cursor: default; }
 .matchmaking-map figure { margin: 0; }
 .matchmaking-map figure img { display: block; width: 100%; height: auto; }
 #vanity-design .matchmaking-map figure img { width: auto; max-width: 100%; max-height: 800px; margin-inline: auto; }
+#hero-design .matchmaking-map figure img { width: auto; max-width: 100%; max-height: 760px; margin-inline: auto; }
+#hero-design .matchmaking-map figure + a { display: inline-block; margin-block: 8px 18px; }
+.hero-delivery { padding-block: 24px; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.hero-delivery h3 { font-size: 24px; line-height: 1.5; }
+.hero-delivery p, .hero-delivery li { font-size: 15px; line-height: 1.9; }
 .matchmaking-map figcaption { padding-block: 12px; font-size: 13px; color: var(--muted); }
 .matchmaking-map-notes { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; margin-block: 18px 24px; }
 .matchmaking-map-notes h4 { font-size: 16px; margin-block: 14px 8px; }

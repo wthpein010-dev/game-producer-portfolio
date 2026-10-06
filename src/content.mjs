@@ -13,9 +13,9 @@ export const jobs = [
     lead:'在共 6 人的项目团队中，统筹游戏方向、玩法系统、团队排期与数据迭代，承担设计与研发推进的衔接职责。',
     note:'项目团队共 6 人，不等同于 6 名直接下属。职责不包含美术表现、发行运营。'},
   {slug:'hero-games', employer:'英雄游戏科技股份有限公司', role:'高级系统策划', period:'2025.07—2026.07.23', start:'2025-07', end:'2026-07-23', layout:'workbench',
-    projects:[{slug:'crisis-dawn',title:'危机曙光',description:'承担 SOC 项目 PC 移植中的 UI/UE 重构、HUD 与操作逻辑调整，并推进家园、公会系统调优及跨岗位问题处理。'}],
+    projects:[{slug:'crisis-dawn',title:'危机曙光',description:'承担 SOC 项目 PC 移植中的 UI/UE、HUD 与操作逻辑调整，创建和修订跨界面数值显示规范，并推进家园、公会调优与跨岗位问题处理。'}],
     scope:['SOC 项目 PC 端移植','UI/UE 重构','HUD 与操作逻辑','家园及公会调优','问题整理与跨岗位推进'],
-    lead:'围绕 SOC 项目 PC 移植，重构界面与操作体验，结合家园、公会系统调优，把体验问题整理为可协作推进的调整事项。'},
+    lead:'围绕 SOC 项目 PC 移植重构界面与操作体验，将局部数值显示问题整理为通用规范，并结合家园、公会调优推进跨岗位调整。'},
   {slug:'bolang',employer:'北京波浪科技有限公司',role:'主策划 / 执行制作人',period:'2022.07—2025.07',start:'2022-07',end:'2025-07',layout:'duology',
     projects:[{slug:'matchmaking-inc',title:'中国式相亲',description:'以主策划 / 执行制作人角色参与，创建和修订技能成长、会所装修、情感与相亲节目方案，把系统规则细化为可操作的状态和界面流程。',publicSource:'https://store.steampowered.com/app/2103130/?l=schinese'},
       {slug:'vanity-fair',title:'名利游戏',description:'以主策划 / 执行制作人角色参与真人互动叙事项目，围绕视频选择、故事线与进度反馈组织需求，连接叙事内容与交互交付。',publicSource:'https://store.steampowered.com/app/2758000/?l=schinese'}],
@@ -57,8 +57,9 @@ export const companyWork = {
   ],note:'依据已确认任职与职责；项目团队共 6 人，不等同于 6 名直接下属。'},
   'hero-games':{items:[
     {title:'PC 移植中的交互重构',action:'承担 SOC 项目 PC 端移植、UI/UE 重构及 HUD 与操作逻辑调整。',value:'将界面信息、操作提示与系统入口一起考虑，体现跨端体验设计能力，而非单纯调整画面尺寸。',link:['PC 交互职责摘要','projects/crisis-dawn/design-summary/']},
+    {title:'将局部问题转为通用规范',action:'创建和修订系统数值显示规范，区分中英文单位、精确数字与紧凑物品格缩写，并列出 QA 检查点。',value:'把显示一致性、量级辨识与布局约束整理为可复用交付规则；以更新表记录支持个人产出，而非用团队截图代替作者依据。',link:['本人记录与规范摘要','projects/crisis-dawn/#hero-numbers']},
     {title:'系统调优与跨岗位推进',action:'开展家园、公会系统调优，整理体验问题并推进跨岗位调整。',value:'把体验问题转为具体协作事项，让系统设计与研发推进相互衔接。',link:['项目工作记录','projects/crisis-dawn/#scope']},
-  ],note:'依据已确认职责；未署名背景资料不作为个人独立方案或实际改善幅度的证明。'},
+  ],note:'数值规范有本人创建及修订记录，其余职责依据已确认履历；活动方案和团队背景在资料区分别标注，不宣称全部上线或量化改善。'},
   bolang:{items:[
     {title:'系统规则与界面交互细化',action:'在《中国式相亲》中创建、重构和修订技能、情感、装修及相亲节目方案，明确条件、状态与反馈。',value:'把跨系统成长目标细化为玩家可理解、团队可讨论的操作规则，体现系统与 UI/UE 的结合。',link:['个人修订记录与原图','projects/matchmaking-inc/#matchmaking-supplement']},
     {title:'不同玩法形态的需求组织',action:'以主策划 / 执行制作人角色参与两款项目；《名利游戏》的需求背景覆盖视频、选择、故事线和进度反馈。',value:'呈现从恋爱经营到真人互动叙事的项目经验，以及内容逻辑与交互需求之间的衔接。',link:['互动叙事需求资料','projects/vanity-fair/#vanity-design']},

@@ -570,6 +570,38 @@ test('Bolang supplements connect both projects without replacing existing eviden
   for(const a of bolangAssets){const b=await readFile(join(root,'assets/project-design',a.project,a.file));assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(b.readUInt32BE(16),a.width);assert.equal(b.readUInt32BE(20),a.height);assert.ok(a.source.length>10);}
 });
 
+test('PC responsibility diagrams never reuse overlapping node positions', async()=>{
+  const {content}=await site();
+  for(const job of content.jobs.filter(j=>j.layout==='workbench'))for(const slug of [job.slug,...job.projects.map(p=>p.slug)]){
+    const document=parseHtml(await readFile(join(root,`assets/diagrams/${slug}.svg`),'utf8'));
+    const rects=nodes(document,n=>n.tag==='rect'&&n.parent?.tag==='g');
+    for(let i=0;i<rects.length;i++)for(let j=i+1;j<rects.length;j++){
+      const a=rects[i].attrs,b=rects[j].attrs;
+      const width=Math.min(+a.x + +a.width,+b.x + +b.width)-Math.max(+a.x,+b.x);
+      const height=Math.min(+a.y + +a.height,+b.y + +b.height)-Math.max(+a.y,+b.y);
+      assert.ok(width<=0||height<=0,`${slug}: node ${i+1} overlaps ${j+1}`);
+    }
+  }
+});
+
+test('Hero evidence separates authored design, chronology gaps and team background across all three entries', async()=>{
+  const {projects,companies}=await site();
+  const targets=[projects.find(p=>p.path==='projects/crisis-dawn/index.html'),companies.find(c=>c.path==='experience/hero-games/index.html'),await page('projects/crisis-dawn/design-summary/index.html')];
+  for(const target of targets){
+    const section=one(target.document,n=>n.attrs.id==='hero-design','Hero selected design evidence');
+    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,6);
+    assert.match(textOf(section),/数值显示/u);assert.match(textOf(section),/吴天昊/u);
+    assert.match(textOf(section),/日期.*早于.*任期/u);assert.match(textOf(section),/待核对/u);
+    assert.match(textOf(section),/其他成员|团队/u);assert.match(textOf(section),/不.*全部.*上线/u);
+    assert.equal(nodes(section,n=>n.attrs.id==='hero-delivery').length,1);
+    assert.doesNotMatch(section.raw||textOf(section),/留存提升\d|全部由我|独立完成所有/u);
+    assert.equal(nodes(section,n=>n.tag==='img'&&/assets\/project-design\/crisis-dawn\//u.test(n.attrs.src)).length,10);
+  }
+  for(const other of projects.filter(p=>p.path!=='projects/crisis-dawn/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='hero-design').length,0);
+  const {heroAssets}=await import('../src/hero-design.mjs');assert.equal(heroAssets.length,5);
+  for(const asset of heroAssets){const bytes=await readFile(join(root,'assets/project-design/crisis-dawn',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert.ok(asset.width>0&&asset.height>0&&asset.source.length>10);}
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');
