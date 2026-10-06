@@ -20,6 +20,13 @@ try {
     await section.scrollIntoViewIfNeeded();
     assert.equal(await section.locator('a[href*="store.steampowered.com/app/"]').count(),route?1:2);
     if(!route){
+      const planning=section.locator('#magicar-planning');
+      assert.equal(await planning.getAttribute('open'),null);
+      await planning.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      assert.notEqual(await planning.getAttribute('open'),null);
+      assert.equal(await planning.locator('li').count(),5);
+      assert.ok((await planning.innerText()).includes('不作为全部完成或上线的证明'));
       for(const card of await section.locator('article').all()){
         await card.locator('img').evaluate(el=>el.decode());
         const links=await card.locator('.indie-actions a').all();
@@ -36,6 +43,11 @@ try {
     const violations=(await new AxeBuilder({page}).include(route?'.record-panel':'#indie-games').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations;
     assert.deepEqual(violations.map(v=>v.id),[]);
     await section.screenshot({path:fileURLToPath(new URL(`${route?route.split('/')[1]:'indie'}-${width}.png`,artifacts))});
+    if(!route){
+      await section.locator('#magicar-planning summary').focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await section.locator('#magicar-planning').getAttribute('open'),null);
+    }
     results.push({width,route});console.log(`PASS ${width} ${route||'indie-games'}`);await context.close();
   }
   assert.deepEqual(errors,[]);

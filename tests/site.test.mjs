@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import './magicar-planning.test.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const companySlugs = ['jianyou', 'hero-games', 'bolang', 'quwan', 'muyou', 'beta', 'xingqi', 'haoteng', 'iceshi'];

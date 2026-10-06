@@ -1130,6 +1130,11 @@ button:disabled { cursor: default; }
 .indie-project .secondary-foot { margin-top: auto; padding-top: 20px; flex-wrap: wrap; gap: 8px 16px; }
 .indie-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .indie-actions a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+.indie-planning { margin-block: 8px 18px; border-block: 1px solid var(--line); }
+.indie-planning summary { min-height: 48px; padding-block: 12px; font-size: 14px; font-weight: 600; }
+.indie-planning ul { padding-left: 20px; margin-block: 0 16px; }
+.indie-planning li { margin-bottom: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.indie-planning > .record-source { margin-bottom: 16px; }
 .official-product-context { margin-block: 20px; padding-block: 18px; border-block: 1px solid var(--line); }
 .official-product-context h3 { font-size: 16px; line-height: 1.5; margin: 0 0 10px; }
 .project-design { margin-top: 68px; }
