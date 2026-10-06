@@ -355,6 +355,30 @@ test('public pages exclude contacts, private artifacts, local placeholders, and 
   assert.match(textOf(companies[1].document), /2026[.\-/]07[.\-/]23/u, 'Hero Games corrected end date');
 });
 
+test('homepage independent games retain original screenshots and confirmed two-person attribution', async () => {
+  const { home } = await site();
+  const selected = one(home.document, node => node.attrs.id === 'selected', 'Personal works');
+  const indie = one(selected, node => node.attrs.id === 'indie-games', 'Independent games');
+  assert.match(textOf(indie), /参与《中国式相亲》期间[^。]*闲暇时间[^。]*一位程序员[^。]*两人团队/u);
+  assert.doesNotMatch(textOf(indie), /AI 协作|负责美术|独立完成/u);
+  const games = nodes(indie, node => node.tag === 'article');
+  assert.equal(games.length, 2);
+  const originals = [
+    ['舌尖上的魔术师', 'magicar-steam.png', '93a17192e69ff63bb1ddabdfa645d6a9447f16a7d45c01b9cbdceefab3b8db89'],
+    ['除灵事务所', 'exorcism-office-steam.png', '846273ca66c5ed0d232756fe430b839da9e45c7d0682566dc3a2b06137b9c9fa'],
+  ];
+  for (const [index, game] of games.entries()) {
+    const [title, filename, hash] = originals[index];
+    assert.equal(textOf(one(game, node => node.tag === 'h4', 'Game title')), title);
+    const image = one(game, node => node.tag === 'img', 'Actual game screenshot');
+    const link = one(game, node => node.tag === 'a', 'Original image link');
+    assert.equal(image.attrs.src, `assets/project-design/${filename}`);
+    assert.equal(link.attrs.href, image.attrs.src);
+    assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
+    assert.equal(createHash('sha256').update(await readFile(join(root, image.attrs.src))).digest('hex'), hash);
+  }
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');

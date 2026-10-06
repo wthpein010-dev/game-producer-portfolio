@@ -1007,6 +1007,15 @@ button:disabled { cursor: default; }
 }
 
 /* Real project references keep their own visual language and original pixels. */
+.indie-games { margin-top: 48px; scroll-margin-top: 100px; }
+.indie-intro { margin-bottom: 24px; max-width: 62em; }
+.indie-intro h3 { font-size: 26px; margin-block: 10px 14px; }
+.indie-intro > p:last-child { color: var(--muted); line-height: 1.8; }
+.indie-project { display: flex; flex-direction: column; overflow: hidden; }
+.indie-image { display: block; width: 100%; height: auto; }
+.indie-project .secondary-copy { display: flex; flex-direction: column; flex: 1; }
+.indie-project h4 { font-size: 24px; line-height: 1.4; margin-block: 16px 12px; }
+.indie-project .secondary-foot { margin-top: auto; padding-top: 20px; flex-wrap: wrap; gap: 8px 16px; }
 .project-design { margin-top: 68px; }
 .design-role { max-width: 58em; margin-bottom: 28px; line-height: 1.9; }
 .design-references { display: grid; gap: 28px; }
