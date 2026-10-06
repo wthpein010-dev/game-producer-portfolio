@@ -608,6 +608,9 @@ test('official Steam context stays separate from personal contribution and links
   assert.match(textOf(indie),/闲暇时间.*一位程序员.*两人团队/u);
   for(const [title,id] of [['舌尖上的魔术师','2904420'],['除灵事务所','3408380']]){
     const card=one(indie,n=>n.tag==='article'&&textOf(n).includes(title),'Indie product');
+    const contribution=one(card,n=>hasClass(n,'indie-contribution'),'Confirmed personal contribution');
+    assert.match(textOf(contribution),/我的分工.*全部策划内容.*关卡设计.*数值设计.*策划文档.*UI\/UE 界面设计/u);
+    assert.doesNotMatch(textOf(contribution),/程序开发|美术制作|全部独立完成/u);
     one(card,n=>n.tag==='a'&&n.attrs.href===`https://store.steampowered.com/app/${id}/?l=schinese`,'Official store entry');
     assert.match(textOf(card),/玩法简介依据官方 Steam 页面/u);
     one(card,n=>n.tag==='a'&&/assets\/project-design\/.*-steam\.png/u.test(n.attrs.href),'Preserved original screenshot');
