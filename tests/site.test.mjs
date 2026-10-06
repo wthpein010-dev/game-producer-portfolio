@@ -517,6 +517,32 @@ test('TT curation retains documented responsibility, five design cases and revie
   for(const item of ttAssets){const b=await readFile(join(root,'assets/project-design/party-planet',item.file));assert.equal(createHash('sha256').update(b).digest('hex'),item.sha256);assert.equal(b.readUInt32BE(16),item.width);assert.equal(b.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
 });
 
+test('Bolang supplements connect both projects without replacing existing evidence or claiming team execution', async()=>{
+  const {projects,companies}=await site();
+  const company=companies.find(p=>p.path==='experience/bolang/index.html');
+  for(const [slug,id,count] of [['matchmaking-inc','matchmaking-supplement',4],['vanity-fair','vanity-design',3]]){
+    for(const target of [projects.find(p=>p.path===`projects/${slug}/index.html`),company,await page(`projects/${slug}/design-summary/index.html`)]){
+      const section=one(target.document,n=>n.attrs.id===id,'Bolang curated evidence');
+      assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,count);
+      assert.match(textOf(section),/团队/u);assert.match(textOf(section),/历史/u);
+      assert.doesNotMatch(textOf(section),/独立完成所有|实际提升|@/u);
+      for(const article of nodes(section,n=>n.tag==='article')){
+        one(article,n=>n.tag==='details','Native enlarged reading');
+        one(article,n=>n.tag==='a'&&hasClass(n,'design-original'),'Original image entry');
+      }
+    }
+    for(const other of projects.filter(p=>p.path!==`projects/${slug}/index.html`))assert.equal(nodes(other.document,n=>n.attrs.id===id).length,0);
+  }
+  const match=projects.find(p=>p.path==='projects/matchmaking-inc/index.html');
+  one(match.document,n=>n.attrs.id==='matchmaking-design','Preserve two system maps');
+  const matchText=textOf(one(match.document,n=>n.attrs.id==='matchmaking-supplement','Match source and versions'));
+  assert.match(matchText,/修改人[^。]*吴天昊/u);assert.match(matchText,/创建[^。]*其他/u);assert.match(matchText,/早期[^。]*版本/u);
+  const vanityText=textOf(one(projects.find(p=>p.path==='projects/vanity-fair/index.html').document,n=>n.attrs.id==='vanity-design','Vanity source scope'));
+  assert.match(vanityText,/未署名/u);assert.match(vanityText,/待定/u);assert.match(vanityText,/贴图[^。]*完整界面/u);
+  const {bolangAssets}=await import('../src/bolang-design.mjs');assert.equal(bolangAssets.length,8);
+  for(const a of bolangAssets){const b=await readFile(join(root,'assets/project-design',a.project,a.file));assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(b.readUInt32BE(16),a.width);assert.equal(b.readUInt32BE(20),a.height);assert.ok(a.source.length>10);}
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');

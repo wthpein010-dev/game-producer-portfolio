@@ -1,4 +1,5 @@
 import {renderMatchmakingDesign} from './matchmaking-design.mjs';
+import {renderMatchmakingSupplement,renderVanityDesign} from './bolang-design.mjs';
 export const materialCases = [
  {project:'matchmaking-inc',company:'bolang',title:'相亲玩法',source:'《补充系统：非诚勿扰相亲》署名玩法方案，2025年3月更新记录',background:'会所经营中的相亲环节需要让玩家参与判断，而不只等待自动配对。',role:'署名更新记录确认我负责该玩法方案与效果图说明；界面美术由团队相应岗位承担。',scheme:'将流程拆为简历调整、舞台登场、话题交流、反选与结算，分别描述玩家选择和系统反馈。',output:'形成五阶段玩法规则与界面说明，用于团队对齐实现。材料证明方案产出，不证明所有功能上线或经营效果。',steps:['调整简历 · 准备匹配条件','登场与话题 · 提供策略选择','反选 · 处理互动反馈','结算 · 收束本轮流程'],boundary:'流程图由本站依据脱敏摘要重新绘制；另附用户授权的两张系统设计截图；完整 PDF 未公开。'},
  {project:'party-planet',company:'quwan',title:'关卡与任务系统',source:'《关卡玩法优化方案》《主线任务》署名更新记录，2022年',background:'关卡、转盘、目标提示和任务系统需要形成连贯的游玩路径。',role:'两份文档的创建与修改记录署名吴天昊，确认关卡交互优化与主线任务方案工作。',scheme:'整理按钮按下与长按自动反馈、倍率解锁提示、地图布局和新手路径；主线任务区分行为与收集判定，明确跳转、红点与领奖状态。',output:'形成版本化优化需求、主线任务规则与状态反馈说明。文档中的留存和参与率是目标，不作为已达成业绩。',steps:['看到目标 · 任务与关卡入口','执行操作 · 按钮与长按反馈','判断进度 · 行为和收集规则','完成领奖 · 状态与下一步'],boundary:'本站原创交互结构图；不展示内部配置、概率、奖励数值和数据目标。'},
@@ -8,7 +9,8 @@ export const materialCases = [
 export function renderMaterialCases(cases,e,base='../../',notes=false){return `<section class="project-design" id="materials" aria-labelledby="materials-title"><div class="section-head"><div><p class="eyebrow">DESIGN JOURNAL / 方案摘要</p><h2 id="materials-title">项目方案<span class="title-dot">.</span></h2></div><p>读背景、职责、方案与可证实产出。</p></div><div class="design-references">${cases.map(c=>{const image=`${base}assets/diagrams/material-${c.project}.svg`;return `${renderMatchmakingDesignFor(c,e,base)+renderProjectReference(c,base)}<article class="design-reference"><figure class="design-overview"><a href="${image}" aria-label="放大${e(c.title)}原创流程图"><img src="${image}" width="760" height="620" loading="lazy" alt="${e(c.steps.join('；'))}"></a><figcaption>${e(c.title)} · 本站原创脱敏结构图</figcaption></figure><div class="design-copy"><span class="panel-label">PROJECT / 工作说明</span><h3>${e(c.title)}</h3>${[['项目背景',c.background],['本人职责',c.role],['关键方案',c.scheme],['可证实产出',c.output]].map(([t,p])=>`<h4>${t}</h4><p>${e(p)}</p>`).join('')}<p class="design-source">摘要依据：${e(c.source)}。${e(c.boundary)}</p><a class="design-original" href="${image}">放大流程图 ↗</a>${!notes?`<a class="text-link" href="${base}projects/${c.project}/design-summary/">阅读文档摘要 ↗</a>`:''}</div><details class="design-inspect"><summary>在页面内阅读流程图<span aria-hidden="true">＋</span></summary><p>可滚动阅读大图；也可打开流程图缩放。下方文字提供同等内容。</p><div class="design-scroll" tabindex="0" role="region" aria-label="${e(c.title)}流程图"><img src="${image}" width="760" height="620" loading="lazy" alt="${e(c.steps.join('；'))}"></div></details></article>`}).join('')}</div></section>`;}
 
 function renderMatchmakingDesignFor(c,e,base) {
-  return c.project==='matchmaking-inc'?renderMatchmakingDesign(e,base):'';
+  if(c.project==='matchmaking-inc')return renderMatchmakingDesign(e,base)+renderMatchmakingSupplement(e,base);
+  return c.project==='vanity-fair'?renderVanityDesign(e,base):'';
 }
 function renderProjectReference(c,base) {
   if(c.project!=='matchmaking-inc')return '';
