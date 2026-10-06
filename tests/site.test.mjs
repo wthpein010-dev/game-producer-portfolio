@@ -359,6 +359,8 @@ test('homepage independent games retain original screenshots and confirmed two-p
   const { home } = await site();
   const selected = one(home.document, node => node.attrs.id === 'selected', 'Personal works');
   const indie = one(selected, node => node.attrs.id === 'indie-games', 'Independent games');
+  const contentBlocks = selected.children.filter(node => typeof node !== 'string');
+  assert.equal(contentBlocks[1], indie, 'Independent games appear immediately after the personal works heading');
   assert.match(textOf(indie), /参与《中国式相亲》期间[^。]*闲暇时间[^。]*一位程序员[^。]*两人团队/u);
   assert.doesNotMatch(textOf(indie), /AI 协作|负责美术|独立完成/u);
   const games = nodes(indie, node => node.tag === 'article');

@@ -1007,7 +1007,7 @@ button:disabled { cursor: default; }
 }
 
 /* Real project references keep their own visual language and original pixels. */
-.indie-games { margin-top: 48px; scroll-margin-top: 100px; }
+.indie-games { margin-bottom: 48px; scroll-margin-top: 100px; }
 .indie-intro { margin-bottom: 24px; max-width: 62em; }
 .indie-intro h3 { font-size: 26px; margin-block: 10px 14px; }
 .indie-intro > p:last-child { color: var(--muted); line-height: 1.8; }
