@@ -5,7 +5,7 @@ import path from 'node:path';
 import {jobs} from '../src/content.mjs';
 import {renderHome,renderDetail,renderDiagram,renderPublicNote,renderMaterialNote} from '../src/render.mjs';
 import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
-import {renderIdiomSummary} from '../src/render.mjs';
+import {renderIdiomSummary,renderTownSummary} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -52,6 +52,9 @@ export async function build() {
   const idiomSummary=path.join(siteRoot,'projects','idiom-scholar','design-summary');
   await mkdir(idiomSummary,{recursive:true});
   await writeFile(path.join(idiomSummary,'index.html'),renderIdiomSummary());
+  const townSummary=path.join(siteRoot,'projects','my-town','design-summary');
+  await mkdir(townSummary,{recursive:true});
+  await writeFile(path.join(townSummary,'index.html'),renderTownSummary());
   await writeFile(path.join(siteRoot,'.nojekyll'),'');
   console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} project pages and ${sheepNotes.length} public responsibility notes.`);
 }

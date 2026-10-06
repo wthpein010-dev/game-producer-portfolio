@@ -449,6 +449,30 @@ test('Matchmaking prioritizes two reviewed system maps across project, company a
   }
 });
 
+test('My Town has curated evidence, summary and company entry without leaking shared duties or internal records', async () => {
+  const {projects,companies}=await site();
+  const project=projects.find(p=>p.path==='projects/my-town/index.html');
+  const gallery=one(project.document,n=>n.attrs.id==='town-design','Town design evidence');
+  assert.equal(nodes(gallery,n=>n.tag==='article').length,3);
+  assert.match(textOf(gallery),/中断/u);
+  assert.match(textOf(gallery),/不代表[^。]*上线/u);
+  assert.match(textOf(gallery),/团队/u);
+  assert.doesNotMatch(textOf(gallery),/张维|密码|独立完成所有/u);
+  const summary=await page('projects/my-town/design-summary/index.html');
+  one(summary.document,n=>n.attrs.id==='town-design','Town summary');
+  const company=companies.find(c=>c.path==='experience/muyou/index.html');
+  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/my-town/#town-design','Town company entry');
+  for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='town-design').length,0);
+  const {townMaps}=await import('../src/town-design.mjs');
+  assert.equal(townMaps.length,3);
+  for(const item of townMaps){
+    const bytes=await readFile(join(root,'assets/project-design/my-town',item.file));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
+    const img=one(gallery,n=>n.tag==='img'&&n.attrs.src.endsWith(item.file)&&n.parent?.tag==='a','Town original image');
+    assert.equal(Number(img.attrs.width),item.width);assert.equal(Number(img.attrs.height),item.height);
+  }
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');
