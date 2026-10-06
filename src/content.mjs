@@ -33,7 +33,7 @@ export const jobs = [
     projects:[{slug:'toby-adventure',title:'托比大冒险',description:'这段经历涵盖难度曲线、新手流程、系统调优、付费点与广告变现。'}],
     scope:['难度曲线','新手流程','系统调优','付费点与广告变现'],lead:'从新手进入游戏的第一步，到难度节奏、系统调整与变现设计。'},
   {slug:'haoteng',employer:'北京豪腾嘉科科技有限公司（疯狂游戏）',role:'主策划',period:'2018.02—2019.08',start:'2018-02',end:'2019-08',layout:'archive',
-    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'疯狂游戏任职期间参与的项目之一。'}, {slug:'train-king',title:'谁是火车王',description:'疯狂游戏任职期间参与的项目之一。'}, {slug:'versatile-dog',title:'百变汪星人',description:'疯狂游戏任职期间参与的项目之一。'}],
+    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'成语填字与角色成长相结合的轻游戏。项目资料涵盖成长循环、每日挑战、玩家创建关卡、新手引导与生词本交互。'}, {slug:'train-king',title:'谁是火车王',description:'疯狂游戏任职期间参与的项目之一。'}, {slug:'versatile-dog',title:'百变汪星人',description:'疯狂游戏任职期间参与的项目之一。'}],
     scope:[],lead:'在这段主策划经历中，参与《成语小秀才》《谁是火车王》《百变汪星人》。'},
   {slug:'iceshi',employer:'北京冰狮科技有限公司',role:'QA 经理 / 游戏策划',period:'2017.03—2018.01',start:'2017-03',end:'2018-01',layout:'lab',
     projects:[{slug:'paper-girl',title:'纸片少女',description:'北京冰狮科技任职期间参与的项目之一。'}, {slug:'creation-factory',title:'造物梦工厂',description:'北京冰狮科技任职期间参与的项目之一。'}],

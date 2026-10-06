@@ -5,6 +5,7 @@ import path from 'node:path';
 import {jobs} from '../src/content.mjs';
 import {renderHome,renderDetail,renderDiagram,renderPublicNote,renderMaterialNote} from '../src/render.mjs';
 import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
+import {renderIdiomSummary} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -48,6 +49,9 @@ export async function build() {
     await writeFile(path.join(siteRoot,'assets/diagrams',`sheep-match-${note.slug}.svg`),theme(renderSheepNoteDiagram(note)));
   }
   for(const c of materialCases){const dir=path.join(siteRoot,'projects',c.project,'design-summary');await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'index.html'),renderMaterialNote(c));await writeFile(path.join(siteRoot,'assets/diagrams','material-'+c.project+'.svg'),theme(materialDiagram(c)));}
+  const idiomSummary=path.join(siteRoot,'projects','idiom-scholar','design-summary');
+  await mkdir(idiomSummary,{recursive:true});
+  await writeFile(path.join(idiomSummary,'index.html'),renderIdiomSummary());
   await writeFile(path.join(siteRoot,'.nojekyll'),'');
   console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} project pages and ${sheepNotes.length} public responsibility notes.`);
 }

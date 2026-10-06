@@ -381,6 +381,46 @@ test('homepage independent games retain original screenshots and confirmed two-p
   }
 });
 
+test('Idiom Scholar exposes sourced systems, gameplay and interaction evidence without claiming individual artwork', async () => {
+  const { projects, companies } = await site();
+  const project = projects.find(value => value.path === 'projects/idiom-scholar/index.html');
+  const design = one(project.document, node => node.attrs.id === 'idiom-design', 'Idiom design evidence');
+  for (const id of ['idiom-systems', 'idiom-gameplay', 'idiom-interaction', 'idiom-assets']) {
+    one(design, node => node.attrs.id === id, `Evidence category ${id}`);
+  }
+  assert.match(textOf(design), /美术执行由团队相应岗位承担/u);
+  assert.match(textOf(design), /不能单独证明[^。]*作者/u);
+  assert.match(textOf(design), /不代表[^。]*上线/u);
+  assert.match(textOf(design), /填字核心玩法文档说明/u);
+  assert.match(textOf(design), /每日挑战系统设计/u);
+  assert.match(textOf(design), /新手引导说明/u);
+  for (const other of projects.filter(value => value !== project)) {
+    assert.equal(nodes(other.document, node => node.attrs.id === 'idiom-design').length, 0, 'Idiom evidence stays with the actual project');
+  }
+  const images = nodes(design, node => node.tag === 'img');
+  assert.ok(images.length >= 6);
+  for (const image of images) {
+    assert.match(image.attrs.src, /assets\/project-design\/idiom-scholar\//u);
+    assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
+    assert.ok(image.attrs.alt?.length > 12);
+  }
+  const company = companies.find(value => value.path === 'experience/haoteng/index.html');
+  one(company.document, node => node.tag === 'a' && node.attrs.href === '../../projects/idiom-scholar/#idiom-design', 'Company evidence entry');
+  const summary = await page('projects/idiom-scholar/design-summary/index.html');
+  one(summary.document, node => node.attrs.id === 'idiom-design', 'Directly accessible design summary');
+  assert.equal(nodes(summary.document, node => node.tag === 'h1').length, 1);
+  assert.doesNotMatch(summary.html, /file:\/\/|(?<![a-z0-9])[A-Z]:[\\/]|mailto:|\.docx["']/iu);
+  const { idiomAssets } = await import('../src/idiom-design.mjs');
+  assert.equal(idiomAssets.length, 6);
+  for (const item of idiomAssets) {
+    const bytes = await readFile(join(root, 'assets/project-design/idiom-scholar', item.file));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), item.sha256, 'Selected reference retains original pixels');
+    assert.equal(bytes.readUInt32BE(16), item.width);
+    assert.equal(bytes.readUInt32BE(20), item.height);
+    assert.ok(item.source.length > 8);
+  }
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');
