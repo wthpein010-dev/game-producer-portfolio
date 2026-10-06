@@ -228,7 +228,7 @@ test('all career pages lead with work value and distinguish project evidence fro
     assert.doesNotMatch(textOf(section),/提升\s*\d+%|增长\s*\d+%|独立完成全部|保证上线|全部由我/u);
     assert.doesNotMatch(textOf(one(p.document,n=>hasClass(n,'detail-lede'),'Lead')),/参与的项目之一|以现代都市为背景|围绕人生选择/u);
   }
-  for(const slug of ['zuoyaoji-x','words-with-colors','train-king','versatile-dog','paper-girl','creation-factory']){
+  for(const slug of ['zuoyaoji-x','words-with-colors','versatile-dog','paper-girl','creation-factory']){
     const target=projects.find(p=>p.path===`projects/${slug}/index.html`);
     const section=one(target.document,n=>n.attrs.id==='work-value','Shared duty scope');
     assert.equal(section.attrs['data-work-basis'],'company');
@@ -624,6 +624,25 @@ test('official Steam context stays separate from personal contribution and links
     one(target.document,n=>n.attrs.id==='work-value','Preserved personal work');
     assert.ok(target.html.indexOf('id="work-value"')<target.html.indexOf('class="official-product-context"'));
   }
+});
+
+test('Goose proposal exposes four reviewed figures under the user-specified project with original naming and author scope', async()=>{
+  const {projects,companies}=await site();
+  const targets=[projects.find(p=>p.path==='projects/train-king/index.html'),companies.find(c=>c.path==='experience/haoteng/index.html'),await page('projects/train-king/design-summary/index.html')];
+  for(const target of targets){
+    const section=one(target.document,n=>n.attrs.id==='goose-design','Selected Goose proposal');
+    assert.match(textOf(section),/超级铲屎官/u);assert.match(textOf(section),/吴天昊/u);
+    assert.match(textOf(section),/用户指定/u);assert.match(textOf(section),/最终上线名称/u);assert.match(textOf(section),/团队/u);
+    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,4);
+    for(const article of nodes(section,n=>n.tag==='article')){
+      one(article,n=>n.tag==='details','Enlarged reading');one(article,n=>n.tag==='a'&&hasClass(n,'design-original'),'Original figure');
+    }
+    assert.doesNotMatch(textOf(section),/独立完成所有|留存提升|程序实现由我/u);
+  }
+  const train=targets[0];assert.equal(one(train.document,n=>n.attrs.id==='work-value','Document-supported work').attrs['data-work-basis'],'document');
+  for(const other of projects.filter(p=>p.path!=='projects/train-king/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='goose-design').length,0);
+  const {gooseAssets}=await import('../src/goose-design.mjs');assert.equal(gooseAssets.length,4);
+  for(const asset of gooseAssets){const bytes=await readFile(join(root,'assets/project-design/train-king',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert.ok(asset.width>0&&asset.height>0&&asset.source.length>10);}
 });
 
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {

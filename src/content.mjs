@@ -33,8 +33,8 @@ export const jobs = [
     projects:[{slug:'toby-adventure',title:'托比大冒险',description:'承担难度曲线、新手流程与系统调优，并开展付费点、广告变现设计，兼顾首次理解、持续挑战和商业化入口。'}],
     scope:['难度曲线','新手流程','系统调优','付费点与广告变现'],lead:'将难度曲线、新手流程和系统调优放在同一体验路径中，同时开展付费点与广告变现设计，兼顾游玩节奏与商业化。'},
   {slug:'haoteng',employer:'北京豪腾嘉科科技有限公司（疯狂游戏）',role:'主策划',period:'2018.02—2019.08',start:'2018-02',end:'2019-08',layout:'archive',
-    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'以主策划身份参与，围绕成长循环、填字判定、每日挑战和 UI/UE 展开工作价值说明，用项目方案呈现状态、异常分支与交互设计思路。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与，保留这段任职的项目记录；具体设计价值与已审核的成语项目资料分开呈现，不移用其他项目成果。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与，展示多款轻游戏的职业项目经历；具体方案和成果不从同公司的成语项目推定。'}],
-    scope:[],lead:'以主策划身份参与三款轻游戏；成语项目资料从成长循环、玩法判定到引导与生词本，具体展开系统及交互设计的工作价值。'},
+    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'以主策划身份参与，围绕成长循环、填字判定、每日挑战和 UI/UE 展开工作价值说明，用项目方案呈现状态、异常分支与交互设计思路。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与；用户指定立项资料补充系统结构、资源循环、社交流程与 UI/UE 方案，文档页眉署名策划吴天昊，原文《超级铲屎官》名称单独保留。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与，展示多款轻游戏的职业项目经历；具体方案和成果不从同公司的成语项目推定。'}],
+    scope:[],lead:'以主策划身份参与三款轻游戏；成语资料展开玩法与交互设计，用户指定立项案进一步呈现系统结构、经济循环和社交操作的策划产出。'},
   {slug:'iceshi',employer:'北京冰狮科技有限公司',role:'QA 经理 / 游戏策划',period:'2017.03—2018.01',start:'2017-03',end:'2018-01',layout:'lab',
     projects:[{slug:'paper-girl',title:'纸片少女',description:'以 QA 经理 / 游戏策划身份参与；冰狮阶段承担测试管理、关卡调优、资源整理及任务文案工作，连接质量检查与内容设计。'}, {slug:'creation-factory',title:'造物梦工厂',description:'以 QA 经理 / 游戏策划身份参与；从同阶段的测试、关卡、资源和任务职责说明工作价值，具体项目分工不作未经确认的拆分。'}],
     scope:['测试管理','关卡调优','资源整理','文案与主支线任务'],lead:'结合 QA 管理与游戏策划，承担测试管理、关卡调优、资源整理及主支线任务文案，形成从质量检查到内容设计的工作基础。'}
@@ -85,7 +85,8 @@ export const companyWork = {
   haoteng:{items:[
     {title:'多款轻游戏的主策划经历',action:'以主策划身份参与《成语小秀才》《谁是火车王》《百变汪星人》，保留三款项目的任职关联。',value:'说明主策划岗位的多项目经验；项目名单本身不被当作每款游戏全部方案或业绩的证明。',link:['该段任职与项目','experience/haoteng/#projects']},
     {title:'用具体规则展开设计讨论',action:'以成语项目资料展开成长循环、填字判定、每日挑战、玩家创建关卡及生词本交互的设计讨论。',value:'让面试交流落到状态转换、异常分支和交互取舍，而不是只展示产品截图；资料未逐项确认独立作者。',link:['成语系统与交互资料','projects/idiom-scholar/#idiom-design']},
-  ],note:'任职角色已确认，成语方案用于设计讨论；未将其贡献移用到火车王或汪星人，也不凭文档元数据认定作者。'},
+    {title:'立项阶段的系统与交互设计',action:'用户指定立项案页眉署名策划吴天昊，包含系统结构、经济循环、社交流程及主界面方案。',value:'以原始图表说明从系统关系到操作状态的方案表达；保留历史名称，不将其直接等同最终上线名称。',link:['署名立项资料与原图','projects/train-king/#goose-design']},
+  ],note:'任职角色已确认；成语资料与用户指定立项资料分开呈现。立项案有页眉策划署名，不仅依据元数据；团队美术不认定本人独立执行。'},
   iceshi:{items:[
     {title:'QA 管理与关卡体验结合',action:'以 QA 经理 / 游戏策划身份承担测试管理和关卡调优，参与《纸片少女》《造物梦工厂》。',value:'形成质量检查与玩法体验相结合的工作基础，能够从问题定位进入设计调整。',link:['测试与关卡职责','experience/iceshi/#scope']},
     {title:'内容与资源的策划工作',action:'承担资源整理、文案和主支线任务相关工作，兼顾内容与质量两个方向。',value:'说明从测试岗位向策划工作延伸的经历，以及对内容、资源和任务结构的关注。',link:['QA 与游戏策划经历','experience/iceshi/#role']},
@@ -108,6 +109,10 @@ export const sharedCompanyWork = {
 };
 
 export const projectWork = {
+  'train-king':{basis:'document',items:[
+    {title:'系统结构与经济循环表达',action:'用户指定的立项案页眉署名策划吴天昊，以系统结构图与经济循环图组织生产、成长、容量和社交模块。',value:'把功能入口与资源投入联系起来，使团队能够围绕系统关系讨论方案，而不是仅罗列功能名称。',link:['系统与循环原图','projects/train-king/#goose-systems']},
+    {title:'从规则进入 UI/UE 交付',action:'立项资料提供社交操作流程、主界面方案及高频入口调整说明，并细化背包、派遣与成就的状态反馈。',value:'展示条件、操作、反馈和异常分支如何落入文档交付；团队美术与历史需求不作为独立绘制或最终上线证明。',link:['社交与界面方案','projects/train-king/#goose-social']},
+  ],note:'按用户指定使用 Goose 资料；原文名称《超级铲屎官》及页眉策划署名保留，不将历史标题直接认作最终上线名称。'},
   'sheep-match':{basis:'role',...companyWork.jianyou},
   'crisis-dawn':{basis:'role',...companyWork['hero-games']},
   'party-planet':{basis:'document',...companyWork.quwan},
