@@ -1007,6 +1007,32 @@ button:disabled { cursor: default; }
 }
 
 /* Real project references keep their own visual language and original pixels. */
+.matchmaking-design { min-width: 0; }
+.matchmaking-design h2 { font-size: 28px; line-height: 1.4; margin-block: 12px 20px; }
+.matchmaking-intro { max-width: 52em; line-height: 1.9; }
+.matchmaking-boundary { font-size: 13px; line-height: 1.9; color: var(--muted); max-width: 72em; }
+.matchmaking-map { padding-block: 24px 32px; border-top: 1px solid var(--line); scroll-margin-top: 100px; min-width: 0; }
+.matchmaking-design { scroll-margin-top: 100px; }
+.matchmaking-map h3 { font-size: 24px; line-height: 1.5; margin-block: 0 24px; }
+.matchmaking-map figure { margin: 0; }
+.matchmaking-map figure img { display: block; width: 100%; height: auto; }
+.matchmaking-map figcaption { padding-block: 12px; font-size: 13px; color: var(--muted); }
+.matchmaking-map-notes { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; margin-block: 18px 24px; }
+.matchmaking-map-notes h4 { font-size: 16px; margin-block: 14px 8px; }
+.matchmaking-map-notes p, .matchmaking-map-notes li { font-size: 15px; line-height: 1.9; }
+.matchmaking-map-notes ul { padding-left: 1.3em; }
+.matchmaking-map-notes li + li { margin-top: 10px; }
+.matchmaking-inspect { border-block: 1px solid var(--line); }
+.matchmaking-inspect summary { padding-block: 12px; min-height: 48px; font-weight: 600; cursor: pointer; }
+.matchmaking-scroll { overflow: auto; max-height: 620px; margin-block: 0 18px; border: 1px solid var(--line); }
+.matchmaking-scroll img { display: block; width: auto; min-width: 100%; max-width: none; height: auto; }
+.matchmaking-scroll:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 700px) {
+  .matchmaking-map-notes { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .matchmaking-design h2 { font-size: 25px; }
+  .matchmaking-scroll { max-height: 440px; }
+}
+@media print { .matchmaking-inspect { display: none; } }
 .idiom-overview { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.7fr); gap: 40px; align-items: center; margin-bottom: 48px; padding-block: 24px 32px; border-block: 1px solid var(--line); }
 .idiom-overview h2 { font-size: 30px; line-height: 1.4; }
 .idiom-overview > div > p { max-width: 42em; line-height: 1.9; }

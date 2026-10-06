@@ -421,6 +421,34 @@ test('Idiom Scholar exposes sourced systems, gameplay and interaction evidence w
   }
 });
 
+test('Matchmaking prioritizes two reviewed system maps across project, company and summary routes', async () => {
+  const { projects, companies } = await site();
+  const targets = [projects.find(p => p.path === 'projects/matchmaking-inc/index.html'), companies.find(c => c.path === 'experience/bolang/index.html'), await page('projects/matchmaking-inc/design-summary/index.html')];
+  for (const target of targets) {
+    const gallery = one(target.document, n => n.attrs.id === 'matchmaking-design', 'System design maps');
+    const maps = nodes(gallery, n => n.tag === 'article');
+    assert.equal(maps.length, 2);
+    assert.match(textOf(gallery), /整体系统结构/u);
+    assert.match(textOf(gallery), /玩法循环与资源产出/u);
+    assert.match(textOf(gallery), /不代表[^。]*全部上线/u);
+    for (const card of maps) {
+      const originals = nodes(card, n => n.tag === 'a' && hasClass(n, 'design-original'));
+      assert.equal(originals.length, 1);
+      const image = nodes(card, n => n.tag === 'img')[0];
+      assert.equal(originals[0].attrs.href, image.attrs.src);
+      one(card, n => n.tag === 'details', 'Native large map disclosure');
+    }
+  }
+  for (const other of projects.filter(p => p.path !== 'projects/matchmaking-inc/index.html')) assert.equal(nodes(other.document, n => n.attrs.id === 'matchmaking-design').length, 0);
+  const { matchmakingMaps } = await import('../src/matchmaking-design.mjs');
+  for (const item of matchmakingMaps) {
+    const bytes = await readFile(join(root,'assets/project-design/matchmaking-inc',item.file));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
+    assert.equal(bytes.readUInt32BE(16),item.width);
+    assert.equal(bytes.readUInt32BE(20),item.height);
+  }
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');
