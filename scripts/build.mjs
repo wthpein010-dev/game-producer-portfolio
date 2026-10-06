@@ -5,7 +5,7 @@ import path from 'node:path';
 import {jobs} from '../src/content.mjs';
 import {renderHome,renderDetail,renderDiagram,renderPublicNote,renderMaterialNote} from '../src/render.mjs';
 import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
-import {renderIdiomSummary,renderTownSummary,renderBetaSummary} from '../src/render.mjs';
+import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderTTSummary} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -58,6 +58,9 @@ export async function build() {
   const betaSummary=path.join(siteRoot,'projects','word-villas','design-summary');
   await mkdir(betaSummary,{recursive:true});
   await writeFile(path.join(betaSummary,'index.html'),renderBetaSummary());
+  const ttSummary=path.join(siteRoot,'projects','party-planet','design-summary');
+  await mkdir(ttSummary,{recursive:true});
+  await writeFile(path.join(ttSummary,'index.html'),renderTTSummary());
   await writeFile(path.join(siteRoot,'.nojekyll'),'');
   console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} project pages and ${sheepNotes.length} public responsibility notes.`);
 }

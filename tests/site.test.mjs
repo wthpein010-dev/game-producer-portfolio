@@ -496,6 +496,27 @@ test('Beta authored evidence connects Word Villas, company and summary with expl
   for(const item of betaAssets){const bytes=await readFile(join(root,'assets/project-design/word-villas',item.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);assert.equal(bytes.readUInt32BE(16),item.width);assert.equal(bytes.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
 });
 
+test('TT curation retains documented responsibility, five design cases and reviewed reference art', async()=>{
+  const {projects,companies}=await site();
+  for(const target of [projects.find(p=>p.path==='projects/party-planet/index.html'),companies.find(c=>c.path==='experience/quwan/index.html'),await page('projects/party-planet/design-summary/index.html')]){
+    const design=one(target.document,n=>n.attrs.id==='tt-design','TT curated design');
+    assert.equal(nodes(design,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,5);
+    assert.match(textOf(design),/负责人/u);assert.match(textOf(design),/吴天昊/u);
+    assert.match(textOf(design),/行为[^。]*收集/u);assert.match(textOf(design),/中断/u);
+    assert.match(textOf(design),/阶段性名称/u);assert.match(textOf(design),/数据目标[^。]*业绩/u);
+    assert.match(textOf(design),/美术[^。]*团队/u);
+    assert.doesNotMatch(textOf(design),/文档撰写人：吴天昊|60%|70%|80%|@/u);
+  }
+  for(const other of projects.filter(p=>p.path!=='projects/party-planet/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='tt-design').length,0);
+  const summary=await page('projects/party-planet/design-summary/index.html');
+  one(summary.document,n=>n.attrs.id==='materials','Preserve existing TT authored summary');
+  one(summary.document,n=>n.tag==='a'&&hasClass(n,'design-original')&&n.attrs.href==='../../../assets/diagrams/material-party-planet.svg','Preserve original summary diagram');
+  const {ttAssets,ttDocuments}=await import('../src/tt-design.mjs');
+  assert.equal(ttAssets.length,7);assert.equal(ttDocuments.length,5);
+  for(const doc of ttDocuments)assert.match(doc.evidence,/负责人[^。]*吴天昊/u);
+  for(const item of ttAssets){const b=await readFile(join(root,'assets/project-design/party-planet',item.file));assert.equal(createHash('sha256').update(b).digest('hex'),item.sha256);assert.equal(b.readUInt32BE(16),item.width);assert.equal(b.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');
