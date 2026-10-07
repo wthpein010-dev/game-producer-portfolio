@@ -10,7 +10,7 @@ const artifacts=new URL('../artifacts/beta-design/',import.meta.url);
 await mkdir(artifacts,{recursive:true});
 const server=createSiteServer();server.listen(0,'127.0.0.1');await once(server,'listening');
 const browser=await chromium.launch(),results=[],errors=[];
-const base=`http://127.0.0.1:${server.address().port}/`;
+const base=process.env.PORTFOLIO_BASE_URL?.replace(/\/?$/u,'/')||`http://127.0.0.1:${server.address().port}/`;
 try {
   for(const width of [360,768,1440]) for(const route of ['projects/word-villas/','projects/word-villas/design-summary/','experience/beta/']) {
     const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage();
@@ -18,6 +18,19 @@ try {
     page.on('requestfailed',request=>{if(!request.failure()?.errorText.includes('ERR_ABORTED'))errors.push(request.url());});
     assert.equal((await page.goto(base+route,{waitUntil:'networkidle'})).status(),200);
     const gallery=page.locator('#beta-design');assert.equal(await gallery.locator('article.matchmaking-map').count(),4);
+    if(route!=='experience/beta/') {
+      const excerpts=page.locator('#word-design-excerpts');
+      assert.equal(await excerpts.locator('article.word-excerpt').count(),4);
+      for(const image of await excerpts.locator('figure img').all()) {
+        await image.scrollIntoViewIfNeeded();await image.evaluate(el=>el.decode());
+        assert.ok(await image.evaluate(el=>el.naturalWidth>0&&Math.abs(el.clientWidth/el.clientHeight-el.naturalWidth/el.naturalHeight)<0.02));
+      }
+      for(const link of await excerpts.locator('.design-original').all())assert.equal((await page.request.get(new URL(await link.getAttribute('href'),page.url()).href)).status(),200);
+      const inspect=excerpts.locator('details').last();await inspect.locator('summary').focus();await page.keyboard.press('Enter');assert.notEqual(await inspect.getAttribute('open'),null);await inspect.locator('summary').click();
+      if(route==='projects/word-villas/')await excerpts.locator('#word-dice-excerpt').screenshot({path:fileURLToPath(new URL(`dice-${width}.png`,artifacts))});
+    } else {
+      assert.equal(await page.locator('a[href="../../projects/word-villas/#word-design-excerpts"]').count(),1);
+    }
     for(const image of await gallery.locator('article figure img').all()) {
       await image.scrollIntoViewIfNeeded();await image.evaluate(el=>el.decode());
       const ratios=await image.evaluate(el=>({rendered:el.clientWidth/el.clientHeight,original:el.naturalWidth/el.naturalHeight}));

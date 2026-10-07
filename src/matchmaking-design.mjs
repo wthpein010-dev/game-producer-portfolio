@@ -12,13 +12,13 @@ export const matchmakingMaps = [
     sha256:'4d609eb2f6cbd44014219e6302ef36aa400df39a539d0fd04de71aa3e2919439',
     alt:'中国式相亲玩法循环与资源产出流程图：邀请入会产生会员与金币，匹配产生声望，行动力连接核心玩法和小游戏，装备技能与好感反馈到角色和会所成长',
     question:'哪些行为产出资源，资源消耗在哪里，又如何反馈到下一轮玩法？',
-    points:['邀请入会产出会员与金币，会员进入相亲匹配；匹配、主线和委托任务产出声望，声望反馈到会所等级。','行动力连接邀请入会、相亲匹配与小游戏；图中区分日常恢复与活力兑换，说明行动资源如何限制参与节奏。','金币进入道具、装备及经营投入；小游戏产出经验，经验进入技能，装备与技能再影响角色成长和玩法表现。','女主支线与约会产出好感度，好感阶段连接恋爱养成；会所装修、员工、活动及其他店铺形成经营分支。'],
+    points:['以卡牌交谈说服对方入会，产出会员与金币；经营会所匹配会员获得声望，推动会所成长。','金币用于扩充会所、购买礼物提升好感，以及消耗品和装备投入，连接经营、恋爱和角色成长。','行动力连接核心玩法与小游戏；技能、装备和好感再反馈到后续体验，形成持续经营的循环。'],
     output:'图中用产出、消耗和影响区分连接关系，围绕资源闭环讨论节奏和成长；这里只展示关系，不公开具体概率、经济配置或运营统计。',
   },
 ];
 
 export function renderMatchmakingDesign(e,base='../../') {
-  return `<section class="matchmaking-design" id="matchmaking-design" aria-labelledby="matchmaking-design-title"><header><p class="eyebrow">SYSTEM DESIGN / 中国式相亲</p><h2 id="matchmaking-design-title">系统结构与玩法循环</h2><p class="matchmaking-intro">我的项目角色为主策划 / 执行制作人。两张项目设计图分别展示系统之间的关系，以及行为、资源与成长之间的循环。</p></header><p class="matchmaking-boundary">来源：用户提供的两张中国式相亲项目设计截图。下方文字为本站依据图中关系整理的阅读摘要，不认定全部系统均由个人独立完成；历史设计图不代表相关功能全部上线，也不是经营成果证明。</p><nav class="idiom-jumps" aria-label="相亲项目重点设计图">${matchmakingMaps.map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}</nav>${matchmakingMaps.map(item=>{
+  return `<section class="matchmaking-design" id="matchmaking-design" aria-labelledby="matchmaking-design-title"><header><p class="eyebrow">SYSTEM DESIGN / 中国式相亲</p><h2 id="matchmaking-design-title">系统结构与玩法循环</h2><p class="matchmaking-intro">负责所有系统从框架到落地、剧情大纲与后续剧情验收，以会所经营连接招募、匹配、角色成长和恋爱养成。</p></header><p class="matchmaking-boundary">来源：本人提供的项目设计截图。本人确认循环图与上线版本基本一致；这不代表所有历史迭代方案全部上线。系统策划统筹不等于个人完成全部程序、美术或剧情写作。</p><nav class="idiom-jumps" aria-label="相亲项目重点设计图">${matchmakingMaps.map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}</nav>${matchmakingMaps.map(item=>{
     const image=`${base}assets/project-design/matchmaking-inc/${item.file}`;
     const attributes=`src="${image}" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${e(item.alt)}"`;
     return `<article class="matchmaking-map" aria-labelledby="${item.id}-title" id="${item.id}"><h3 id="${item.id}-title">${e(item.title)}</h3><figure><a href="${image}" aria-label="查看${e(item.title)}原图"><img ${attributes}></a><figcaption>中国式相亲 · 项目原始设计截图</figcaption></figure><div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(item.question)}</p><h4>图示产出</h4><p>${e(item.output)}</p></div><div><h4>关键关系</h4><ul>${item.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div><a class="design-original" href="${image}">查看原图（可缩放）<span aria-hidden="true">↗</span></a><details class="matchmaking-inspect"><summary>在页面内阅读${e(item.title)}大图</summary><div class="matchmaking-scroll" tabindex="0" role="region" aria-label="${e(item.title)}大图阅读区域"><img ${attributes}></div></details></article>`;

@@ -646,6 +646,49 @@ test('Goose proposal exposes four reviewed figures under the user-specified proj
   for(const asset of gooseAssets){const bytes=await readFile(join(root,'assets/project-design/train-king',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert.ok(asset.width>0&&asset.height>0&&asset.source.length>10);}
 });
 
+test('home prioritizes three confirmed career cases before the full timeline', async()=>{
+  const {home}=await site();
+  const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
+  const cards=nodes(section,n=>n.tag==='article');
+  assert.deepEqual(cards.map(c=>one(c,n=>n.tag==='h3','Case heading').children.join('')),['成语小秀才','Word Villas','中国式相亲']);
+  assert.ok(home.html.indexOf('id="career-cases"')<home.html.indexOf('id="experience"'));
+  assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/开发测试.*上线/u);
+  assert.match(textOf(section),/系统框架.*剧情大纲/u);
+  for(const card of cards){one(card,n=>n.tag==='img','Real project evidence');one(card,n=>n.tag==='a'&&/^projects\/[\w-]+\/$/u.test(n.attrs.href),'Project entry');}
+});
+
+test('new confirmations distinguish shipped contributions from qualitative outcomes', async()=>{
+  const {projects,companies}=await site();
+  const word=projects.find(p=>p.path==='projects/word-villas/index.html');
+  const work=one(word.document,n=>n.attrs.id==='work-value','Word contribution');
+  assert.match(textOf(work),/投骰子/u);assert.match(textOf(work),/开发测试.*上线/u);
+  assert.match(textOf(work),/收入.*提升/u);assert.match(textOf(work),/核心用户留存.*道具付费/u);
+  assert.match(textOf(work),/本人确认.*定性/u);assert.doesNotMatch(textOf(work),/提升\s*\d+%/u);
+  const idiom=projects.find(p=>p.path==='projects/idiom-scholar/index.html');
+  assert.match(textOf(one(idiom.document,n=>n.attrs.id==='work-value','Idiom contribution')),/唯一策划.*主导/u);
+  const match=projects.find(p=>p.path==='projects/matchmaking-inc/index.html');
+  assert.match(textOf(one(match.document,n=>n.attrs.id==='work-value','Match contribution')),/所有系统.*框架.*落地/u);
+  assert.match(textOf(match.document),/循环图与上线版本基本一致/u);
+  const beta=companies.find(c=>c.path==='experience/beta/index.html');
+  assert.match(textOf(beta.document),/约百人.*协作/u);assert.match(textOf(beta.document),/排期.*任务拆分.*验收/u);
+  assert.doesNotMatch(textOf(beta.document),/管理百人/u);
+});
+
+test('reviewed Moqups excerpts keep their project, attribution and readable originals', async()=>{
+  const {projects,companies}=await site();
+  const word=projects.find(p=>p.path==='projects/word-villas/index.html');
+  const section=one(word.document,n=>n.attrs.id==='word-design-excerpts','Moqups excerpts');
+  assert.equal(nodes(section,n=>n.tag==='article').length,4);
+  assert.match(textOf(section),/Moqups/u);assert.match(textOf(section),/团队美术/u);assert.match(textOf(section),/原型.*最终/u);
+  for(const article of nodes(section,n=>n.tag==='article')){one(article,n=>n.tag==='details','Large image');one(article,n=>hasClass(n,'design-original'),'Original entry');}
+  for(const other of projects.filter(p=>p!==word))assert.equal(nodes(other.document,n=>n.attrs.id==='word-design-excerpts').length,0);
+  const company=companies.find(c=>c.path==='experience/beta/index.html');
+  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/word-villas/#word-design-excerpts','Company entry');
+  const {wordExcerpts}=await import('../src/word-excerpts.mjs');
+  for(const asset of wordExcerpts){const bytes=await readFile(join(root,'assets/project-design/word-villas',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);}
+  assert.doesNotMatch(section.raw||textOf(section),/192\.168\.|docs\.google|app\.moqups\.com/u);
+});
+
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');
   assert.match(ignore, /(?:^|\n)\/?artifacts\/(?:\r?\n|$)/u, 'Screenshots and reports must be ignored');

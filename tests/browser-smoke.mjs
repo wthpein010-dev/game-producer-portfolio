@@ -184,6 +184,11 @@ try {
       assert.deepEqual(await page.locator('.company-entry').evaluateAll(entries => entries.map(entry => entry.dataset.company)), companySlugs);
       const geometry = await noOverflow(page);
       const images = await imagesDecode(page);
+      assert.deepEqual(await page.locator('#career-cases h3').allTextContents(),['成语小秀才','Word Villas','中国式相亲']);
+      const cards=await page.locator('.career-case').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right};}));
+      if(viewport.width>820){assert.ok(Math.max(...cards.map(c=>c.top))-Math.min(...cards.map(c=>c.top))<1);assert.ok(cards[0].right<cards[1].left&&cards[1].right<cards[2].left);}
+      else {assert.ok(cards[0].bottom<=cards[1].top&&cards[1].bottom<=cards[2].top);}
+      await page.locator('#career-cases').screenshot({path:join(artifacts,`career-cases-${viewport.width}.png`)});
       const picture = await screenshot(page, `home-${viewport.width}x${viewport.height}`);
       return { geometry, imageCount: images.length, screenshot: picture };
     });
