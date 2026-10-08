@@ -20,7 +20,7 @@ try {
     const ids=route.includes('matchmaking-inc')?['matchmaking-supplement']:route.includes('vanity-fair')?['vanity-design']:['matchmaking-supplement','vanity-design'];
     for(const id of ids){
       const section=page.locator('#'+id);
-      assert.equal(await section.locator('article').count(),id==='vanity-design'?3:4);
+      assert.equal(await section.locator('article').count(),4);
       for(const img of await section.locator('figure img').all()){
         await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());
         const ratio=await img.evaluate(el=>({rendered:el.clientWidth/el.clientHeight,original:el.naturalWidth/el.naturalHeight}));

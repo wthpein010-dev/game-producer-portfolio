@@ -229,7 +229,7 @@ test('all career pages lead with work value and distinguish project evidence fro
     assert.doesNotMatch(textOf(section),/提升\s*\d+%|增长\s*\d+%|独立完成全部|保证上线|全部由我/u);
     assert.doesNotMatch(textOf(one(p.document,n=>hasClass(n,'detail-lede'),'Lead')),/参与的项目之一|以现代都市为背景|围绕人生选择/u);
   }
-  for(const slug of ['zuoyaoji-x','words-with-colors','versatile-dog','paper-girl','creation-factory']){
+  for(const slug of ['zuoyaoji-x','words-with-colors','paper-girl','creation-factory']){
     const target=projects.find(p=>p.path===`projects/${slug}/index.html`);
     const section=one(target.document,n=>n.attrs.id==='work-value','Shared duty scope');
     assert.equal(section.attrs['data-work-basis'],'company');
@@ -398,7 +398,7 @@ test('homepage independent games retain original screenshots and confirmed two-p
   for (const [index, game] of games.entries()) {
     const [title, filename, hash] = originals[index];
     assert.equal(textOf(one(game, node => node.tag === 'h4', 'Game title')), title);
-    const image = one(game, node => node.tag === 'img', 'Actual game screenshot');
+    const image = one(game, node => node.tag === 'img' && node.attrs.src === `assets/project-design/${filename}`, 'Preserved original game screenshot');
     const link = one(game, node => node.tag === 'a' && node.attrs.href === image.attrs.src, 'Original image link');
     assert.equal(image.attrs.src, `assets/project-design/${filename}`);
     assert.equal(link.attrs.href, image.attrs.src);
@@ -548,13 +548,14 @@ test('TT curation retains documented responsibility, five design cases and revie
 test('Bolang supplements connect both projects without replacing existing evidence or claiming team execution', async()=>{
   const {projects,companies}=await site();
   const company=companies.find(p=>p.path==='experience/bolang/index.html');
-  for(const [slug,id,count] of [['matchmaking-inc','matchmaking-supplement',4],['vanity-fair','vanity-design',3]]){
+  for(const [slug,id,count] of [['matchmaking-inc','matchmaking-supplement',4],['vanity-fair','vanity-design',4]]){
     for(const target of [projects.find(p=>p.path===`projects/${slug}/index.html`),company,await page(`projects/${slug}/design-summary/index.html`)]){
       const section=one(target.document,n=>n.attrs.id===id,'Bolang curated evidence');
       assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,count);
       assert.match(textOf(section),/团队/u);assert.match(textOf(section),/历史/u);
       assert.doesNotMatch(textOf(section),/独立完成所有|实际提升|@/u);
       for(const article of nodes(section,n=>n.tag==='article')){
+        if(!nodes(article,n=>n.tag==='img').length)continue;
         one(article,n=>n.tag==='details','Native enlarged reading');
         one(article,n=>n.tag==='a'&&hasClass(n,'design-original'),'Original image entry');
       }
@@ -567,6 +568,12 @@ test('Bolang supplements connect both projects without replacing existing eviden
   assert.match(matchText,/修改人[^。]*吴天昊/u);assert.match(matchText,/创建[^。]*其他/u);assert.match(matchText,/早期[^。]*版本/u);
   const vanityText=textOf(one(projects.find(p=>p.path==='projects/vanity-fair/index.html').document,n=>n.attrs.id==='vanity-design','Vanity source scope'));
   assert.match(vanityText,/未署名/u);assert.match(vanityText,/待定/u);assert.match(vanityText,/贴图[^。]*完整界面/u);
+  assert.match(vanityText,/全部系统界面功能/u);assert.match(vanityText,/绘制与摆放/u);
+  assert.match(vanityText,/参与.*分支.*线路/u);assert.match(vanityText,/数值奖励.*设计与配置/u);
+  assert.match(vanityText,/不包含剧本撰写或剧情创作/u);
+  const vanityWork=textOf(one(projects.find(p=>p.path==='projects/vanity-fair/index.html').document,n=>n.attrs.id==='work-value','Confirmed Vanity responsibilities'));
+  assert.match(vanityWork,/全部系统界面功能/u);assert.match(vanityWork,/绘制与摆放/u);assert.match(vanityWork,/数值奖励/u);
+  assert.doesNotMatch(vanityWork,/只.*需求背景|仅.*项目背景/u);
   const {bolangAssets}=await import('../src/bolang-design.mjs');assert.equal(bolangAssets.length,8);
   for(const a of bolangAssets){const b=await readFile(join(root,'assets/project-design',a.project,a.file));assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(b.readUInt32BE(16),a.width);assert.equal(b.readUInt32BE(20),a.height);assert.ok(a.source.length>10);}
 });
@@ -627,23 +634,48 @@ test('official Steam context stays separate from personal contribution and links
   }
 });
 
-test('Goose proposal exposes four reviewed figures under the user-specified project with original naming and author scope', async()=>{
+test('Train evidence replaces the misattributed Goose proposal and preserves version and ownership boundaries', async()=>{
   const {projects,companies}=await site();
   const targets=[projects.find(p=>p.path==='projects/train-king/index.html'),companies.find(c=>c.path==='experience/haoteng/index.html'),await page('projects/train-king/design-summary/index.html')];
   for(const target of targets){
-    const section=one(target.document,n=>n.attrs.id==='goose-design','Selected Goose proposal');
-    assert.match(textOf(section),/超级铲屎官/u);assert.match(textOf(section),/吴天昊/u);
-    assert.match(textOf(section),/用户指定/u);assert.match(textOf(section),/最终上线名称/u);assert.match(textOf(section),/团队/u);
-    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,4);
-    for(const article of nodes(section,n=>n.tag==='article')){
-      one(article,n=>n.tag==='details','Enlarged reading');one(article,n=>n.tag==='a'&&hasClass(n,'design-original'),'Original figure');
+    const section=one(target.document,n=>n.attrs.id==='train-design','Train project evidence');
+    assert.match(textOf(section),/未发现明确个人署名/u);
+    assert.match(textOf(section),/Train/u);assert.match(textOf(section),/团队/u);
+    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,6);
+    assert.equal(nodes(section,n=>n.tag==='details').length,5);
+    assert.equal(nodes(section,n=>n.tag==='a'&&hasClass(n,'design-original')).length,5);
+    if(target.path!=='experience/haoteng/index.html'){
+      assert.equal(nodes(target.document,n=>n.attrs.id==='goose-design').length,0);
+      assert.doesNotMatch(target.html,/超级铲屎官|#goose-|train-king\/(system-map|economy-cycle|social-flow|home-proposal)/u);
     }
+    assert.match(textOf(section),/存在差异/u);assert.match(textOf(section),/设计目标/u);
     assert.doesNotMatch(textOf(section),/独立完成所有|留存提升|程序实现由我/u);
   }
   const train=targets[0];assert.equal(one(train.document,n=>n.attrs.id==='work-value','Document-supported work').attrs['data-work-basis'],'document');
-  for(const other of projects.filter(p=>p.path!=='projects/train-king/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='goose-design').length,0);
-  const {gooseAssets}=await import('../src/goose-design.mjs');assert.equal(gooseAssets.length,4);
-  for(const asset of gooseAssets){const bytes=await readFile(join(root,'assets/project-design/train-king',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);assert.ok(asset.width>0&&asset.height>0&&asset.source.length>10);}
+  for(const other of projects.filter(p=>p.path!=='projects/train-king/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='train-design').length,0);
+  const {trainAssets}=await import('../src/train-design.mjs');assert.equal(trainAssets.length,5);
+  const hashes=['49883c9f976b048d64cbaed792598760176b41b1dc711865c25015ad6f7759de','4f0848f7a1ab11770980f31afa496bc30274e35044c5d7b43201e973da42c44f','0daafd3f140073e95c69c2d71a3450125bb082419085880ae5fa93234f03c7bd','b32ed33895e384369948499e115108295139fa71a3b9291c438307dfd2092379','9d4d005daf35bf01a87dfcd862f65b300df6d5116e7526cbf9b5cf037de2b639'];
+  for(const [i,asset] of trainAssets.entries()){const bytes=await readFile(join(root,'assets/project-design/train-king',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),hashes[i]);assert.ok(asset.width>0&&asset.height>0);}
+});
+
+test('Goose evidence belongs to Versatile Dog, not Train, and retains reviewed originals and historical naming', async()=>{
+  const {projects,companies}=await site();
+  const dog=projects.find(p=>p.path==='projects/versatile-dog/index.html');
+  const targets=[dog,companies.find(c=>c.path==='experience/haoteng/index.html'),await page('projects/versatile-dog/design-summary/index.html')];
+  for(const target of targets){
+    const section=one(target.document,n=>n.attrs.id==='goose-design','Dog design evidence');
+    assert.match(textOf(section),/百变汪星人/u);assert.match(textOf(section),/超级铲屎官/u);assert.match(textOf(section),/策划：吴天昊/u);
+    assert.match(textOf(section),/最终上线名称/u);assert.match(textOf(section),/历史方案/u);
+    assert.equal(nodes(section,n=>n.tag==='article').length,4);
+    assert.equal(nodes(section,n=>n.tag==='details').length,4);
+    assert.equal(nodes(section,n=>n.tag==='a'&&hasClass(n,'design-original')).length,4);
+    assert.doesNotMatch(textOf(section),/归入“谁是火车王”|独立完成所有|留存提升/u);
+    for(const img of nodes(section,n=>n.tag==='img'))assert.match(img.attrs.src,/project-design\/versatile-dog\//u);
+  }
+  for(const other of projects.filter(p=>p.path!==dog.path))assert.equal(nodes(other.document,n=>n.attrs.id==='goose-design').length,0);
+  const {gooseAssets}=await import('../src/goose-design.mjs');
+  for(const a of gooseAssets){const bytes=await readFile(join(root,'assets/project-design/versatile-dog',a.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256);}
+  assert.equal(one(dog.document,n=>n.attrs.id==='work-value','Evidence-supported work').attrs['data-work-basis'],'document');
 });
 
 test('home prioritizes three confirmed career cases before the full timeline', async()=>{
@@ -655,6 +687,44 @@ test('home prioritizes three confirmed career cases before the full timeline', a
   assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/开发测试.*上线/u);
   assert.match(textOf(section),/系统框架.*剧情大纲/u);
   for(const card of cards){one(card,n=>n.tag==='img','Real project evidence');one(card,n=>n.tag==='a'&&/^projects\/[\w-]+\/$/u.test(n.attrs.href),'Project entry');}
+});
+
+test('featured career covers use landscape publicity assets, not design diagrams', async()=>{
+  const {home}=await site();
+  const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
+  const images=nodes(section,n=>n.tag==='img');
+  assert.equal(images.length,3);
+  for(const img of images){
+    assert.match(img.attrs.src,/\/promotional-cover\.(png|jpg)$/u);
+    assert.ok(Number(img.attrs.width)>Number(img.attrs.height));
+    assert.match(img.attrs.alt,/推广图|宣传/u);
+    assert.ok((await stat(join(root,img.attrs.src))).size>10000);
+  }
+  const css=await readFile(join(root,'assets/site.css'),'utf8');
+  assert.match(css,/\.career-case-image\s*\{[^}]*aspect-ratio:\s*460\s*\/\s*215/u);
+});
+
+test('visual reading enhancement loads on every page and retains no-script evidence', async()=>{
+  const {pages,home}=await site();
+  for(const p of pages){
+    const script=one(p.document,n=>n.tag==='script'&&n.attrs.src.endsWith('reading.js'),'Reading interactions');
+    assert.ok('defer' in script.attrs);
+  }
+  const section=one(home.document,n=>n.attrs.id==='career-cases','Career cases');
+  assert.equal(nodes(section,n=>hasClass(n,'case-keywords')).length,3);
+  const js=await readFile(join(root,'assets/reading.js'),'utf8');
+  for(const token of ['prefers-reduced-motion','hashchange','ArrowRight','showModal','IntersectionObserver'])assert.ok(js.includes(token));
+  assert.doesNotMatch(js,/setInterval\s*\(/u);
+  const css=await readFile(join(root,'assets/site.css'),'utf8');
+  assert.match(css,/reading-gallery/u);assert.match(css,/company-evidence-fold/u);
+});
+
+test('independent games lead with official publicity while keeping original store screenshots', async()=>{
+  const {home}=await site();
+  for(const file of ['magicar','exorcism']){
+    const img=one(home.document,n=>n.tag==='img'&&n.attrs.src===`assets/project-design/indie/${file}-publicity.jpg`,'Official indie cover');
+    assert.equal(img.attrs.width,'460');assert.equal(img.attrs.height,'215');assert.match(img.attrs.alt,/官方.*宣传/u);
+  }
 });
 
 test('new confirmations distinguish shipped contributions from qualitative outcomes', async()=>{
@@ -687,6 +757,40 @@ test('reviewed Moqups excerpts keep their project, attribution and readable orig
   const {wordExcerpts}=await import('../src/word-excerpts.mjs');
   for(const asset of wordExcerpts){const bytes=await readFile(join(root,'assets/project-design/word-villas',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);}
   assert.doesNotMatch(section.raw||textOf(section),/192\.168\.|docs\.google|app\.moqups\.com/u);
+});
+
+test('exorcism retrospective adds scoped planning evidence without claiming all proposals shipped', async () => {
+  const {home}=await site();
+  const section=one(home.document,n=>n.attrs.id==='exorcism-planning','Exorcism planning retrospective');
+  assert.equal(section.tag,'details');
+  assert.equal(nodes(section,n=>n.tag==='li').length,5);
+  for(const term of ['祖玛','卡牌','部位','数值','UI/UE','单局','交接'])assert.ok(textOf(section).includes(term),term);
+  assert.match(textOf(section),/AI.*整理/u);
+  assert.match(textOf(section),/不作为.*全部上线.*证明/u);
+  assert.match(textOf(section),/程序.*合作者/u);
+  assert.doesNotMatch(textOf(section),/790|1968|0\.2|feishu\.cn|UniREST|结算金额|全部由我完成/u);
+  assert.ok(home.html.indexOf('id="exorcism-planning"')>home.html.indexOf('<h4>除灵事务所</h4>'));
+  const card=one(home.document,n=>n.tag==='article'&&hasClass(n,'indie-project')&&textOf(n).includes('除灵事务所'),'Exorcism card');
+  one(card,n=>n.tag==='a'&&n.attrs.href==='https://store.steampowered.com/app/3408380/?l=schinese','Preserved store entry');
+});
+
+test('Sheep supplied evidence separates design, release scope and personal ownership', async () => {
+  const {projects,companies}=await site();
+  const project=projects.find(p=>p.path==='projects/sheep-match/index.html');
+  const section=one(project.document,n=>n.attrs.id==='sheep-evidence','Sheep evidence cases');
+  assert.equal(nodes(section,n=>n.tag==='article').length,7);
+  for(const term of ['编辑器','运行时','主动抽奖','草稿','隐私','兑换','去重','测试服','全量','1.0.539','2026-09-24'])assert.ok(textOf(section).includes(term),term);
+  assert.match(textOf(section),/设计目标.*实测/u);
+  assert.match(textOf(section),/团队.*不.*个人独立/u);
+  assert.equal(nodes(section,n=>n.tag==='img').length,4);
+  assert.equal(nodes(section,n=>n.tag==='details').length,2);
+  assert.doesNotMatch(textOf(section),/E:\\|J:\/|Tower任务ID|全部已上线|留存提升\s*\d/u);
+  const company=companies.find(c=>c.path==='experience/jianyou/index.html');
+  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company evidence entry');
+  for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='sheep-evidence').length,0);
+  const {sheepEvidenceAssets}=await import('../src/sheep-evidence.mjs');
+  for(const asset of sheepEvidenceAssets){const bytes=await readFile(join(root,'assets/project-design/sheep-match',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);}
+  assert.match(textOf(one(project.document,n=>n.attrs.id==='project-design','Historical figures')),/早期方案.*主动抽奖/u);
 });
 
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {

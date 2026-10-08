@@ -27,6 +27,17 @@ try {
       assert.notEqual(await planning.getAttribute('open'),null);
       assert.equal(await planning.locator('li').count(),5);
       assert.ok((await planning.innerText()).includes('不作为全部完成或上线的证明'));
+      assert.ok((await planning.innerText()).includes('长关卡'));
+      assert.ok((await planning.innerText()).includes('文档标注已完成'));
+      assert.ok((await planning.innerText()).includes('文档标注进行中'));
+      const exorcism=section.locator('#exorcism-planning');
+      assert.equal(await exorcism.getAttribute('open'),null);
+      await exorcism.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      assert.notEqual(await exorcism.getAttribute('open'),null);
+      assert.equal(await exorcism.locator('li').count(),5);
+      assert.ok((await exorcism.innerText()).includes('AI 后期整理资料'));
+      assert.ok((await exorcism.innerText()).includes('不作为所有方案全部上线'));
       for(const card of await section.locator('article').all()){
         await card.locator('img').evaluate(el=>el.decode());
         const links=await card.locator('.indie-actions a').all();
@@ -47,6 +58,9 @@ try {
       await section.locator('#magicar-planning summary').focus();
       await page.keyboard.press('Enter');
       assert.equal(await section.locator('#magicar-planning').getAttribute('open'),null);
+      await section.locator('#exorcism-planning summary').focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await section.locator('#exorcism-planning').getAttribute('open'),null);
     }
     results.push({width,route});console.log(`PASS ${width} ${route||'indie-games'}`);await context.close();
   }

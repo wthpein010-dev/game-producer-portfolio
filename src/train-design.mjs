@@ -1,0 +1,21 @@
+export const trainCases=[
+  {id:'train-core',title:'合成经营：规则与界面一起交付',asset:'core',question:'怎样将合成、工作收益和商店购买组织成可操作的成长循环？',points:['区分闲置与工作状态，定义同级合并、异级交换、上轨、下架与删除的操作判定。','针对轨道容量、槽位已满、金币不足和无效拖拽提供禁用、回退与提示，避免界面表现和规则脱节。'],output:'以核心 UE 图连接槽位、轨道、资产与商店，配套状态和读表规则，体现系统设计到 UI/UE 交付的完整表达。',source:'核心功能文档。新项目策划文档后续增加材料阶段并删除快捷购买，图中旧入口按历史版本阅读。'},
+  {id:'train-track',title:'轨道控制：把玩法拆成状态与路径',asset:'track',question:'交叉轨道和多个方向开关怎样形成程序可实现、测试可验证的规则？',points:['将外环与上下内环的运动路径分别定义，并列出方向开关切换与中央节点的联动。','规定反向箭头置灰、可用方向点亮及自动响应，连接玩家操作、路线变化和视觉反馈。'],output:'交付轨道节点图与路线切换规则；正文“八种”与实际六类路线列表存在不一致，不将文档当成最终验收结果。',source:'核心功能文档：火车跑圈逻辑、开关关联与箭头显示说明。'},
+  {id:'train-onboarding',title:'新手引导：随学习阶段开放功能',asset:'unlock',question:'怎样让玩家先掌握合成，再进入经营与路线控制，而不是一次看到所有系统？',points:['通过材料合并、加速、转盘和购买教学组织前期体验，再开放火车工作、轨道控制与列车长。','分阶段隐藏与开放按钮，结合演示、小手、对话及实际操作判断推进；未执行关键操作时不自动跳过教学。'],output:'形成阶段化界面、触发条件、动画及文本需求，明确策划规则和美术资源的配合。解锁图来自较早核心文档，仅作界面参考，不冒充新版实机。',source:'新项目策划文档；核心功能文档：解锁界面。'},
+  {id:'train-location',title:'地点推进与中断恢复',asset:'location',question:'解锁、动画、地点切换与离线收益怎样衔接，退出后又应从哪里恢复？',points:['将解锁提示、地图解锁、火车移动与进入新地点串联；分别定义提示中断和动画中断后的恢复位置。','区分未解锁与未开放地点，规定默认页、返回原地点及动画期间的输入限制；不同地点独立计算资源。'],output:'用流程图与状态说明覆盖正常路径和退出恢复，降低前后端、UI 与测试对跳转结果的理解偏差。',source:'地点相关功能系统文档。后续新项目文档暂锁部分国家，不据旧图宣称所有地点开放。'},
+  {id:'train-puzzle',title:'铁轨拼图活动：收集、关卡与求助闭环',asset:'puzzle',question:'怎样让活动承接主玩法，同时把收集、拼图和奖励组织成清晰的体验？',points:['将主玩法礼物盒与铁轨收集连接，再以摆放反馈、通路完成、领奖和下一关形成活动闭环。','细化缺失铁轨、分享求助选中前后状态、帮助限制、资源栏排序及美术动画需求。'],output:'形成系统结构、关卡梯度、交互与资源需求。文字与表格对关卡总量存在差异，不公开最终关卡数或概率；留存与分享提升仅为设计目标。',source:'（活动）铁轨拼图玩法说明。文中“铁路大亨”“火车之旅”为阶段界面名称，不推定最终更名。'},
+  {id:'train-tasks',title:'常驻任务与分享奖励的状态衔接',question:'地点成长和多种触发入口变化时，如何保持任务进度与奖励操作连贯？',points:['每日任务随最高解锁地点迁移，保留未完成、进行中和待领奖状态；区分不可领取、可领取与已领取按钮。','免费升级分享区分购买、合并和箱子来源，规定触发限制、动画顺序与取消后返回商店，避免打断原操作后无处返回。'],output:'将跨地点进度、领奖与分享触发写成可讨论的状态规则；历史分享方案不作为当前平台合规建议或实际增长证明。',source:'每日任务系统文档、（分享4）免费升级火车功能文档说明。'},
+];
+
+export const trainAssets=[
+  {key:'core',file:'core-ue.png',width:579,height:464,alt:'核心界面 UE 图，标记火车槽位、轨道、上轨区、资产、地图、商店、删除和排行'},
+  {key:'track',file:'track-control.png',width:1165,height:832,alt:'双环轨道与五个控制开关的节点示意图'},
+  {key:'unlock',file:'unlock-reference.png',width:469,height:834,alt:'历史解锁新火车界面参考，展示新火车、槽位及等级奖励'},
+  {key:'location',file:'location-flow.png',width:396,height:547,alt:'新地点解锁、提示、地图动画与退出恢复位置的流程图'},
+  {key:'puzzle',file:'puzzle-system.png',width:903,height:665,alt:'铁轨拼图收集系统结构，连接获取、操作、关卡、奖励和帮助模块'},
+];
+
+export function renderTrainDesign(e,base='../../'){
+  const image=a=>`<img src="${base}assets/project-design/train-king/${a.file}" width="${a.width}" height="${a.height}" loading="lazy" alt="${e(a.alt)}">`;
+  return `<section class="matchmaking-design" id="train-design" aria-labelledby="train-design-title"><header><p class="eyebrow">GAMEPLAY / SYSTEM / UI·UE</p><h2 id="train-design-title">合成经营、交互与活动设计</h2><p class="matchmaking-intro">从玩法规则到界面状态、阶段引导和活动交付，阅读主策划岗位的具体工作依据。</p></header><p class="matchmaking-boundary">本页按用户最新确认采用 Train 项目资料，已撤下此前误关联的 Goose 养成方案。个人岗位沿用已确认履历；选中文档未发现明确个人署名，不据目录归属认定独立作者，团队美术与程序不归为个人执行。</p><nav class="idiom-jumps" aria-label="火车项目设计案例">${trainCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="${base}projects/train-king/design-summary/">设计摘要 ↗</a></nav>${trainCases.map(c=>{const a=trainAssets.find(a=>a.key===c.asset),url=a?`${base}assets/project-design/train-king/${a.file}`:'';return `<article class="matchmaking-map" id="${c.id}" aria-labelledby="${c.id}-title"><h3 id="${c.id}-title">${e(c.title)}</h3>${a?`<figure><a href="${url}" aria-label="查看${e(c.title)}原图">${image(a)}</a><figcaption>项目文档原图 · 历史设计参考 · 非上线证明</figcaption></figure><a class="design-original" href="${url}">查看原图（可缩放） ↗</a><details class="matchmaking-inspect"><summary>展开原尺寸图</summary><div class="matchmaking-scroll" tabindex="0" role="region" aria-label="${e(c.title)}大图">${image(a)}</div></details>`:''}<div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(c.question)}</p><h4>产出与工作价值</h4><p>${e(c.output)}</p></div><div><h4>关键方案</h4><ul>${c.points.map(p=>`<li>${e(p)}</li>`).join('')}</ul></div></div><p class="record-source">来源：${e(c.source)}</p></article>`;}).join('')}<p class="design-source">来源范围：用户指定 Train 目录的六份功能文档。完整原件、经济与概率配置、统计、程序工程及含真人头像和第三方竞品参考图片未公开；设计目标与文档方案不直接认定为上线成果。</p></section>`;
+}

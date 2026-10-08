@@ -18,8 +18,8 @@ export const jobs = [
     lead:'围绕 SOC 项目 PC 移植重构界面与操作体验，创建数值显示规范，并结合家园、公会调优推进跨岗位调整；在约 10 人系统组中协作交付。'},
   {slug:'bolang',employer:'北京波浪科技有限公司',role:'主策划 / 执行制作人',period:'2022.07—2025.07',start:'2022-07',end:'2025-07',layout:'duology',
     projects:[{slug:'matchmaking-inc',title:'中国式相亲',description:'负责所有系统从框架到落地，以及剧情大纲和后续剧情验收；以会所经营连接会员招募、相亲匹配、角色成长与恋爱养成。',publicSource:'https://store.steampowered.com/app/2103130/?l=schinese',productContext:'现代都市背景的恋爱养成与模拟经营游戏。玩家接手相亲会所，招募会员、按需求撮合关系，并在城市探索与情感选择中推进故事。'},
-      {slug:'vanity-fair',title:'名利游戏',description:'以主策划 / 执行制作人角色参与真人互动叙事项目，围绕视频选择、故事线与进度反馈组织需求，连接叙事内容与交互交付。',publicSource:'https://store.steampowered.com/app/2758000/?l=schinese',productContext:'以娱乐圈与导演人生为背景的真人互动叙事游戏。玩家跟随陆远，在权力、金钱与情感之间作出选择，推动多条故事线并走向不同结局。'}],
-    scope:[],lead:'以主策划 / 执行制作人角色连接系统设计与项目推进：负责《中国式相亲》系统框架到落地、剧情大纲与验收，在《名利游戏》中围绕互动叙事组织需求。'},
+      {slug:'vanity-fair',title:'名利游戏',description:'负责游戏内全部系统界面功能、线路图绘制与摆放；参与分支剧情的线路设计及数值奖励设计与配置，重点是非剧情向的系统和交互工作。',publicSource:'https://store.steampowered.com/app/2758000/?l=schinese',productContext:'以娱乐圈与导演人生为背景的真人互动叙事游戏。玩家跟随陆远，在权力、金钱与情感之间作出选择，推动多条故事线并走向不同结局。'}],
+    scope:[],lead:'以主策划 / 执行制作人角色连接系统设计与项目推进：负责《中国式相亲》系统框架到落地、剧情大纲与验收；在《名利游戏》负责全部系统界面功能和线路图绘制摆放，参与分支线路与数值奖励设计配置，不含剧本创作。'},
   {slug:'quwan',employer:'北京趣丸科技有限公司',role:'高级系统策划',period:'2021.12—2022.07',start:'2021-12',end:'2022-07',layout:'quest',
     projects:[{slug:'party-planet',title:'派对星球',description:'创建和修订关卡地图、家装评分、主线与每日任务、新手引导文档，把成长目标、任务判定和 UI/UE 状态连接成完整路径。'}],
     scope:['核心关卡','主线任务','系统逻辑','UI/UE'],lead:'通过关卡、评分、任务与引导方案，细化成长目标、计数条件和界面状态，让系统设计能落到具体操作与交付文档。'},
@@ -33,7 +33,7 @@ export const jobs = [
     projects:[{slug:'toby-adventure',title:'托比大冒险',description:'承担难度曲线、新手流程与系统调优，并开展付费点、广告变现设计，兼顾首次理解、持续挑战和商业化入口。'}],
     scope:['难度曲线','新手流程','系统调优','付费点与广告变现'],lead:'将难度曲线、新手流程和系统调优放在同一体验路径中，同时开展付费点与广告变现设计，兼顾游玩节奏与商业化。'},
   {slug:'haoteng',employer:'北京豪腾嘉科科技有限公司（疯狂游戏）',role:'主策划',period:'2018.02—2019.08',start:'2018-02',end:'2019-08',layout:'archive',
-    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'作为项目唯一策划，主导成语答题玩法、科举升官题材包装与养成线，将文字关卡和角色成长连接为持续参与的目标。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与；用户指定立项资料补充系统结构、资源循环、社交流程与 UI/UE 方案，文档页眉署名策划吴天昊，原文《超级铲屎官》名称单独保留。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与，展示多款轻游戏的职业项目经历；具体方案和成果不从同公司的成语项目推定。'}],
+    projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'作为项目唯一策划，主导成语答题玩法、科举升官题材包装与养成线，将文字关卡和角色成长连接为持续参与的目标。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与；通过 Train 项目的合成经营、轨道控制、阶段引导与拼图活动资料，展示规则、界面状态和交付表达。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与；Goose 署名立项资料展示养成经营的系统结构、资源循环、社交操作和 UI/UE 交付，历史方案与最终版本分开阅读。'}],
     scope:[],lead:'作为《成语小秀才》项目唯一策划，主导玩法、科举题材包装与养成线；同时保留《谁是火车王》《百变汪星人》的主策划项目经历。'},
   {slug:'iceshi',employer:'北京冰狮科技有限公司',role:'QA 经理 / 游戏策划',period:'2017.03—2018.01',start:'2017-03',end:'2018-01',layout:'lab',
     projects:[{slug:'paper-girl',title:'纸片少女',description:'以 QA 经理 / 游戏策划身份参与；冰狮阶段承担测试管理、关卡调优、资源整理及任务文案工作，连接质量检查与内容设计。'}, {slug:'creation-factory',title:'造物梦工厂',description:'以 QA 经理 / 游戏策划身份参与；从同阶段的测试、关卡、资源和任务职责说明工作价值，具体项目分工不作未经确认的拆分。'}],
@@ -51,9 +51,9 @@ export const skills = [
 // Value statements describe why the work matters, not measured business results.
 export const companyWork = {
   jianyou:{items:[
-    {title:'统筹方向与玩法系统',action:'负责项目整体方向、玩法与系统，将设计工作与制作人决策放在同一职责范围内。',value:'设计不只停留在单个功能，而是需要结合产品方向考虑取舍与推进重点。',link:['玩法与系统职责','projects/sheep-match/gameplay/']},
+    {title:'统筹方向与玩法系统',action:'负责整体方向、玩法与系统；项目资料将首关上手、第二关挑战、城市包装与阶段范围连接，并补充关卡、编辑器和奖励系统的交付规则。',value:'把产品方向转为具体规则、优先级和验收依据；资料中的历史方案与最终版本分开阅读。',link:['设计与交付案例','projects/sheep-match/#sheep-product-case']},
     {title:'连接团队协作与研发节奏',action:'在共 6 人的项目团队中承担团队与排期职责，负责项目推进节奏；不包含美术表现和发行运营。',value:'把设计目标与研发协作连接起来，体现制作人对项目整体推进的责任，而非只交付方案。',link:['团队与排期职责','projects/sheep-match/team/']},
-    {title:'将数据迭代纳入制作职责',action:'承担数据迭代工作，与玩法、系统和推进职责共同构成当前项目工作范围。',value:'体现设计与后续迭代的连续性；具体效果需有验证数据，不将职责直接写成增长业绩。',link:['数据迭代职责','projects/sheep-match/data/']},
+    {title:'连接版本记录与体验迭代',action:'承担数据迭代职责；版本资料区分提测、内部、测试服和全量记录，并关联功能调整与点击拖拽、层级、恢复等缺陷修复。',value:'用交付记录和验收重点支持持续迭代，不把任务归档或埋点接入写成增长业绩。',link:['版本与迭代证据','projects/sheep-match/#sheep-release-case']},
   ],note:'依据已确认任职与职责；项目团队共 6 人，不等同于 6 名直接下属。'},
   'hero-games':{items:[
     {title:'PC 移植中的交互重构',action:'承担 SOC 项目 PC 端移植、UI/UE 重构及 HUD 与操作逻辑调整。',value:'将界面信息、操作提示与系统入口一起考虑，体现跨端体验设计能力，而非单纯调整画面尺寸。',link:['PC 交互职责摘要','projects/crisis-dawn/design-summary/']},
@@ -62,8 +62,8 @@ export const companyWork = {
   ],note:'数值规范有本人创建及修订记录，其余职责依据已确认履历；活动方案和团队背景在资料区分别标注，不宣称全部上线或量化改善。'},
   bolang:{items:[
     {title:'系统规则与界面交互细化',action:'在《中国式相亲》中创建、重构和修订技能、情感、装修及相亲节目方案，明确条件、状态与反馈。',value:'把跨系统成长目标细化为玩家可理解、团队可讨论的操作规则，体现系统与 UI/UE 的结合。',link:['个人修订记录与原图','projects/matchmaking-inc/#matchmaking-supplement']},
-    {title:'不同玩法形态的需求组织',action:'以主策划 / 执行制作人角色参与两款项目；《名利游戏》的需求背景覆盖视频、选择、故事线和进度反馈。',value:'呈现从恋爱经营到真人互动叙事的项目经验，以及内容逻辑与交互需求之间的衔接。',link:['互动叙事需求资料','projects/vanity-fair/#vanity-design']},
-  ],note:'相亲修订贡献有文档记录；名利文档未署名，角色沿用履历，不认定全部剧本、程序和美术为个人执行。'},
+    {title:'非剧情系统与线路图交付',action:'《名利游戏》负责全部系统界面功能和线路图绘制与摆放，参与分支线路、数值奖励的设计与配置；不包含剧本撰写或剧情创作。',value:'将分支关系转为玩家可浏览、可回看的界面与功能，连接系统交互和配置交付。',link:['系统界面与线路设计','projects/vanity-fair/#vanity-design']},
+  ],note:'名利个人职责由本人明确确认，文档未署名不否定职责，但不据此认定全部文档独立作者；不扩大为剧本创作、程序实现或美术制作。'},
   quwan:{items:[
     {title:'关卡与评分的成长表达',action:'创建和修订关卡玩法与家装评分文档，更新地图 UE、横向布局、评分规则及主客态展示。',value:'让成长进度、解锁条件和当前可操作内容有明确表达，连接玩法目标与界面反馈。',link:['关卡与家装设计资料','projects/party-planet/#tt-levels']},
     {title:'任务判定与领奖闭环',action:'创建主线、每日任务文档，区分行为和收集判定、计数起点、任务排序、奖励状态与跳转。',value:'补足常规流程之外的判定和状态细节，让目标引导与奖励反馈具备清晰的交付依据。',link:['任务系统设计资料','projects/party-planet/#tt-main']},
@@ -85,7 +85,7 @@ export const companyWork = {
   haoteng:{items:[
     {title:'多款轻游戏的主策划经历',action:'以主策划身份参与《成语小秀才》《谁是火车王》《百变汪星人》，保留三款项目的任职关联。',value:'说明主策划岗位的多项目经验；项目名单本身不被当作每款游戏全部方案或业绩的证明。',link:['该段任职与项目','experience/haoteng/#projects']},
     {title:'用具体规则展开设计讨论',action:'以成语项目资料展开成长循环、填字判定、每日挑战、玩家创建关卡及生词本交互的设计讨论。',value:'让面试交流落到状态转换、异常分支和交互取舍，而不是只展示产品截图；资料未逐项确认独立作者。',link:['成语系统与交互资料','projects/idiom-scholar/#idiom-design']},
-    {title:'立项阶段的系统与交互设计',action:'用户指定立项案页眉署名策划吴天昊，包含系统结构、经济循环、社交流程及主界面方案。',value:'以原始图表说明从系统关系到操作状态的方案表达；保留历史名称，不将其直接等同最终上线名称。',link:['署名立项资料与原图','projects/train-king/#goose-design']},
+    {title:'火车项目的玩法与交互方案',action:'Train 资料覆盖合成经营、轨道控制、阶段引导、地点推进与铁轨拼图，提供核心 UE、节点和解锁流程图。',value:'以规则和操作状态呈现主策划岗位的交付依据；方案版本、个人职责与团队执行分别说明。',link:['火车项目设计案例','projects/train-king/#train-design']},
   ],note:'任职角色已确认；成语资料与用户指定立项资料分开呈现。立项案有页眉策划署名，不仅依据元数据；团队美术不认定本人独立执行。'},
   iceshi:{items:[
     {title:'QA 管理与关卡体验结合',action:'以 QA 经理 / 游戏策划身份承担测试管理和关卡调优，参与《纸片少女》《造物梦工厂》。',value:'形成质量检查与玩法体验相结合的工作基础，能够从问题定位进入设计调整。',link:['测试与关卡职责','experience/iceshi/#scope']},
@@ -109,10 +109,14 @@ export const sharedCompanyWork = {
 };
 
 export const projectWork = {
+  'versatile-dog':{basis:'document',items:[
+    {title:'系统结构与成长循环的方案表达',action:'署名立项案将产出、培养、容量与收集目标连接，以系统结构图和经济循环图说明各模块作用。',value:'把功能清单转为团队可讨论的系统关系与成长投入方向，不以设计方案代替实测业绩。',link:['系统与循环原图','projects/versatile-dog/#goose-systems']},
+    {title:'社交流程与 UI/UE 状态设计',action:'立项案提供邀请、派遣、等待和收取流程，明确常用入口调整、在场与库存操作及成就状态反馈。',value:'用条件、操作和反馈降低研发理解偏差；原图说明策划交付，不认定团队美术由本人绘制。',link:['交互与界面方案','projects/versatile-dog/#goose-social']},
+  ],note:'用户最新确认 Goose 资料对应百变汪星人；立项案保留《超级铲屎官》历史名称与本人策划署名，不推定全部功能独立作者、完整更名时间线或最终上线范围。'},
   'train-king':{basis:'document',items:[
-    {title:'系统结构与经济循环表达',action:'用户指定的立项案页眉署名策划吴天昊，以系统结构图与经济循环图组织生产、成长、容量和社交模块。',value:'把功能入口与资源投入联系起来，使团队能够围绕系统关系讨论方案，而不是仅罗列功能名称。',link:['系统与循环原图','projects/train-king/#goose-systems']},
-    {title:'从规则进入 UI/UE 交付',action:'立项资料提供社交操作流程、主界面方案及高频入口调整说明，并细化背包、派遣与成就的状态反馈。',value:'展示条件、操作、反馈和异常分支如何落入文档交付；团队美术与历史需求不作为独立绘制或最终上线证明。',link:['社交与界面方案','projects/train-king/#goose-social']},
-  ],note:'按用户指定使用 Goose 资料；原文名称《超级铲屎官》及页眉策划署名保留，不将历史标题直接认作最终上线名称。'},
+    {title:'合成经营与轨道玩法的规则表达',action:'核心功能资料定义火车合并、交换、上轨与下架的状态，并通过轨道节点和路线切换规则说明玩法联动。',value:'将玩法拆为可实现、可讨论的规则与反馈，为程序和测试提供共同依据。',link:['核心玩法与 UE','projects/train-king/#train-core']},
+    {title:'引导、成长与活动的交付表达',action:'分阶段教学连接合成和经营；地点流程覆盖中断恢复，铁轨拼图连接收集、关卡与奖励，并列出交互与美术需求。',value:'体现从体验路径到界面状态、资源需求和异常分支的策划交付；不把历史设计目标写成业绩。',link:['活动与交互案例','projects/train-king/#train-puzzle']},
+  ],note:'采用用户最新确认的 Train 项目资料，替换此前误关联的 Goose 方案；个人岗位已确认，选中文档未发现明确个人署名，不认定全部独立作者或最终上线状态。'},
   'sheep-match':{basis:'role',...companyWork.jianyou},
   'crisis-dawn':{basis:'role',...companyWork['hero-games']},
   'party-planet':{basis:'document',...companyWork.quwan},
@@ -123,9 +127,10 @@ export const projectWork = {
     {title:'细化会所经营交互',action:'在装修文档中修订界面、空间页签、评分及购买后自动应用逻辑，明确家具解锁、购买和使用状态。',value:'将场景变化与经营投入对应起来，补齐预览、条件提示和购买反馈的操作链路。',link:['装修交互与修订记录','projects/matchmaking-inc/#match-decor']},
   ],note:'个人贡献依据更新表；情感与装修初始创建有其他成员贡献，美术由团队承担，历史方案不等于全部上线。'},
   'vanity-fair':{basis:'role',items:[
-    {title:'连接叙事内容与可操作规则',action:'以主策划 / 执行制作人角色参与项目，围绕视频播放、条件选择、故事线和章节进度组织需求。',value:'将内容选择与交互交付联系起来，体现真人互动叙事中的需求组织，而不是只介绍故事题材。',link:['功能模块与需求背景','projects/vanity-fair/#vanity-modules']},
-    {title:'围绕完整流程对齐体验',action:'项目需求把开始与续播、循环选择、分支推进、失败回看及进度反馈组织为操作闭环。',value:'这些资料说明岗位参与的需求背景与交互问题；文档未署名，不宣称本人独立撰写全部规则、剧本或实现。',link:['操作流程与团队界面资源','projects/vanity-fair/#vanity-flow']},
-  ],note:'本人角色有履历依据，项目文档未署名；待定事项、历史需求及团队贴图不作为最终上线证明或个人独立成果。'},
+    {title:'全部系统界面功能的设计',action:'负责游戏内全部系统界面功能，围绕菜单、设置、章节选择、分支线路、选项及图鉴等页面组织功能、跳转和状态反馈。',value:'把玩家从进入、游玩到回看的路径落实为界面与规则交付，不以产品题材代替个人工作。',link:['系统功能与操作流程','projects/vanity-fair/#vanity-modules']},
+    {title:'线路图绘制、摆放与分支线路设计',action:'负责线路图绘制与摆放，参与分支剧情的线路设计；工作重点是节点关系、线路组织和展示，不包含剧本撰写或剧情创作。',value:'将复杂分支整理为可浏览、可定位与可回看的结构，让玩家理解探索路径，让团队对齐分支连接。',link:['线路图与交互表达','projects/vanity-fair/#vanity-storyline']},
+    {title:'数值奖励的设计与配置参与',action:'参与数值奖励设计与配置，结合文档中的选择数值、章节探索进度奖励及配置关系，说明系统规则与数据交付的连接。',value:'体现规则与配置之间的协作能力；不公开具体参数，不将参与配置扩大为全部经济系统独立主导。',link:['数值奖励与配置关系','projects/vanity-fair/#vanity-rewards']},
+  ],note:'上述个人职责由本人明确确认，重点为非剧情向内容。文档未署名，不据此认定全部文档独立作者；待定功能、历史方案及团队贴图不作为最终上线或量化业绩证明。'},
   'my-town':{basis:'project-material',items:[
     {title:'从系统框架进入经营流程',action:'以主策划身份参与项目；结合小镇系统框架与流程图，展开建造、补货、顾客、收益和成长的设计讨论。',value:'让系统设计的讨论落到入口关系与经营闭环；图示证明项目方案存在，不单独证明全部由本人完成。',link:['经营界面与流程图','projects/my-town/#town-navigation']},
     {title:'关注首次体验与状态恢复',action:'项目资料进一步呈现分步引导、中断恢复，以及任务、宝藏的开始、倒计时、领奖和确认分支。',value:'以常规流程和边界状态说明 UI/UE 设计深度；公司共同职责与项目图示分开归属。',link:['新手和任务交互资料','projects/my-town/#town-onboarding']},

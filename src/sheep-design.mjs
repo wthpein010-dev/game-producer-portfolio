@@ -1,5 +1,6 @@
 // Selected project design images, reviewed and authorized for public display.
 // These are project references, not individual artwork or a release report.
+import {renderSheepEvidence} from './sheep-evidence.mjs';
 export const sheepDesigns = [
   {
     id: 'save-recovery', number: '01', label: 'STATE / RECOVERY',
@@ -20,15 +21,15 @@ export const sheepDesigns = [
   {
     id: 'lucky-items', number: '03', label: 'PLAYER / FLOW',
     title: '小物好运局流程', file: 'lucky-items-flow.jpg', width: 2560, height: 2560,
-    preview: 'screens', caption: '项目设计资料 · 界面流程示意',
+    preview: 'screens', caption: '项目设计资料 · 小物好运局早期流程方案',
     alt: '小物好运局界面流程图：从主界面入口查看奖池、开始挑战、胜利结算到自动揭晓小物，另列挑战失败和重试路径',
-    lead: '把入口、挑战、结算和奖励反馈连成一条可读的路径。',
-    points: ['从主界面入口进入奖池，再开始活动关卡。', '胜利后结算奖励，返回活动页自动揭晓小物。', '失败不占资格，可重新挑战；失败回路与成功路径分开标出。'],
+    lead: '早期方案保留作迭代对照；新版每日小物采用通关得券、主动抽奖。',
+    points: ['原图记录从入口、奖池到活动关卡的早期操作路径。', '图中胜利后自动揭晓属于早期方案；新版返回页面不自动抽奖，兑换券可以跨天累计。', '失败路径与成功路径分开阅读，具体进度与资格以新版每日小物规则为准。'],
   },
 ];
 
 export function renderSheepDesign(e) {
-  return `<section class="project-design" id="project-design" aria-labelledby="project-design-title">
+  return `${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
     <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>三份项目资料，<br>阅读状态、系统与操作流程。</p></div>
     <p class="design-role">我的角色是游戏制作人，工作范围包括整体方向、玩法与系统、团队与排期、数据迭代。下列资料用于展开项目设计讨论；美术执行由团队相应岗位承担。</p>
     <div class="design-references">${sheepDesigns.map(item => {
