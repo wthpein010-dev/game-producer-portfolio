@@ -1277,3 +1277,10 @@ button:disabled { cursor: default; }
   .reading-gallery [role="tabpanel"][hidden] { display: block !important; }
   .company-evidence-fold > section, .work-value-more > dl { display: block !important; }
 }
+/* Curated configuration and delivery summaries omit internal values and identities. */
+.muyou-evidence-table { width:100%; overflow-x:auto; margin:24px 0; }
+.muyou-evidence-table table { width:100%; border-collapse:collapse; table-layout:fixed; }
+.muyou-evidence-table caption { text-align:left; color:var(--muted); font-size:13px; padding-bottom:12px; }
+.muyou-evidence-table th, .muyou-evidence-table td { padding:14px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+.muyou-evidence-table thead { background:var(--surface); }
+@media(max-width:540px) { .muyou-evidence-table th, .muyou-evidence-table td { padding:10px 6px; font-size:13px; } }

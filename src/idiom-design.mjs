@@ -1,4 +1,5 @@
 // Curated project references. Originals and complete internal documents stay private.
+import {renderIdiomEvents} from './idiom-events.mjs';
 export const idiomAssets = [
   {file:'challenge-board.png',width:514,height:914,sha256:'5be7c5e0946ac5fc9cfd036984179720cb57babeb5ef73def666ecf8a63baa9a',source:'《每日挑战系统设计》嵌入界面参考',alt:'每日挑战文档中的填字界面参考：上方交叉字块、下方候选字与提示入口'},
   {file:'growth-flow.png',width:472,height:768,sha256:'4e2cb1608ee4e8d7339946ce5e20b053603eec3967f689df2d48f5dde0831c23',source:'《养成玩法系统设计》嵌入流程图',alt:'养成系统原始流程示意：主界面、体力不足提示、答题与结算之间的跳转关系'},
@@ -24,16 +25,16 @@ function evidence({id,title,file,problem,decisions,output},e,base) {
   return `<article class="idiom-evidence" aria-labelledby="${id}-title">${reference(file,title,e,base)}<div class="idiom-evidence-copy"><h3 id="${id}-title">${e(title)}</h3><h4>设计问题</h4><p>${e(problem)}</p><h4>关键方案</h4><ul>${decisions.map(text=>`<li>${e(text)}</li>`).join('')}</ul><h4>文档产出</h4><p>${e(output)}</p></div>${inspect(file,title,e,base)}</article>`;
 }
 export function renderIdiomOverview(e,base='../../') {
-  return `<section class="idiom-overview" aria-labelledby="idiom-overview-title"><div><p class="eyebrow">PROJECT BRIEF / 成语填字与成长</p><h2 id="idiom-overview-title">从填字规则到成长反馈</h2><p>以选字填空为核心，通过角色与房屋成长连接持续闯关，再以每日挑战、玩家创建关卡和生词本扩展内容与复习路径。</p><p>我的任职角色：主策划，2018.02—2019.08。以下以项目资料展开系统、玩法和交互设计讨论。</p><nav class="idiom-jumps" aria-label="成语小秀才设计资料"><a href="#idiom-systems">系统策划 ↓</a><a href="#idiom-gameplay">玩法设计 ↓</a><a href="#idiom-interaction">UI/UE 交互 ↓</a><a href="${base}projects/idiom-scholar/design-summary/">文档摘要 ↗</a></nav></div>${reference('challenge-board.png','填字界面',e,base)}</section>`;
+  return `<section class="idiom-overview" aria-labelledby="idiom-overview-title"><div><p class="eyebrow">PROJECT BRIEF / 成语填字与成长</p><h2 id="idiom-overview-title">从填字规则到成长反馈</h2><p>以选字填空为核心，通过角色与房屋成长连接持续闯关，再以每日挑战、玩家创建关卡和生词本扩展内容与复习路径。</p><p>我的任职角色：主策划，2018.02—2020.03。以下以项目资料展开系统、玩法和交互设计讨论。</p><nav class="idiom-jumps" aria-label="成语小秀才设计资料"><a href="#idiom-systems">系统策划 ↓</a><a href="#idiom-gameplay">玩法设计 ↓</a><a href="#idiom-interaction">UI/UE 交互 ↓</a><a href="${base}projects/idiom-scholar/design-summary/">文档摘要 ↗</a></nav></div>${reference('challenge-board.png','填字界面',e,base)}</section>`;
 }
 export function renderIdiomCompanyEntry() {
-  return `<section class="idiom-company-entry" aria-labelledby="idiom-company-title"><div><p class="eyebrow">PROJECT EVIDENCE / 成语小秀才</p><h2 id="idiom-company-title">系统、玩法与交互资料</h2><p>从成长循环、玩家创建关卡，到字块判定、新手引导与生词本，阅读具体的设计规则与界面流程。</p></div><a class="text-link" href="../../projects/idiom-scholar/#idiom-design">查看成语项目资料 ↗</a></section>`;
+  return `<section class="idiom-company-entry" aria-labelledby="idiom-company-title"><div><p class="eyebrow">PROJECT EVIDENCE / 成语小秀才</p><h2 id="idiom-company-title">系统、玩法与交互资料</h2><p>成长循环、核心规则与 UI/UE；另补每日断案、七夕、清明及 App 龙舟赛的设计资料。</p></div><div><a class="text-link" href="../../projects/idiom-scholar/#idiom-design">查看成语项目资料 ↗</a><br><a class="text-link" href="../../projects/idiom-scholar/#idiom-events">常驻玩法与节日活动 ↗</a></div></section>`;
 }
 export function renderIdiomDesign(e,base='../../') {
   return `<section class="idiom-design" id="idiom-design" aria-labelledby="idiom-design-title">
     <div class="section-head"><div><p class="eyebrow">DESIGN EVIDENCE / 项目资料</p><h2 id="idiom-design-title">成语项目设计资料<span class="title-dot">.</span></h2></div><p>系统规则、玩法状态与界面流程。</p></div>
     <p class="idiom-boundary">任职与项目参与依据本人已确认履历。以下为项目文档摘要和界面参考，文档元数据不能单独证明具体作者；不将全部方案归为个人独立完成。美术执行由团队相应岗位承担。方案图不代表所有功能最终上线，图中的示例排名、奖励与时间不作为经营成果。</p>
-    <nav class="idiom-jumps" aria-label="设计资料分类"><a href="#idiom-systems">系统策划</a><a href="#idiom-gameplay">玩法设计</a><a href="#idiom-interaction">UI/UE 交互</a><a href="#idiom-assets">界面资源</a></nav>
+    <nav class="idiom-jumps" aria-label="设计资料分类"><a href="#idiom-systems">系统策划</a><a href="#idiom-gameplay">玩法设计</a><a href="#idiom-interaction">UI/UE 交互</a><a href="#idiom-assets">界面资源</a><a href="#idiom-events">玩法与活动</a></nav>
     <section class="idiom-chapter" id="idiom-systems" aria-labelledby="idiom-systems-title"><p class="eyebrow">SYSTEM DESIGN</p><h2 id="idiom-systems-title">系统策划</h2><p class="idiom-chapter-lead">不只列出功能，还要说明进度如何记录、状态如何转换，以及失败或中断后怎样继续。</p>
       ${evidence({id:'idiom-growth',title:'答题与成长循环',file:'growth-flow.png',problem:'如何让短关卡的完成形成可感知的成长，并保持入口、体力和进度逻辑一致？',decisions:['将关卡区分为已完成、未完成和未解锁；已经解锁的未完成关卡保留填字状态，再次进入不重复扣除解锁消耗。','通关后判断成长事件，在返回入口显示红点；回到主界面后点亮升级按钮，并显示距离下一次成长的目标。','多个成长事件按顺序处理；升级动画被切换界面或退出打断时，下次直接展示升级后的资源。'],output:'《养成玩法系统设计》包含关卡状态、进入条件、成长事件顺序、红点规则，以及界面和动画需求。示意图是方案参考，不是实际成绩报告。'},e,base)}
       ${evidence({id:'idiom-creator',title:'每日挑战与玩家创建关卡',file:'creator-flow.png',problem:'如何在核心填字之外组织每日内容，并让玩家可创建、发布和分享挑战？',decisions:['每日挑战说明入口解锁、计时、结算与排行榜；区分有数据和空榜，处理每日刷新时仍处于旧挑战的情况。','创建关卡按成语共用字连接，检查相邻限制与答题区边界；无候选项时提示回到上一步，未完成退出时确认是否放弃。','发布后连接好友挑战与本关排行；将新手未完成、功能未解锁、已经完成和未授权等分支分别说明。'],output:'《每日挑战系统设计》交付常规流程、创建与撤回路径、授权分支、空榜状态、难度约束及 UI/音效需求；概率和后端配置不在此公开。'},e,base)}
@@ -46,6 +47,7 @@ export function renderIdiomDesign(e,base='../../') {
       <div class="idiom-ux-pair"><article><h3>根据内容密度调整字块</h3><p>《适配答题界面字块布局》按题面占用与候选字数量切换布局，让稀疏题面使用更大的字块。</p><table><caption>文档中的布局组合</caption><thead><tr><th scope="col">答题区</th><th scope="col">候选字区</th></tr></thead><tbody><tr><td>7 × 7</td><td>6 × 2</td></tr><tr><td>8 × 8</td><td>7 × 3</td></tr><tr><td>9 × 9</td><td>8 × 4</td></tr></tbody></table><p>说明中明确上方横纵尺寸的判断条件，以及候选字较少时的放大方式；不是单纯按屏幕比例缩放。</p></article><article><h3>强引导之后，留出自主操作</h3><p>《新手引导说明》先指定一次选字，再让玩家自由填完；随后连接返回、晋升和继续答题，完整展示一次成长反馈。</p><ol><li>第一次选字：强引导演示填入。</li><li>完成关卡：弱提示下自主操作。</li><li>返回与晋升：连接答题和成长。</li><li>首次填错：提示点击错字撤回。</li><li>首次停滞：提示可用的帮助入口。</li></ol><p>补充提示出现、关闭和不再重复的条件，避免引导持续遮挡操作。</p></article></div>
     </section>
     <section class="idiom-chapter" id="idiom-assets" aria-labelledby="idiom-assets-title"><p class="eyebrow">INTERFACE REFERENCES</p><h2 id="idiom-assets-title">界面与美术资源</h2><p class="idiom-chapter-lead">主界面承载成长目标和功能入口，释义界面组织标题、拼音、解释与出处。两张图用于对照信息层级，不用于认定个人美术制作。</p><div class="idiom-assets-grid">${reference('home-reference.png','主界面参考',e,base)}${reference('definition-ui.png','释义界面资源',e,base)}</div></section>
-    <details class="idiom-document-index"><summary>资料来源与公开范围</summary><ul><li>系统：养成玩法系统设计、每日挑战系统设计。</li><li>玩法：填字核心玩法文档说明。</li><li>交互：适配答题界面字块布局、新手引导说明、成语生词本设计。</li><li>资源：上述文档的精选嵌入图片，以及项目 UI 释义界面资源。</li></ul><p>本文展示经筛选的图文与重新整理的规则摘要，不提供完整内部文档、配置表、统计报表或第三方素材库。历史方案中的目标不作为已达成指标，迭代设想不等于最终上线内容。</p></details>
+    ${renderIdiomEvents(e,base)}
+    <details class="idiom-document-index"><summary>资料来源与公开范围</summary><ul><li>系统：养成玩法系统设计、每日挑战系统设计。</li><li>玩法：填字核心玩法文档说明。</li><li>交互：适配答题界面字块布局、新手引导说明、成语生词本设计。</li><li>活动：App每日断案玩法说明、七夕活动策划案、清明节活动说明、App龙舟赛玩法说明。</li><li>资源：上述文档的精选嵌入图片，以及项目 UI 释义界面资源。</li></ul><p>本文展示经筛选的图文与重新整理的规则摘要，不提供完整内部文档、配置表、统计报表或第三方素材库。历史方案中的目标不作为已达成指标，迭代设想不等于最终上线内容。</p></details>
   </section>`;
 }

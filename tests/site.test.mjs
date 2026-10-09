@@ -5,10 +5,12 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import './magicar-planning.test.mjs';
+import './muyou-update.test.mjs';
+import './retired-content.test.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const companySlugs = ['jianyou', 'hero-games', 'bolang', 'quwan', 'muyou', 'beta', 'xingqi', 'haoteng', 'iceshi'];
-const layouts = ['producer', 'workbench', 'duology', 'quest', 'blueprint', 'board', 'storyboard', 'archive', 'lab'];
+const companySlugs = ['jianyou', 'hero-games', 'bolang', 'muyou', 'beta', 'haoteng', 'iceshi'];
+const layouts = ['producer', 'workbench', 'duology', 'blueprint', 'board', 'archive', 'lab'];
 const publicNotes = ['gameplay', 'team', 'data'];
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const hasClass = (node, name) => (node.attrs.class || '').split(/\s+/u).includes(name);
@@ -101,12 +103,12 @@ function routeFor(href, from) {
   return { path: path.endsWith('/') ? `${path}index.html` : path, hash: decodeURIComponent(url.hash.slice(1)) };
 }
 
-test('confirmed job facts produce nine newest-first companies and fifteen unique projects', async () => {
+test('confirmed job facts produce seven newest-first companies and thirteen unique projects', async () => {
   const { content, projectRecords } = await site();
   assert.deepEqual(content.jobs.map(job => job.slug), companySlugs);
-  assert.equal(projectRecords.length, 15);
-  assert.equal(new Set(projectRecords.map(project => project.slug)).size, 15);
-  assert.equal(new Set(projectRecords.map(project => project.title)).size, 15);
+  assert.equal(projectRecords.length, 13);
+  assert.equal(new Set(projectRecords.map(project => project.slug)).size, 13);
+  assert.equal(new Set(projectRecords.map(project => project.title)).size, 13);
   assert.ok(projectRecords.every(project => typeof project.title === 'string' && project.title.trim()), 'Every project has a real title');
   assert.equal(content.jobs[0].teamSize, 6, 'Jianyou project team contains six people in total');
   assert.ok(content.jobs.slice(1).every(job => job.teamSize !== 6), 'The six-person team belongs only to Jianyou');
@@ -155,11 +157,11 @@ test('home presents the full timeline and semantic company, role, project, and s
   assert.match(textOf(entries[1]), /2026[.\-/]07[.\-/]23/u);
 });
 
-test('the introduction chapter rail navigates nine real career records in their timeline order', async () => {
+test('the introduction chapter rail navigates seven real career records in their timeline order', async () => {
   const { home, content } = await site();
   const rail = one(home.document, node => node.tag === 'nav' && hasClass(node, 'chapter-rail'), 'Career chapter navigation');
   const links = nodes(rail, node => node.tag === 'a');
-  assert.equal(links.length, 9);
+  assert.equal(links.length, 7);
   for (const [index, link] of links.entries()) {
     assert.equal(routeFor(link.attrs.href, home.path).hash, `company-${companySlugs[index]}`);
     assert.ok(link.attrs['aria-label']?.includes(content.jobs[index].employer), 'Numbered chapter has its real company in the accessible label');
@@ -214,7 +216,7 @@ test('all detail routes retain independent layouts, factual panels, illustration
     assert.equal(route.path, 'index.html', detail.path);
     assert.equal(route.hash, `company-${body.attrs['data-company']}`, detail.path);
   }
-  assert.equal(new Set(illustrationRoutes).size, 24, 'Each company and project has its own original illustration');
+  assert.equal(new Set(illustrationRoutes).size, 20, 'Each company and project has its own original illustration');
 });
 
 test('all career pages lead with work value and distinguish project evidence from shared company duties', async()=>{
@@ -229,7 +231,7 @@ test('all career pages lead with work value and distinguish project evidence fro
     assert.doesNotMatch(textOf(section),/提升\s*\d+%|增长\s*\d+%|独立完成全部|保证上线|全部由我/u);
     assert.doesNotMatch(textOf(one(p.document,n=>hasClass(n,'detail-lede'),'Lead')),/参与的项目之一|以现代都市为背景|围绕人生选择/u);
   }
-  for(const slug of ['zuoyaoji-x','words-with-colors','paper-girl','creation-factory']){
+  for(const slug of ['words-with-colors','paper-girl','creation-factory']){
     const target=projects.find(p=>p.path===`projects/${slug}/index.html`);
     const section=one(target.document,n=>n.attrs.id==='work-value','Shared duty scope');
     assert.equal(section.attrs['data-work-basis'],'company');
@@ -448,6 +450,34 @@ test('Idiom Scholar exposes sourced systems, gameplay and interaction evidence w
   }
 });
 
+test('four supplied idiom activity documents add scoped visual cases with version and privacy boundaries', async()=>{
+  const {projects,companies}=await site();
+  const targets=[projects.find(p=>p.path==='projects/idiom-scholar/index.html'),await page('projects/idiom-scholar/design-summary/index.html')];
+  for(const target of targets){
+    const section=one(target.document,n=>n.attrs.id==='idiom-events','Idiom activity evidence');
+    for(const id of ['idiom-judgement','idiom-qixi','idiom-qingming','idiom-dragon']){
+      const card=one(section,n=>n.attrs.id===id,'Scoped activity case');
+      assert.equal(nodes(card,n=>n.tag==='li').length,3);
+      one(card,n=>n.tag==='details','Original large image');
+      one(card,n=>n.tag==='a'&&hasClass(n,'design-original'),'Original image entry');
+    }
+    assert.match(textOf(section),/倒计时.*不一致/u);
+    assert.match(textOf(section),/未发现正文.*署名/u);
+    assert.match(textOf(section),/不.*上线.*业绩/u);
+    assert.doesNotMatch(textOf(section),/10\s*万|100000|DAU|judge\.xlsx|spring\.xlsx|Pain|Nitta/u);
+  }
+  const company=companies.find(p=>p.path==='experience/haoteng/index.html');
+  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/idiom-scholar/#idiom-events','Company activity entry');
+  const {idiomEventAssets}=await import('../src/idiom-events.mjs');
+  assert.equal(idiomEventAssets.length,4);
+  for(const a of idiomEventAssets){
+    const bytes=await readFile(join(root,'assets/project-design/idiom-scholar',a.file));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256);
+    assert.equal(bytes.readUInt32BE(16),a.width);assert.equal(bytes.readUInt32BE(20),a.height);
+  }
+  for(const p of projects.filter(p=>p.path!=='projects/idiom-scholar/index.html'))assert.equal(nodes(p.document,n=>n.attrs.id==='idiom-events').length,0);
+});
+
 test('Matchmaking prioritizes two reviewed system maps across project, company and summary routes', async () => {
   const { projects, companies } = await site();
   const targets = [projects.find(p => p.path === 'projects/matchmaking-inc/index.html'), companies.find(c => c.path === 'experience/bolang/index.html'), await page('projects/matchmaking-inc/design-summary/index.html')];
@@ -480,7 +510,7 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   const {projects,companies}=await site();
   const project=projects.find(p=>p.path==='projects/my-town/index.html');
   const gallery=one(project.document,n=>n.attrs.id==='town-design','Town design evidence');
-  assert.equal(nodes(gallery,n=>n.tag==='article').length,3);
+  assert.equal(nodes(gallery,n=>n.tag==='article').length,6);
   assert.match(textOf(gallery),/中断/u);
   assert.match(textOf(gallery),/不代表[^。]*上线/u);
   assert.match(textOf(gallery),/团队/u);
@@ -488,7 +518,7 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   const summary=await page('projects/my-town/design-summary/index.html');
   one(summary.document,n=>n.attrs.id==='town-design','Town summary');
   const company=companies.find(c=>c.path==='experience/muyou/index.html');
-  const companyEntry=one(company.document,n=>hasClass(n,'idiom-company-entry'),'Original town company evidence section');
+  const companyEntry=one(company.document,n=>hasClass(n,'idiom-company-entry')&&n.attrs['aria-labelledby']==='town-company-title','Original town company evidence section');
   one(companyEntry,n=>n.tag==='a'&&n.attrs.href==='../../projects/my-town/#town-design','Town company entry');
   for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='town-design').length,0);
   const {townMaps}=await import('../src/town-design.mjs');
@@ -522,27 +552,6 @@ test('Beta authored evidence connects Word Villas, company and summary with expl
   assert.equal(betaAssets.length,6);assert.equal(betaDocuments.length,3);
   for(const doc of betaDocuments){assert.equal(doc.author,'吴天昊');assert.equal(doc.signature,'文档撰写人：吴天昊');}
   for(const item of betaAssets){const bytes=await readFile(join(root,'assets/project-design/word-villas',item.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);assert.equal(bytes.readUInt32BE(16),item.width);assert.equal(bytes.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
-});
-
-test('TT curation retains documented responsibility, five design cases and reviewed reference art', async()=>{
-  const {projects,companies}=await site();
-  for(const target of [projects.find(p=>p.path==='projects/party-planet/index.html'),companies.find(c=>c.path==='experience/quwan/index.html'),await page('projects/party-planet/design-summary/index.html')]){
-    const design=one(target.document,n=>n.attrs.id==='tt-design','TT curated design');
-    assert.equal(nodes(design,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,5);
-    assert.match(textOf(design),/负责人/u);assert.match(textOf(design),/吴天昊/u);
-    assert.match(textOf(design),/行为[^。]*收集/u);assert.match(textOf(design),/中断/u);
-    assert.match(textOf(design),/阶段性名称/u);assert.match(textOf(design),/数据目标[^。]*业绩/u);
-    assert.match(textOf(design),/美术[^。]*团队/u);
-    assert.doesNotMatch(textOf(design),/文档撰写人：吴天昊|60%|70%|80%|@/u);
-  }
-  for(const other of projects.filter(p=>p.path!=='projects/party-planet/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='tt-design').length,0);
-  const summary=await page('projects/party-planet/design-summary/index.html');
-  one(summary.document,n=>n.attrs.id==='materials','Preserve existing TT authored summary');
-  one(summary.document,n=>n.tag==='a'&&hasClass(n,'design-original')&&n.attrs.href==='../../../assets/diagrams/material-party-planet.svg','Preserve original summary diagram');
-  const {ttAssets,ttDocuments}=await import('../src/tt-design.mjs');
-  assert.equal(ttAssets.length,7);assert.equal(ttDocuments.length,5);
-  for(const doc of ttDocuments)assert.match(doc.evidence,/负责人[^。]*吴天昊/u);
-  for(const item of ttAssets){const b=await readFile(join(root,'assets/project-design/party-planet',item.file));assert.equal(createHash('sha256').update(b).digest('hex'),item.sha256);assert.equal(b.readUInt32BE(16),item.width);assert.equal(b.readUInt32BE(20),item.height);assert.ok(item.source.length>10);}
 });
 
 test('Bolang supplements connect both projects without replacing existing evidence or claiming team execution', async()=>{

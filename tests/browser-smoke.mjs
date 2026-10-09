@@ -6,7 +6,7 @@ import { once } from 'node:events';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const artifacts = join(root, 'artifacts', 'acceptance');
-const companySlugs = ['jianyou', 'hero-games', 'bolang', 'quwan', 'muyou', 'beta', 'xingqi', 'haoteng', 'iceshi'];
+const companySlugs = ['jianyou', 'hero-games', 'bolang', 'muyou', 'beta', 'haoteng', 'iceshi'];
 const homeViewports = [
   { width: 360, height: 800 }, { width: 390, height: 844 },
   { width: 768, height: 1024 }, { width: 1440, height: 1000 },
@@ -168,7 +168,7 @@ try {
   if (executablePath) await access(executablePath);
   browser = await playwright.chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
   const projectRecords = content.jobs.flatMap(job => job.projects.map(project => ({ ...project, companySlug: job.slug })));
-  assert.equal(projectRecords.length, 15);
+  assert.equal(projectRecords.length, 13);
   const routes = [
     ...companySlugs.map(slug => ({ route: `experience/${slug}/index.html`, slug, type: 'company' })),
     ...projectRecords.map(project => ({ route: `projects/${project.slug}/index.html`, slug: project.companySlug, type: 'project', title: project.title })),
@@ -257,22 +257,22 @@ try {
 
   await run('company navigation restores company hash and position through back, forward, and return link', async () => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await navigate(page, 'index.html#company-quwan');
-    const entry = page.locator('#company-quwan');
+    await navigate(page, 'index.html#company-muyou');
+    const entry = page.locator('#company-muyou');
     await entry.evaluate(element => element.scrollIntoView({ block: 'start', behavior: 'instant' }));
     const expectedY = await page.evaluate(() => scrollY);
     await entry.locator('.company-title').click();
-    await page.locator('body[data-page="company"][data-company="quwan"]').waitFor();
+    await page.locator('body[data-page="company"][data-company="muyou"]').waitFor();
     await page.goBack({ waitUntil: 'networkidle' });
-    await restoredCompany(page, 'quwan', expectedY);
+    await restoredCompany(page, 'muyou', expectedY);
     await page.goForward({ waitUntil: 'networkidle' });
-    await page.locator('body[data-page="company"][data-company="quwan"]').waitFor();
+    await page.locator('body[data-page="company"][data-company="muyou"]').waitFor();
     await page.locator('.detail-footer [data-return-home]').click();
-    await restoredCompany(page, 'quwan', expectedY);
+    await restoredCompany(page, 'muyou', expectedY);
     await page.goBack({ waitUntil: 'networkidle' });
-    await page.locator('body[data-page="company"][data-company="quwan"]').waitFor();
+    await page.locator('body[data-page="company"][data-company="muyou"]').waitFor();
     await page.goForward({ waitUntil: 'networkidle' });
-    return restoredCompany(page, 'quwan', expectedY);
+    return restoredCompany(page, 'muyou', expectedY);
   });
 
   await run('project nodes reach real project pages and return to their source company', async () => {
@@ -349,7 +349,7 @@ try {
     observe(plainPage);
     try {
       await navigate(plainPage, 'index.html');
-      assert.equal(await plainPage.locator('.company-entry .company-title').count(), 9);
+      assert.equal(await plainPage.locator('.company-entry .company-title').count(), 7);
       await noOverflow(plainPage);
       const branch = plainPage.locator('#branch-jianyou-projects');
       if (await branch.getAttribute('open') === null) await branch.locator('summary').click();
