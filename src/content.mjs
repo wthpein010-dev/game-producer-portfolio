@@ -7,12 +7,12 @@ export const profile = {
   education: '北京联合大学 · 计算机科学与技术 · 本科 · 2015.09—2017.07'
 };
 export const jobs = [
-  {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.07.27—至今', start:'2026-07-27', layout:'producer', teamSize:6,
+  {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.05.18—至今', start:'2026-05-18', layout:'producer', teamSize:6,
     projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'负责整体方向、玩法与系统、团队排期和数据迭代，把设计决策与研发推进放在同一条工作线上。'}],
     scope:['整体方向','玩法与系统','团队与排期','数据迭代'],
     lead:'在共 6 人的项目团队中，统筹游戏方向、玩法系统、团队排期与数据迭代，承担设计与研发推进的衔接职责。',
     note:'项目团队共 6 人，不等同于 6 名直接下属。职责不包含美术表现、发行运营。'},
-  {slug:'hero-games', employer:'英雄游戏科技股份有限公司', role:'高级系统策划', period:'2025.07—2026.07.23', start:'2025-07', end:'2026-07-23', layout:'workbench',
+  {slug:'hero-games', employer:'英雄游戏科技股份有限公司', role:'高级系统策划', period:'2025.07—2026.05.15', start:'2025-07', end:'2026-05-15', layout:'workbench',
     projects:[{slug:'crisis-dawn',title:'危机曙光',description:'承担 SOC 项目 PC 移植中的 UI/UE、HUD 与操作逻辑调整，创建和修订跨界面数值显示规范，并推进家园、公会调优与跨岗位问题处理。'}],
     scope:['SOC 项目 PC 端移植','UI/UE 重构','HUD 与操作逻辑','家园及公会调优','问题整理与跨岗位推进'],
     lead:'围绕 SOC 项目 PC 移植重构界面与操作体验，创建数值显示规范，并结合家园、公会调优推进跨岗位调整；在约 10 人系统组中协作交付。'},

@@ -152,9 +152,9 @@ test('home presents the full timeline and semantic company, role, project, and s
   const teamNote = one(home.document, node => hasClass(node, 'team-note'), 'Total-team note');
   assert.match(textOf(teamNote), /(?:6|六)\s*(?:人|位|名)/u);
   assert.match(textOf(teamNote), /团队/u);
-  assert.match(textOf(entries[0]), /2026[.\-/]07[.\-/]27/u);
+  assert.match(textOf(entries[0]), /2026[.\-/]05[.\-/]18/u);
   assert.match(textOf(entries[0]), /至今|现在|present/iu);
-  assert.match(textOf(entries[1]), /2026[.\-/]07[.\-/]23/u);
+  assert.match(textOf(entries[1]), /2026[.\-/]05[.\-/]15/u);
 });
 
 test('the introduction chapter rail navigates seven real career records in their timeline order', async () => {
@@ -376,11 +376,11 @@ test('public pages exclude contacts, private artifacts, local placeholders, and 
   }
   const jianyou = [companies[0], ...projects.filter(detail => nodes(detail.document, node => node.tag === 'body' && node.attrs['data-company'] === 'jianyou').length)];
   for (const current of jianyou) {
-    assert.match(textOf(current.document), /2026[.\-/]07[.\-/]27/u, `${current.path} latest start date`);
+    assert.match(textOf(current.document), /2026[.\-/]05[.\-/]18/u, `${current.path} latest start date`);
     assert.match(textOf(current.document), /至今|现在|present/iu, `${current.path} latest position is current`);
     assert.doesNotMatch(textOf(current.document), /(?:负责|主导|统筹|管理|承担)[^。；]{0,25}(?:美术|投放|上线运营)|(?:美术|上线运营)[^。；]{0,25}(?:负责|主导|统筹)/u, `${current.path} makes no unsupported art or launch-duty claim`);
   }
-  assert.match(textOf(companies[1].document), /2026[.\-/]07[.\-/]23/u, 'Hero Games corrected end date');
+  assert.match(textOf(companies[1].document), /2026[.\-/]05[.\-/]15/u, 'Hero Games corrected end date');
 });
 
 test('homepage independent games retain original screenshots and confirmed two-person attribution', async () => {
