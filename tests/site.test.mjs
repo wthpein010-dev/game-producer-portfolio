@@ -425,6 +425,26 @@ test('all eight TapTap details retain real media, version context and their own 
   }
 });
 
+test('TapTap reading starts with named projects, a complete jump index and an early game image', async () => {
+  const {home,taptapPages}=await site();
+  const {taptapGames}=await import('../src/taptap-games.mjs');
+  const collection=one(home.document,n=>n.attrs.id==='taptap-games','TapTap collection');
+  const index=one(collection,n=>n.tag==='nav'&&n.attrs['aria-label']==='快速查看游戏','Project jump index');
+  assert.deepEqual(nodes(index,n=>n.tag==='a').map(n=>n.attrs.href),taptapGames.map(g=>'#work-'+g.slug));
+  for(const card of nodes(collection,n=>hasClass(n,'taptap-card'))) {
+    const children=card.children.filter(n=>typeof n!=='string');
+    assert.equal(children[0].tag,'header','Project name precedes its screenshot in the reading order');
+    assert.ok(nodes(children[0],n=>n.tag==='h4').length===1);
+  }
+  for(const page of taptapPages) {
+    const hero=one(page.document,n=>hasClass(n,'taptap-hero'),'Image-led project introduction');
+    assert.equal(nodes(hero,n=>n.tag==='img').length,1,'First game image appears beside the introduction');
+    const nav=one(page.document,n=>n.tag==='nav'&&n.attrs['aria-label']==='本页内容','In-page reading navigation');
+    assert.equal(nodes(nav,n=>n.tag==='a').length,5);
+    for(const link of nodes(nav,n=>n.tag==='a'))one(page.document,n=>n.attrs.id===link.attrs.href.slice(1),'Reading section target');
+  }
+});
+
 test('homepage independent games retain original screenshots and confirmed two-person attribution', async () => {
   const { home } = await site();
   const selected = one(home.document, node => node.attrs.id === 'selected', 'Personal works');

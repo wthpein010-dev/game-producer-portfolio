@@ -11,7 +11,7 @@
     const returning = location.hash.startsWith('#company-') && state?.companyId === location.hash.slice(1);
     for (const branch of branches) {
       if (validState && returning) branch.open = state.open.includes(branch.id);
-      else if (matchMedia('(max-width: 700px)').matches) branch.open = branch.dataset.priority === 'true';
+      else if (matchMedia('(max-width: 820px)').matches) branch.open = branch.dataset.priority === 'true';
     }
     const save = companyId => {
       const record = { companyId: companyIds.includes(companyId) ? companyId : state?.companyId, scrollY: scrollY, open: branches.filter(el => el.open).map(el => el.id) };
