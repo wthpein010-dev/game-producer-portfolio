@@ -1,3 +1,4 @@
+import {renderTapTapBody,renderTapTapCollection} from './taptap-portfolio.mjs';
 import {renderZuoyaoDesign,renderZuoyaoCompanyEntry} from './muyou-evidence.mjs';
 import {renderBetaDesign} from './beta-design.mjs';
 import {renderWordExcerpts} from './word-excerpts.mjs';
@@ -44,11 +45,15 @@ function renderCareerCases() {
   return `<section class="career-cases wrap" id="career-cases" aria-labelledby="career-cases-title"><header class="section-head"><div><p class="eyebrow">SELECTED CAREER / 代表案例</p><h2 id="career-cases-title">代表项目<span class="title-dot">.</span></h2></div></header><div class="career-case-grid">${cases.map(c=>`<article class="career-case"><a class="career-case-image" href="projects/${c.slug}/#${c.anchor}" aria-label="查看${e(c.title)}设计资料"><img src="assets/project-design/${c.file}" width="${c.width}" height="${c.height}" loading="lazy" alt="${e(c.alt)}"></a><div class="career-case-copy"><p class="eyebrow">${e(c.role)}</p><h3>${e(c.title)}</h3><p>${e(c.text)}</p><ul class="case-keywords" aria-label="核心工作">${keywords[c.slug].map(k=>`<li>${e(k)}</li>`).join('')}</ul><footer><span>${e(c.value)}</span><a href="projects/${c.slug}/">项目详情 ↗</a></footer></div></article>`).join('')}</div></section>`;
 }
 export function renderHome(aiHtml='') {
+  aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderTapTapCollection());
   return shell({title:'职业时间轴与项目实践',description:profile.description,body:`<main id="main">
     <section class="home-intro wrap" id="top" aria-labelledby="intro-title"><div class="intro-main"><p class="eyebrow">GAME PRODUCER / RESUME</p><h1 id="intro-title">${profile.name}<span>游戏制作人<span class="title-dot">.</span></span></h1><p>${e(profile.description)}</p><div class="intro-facts"><span><strong>${profile.experience}</strong>游戏研发经验</span><span><strong>${profile.projectExperience}</strong>完整项目经验</span></div></div><aside class="intro-aside"><span>NOW / 当前工作</span><h2>羊了个羊：对对碰</h2><p>北京简游科技有限公司<br>游戏制作人 · ${e(jobs[0].start.replaceAll('-','.'))} 起</p><a href="#company-jianyou">查看最近经历 ↓</a></aside>${chapterRail()}</section>
     ${renderCareerCases()}
     <section class="timeline-section wrap" id="experience" aria-labelledby="timeline-title"><div class="section-head"><div><p class="eyebrow">01 / CAREER TIMELINE</p><h2 id="timeline-title">工作经历<span class="title-dot">.</span></h2></div></div><div class="career-timeline">${jobs.map(timeline).join('')}</div><div class="education-row"><span>教育背景</span><strong>北京联合大学</strong><p>计算机科学与技术 · 本科 · 2015.09—2017.07</p></div></section>
     <section class="skills-section wrap section" id="skills" aria-labelledby="skills-title"><div class="section-head"><div><p class="eyebrow">02 / SKILL TREE</p><h2 id="skills-title">项目技能<span class="title-dot">.</span></h2></div></div><div class="skill-tree">${skills.map((s,i)=>`<article class="skill-card"><span class="skill-index">${counter(i+1)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></article>`).join('')}</div></section>${aiHtml}</main>`});
+}
+export function renderTapTapDetail(game) {
+  return shell({title:game.title+' · TapTap 游戏实践',description:game.summary,body:renderTapTapBody(game),base:'../../',page:'document'});
 }
 const layoutNames={producer:'制作任务档案',workbench:'PC 体验工作台',duology:'双项目记录',quest:'关卡与任务地图',blueprint:'系统设计蓝图',board:'系统与推进看板',storyboard:'体验路径分镜',archive:'项目卡带档案',lab:'质量与内容实验室'};
 function scopeMarkup(job){if(!job.scope.length)return `<p>以${e(job.role)}身份参与${job.projects.map(p=>`《${e(p.title)}》`).join('、')}。</p><p>这里保留任职角色与项目记录。</p>`;return `<ol class="scope-list">${job.scope.map((s,i)=>`<li><span>${counter(i+1)}</span><strong>${e(s)}</strong></li>`).join('')}</ol>`;}

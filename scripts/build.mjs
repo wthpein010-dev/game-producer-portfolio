@@ -6,6 +6,8 @@ import {jobs} from '../src/content.mjs';
 import {renderHome,renderDetail,renderDiagram,renderPublicNote,renderMaterialNote} from '../src/render.mjs';
 import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
 import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSummary} from '../src/render.mjs';
+import {taptapGames} from '../src/taptap-games.mjs';
+import {renderTapTapDetail} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -30,6 +32,11 @@ export async function build() {
   const theme=graphicTheme(await readFile(path.join(siteRoot,'assets/site.css'),'utf8'));
   await mkdir(path.join(siteRoot,'assets/diagrams'),{recursive:true});
   await writeFile(path.join(siteRoot,'index.html'),renderHome(ai));
+  for(const game of taptapGames) {
+    const dir=path.join(siteRoot,'projects','taptap-'+game.slug);
+    await mkdir(dir,{recursive:true});
+    await writeFile(path.join(dir,'index.html'),renderTapTapDetail(game));
+  }
   for(const job of jobs) {
     const dir=path.join(siteRoot,'experience',job.slug);
     await mkdir(dir,{recursive:true});
@@ -62,6 +69,6 @@ export async function build() {
   await mkdir(zuoyaoSummary,{recursive:true});
   await writeFile(path.join(zuoyaoSummary,'index.html'),renderZuoyaoSummary());
   await writeFile(path.join(siteRoot,'.nojekyll'),'');
-  console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} project pages and ${sheepNotes.length} public responsibility notes.`);
+  console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} career project pages, ${taptapGames.length} TapTap project pages and ${sheepNotes.length} public responsibility notes.`);
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))await build();

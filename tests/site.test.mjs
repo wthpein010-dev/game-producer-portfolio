@@ -87,11 +87,13 @@ function site() {
     const companies = await Promise.all(companySlugs.map(slug => page(`experience/${slug}/index.html`)));
     const projectRecords = content.jobs.flatMap(job => job.projects.map(project => ({ ...project, companySlug: job.slug })));
     const projects = await Promise.all(projectRecords.map(project => page(`projects/${project.slug}/index.html`)));
+    const {taptapGames} = await import('../src/taptap-games.mjs');
+    const taptapPages = await Promise.all(taptapGames.map(game => page(`projects/taptap-${game.slug}/index.html`)));
     const notes = (await Promise.all(publicNotes.map(slug => page(`projects/sheep-match/${slug}/index.html`).catch(error => {
       if (error.code === 'ENOENT') return null;
       throw error;
     })))).filter(Boolean);
-    return { content, home, companies, projects, notes, projectRecords, pages: [home, ...companies, ...projects, ...notes] };
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages] };
   })();
   return sitePromise;
 }
@@ -381,6 +383,46 @@ test('public pages exclude contacts, private artifacts, local placeholders, and 
     assert.doesNotMatch(textOf(current.document), /(?:负责|主导|统筹|管理|承担)[^。；]{0,25}(?:美术|投放|上线运营)|(?:美术|上线运营)[^。；]{0,25}(?:负责|主导|统筹)/u, `${current.path} makes no unsupported art or launch-duty claim`);
   }
   assert.match(textOf(companies[1].document), /2026[.\-/]05[.\-/]15/u, 'Hero Games corrected end date');
+});
+
+test('TapTap works follow the independent games and replace the retired stall prototype', async () => {
+  const { home } = await site();
+  const selected = one(home.document, n => n.attrs.id === 'selected', 'Personal works');
+  const collection = one(selected, n => n.attrs.id === 'taptap-games', 'TapTap games');
+  const blocks = selected.children.filter(n => typeof n !== 'string');
+  assert.equal(blocks.indexOf(collection), blocks.findIndex(n => n.attrs.id === 'indie-games') + 1);
+  const cards = nodes(collection, n => n.tag === 'article');
+  assert.equal(cards.length, 8, 'Eight distinct games, with the two food-car builds counted once');
+  for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','贴纸造景']) {
+    const card = one(collection, n => n.tag === 'article' && textOf(n).includes(title), title);
+    assert.ok(nodes(card, n => n.tag === 'img' && n.attrs.alt && Number(n.attrs.width) > 0 && Number(n.attrs.height) > 0).length >= 1);
+    assert.ok(nodes(card, n => n.tag === 'a' && /^https:\/\/www\.taptap\.cn\/app\/\d+/u.test(n.attrs.href || '')).length >= 1);
+    assert.ok(nodes(card, n => n.tag === 'a' && /^projects\/taptap-/u.test(n.attrs.href || '')).length >= 1);
+  }
+  assert.doesNotMatch(home.html, /ai-application-hub\/projects\/after-hours-stall\/|10 关 \/ 滑动整理|Unity 原创游戏/u);
+});
+
+test('all eight TapTap details retain real media, version context and their own public game link', async () => {
+  const {taptapGames} = await import('../src/taptap-games.mjs');
+  const expected = ['963733','969065','969688','969204','964337','964090','971511','974262'];
+  assert.equal(taptapGames.length, expected.length);
+  for (const [index,game] of taptapGames.entries()) {
+    assert.equal(new URL(game.tapUrl).pathname, '/app/'+expected[index], game.title);
+    const html = await readFile(join(root,'projects','taptap-'+game.slug,'index.html'),'utf8');
+    const doc = parseHtml(html);
+    assert.equal(textOf(one(doc,n=>n.tag==='h1','Project title')).replace(/\s+\.$/u,'.'),game.title+'.');
+    assert.ok(nodes(doc,n=>n.tag==='a'&&n.attrs.href===game.tapUrl).length>=1);
+    one(doc,n=>n.tag==='a'&&n.attrs.href===`../../index.html#work-${game.slug}`&&textOf(n).includes('返回个人作品 ↑'),'Exact return anchor');
+    for(const id of ['gameplay-title','screenshots-title','design-title','practice-title','play-title']) one(doc,n=>n.attrs.id===id,id);
+    assert.ok(game.shots.length>=2);
+    for(const shot of game.shots) {
+      const img=one(doc,n=>n.tag==='img'&&n.attrs.src==='../../'+shot.src,'Real game screenshot');
+      assert.equal(Number(img.attrs.width),shot.width);
+      assert.equal(Number(img.attrs.height),shot.height);
+      assert.ok((await stat(join(root,shot.src))).size>1000);
+    }
+    assert.doesNotMatch(html, /(?:E:|C:)[\\/]|raw-sessions|resume-cards|app\/788134|localhost|待补充/u);
+  }
 });
 
 test('homepage independent games retain original screenshots and confirmed two-person attribution', async () => {

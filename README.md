@@ -12,6 +12,8 @@ node scripts/serve.mjs
 
 内容集中在 `src/content.mjs`，页面由 `src/render.mjs` 生成。职业信息依据本人提供的履历与确认；公开产品简介附原始来源。公司层面的共同职责不会逐项归为某个项目的独立成果。不展示电话、邮箱、原始简历 PDF、公司内部资料或未核实的商业成绩。
 
+TapTap 游戏实践位于首页个人作品区，两人独立游戏之后。八款游戏的公开文案与截图登记在 `src/taptap-games.mjs`，由 `src/taptap-portfolio.mjs` 生成卡片和详情；来源与版本说明见 [TapTap 作品资料说明](docs/taptap-project-sources.md)。无界面浏览器验收可运行 `node tests/taptap-browser-smoke.mjs`，复用本机 Playwright / Axe 安装，依赖路径可通过 `PLAYWRIGHT_MODULE` 和 `AXE_MODULE` 指定。
+
 职业项目配图为本站原创职责结构示意，不是游戏实机截图。个人实践的配图与证据来自本人已公开的 [AI Application Hub](https://wthpein010-dev.github.io/ai-application-hub/)，该站与原 Hub 分开发布。
 
 布局参考：[Brittany Chiang](https://brittanychiang.com/) 的履历阅读层次、[Rauno](https://rauno.me/) 的独立场景、[Bruno Simon](https://bruno-simon.com/) 的轻游戏化探索入口。只借鉴阅读与导航思路，不复制其代码或视觉资产。

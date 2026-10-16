@@ -1284,3 +1284,58 @@ button:disabled { cursor: default; }
 .muyou-evidence-table th, .muyou-evidence-table td { padding:14px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
 .muyou-evidence-table thead { background:var(--surface); }
 @media(max-width:540px) { .muyou-evidence-table th, .muyou-evidence-table td { padding:10px 6px; font-size:13px; } }
+
+/* TapTap project collection. Existing portfolio tokens remain canonical. */
+.taptap-collection { margin-block: 48px 64px; padding-block: 32px; border-block: 1px solid var(--line); }
+.taptap-intro { max-width: 62em; margin-bottom: 28px; }
+.taptap-intro h3 { font-size: clamp(26px, 3vw, 36px); margin-bottom: 14px; }
+.taptap-intro > p:last-child, .taptap-gallery > header > p:last-child { color: var(--muted); }
+.taptap-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.taptap-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; display: flex; flex-direction: column; }
+.taptap-cover { background: var(--surface-soft); }
+.taptap-cover > a { display: flex; align-items: center; justify-content: center; height: 320px; padding: 14px; }
+.taptap-cover img { width: 100%; height: 100%; object-fit: contain; }
+.taptap-cover figcaption { font-size: 13px; padding: 8px 24px; border-top: 1px solid var(--line); color: var(--muted); }
+.taptap-card-copy { padding: 24px; display: flex; flex: 1; flex-direction: column; }
+.taptap-card h4 { font-size: 26px; margin-block: 0 14px; }
+.taptap-card .case-keywords { margin-bottom: 16px; }
+.taptap-card-state { color: var(--muted); font-size: 14px; }
+.taptap-actions { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
+.taptap-actions a, .taptap-next a { display: inline-flex; align-items: center; min-height: 44px; }
+.taptap-detail > section { padding-block: 36px; border-top: 1px solid var(--line); }
+.taptap-detail h2 { font-size: clamp(25px, 3vw, 34px); margin-bottom: 18px; }
+.taptap-detail h3 { font-size: 20px; }
+.taptap-overview, .taptap-practice { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; }
+.taptap-loop { margin: 0; padding-left: 28px; align-self: center; }
+.taptap-loop li { padding-block: 10px; padding-left: 8px; border-bottom: 1px solid var(--line); }
+.taptap-loop li::marker { color: var(--accent); font-weight: 600; }
+.taptap-gallery > header { max-width: 58em; margin-bottom: 24px; }
+.taptap-shot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.taptap-shot-grid > figure > a { display: flex; align-items: center; justify-content: center; padding: 10px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: var(--radius-small); }
+.taptap-shot-grid img { width: 100%; height: auto; max-height: 580px; object-fit: contain; }
+.taptap-shot-grid figcaption { padding-block: 14px; font-size: 14px; color: var(--muted); }
+.taptap-shot-grid figcaption strong { display: block; color: var(--ink); margin-bottom: 6px; }
+.taptap-design-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.taptap-design-grid > article { padding-top: 20px; border-top: 1px solid var(--line); }
+.taptap-design-grid p { margin-bottom: 0; }
+.taptap-play { display: flex; justify-content: space-between; align-items: center; gap: 28px; }
+.taptap-play > div { max-width: 48em; }
+.taptap-play .button { flex-shrink: 0; }
+.taptap-next { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-block: 28px; border-top: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .taptap-grid, .taptap-overview, .taptap-practice, .taptap-design-grid { grid-template-columns: minmax(0, 1fr); }
+  .taptap-cover > a { height: 350px; }
+  .taptap-card-copy { padding: 20px; }
+  .taptap-shot-grid { grid-template-columns: minmax(0, 1fr); }
+  .taptap-shot-grid img { max-height: 580px; }
+  .taptap-play { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .taptap-collection *, .taptap-detail * { animation: none !important; transition: none !important; }
+}
+@media print {
+  .taptap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .taptap-cover > a { height: 220px; }
+  .taptap-card, .taptap-shot-grid figure { break-inside: avoid; }
+  .taptap-shot-grid img { max-height: 300px; }
+}
