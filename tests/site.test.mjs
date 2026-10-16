@@ -445,6 +445,18 @@ test('TapTap reading starts with named projects, a complete jump index and an ea
   }
 });
 
+test('shared styles and scripts use content versions so cached assets cannot mix releases', async () => {
+  const {pages}=await site();
+  const names=['legacy.css','site.css','app.js','reading.js'];
+  const hash=createHash('sha256');
+  for(const name of names)hash.update(await readFile(join(root,'assets',name)));
+  const expected=hash.digest('hex').slice(0,12);
+  for(const current of pages)for(const name of names) {
+    const asset=one(current.document,n=>['link','script'].includes(n.tag)&&new URL(n.attrs.href||n.attrs.src||'','https://site.invalid/').pathname.endsWith('/assets/'+name),name);
+    assert.equal(new URL(asset.attrs.href||asset.attrs.src,'https://site.invalid/').searchParams.get('v'),expected,current.path+' '+name);
+  }
+});
+
 test('homepage independent games retain original screenshots and confirmed two-person attribution', async () => {
   const { home } = await site();
   const selected = one(home.document, node => node.attrs.id === 'selected', 'Personal works');
@@ -778,7 +790,7 @@ test('featured career covers use landscape publicity assets, not design diagrams
 test('visual reading enhancement loads on every page and retains no-script evidence', async()=>{
   const {pages,home}=await site();
   for(const p of pages){
-    const script=one(p.document,n=>n.tag==='script'&&n.attrs.src.endsWith('reading.js'),'Reading interactions');
+    const script=one(p.document,n=>n.tag==='script'&&new URL(n.attrs.src,'https://site.invalid/').pathname.endsWith('/reading.js'),'Reading interactions');
     assert.ok('defer' in script.attrs);
   }
   const section=one(home.document,n=>n.attrs.id==='career-cases','Career cases');
