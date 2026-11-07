@@ -17,6 +17,6 @@ jobs:
       - name: Rebuild static pages
         run: node scripts/build.mjs
       - name: Validate content, routes and publication boundaries
-        run: node --test tests/site.test.mjs
+        run: node --test tests/site.test.mjs tests/responsive-images.test.mjs
       - name: Ensure generated pages match source
         run: git diff --exit-code

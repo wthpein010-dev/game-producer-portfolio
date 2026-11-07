@@ -6,6 +6,15 @@
     : ['matchmaking-inc', 'vanity-fair'].includes(slug) ? 'route'
     : document.body.dataset.company === 'hero-games' ? 'blueprint' : 'journal';
   document.body.dataset.readingMotion = theme;
+  const originalFallback = img => {
+    if (!(img instanceof HTMLImageElement) || !img.dataset.originalSrc || img.dataset.previewFallback) return;
+    img.dataset.previewFallback='true';
+    img.removeAttribute('srcset');img.removeAttribute('sizes');img.src=img.dataset.originalSrc;
+  };
+  document.addEventListener('error',event=>originalFallback(event.target),true);
+  document.querySelectorAll('img[data-original-src]').forEach(img=>{
+    if(img.complete && img.naturalWidth===0)originalFallback(img);
+  });
   const galleries = [];
   let sequence = 0;
   const animate = node => {
@@ -18,22 +27,6 @@
   if (page === 'home' && !location.hash.startsWith('#company-')) {
     document.querySelectorAll('.branch-group[id$="-scope"]').forEach(branch => {branch.open=false;});
   }
-  if (page === 'project') {
-    const covers = {
-      'idiom-scholar':['idiom-scholar/promotional-cover.png',960,334,'成语小秀才 · 项目推广素材'],
-      'word-villas':['word-villas/promotional-cover.jpg',1280,720,'Word Villas · 宣传视频封面'],
-      'matchmaking-inc':['matchmaking-inc/promotional-cover.jpg',460,215,'中国式相亲 · Steam 官方宣传图']
-    };
-    const cover = covers[slug];
-    if (cover) {
-      const figure=document.createElement('figure');figure.className='project-visual-overview';
-      const img=document.createElement('img');
-      img.src=`../../assets/project-design/${cover[0]}`;img.width=cover[1];img.height=cover[2];img.alt=cover[3];
-      const caption=document.createElement('figcaption');caption.textContent=cover[3];
-      figure.append(img,caption);document.querySelector('.detail-hero').after(figure);
-    }
-  }
-
   // Keep the complete evidence in the document; scripts only change its reading state.
   const makeGallery = (section, panels) => {
     if (panels.length < 2) return;
@@ -103,7 +96,7 @@
         if (seen.has(img.src)) continue;
         seen.add(img.src);
         const thumb = img.cloneNode(false);
-        thumb.alt = '';thumb.removeAttribute('id');thumb.loading = 'lazy';
+        thumb.alt = '';thumb.removeAttribute('id');thumb.loading = 'lazy';thumb.sizes = '110px';
         preview.append(thumb);
         if (seen.size === 3) break;
       }

@@ -1,0 +1,2087 @@
+{
+  "version": 1,
+  "images": {
+    "assets/hub-showcase/after-hours-stall.png": {
+      "sourceSha256": "a3b5ddc6c30ce5911f66e841b53c8ebc270679f3cdffdacb0f044cf7ea762f71",
+      "width": 1100,
+      "height": 900,
+      "bytes": 90026,
+      "variants": [
+        {
+          "src": "assets/optimized/hub-showcase/after-hours-stall.png-a3b5ddc6c30ce591-480.webp",
+          "width": 480,
+          "height": 393,
+          "bytes": 46748
+        },
+        {
+          "src": "assets/optimized/hub-showcase/after-hours-stall.png-a3b5ddc6c30ce591-1100.webp",
+          "width": 1100,
+          "height": 900,
+          "bytes": 34740
+        }
+      ]
+    },
+    "assets/hub-showcase/gamespec-relay.webp": {
+      "sourceSha256": "c278b7bf93cd94c72b0831f38bd4f59aa0a6c6bf95dcaeaff46765f5524f6a74",
+      "width": 1440,
+      "height": 900,
+      "bytes": 92568,
+      "variants": [
+        {
+          "src": "assets/optimized/hub-showcase/gamespec-relay.webp-c278b7bf93cd94c7-480.webp",
+          "width": 480,
+          "height": 300,
+          "bytes": 21808
+        },
+        {
+          "src": "assets/optimized/hub-showcase/gamespec-relay.webp-c278b7bf93cd94c7-960.webp",
+          "width": 960,
+          "height": 600,
+          "bytes": 64304
+        }
+      ]
+    },
+    "assets/hub-showcase/lighthouse-rescue.webp": {
+      "sourceSha256": "8c905f882a4e6400116b233c0c5306e22ad089a9aee23f89f652886d1a11af73",
+      "width": 1280,
+      "height": 720,
+      "bytes": 93052,
+      "variants": [
+        {
+          "src": "assets/optimized/hub-showcase/lighthouse-rescue.webp-8c905f882a4e6400-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 44740
+        }
+      ]
+    },
+    "assets/project-design/crisis-dawn/challenge-flow.jpeg": {
+      "sourceSha256": "14e0089290e74a8b909debc33bba07ab280d235facb68e5256eaa5e8f74d4af0",
+      "width": 2560,
+      "height": 2328,
+      "bytes": 145233,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-flow.jpeg-14e0089290e74a8b-480.webp",
+          "width": 480,
+          "height": 436,
+          "bytes": 5226
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-flow.jpeg-14e0089290e74a8b-960.webp",
+          "width": 960,
+          "height": 873,
+          "bytes": 13370
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-flow.jpeg-14e0089290e74a8b-1440.webp",
+          "width": 1440,
+          "height": 1310,
+          "bytes": 24222
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-flow.jpeg-14e0089290e74a8b-1920.webp",
+          "width": 1920,
+          "height": 1746,
+          "bytes": 37228
+        }
+      ]
+    },
+    "assets/project-design/crisis-dawn/challenge-map.jpeg": {
+      "sourceSha256": "d7349c6433a76c4a53fb959202ab4131ee0e8f810a294a11106dbf069e8a373e",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 232394,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-map.jpeg-d7349c6433a76c4a-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 10184
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-map.jpeg-d7349c6433a76c4a-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 28654
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-map.jpeg-d7349c6433a76c4a-1440.webp",
+          "width": 1440,
+          "height": 1440,
+          "bytes": 55418
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/challenge-map.jpeg-d7349c6433a76c4a-1920.webp",
+          "width": 1920,
+          "height": 1920,
+          "bytes": 86680
+        }
+      ]
+    },
+    "assets/project-design/crisis-dawn/generator-proposal.png": {
+      "sourceSha256": "15220733afed699e3fb67d9c02b54f85bc178eee92715420bbbe3abb6976ecf0",
+      "width": 1265,
+      "height": 587,
+      "bytes": 1729189,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/generator-proposal.png-15220733afed699e-480.webp",
+          "width": 480,
+          "height": 223,
+          "bytes": 183694
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/generator-proposal.png-15220733afed699e-960.webp",
+          "width": 960,
+          "height": 445,
+          "bytes": 694494
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/generator-proposal.png-15220733afed699e-1265.webp",
+          "width": 1265,
+          "height": 587,
+          "bytes": 1149056
+        }
+      ]
+    },
+    "assets/project-design/crisis-dawn/guild-flow.jpeg": {
+      "sourceSha256": "bc259b24d728a1ab7fc42f20ea4b0ece63262fdb68a76ed10f00a25a67af34e9",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 233721,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/guild-flow.jpeg-bc259b24d728a1ab-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 10322
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/guild-flow.jpeg-bc259b24d728a1ab-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 28774
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/guild-flow.jpeg-bc259b24d728a1ab-1440.webp",
+          "width": 1440,
+          "height": 1440,
+          "bytes": 52722
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/guild-flow.jpeg-bc259b24d728a1ab-1920.webp",
+          "width": 1920,
+          "height": 1920,
+          "bytes": 82264
+        }
+      ]
+    },
+    "assets/project-design/crisis-dawn/season-cycle.jpeg": {
+      "sourceSha256": "da46582a04ca2c5c09a2a2c9ccd4a4587c342e437ec560010e8eaf23744d707b",
+      "width": 2560,
+      "height": 1496,
+      "bytes": 128424,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/season-cycle.jpeg-da46582a04ca2c5c-480.webp",
+          "width": 480,
+          "height": 280,
+          "bytes": 7422
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/season-cycle.jpeg-da46582a04ca2c5c-960.webp",
+          "width": 960,
+          "height": 561,
+          "bytes": 20532
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/season-cycle.jpeg-da46582a04ca2c5c-1440.webp",
+          "width": 1440,
+          "height": 842,
+          "bytes": 36390
+        },
+        {
+          "src": "assets/optimized/project-design/crisis-dawn/season-cycle.jpeg-da46582a04ca2c5c-1920.webp",
+          "width": 1920,
+          "height": 1122,
+          "bytes": 54874
+        }
+      ]
+    },
+    "assets/project-design/exorcism-office-steam.png": {
+      "sourceSha256": "846273ca66c5ed0d232756fe430b839da9e45c7d0682566dc3a2b06137b9c9fa",
+      "width": 1806,
+      "height": 912,
+      "bytes": 1661609,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/exorcism-office-steam.png-846273ca66c5ed0d-480.webp",
+          "width": 480,
+          "height": 242,
+          "bytes": 110348
+        },
+        {
+          "src": "assets/optimized/project-design/exorcism-office-steam.png-846273ca66c5ed0d-960.webp",
+          "width": 960,
+          "height": 485,
+          "bytes": 380322
+        },
+        {
+          "src": "assets/optimized/project-design/exorcism-office-steam.png-846273ca66c5ed0d-1440.webp",
+          "width": 1440,
+          "height": 727,
+          "bytes": 754312
+        },
+        {
+          "src": "assets/optimized/project-design/exorcism-office-steam.png-846273ca66c5ed0d-1806.webp",
+          "width": 1806,
+          "height": 912,
+          "bytes": 981680
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/challenge-board.png": {
+      "sourceSha256": "5be7c5e0946ac5fc9cfd036984179720cb57babeb5ef73def666ecf8a63baa9a",
+      "width": 514,
+      "height": 914,
+      "bytes": 188941,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/challenge-board.png-5be7c5e0946ac5fc-480.webp",
+          "width": 480,
+          "height": 854,
+          "bytes": 150350
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/challenge-board.png-5be7c5e0946ac5fc-514.webp",
+          "width": 514,
+          "height": 914,
+          "bytes": 127462
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/collection-flow.png": {
+      "sourceSha256": "1b67a30bda11573e6847b49a79692d74a6804af027af4df47877c8c4e4a07f66",
+      "width": 1259,
+      "height": 718,
+      "bytes": 223140,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/collection-flow.png-1b67a30bda11573e-480.webp",
+          "width": 480,
+          "height": 274,
+          "bytes": 44454
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/collection-flow.png-1b67a30bda11573e-960.webp",
+          "width": 960,
+          "height": 547,
+          "bytes": 113974
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/collection-flow.png-1b67a30bda11573e-1259.webp",
+          "width": 1259,
+          "height": 718,
+          "bytes": 131706
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/creator-flow.png": {
+      "sourceSha256": "9d1e39cce951104c8277296ebba9407f4ab68b224343b2e44921f3a2337acd1f",
+      "width": 1351,
+      "height": 758,
+      "bytes": 91753,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/creator-flow.png-9d1e39cce951104c-480.webp",
+          "width": 480,
+          "height": 269,
+          "bytes": 29516
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/creator-flow.png-9d1e39cce951104c-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 79434
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/creator-flow.png-9d1e39cce951104c-1351.webp",
+          "width": 1351,
+          "height": 758,
+          "bytes": 42274
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/definition-ui.png": {
+      "sourceSha256": "2aa642f3c3661629627cc511e6908bf2d2307b707dd4f11a5e03b75db429a6eb",
+      "width": 1280,
+      "height": 2800,
+      "bytes": 260939,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/definition-ui.png-2aa642f3c3661629-480.webp",
+          "width": 480,
+          "height": 1050,
+          "bytes": 53682
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/definition-ui.png-2aa642f3c3661629-960.webp",
+          "width": 960,
+          "height": 2100,
+          "bytes": 136254
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/definition-ui.png-2aa642f3c3661629-1280.webp",
+          "width": 1280,
+          "height": 2800,
+          "bytes": 148772
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/dragon-boat-flow.png": {
+      "sourceSha256": "f6c23698fbd139921615d086dfbddf5030de100cfe05c884c0d9e42da3b2affe",
+      "width": 1753,
+      "height": 1724,
+      "bytes": 627965,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/dragon-boat-flow.png-f6c23698fbd13992-480.webp",
+          "width": 480,
+          "height": 472,
+          "bytes": 91816
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/dragon-boat-flow.png-f6c23698fbd13992-960.webp",
+          "width": 960,
+          "height": 944,
+          "bytes": 269672
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/dragon-boat-flow.png-f6c23698fbd13992-1440.webp",
+          "width": 1440,
+          "height": 1416,
+          "bytes": 488376
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/dragon-boat-flow.png-f6c23698fbd13992-1753.webp",
+          "width": 1753,
+          "height": 1724,
+          "bytes": 427898
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/growth-flow.png": {
+      "sourceSha256": "4e2cb1608ee4e8d7339946ce5e20b053603eec3967f689df2d48f5dde0831c23",
+      "width": 472,
+      "height": 768,
+      "bytes": 61108,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/growth-flow.png-4e2cb1608ee4e8d7-472.webp",
+          "width": 472,
+          "height": 768,
+          "bytes": 26056
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/home-reference.png": {
+      "sourceSha256": "27f3025d074723d9aa145cb6b85d176ee2fa93927690aec7f2476211d058eff3",
+      "width": 323,
+      "height": 575,
+      "bytes": 161093,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/home-reference.png-27f3025d074723d9-323.webp",
+          "width": 323,
+          "height": 575,
+          "bytes": 139322
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/judgement-flow.png": {
+      "sourceSha256": "48800df69bf13a698f91002c2768121909f112366b31aa1f1dcc5f02f8822983",
+      "width": 981,
+      "height": 665,
+      "bytes": 75268,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/judgement-flow.png-48800df69bf13a69-480.webp",
+          "width": 480,
+          "height": 325,
+          "bytes": 39560
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/judgement-flow.png-48800df69bf13a69-981.webp",
+          "width": 981,
+          "height": 665,
+          "bytes": 39522
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/promotional-cover.png": {
+      "sourceSha256": "db64ac4f2baf5ffaed13a47a9e7401b412d43c5b4d72467d24b38c03f33b140b",
+      "width": 960,
+      "height": 334,
+      "bytes": 56060,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/promotional-cover.png-db64ac4f2baf5ffa-480.webp",
+          "width": 480,
+          "height": 167,
+          "bytes": 50868
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/promotional-cover.png-db64ac4f2baf5ffa-960.webp",
+          "width": 960,
+          "height": 334,
+          "bytes": 51882
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/qingming-entry.png": {
+      "sourceSha256": "9299e3db7f2a94bffb4c3163dde33fcafe64053524ef3952a97f4e319e92880b",
+      "width": 354,
+      "height": 605,
+      "bytes": 11903,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/qingming-entry.png-9299e3db7f2a94bf-354.webp",
+          "width": 354,
+          "height": 605,
+          "bytes": 5224
+        }
+      ]
+    },
+    "assets/project-design/idiom-scholar/qixi-team-flow.png": {
+      "sourceSha256": "c022706086193761555d613484473abea0236f78ed623c5ad4d1ebd5412b850f",
+      "width": 935,
+      "height": 780,
+      "bytes": 116828,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/qixi-team-flow.png-c022706086193761-480.webp",
+          "width": 480,
+          "height": 400,
+          "bytes": 61756
+        },
+        {
+          "src": "assets/optimized/project-design/idiom-scholar/qixi-team-flow.png-c022706086193761-935.webp",
+          "width": 935,
+          "height": 780,
+          "bytes": 60122
+        }
+      ]
+    },
+    "assets/project-design/indie/exorcism-publicity.jpg": {
+      "sourceSha256": "1fdc395e3e2c53ba735d439212b91a5226b223a80315dde42f8c7a542d787ee8",
+      "width": 460,
+      "height": 215,
+      "bytes": 28502,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/indie/exorcism-publicity.jpg-1fdc395e3e2c53ba-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 18482
+        }
+      ]
+    },
+    "assets/project-design/indie/magicar-publicity.jpg": {
+      "sourceSha256": "35efca94b966e56921e8eacaf500e1791dba316e46bb91c193a00e033d1310ce",
+      "width": 460,
+      "height": 215,
+      "bytes": 59136,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/indie/magicar-publicity.jpg-35efca94b966e569-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 41160
+        }
+      ]
+    },
+    "assets/project-design/lucky-items-flow.jpg": {
+      "sourceSha256": "c245367bc7c256c7d0b192e9aaf830e37fededce54815556fd745885342a4db4",
+      "width": 2560,
+      "height": 2560,
+      "bytes": 340128,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/lucky-items-flow.jpg-c245367bc7c256c7-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 21856
+        },
+        {
+          "src": "assets/optimized/project-design/lucky-items-flow.jpg-c245367bc7c256c7-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 62766
+        },
+        {
+          "src": "assets/optimized/project-design/lucky-items-flow.jpg-c245367bc7c256c7-1440.webp",
+          "width": 1440,
+          "height": 1440,
+          "bytes": 113268
+        },
+        {
+          "src": "assets/optimized/project-design/lucky-items-flow.jpg-c245367bc7c256c7-1920.webp",
+          "width": 1920,
+          "height": 1920,
+          "bytes": 168232
+        }
+      ]
+    },
+    "assets/project-design/magicar-steam.png": {
+      "sourceSha256": "93a17192e69ff63bb1ddabdfa645d6a9447f16a7d45c01b9cbdceefab3b8db89",
+      "width": 1791,
+      "height": 917,
+      "bytes": 1829875,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/magicar-steam.png-93a17192e69ff63b-480.webp",
+          "width": 480,
+          "height": 246,
+          "bytes": 134372
+        },
+        {
+          "src": "assets/optimized/project-design/magicar-steam.png-93a17192e69ff63b-960.webp",
+          "width": 960,
+          "height": 492,
+          "bytes": 432858
+        },
+        {
+          "src": "assets/optimized/project-design/magicar-steam.png-93a17192e69ff63b-1440.webp",
+          "width": 1440,
+          "height": 737,
+          "bytes": 831644
+        },
+        {
+          "src": "assets/optimized/project-design/magicar-steam.png-93a17192e69ff63b-1791.webp",
+          "width": 1791,
+          "height": 917,
+          "bytes": 1055252
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/decor-editor.png": {
+      "sourceSha256": "3d0e80e246482e069ad02c06836d8708f3d33082fe3aea09848da165156cae8b",
+      "width": 1280,
+      "height": 722,
+      "bytes": 1156569,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/decor-editor.png-3d0e80e246482e06-480.webp",
+          "width": 480,
+          "height": 271,
+          "bytes": 110652
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/decor-editor.png-3d0e80e246482e06-960.webp",
+          "width": 960,
+          "height": 542,
+          "bytes": 404444
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/decor-editor.png-3d0e80e246482e06-1280.webp",
+          "width": 1280,
+          "height": 722,
+          "bytes": 628446
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/emotion-panel.png": {
+      "sourceSha256": "cd4de1b9b33fc391c23323cbdbe25fc298795c6708cc715c96e204efb5a635bb",
+      "width": 1280,
+      "height": 720,
+      "bytes": 1672336,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/emotion-panel.png-cd4de1b9b33fc391-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 160942
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/emotion-panel.png-cd4de1b9b33fc391-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 554590
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/emotion-panel.png-cd4de1b9b33fc391-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 869724
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/promotional-cover.jpg": {
+      "sourceSha256": "ec66986cb77b452a59e235c11ed25ea41dc8154c340c950b7e5c938cc69c1692",
+      "width": 460,
+      "height": 215,
+      "bytes": 55899,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/promotional-cover.jpg-ec66986cb77b452a-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 43638
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/resource-loop.png": {
+      "sourceSha256": "4d609eb2f6cbd44014219e6302ef36aa400df39a539d0fd04de71aa3e2919439",
+      "width": 1612,
+      "height": 909,
+      "bytes": 607312,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/resource-loop.png-4d609eb2f6cbd440-480.webp",
+          "width": 480,
+          "height": 271,
+          "bytes": 55522
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/resource-loop.png-4d609eb2f6cbd440-960.webp",
+          "width": 960,
+          "height": 541,
+          "bytes": 172520
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/resource-loop.png-4d609eb2f6cbd440-1440.webp",
+          "width": 1440,
+          "height": 812,
+          "bytes": 339586
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/resource-loop.png-4d609eb2f6cbd440-1612.webp",
+          "width": 1612,
+          "height": 909,
+          "bytes": 380272
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/show-skills.png": {
+      "sourceSha256": "b3c0c682b1984c24b00fb1173481aa6b6e972fa261898d2fe8a9f10769f80889",
+      "width": 1280,
+      "height": 720,
+      "bytes": 694316,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/show-skills.png-b3c0c682b1984c24-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 88496
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/show-skills.png-b3c0c682b1984c24-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 287028
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/show-skills.png-b3c0c682b1984c24-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 426652
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/skill-tree.png": {
+      "sourceSha256": "77cf17bb027fd16dfb6a0f60802e8a3a6b405e40abe28ac325e9b369073946e2",
+      "width": 1280,
+      "height": 720,
+      "bytes": 556004,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/skill-tree.png-77cf17bb027fd16d-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 76010
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/skill-tree.png-77cf17bb027fd16d-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 248774
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/skill-tree.png-77cf17bb027fd16d-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 360662
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/system-map.png": {
+      "sourceSha256": "1456339996541e7ea7209ae75992e648ae0e076449390366e1bf4d83a8711a19",
+      "width": 1680,
+      "height": 858,
+      "bytes": 828073,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/system-map.png-1456339996541e7e-480.webp",
+          "width": 480,
+          "height": 245,
+          "bytes": 65136
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/system-map.png-1456339996541e7e-960.webp",
+          "width": 960,
+          "height": 490,
+          "bytes": 221678
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/system-map.png-1456339996541e7e-1440.webp",
+          "width": 1440,
+          "height": 735,
+          "bytes": 448852
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/system-map.png-1456339996541e7e-1680.webp",
+          "width": 1680,
+          "height": 858,
+          "bytes": 515432
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-steam.png": {
+      "sourceSha256": "1ebdce32ed731d2bf469b6b7de292cbbf9b4cd7bd4563323cb98296e7e85de3c",
+      "width": 1815,
+      "height": 918,
+      "bytes": 2273669,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-steam.png-1ebdce32ed731d2b-480.webp",
+          "width": 480,
+          "height": 243,
+          "bytes": 151336
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-steam.png-1ebdce32ed731d2b-960.webp",
+          "width": 960,
+          "height": 486,
+          "bytes": 512292
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-steam.png-1ebdce32ed731d2b-1440.webp",
+          "width": 1440,
+          "height": 728,
+          "bytes": 998268
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-steam.png-1ebdce32ed731d2b-1815.webp",
+          "width": 1815,
+          "height": 918,
+          "bytes": 1317756
+        }
+      ]
+    },
+    "assets/project-design/my-town/navigation.jpg": {
+      "sourceSha256": "180bcc3d8376681ea1c3ab6a0142f0ab0afdef837a5c7c2abefcfb51f99f216e",
+      "width": 1308,
+      "height": 1129,
+      "bytes": 269974,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-480.webp",
+          "width": 480,
+          "height": 414,
+          "bytes": 57734
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-960.webp",
+          "width": 960,
+          "height": 829,
+          "bytes": 168704
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-1308.webp",
+          "width": 1308,
+          "height": 1129,
+          "bytes": 268470
+        }
+      ]
+    },
+    "assets/project-design/my-town/onboarding.jpg": {
+      "sourceSha256": "ce9929c29be6491f2a68d3a8ecb4b065ae9c5735306a4fb9dbde4b52244b8ecf",
+      "width": 1492,
+      "height": 967,
+      "bytes": 121506,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/onboarding.jpg-ce9929c29be6491f-480.webp",
+          "width": 480,
+          "height": 311,
+          "bytes": 16408
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/onboarding.jpg-ce9929c29be6491f-960.webp",
+          "width": 960,
+          "height": 622,
+          "bytes": 46466
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/onboarding.jpg-ce9929c29be6491f-1440.webp",
+          "width": 1440,
+          "height": 933,
+          "bytes": 92408
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/onboarding.jpg-ce9929c29be6491f-1492.webp",
+          "width": 1492,
+          "height": 967,
+          "bytes": 95934
+        }
+      ]
+    },
+    "assets/project-design/my-town/system-framework.png": {
+      "sourceSha256": "a81484b36b803923a54ed028beea82801287e607e3a5cb55387f037fc3f9df1a",
+      "width": 1710,
+      "height": 1467,
+      "bytes": 298866,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/system-framework.png-a81484b36b803923-480.webp",
+          "width": 480,
+          "height": 412,
+          "bytes": 26170
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/system-framework.png-a81484b36b803923-960.webp",
+          "width": 960,
+          "height": 824,
+          "bytes": 66898
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/system-framework.png-a81484b36b803923-1440.webp",
+          "width": 1440,
+          "height": 1235,
+          "bytes": 118462
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/system-framework.png-a81484b36b803923-1710.webp",
+          "width": 1710,
+          "height": 1467,
+          "bytes": 81100
+        }
+      ]
+    },
+    "assets/project-design/my-town/task-states.jpg": {
+      "sourceSha256": "6902792e5e39b648e81f3120f0232e202c94d6131bae00463c85a97f628c6872",
+      "width": 1892,
+      "height": 1076,
+      "bytes": 249134,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-480.webp",
+          "width": 480,
+          "height": 273,
+          "bytes": 22104
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-960.webp",
+          "width": 960,
+          "height": 546,
+          "bytes": 66808
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-1440.webp",
+          "width": 1440,
+          "height": 819,
+          "bytes": 127338
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-1892.webp",
+          "width": 1892,
+          "height": 1076,
+          "bytes": 199298
+        }
+      ]
+    },
+    "assets/project-design/save-recovery.png": {
+      "sourceSha256": "ad51a365327490b0e6a0698afc61bb8fcb8395aab2462fc858b78039f918bce4",
+      "width": 3936,
+      "height": 2936,
+      "bytes": 510581,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/save-recovery.png-ad51a365327490b0-480.webp",
+          "width": 480,
+          "height": 358,
+          "bytes": 33100
+        },
+        {
+          "src": "assets/optimized/project-design/save-recovery.png-ad51a365327490b0-960.webp",
+          "width": 960,
+          "height": 716,
+          "bytes": 83970
+        },
+        {
+          "src": "assets/optimized/project-design/save-recovery.png-ad51a365327490b0-1440.webp",
+          "width": 1440,
+          "height": 1074,
+          "bytes": 143188
+        },
+        {
+          "src": "assets/optimized/project-design/save-recovery.png-ad51a365327490b0-1920.webp",
+          "width": 1920,
+          "height": 1432,
+          "bytes": 199492
+        }
+      ]
+    },
+    "assets/project-design/sheep-match/editor-workflow.jpeg": {
+      "sourceSha256": "16686eb18f5cfb4607cf36cf63755138db5be56e1fc0e40195b86ac79491aa96",
+      "width": 2560,
+      "height": 176,
+      "bytes": 43290,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/sheep-match/editor-workflow.jpeg-16686eb18f5cfb46-480.webp",
+          "width": 480,
+          "height": 33,
+          "bytes": 3140
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/editor-workflow.jpeg-16686eb18f5cfb46-960.webp",
+          "width": 960,
+          "height": 66,
+          "bytes": 7316
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/editor-workflow.jpeg-16686eb18f5cfb46-1440.webp",
+          "width": 1440,
+          "height": 99,
+          "bytes": 12906
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/editor-workflow.jpeg-16686eb18f5cfb46-1920.webp",
+          "width": 1920,
+          "height": 132,
+          "bytes": 20028
+        }
+      ]
+    },
+    "assets/project-design/sheep-match/login-flow.jpeg": {
+      "sourceSha256": "32bbe355d052c54ce22a919db33ea6a23754cb48517a00a5eafc54ee5b984cad",
+      "width": 2560,
+      "height": 2032,
+      "bytes": 229260,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/sheep-match/login-flow.jpeg-32bbe355d052c54c-480.webp",
+          "width": 480,
+          "height": 381,
+          "bytes": 11172
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/login-flow.jpeg-32bbe355d052c54c-960.webp",
+          "width": 960,
+          "height": 762,
+          "bytes": 32586
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/login-flow.jpeg-32bbe355d052c54c-1440.webp",
+          "width": 1440,
+          "height": 1143,
+          "bytes": 61356
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/login-flow.jpeg-32bbe355d052c54c-1920.webp",
+          "width": 1920,
+          "height": 1524,
+          "bytes": 99500
+        }
+      ]
+    },
+    "assets/project-design/tile-patterns.png": {
+      "sourceSha256": "095cee2f642884d15ecce6c9b44ca68c1b1479de969bc2ad8b7bd305e1fd5e75",
+      "width": 1550,
+      "height": 5527,
+      "bytes": 495209,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/tile-patterns.png-095cee2f642884d1-480.webp",
+          "width": 480,
+          "height": 1712,
+          "bytes": 68454
+        },
+        {
+          "src": "assets/optimized/project-design/tile-patterns.png-095cee2f642884d1-960.webp",
+          "width": 960,
+          "height": 3423,
+          "bytes": 180398
+        },
+        {
+          "src": "assets/optimized/project-design/tile-patterns.png-095cee2f642884d1-1440.webp",
+          "width": 1440,
+          "height": 5135,
+          "bytes": 319512
+        },
+        {
+          "src": "assets/optimized/project-design/tile-patterns.png-095cee2f642884d1-1550.webp",
+          "width": 1550,
+          "height": 5527,
+          "bytes": 111762
+        }
+      ]
+    },
+    "assets/project-design/train-king/core-ue.png": {
+      "sourceSha256": "49883c9f976b048d64cbaed792598760176b41b1dc711865c25015ad6f7759de",
+      "width": 579,
+      "height": 464,
+      "bytes": 8534,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/core-ue.png-49883c9f976b048d-579.webp",
+          "width": 579,
+          "height": 464,
+          "bytes": 6548
+        }
+      ]
+    },
+    "assets/project-design/train-king/economy-cycle.png": {
+      "sourceSha256": "1f5d120ce0d19ba11b5cbe35b9aaf3a5b8ea2652cc10a7a072335e7905e2d805",
+      "width": 1179,
+      "height": 717,
+      "bytes": 140732,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/economy-cycle.png-1f5d120ce0d19ba1-480.webp",
+          "width": 480,
+          "height": 292,
+          "bytes": 50980
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/economy-cycle.png-1f5d120ce0d19ba1-1179.webp",
+          "width": 1179,
+          "height": 717,
+          "bytes": 101688
+        }
+      ]
+    },
+    "assets/project-design/train-king/home-proposal.png": {
+      "sourceSha256": "04258942e860f5dd2285fcf25020f3b205f5fc3aad18a9be873cb85c2a5f7f9f",
+      "width": 359,
+      "height": 640,
+      "bytes": 160836,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/home-proposal.png-04258942e860f5dd-359.webp",
+          "width": 359,
+          "height": 640,
+          "bytes": 117836
+        }
+      ]
+    },
+    "assets/project-design/train-king/location-flow.png": {
+      "sourceSha256": "b32ed33895e384369948499e115108295139fa71a3b9291c438307dfd2092379",
+      "width": 396,
+      "height": 547,
+      "bytes": 28299,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/location-flow.png-b32ed33895e38436-396.webp",
+          "width": 396,
+          "height": 547,
+          "bytes": 10252
+        }
+      ]
+    },
+    "assets/project-design/train-king/puzzle-system.png": {
+      "sourceSha256": "9d4d005daf35bf01a87dfcd862f65b300df6d5116e7526cbf9b5cf037de2b639",
+      "width": 903,
+      "height": 665,
+      "bytes": 32303,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/puzzle-system.png-9d4d005daf35bf01-903.webp",
+          "width": 903,
+          "height": 665,
+          "bytes": 14200
+        }
+      ]
+    },
+    "assets/project-design/train-king/social-flow.jpeg": {
+      "sourceSha256": "9564d910e6e488dd8774bf264bcce000d6ecadf6b910309eb0f16921be421fb6",
+      "width": 960,
+      "height": 912,
+      "bytes": 291346,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/social-flow.jpeg-9564d910e6e488dd-480.webp",
+          "width": 480,
+          "height": 456,
+          "bytes": 27328
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/social-flow.jpeg-9564d910e6e488dd-960.webp",
+          "width": 960,
+          "height": 912,
+          "bytes": 61694
+        }
+      ]
+    },
+    "assets/project-design/train-king/system-map.png": {
+      "sourceSha256": "953aadfa59428e82b7a8cb86d8d0f1f5d9f0a1e90022a98ba2bc94af34c9686e",
+      "width": 1131,
+      "height": 734,
+      "bytes": 118796,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/system-map.png-953aadfa59428e82-480.webp",
+          "width": 480,
+          "height": 312,
+          "bytes": 44788
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/system-map.png-953aadfa59428e82-1131.webp",
+          "width": 1131,
+          "height": 734,
+          "bytes": 63744
+        }
+      ]
+    },
+    "assets/project-design/train-king/track-control.png": {
+      "sourceSha256": "4f0848f7a1ab11770980f31afa496bc30274e35044c5d7b43201e973da42c44f",
+      "width": 1165,
+      "height": 832,
+      "bytes": 105130,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/track-control.png-4f0848f7a1ab1177-480.webp",
+          "width": 480,
+          "height": 343,
+          "bytes": 30526
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/track-control.png-4f0848f7a1ab1177-960.webp",
+          "width": 960,
+          "height": 686,
+          "bytes": 67974
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/track-control.png-4f0848f7a1ab1177-1165.webp",
+          "width": 1165,
+          "height": 832,
+          "bytes": 59002
+        }
+      ]
+    },
+    "assets/project-design/train-king/unlock-reference.png": {
+      "sourceSha256": "0daafd3f140073e95c69c2d71a3450125bb082419085880ae5fa93234f03c7bd",
+      "width": 469,
+      "height": 834,
+      "bytes": 245994,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/unlock-reference.png-0daafd3f140073e9-469.webp",
+          "width": 469,
+          "height": 834,
+          "bytes": 181318
+        }
+      ]
+    },
+    "assets/project-design/vanity-fair/feature-map.png": {
+      "sourceSha256": "922169f22b312b063a136b6dbbf9e68a7ae2d57ea22596bf28c1ab3a328672e8",
+      "width": 1600,
+      "height": 2348,
+      "bytes": 311976,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/vanity-fair/feature-map.png-922169f22b312b06-480.webp",
+          "width": 480,
+          "height": 704,
+          "bytes": 41644
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/feature-map.png-922169f22b312b06-960.webp",
+          "width": 960,
+          "height": 1409,
+          "bytes": 113218
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/feature-map.png-922169f22b312b06-1440.webp",
+          "width": 1440,
+          "height": 2113,
+          "bytes": 206898
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/feature-map.png-922169f22b312b06-1600.webp",
+          "width": 1600,
+          "height": 2348,
+          "bytes": 62472
+        }
+      ]
+    },
+    "assets/project-design/vanity-fair/menu-art.png": {
+      "sourceSha256": "3cc74d21bd258bb0f30e75adb7d8827d2fe4e84f8a87befb6a2306cffc583172",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1931172,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/vanity-fair/menu-art.png-3cc74d21bd258bb0-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 99302
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/menu-art.png-3cc74d21bd258bb0-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 409758
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/menu-art.png-3cc74d21bd258bb0-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 928088
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/menu-art.png-3cc74d21bd258bb0-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 1460946
+        }
+      ]
+    },
+    "assets/project-design/vanity-fair/play-flow.png": {
+      "sourceSha256": "451d93936572307a3d902385f9d6609fdafa234ddd4dc24f9e4777460b35beab",
+      "width": 768,
+      "height": 1515,
+      "bytes": 165540,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/vanity-fair/play-flow.png-451d93936572307a-480.webp",
+          "width": 480,
+          "height": 947,
+          "bytes": 87794
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/play-flow.png-451d93936572307a-768.webp",
+          "width": 768,
+          "height": 1515,
+          "bytes": 47184
+        }
+      ]
+    },
+    "assets/project-design/vanity-fair/storyline-guide.png": {
+      "sourceSha256": "639fc6a4cc2efe642cb56004d22b3daf6cd41729b30f7c600951a16b7f198973",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 253826,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/vanity-fair/storyline-guide.png-639fc6a4cc2efe64-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 20264
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/storyline-guide.png-639fc6a4cc2efe64-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 53638
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/storyline-guide.png-639fc6a4cc2efe64-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 129078
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/storyline-guide.png-639fc6a4cc2efe64-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 173032
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/economy-cycle.png": {
+      "sourceSha256": "1f5d120ce0d19ba11b5cbe35b9aaf3a5b8ea2652cc10a7a072335e7905e2d805",
+      "width": 1179,
+      "height": 717,
+      "bytes": 140732,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/economy-cycle.png-1f5d120ce0d19ba1-480.webp",
+          "width": 480,
+          "height": 292,
+          "bytes": 50980
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/economy-cycle.png-1f5d120ce0d19ba1-1179.webp",
+          "width": 1179,
+          "height": 717,
+          "bytes": 101688
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/home-proposal.png": {
+      "sourceSha256": "04258942e860f5dd2285fcf25020f3b205f5fc3aad18a9be873cb85c2a5f7f9f",
+      "width": 359,
+      "height": 640,
+      "bytes": 160836,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/home-proposal.png-04258942e860f5dd-359.webp",
+          "width": 359,
+          "height": 640,
+          "bytes": 117836
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/social-flow.jpeg": {
+      "sourceSha256": "9564d910e6e488dd8774bf264bcce000d6ecadf6b910309eb0f16921be421fb6",
+      "width": 960,
+      "height": 912,
+      "bytes": 291346,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/social-flow.jpeg-9564d910e6e488dd-480.webp",
+          "width": 480,
+          "height": 456,
+          "bytes": 27328
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/social-flow.jpeg-9564d910e6e488dd-960.webp",
+          "width": 960,
+          "height": 912,
+          "bytes": 61694
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/system-map.png": {
+      "sourceSha256": "953aadfa59428e82b7a8cb86d8d0f1f5d9f0a1e90022a98ba2bc94af34c9686e",
+      "width": 1131,
+      "height": 734,
+      "bytes": 118796,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/system-map.png-953aadfa59428e82-480.webp",
+          "width": 480,
+          "height": 312,
+          "bytes": 44788
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/system-map.png-953aadfa59428e82-1131.webp",
+          "width": 1131,
+          "height": 734,
+          "bytes": 63744
+        }
+      ]
+    },
+    "assets/project-design/word-villas/event-collection-reference.png": {
+      "sourceSha256": "2a80e9de0a25470e4d5278a519db203220ce0d6b18b259de8ab165576dd883ed",
+      "width": 474,
+      "height": 733,
+      "bytes": 353988,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/event-collection-reference.png-2a80e9de0a25470e-474.webp",
+          "width": 474,
+          "height": 733,
+          "bytes": 244104
+        }
+      ]
+    },
+    "assets/project-design/word-villas/event-ranking-reference.png": {
+      "sourceSha256": "bb71798a12b2f99bc4308abafe7836b49a5a716d31929b47723fafff4147f3b9",
+      "width": 394,
+      "height": 655,
+      "bytes": 123348,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/event-ranking-reference.png-bb71798a12b2f99b-394.webp",
+          "width": 394,
+          "height": 655,
+          "bytes": 87470
+        }
+      ]
+    },
+    "assets/project-design/word-villas/promotional-cover.jpg": {
+      "sourceSha256": "0614bcafa43d2440d0fdb4d73239d659876ad4dc0579510d62c8fa8be6256ad4",
+      "width": 1280,
+      "height": 720,
+      "bytes": 180666,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/promotional-cover.jpg-0614bcafa43d2440-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 56904
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/promotional-cover.jpg-0614bcafa43d2440-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 147906
+        }
+      ]
+    },
+    "assets/project-design/word-villas/story-navigation.png": {
+      "sourceSha256": "67577c6110f7a89fe0da22ffb51489fe57ecf5d9f2954a026fe384bfd8103a57",
+      "width": 1203,
+      "height": 515,
+      "bytes": 607689,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/story-navigation.png-67577c6110f7a89f-480.webp",
+          "width": 480,
+          "height": 205,
+          "bytes": 106888
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/story-navigation.png-67577c6110f7a89f-960.webp",
+          "width": 960,
+          "height": 411,
+          "bytes": 345558
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/story-navigation.png-67577c6110f7a89f-1203.webp",
+          "width": 1203,
+          "height": 515,
+          "bytes": 461102
+        }
+      ]
+    },
+    "assets/project-design/word-villas/task-interaction.png": {
+      "sourceSha256": "0e251a9783fe162748bc170911aa95ffbb84dbd95c295e11d720487009c997cf",
+      "width": 1103,
+      "height": 629,
+      "bytes": 134525,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/task-interaction.png-0e251a9783fe1627-480.webp",
+          "width": 480,
+          "height": 274,
+          "bytes": 60894
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/task-interaction.png-0e251a9783fe1627-1103.webp",
+          "width": 1103,
+          "height": 629,
+          "bytes": 77598
+        }
+      ]
+    },
+    "assets/project-design/word-villas/tournament-entry.png": {
+      "sourceSha256": "593e00406ec70d71e9704655a4e23772c53fd3f2bb92ace7afc1fb67299afd28",
+      "width": 662,
+      "height": 723,
+      "bytes": 262226,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/tournament-entry.png-593e00406ec70d71-480.webp",
+          "width": 480,
+          "height": 524,
+          "bytes": 137360
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/tournament-entry.png-593e00406ec70d71-662.webp",
+          "width": 662,
+          "height": 723,
+          "bytes": 202790
+        }
+      ]
+    },
+    "assets/project-design/word-villas/tournament-flow.png": {
+      "sourceSha256": "8e7c007e65218021a4fcbff53ef0132a82262b7b6ac97836f146dfd285caecad",
+      "width": 771,
+      "height": 760,
+      "bytes": 59972,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/tournament-flow.png-8e7c007e65218021-480.webp",
+          "width": 480,
+          "height": 473,
+          "bytes": 59888
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/tournament-flow.png-8e7c007e65218021-771.webp",
+          "width": 771,
+          "height": 760,
+          "bytes": 21956
+        }
+      ]
+    },
+    "assets/project-design/word-villas/word-activity-wireframes.jpg": {
+      "sourceSha256": "41cb1d212df8451c1d83c23072c0008e3026adf14b0aaf97b980e709350f5167",
+      "width": 925,
+      "height": 780,
+      "bytes": 98162,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/word-activity-wireframes.jpg-41cb1d212df8451c-480.webp",
+          "width": 480,
+          "height": 405,
+          "bytes": 27712
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/word-activity-wireframes.jpg-41cb1d212df8451c-925.webp",
+          "width": 925,
+          "height": 780,
+          "bytes": 78224
+        }
+      ]
+    },
+    "assets/project-design/word-villas/word-dice-interaction.jpg": {
+      "sourceSha256": "ff54ce5436b6244447ef330e1ce8134e5e87b54325da22f0dd702b4643eef240",
+      "width": 545,
+      "height": 580,
+      "bytes": 58100,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/word-dice-interaction.jpg-ff54ce5436b62444-480.webp",
+          "width": 480,
+          "height": 511,
+          "bytes": 52746
+        }
+      ]
+    },
+    "assets/project-design/word-villas/word-story-interface-detail.jpg": {
+      "sourceSha256": "1d2ae330d1b70517b7fd28a83857daec53393ed8ff59c54d7713f1191ba10cec",
+      "width": 430,
+      "height": 360,
+      "bytes": 18728,
+      "variants": []
+    },
+    "assets/project-design/word-villas/word-tournament-ui-flow.jpg": {
+      "sourceSha256": "f88f4338e14596abe32ff6887c30f3535b06e9940c5515eb1eb763ec450c9a90",
+      "width": 1204,
+      "height": 530,
+      "bytes": 67403,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-480.webp",
+          "width": 480,
+          "height": 211,
+          "bytes": 16690
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-960.webp",
+          "width": 960,
+          "height": 423,
+          "bytes": 46054
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-1204.webp",
+          "width": 1204,
+          "height": 530,
+          "bytes": 65162
+        }
+      ]
+    },
+    "assets/project-design/zuoyaoji-x/pet-formation.png": {
+      "sourceSha256": "60c6245622d60810b6fac32f4f8eee109bbc27421364f293655dbd91e5b9d659",
+      "width": 599,
+      "height": 648,
+      "bytes": 111687,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-formation.png-60c6245622d60810-480.webp",
+          "width": 480,
+          "height": 519,
+          "bytes": 102510
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-formation.png-60c6245622d60810-599.webp",
+          "width": 599,
+          "height": 648,
+          "bytes": 76232
+        }
+      ]
+    },
+    "assets/project-design/zuoyaoji-x/pet-growth.png": {
+      "sourceSha256": "60cf5fc82cd14062f8b540e1235debc18fefc435190058cffd9e828fdb2bcac2",
+      "width": 941,
+      "height": 703,
+      "bytes": 322919,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth.png-60cf5fc82cd14062-480.webp",
+          "width": 480,
+          "height": 359,
+          "bytes": 139770
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth.png-60cf5fc82cd14062-941.webp",
+          "width": 941,
+          "height": 703,
+          "bytes": 232060
+        }
+      ]
+    },
+    "assets/project-design/zuoyaoji-x/shield-ui.png": {
+      "sourceSha256": "548eaf00aa9e1103a3eed9157d73a2a782e4efe48f04e80eb0de0073297cfc3d",
+      "width": 814,
+      "height": 754,
+      "bytes": 308432,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-ui.png-548eaf00aa9e1103-480.webp",
+          "width": 480,
+          "height": 445,
+          "bytes": 136828
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-ui.png-548eaf00aa9e1103-814.webp",
+          "width": 814,
+          "height": 754,
+          "bytes": 239100
+        }
+      ]
+    },
+    "assets/taptap/after-hours-stall/gameplay.webp": {
+      "sourceSha256": "cdac30c19eb20ecc6e26fa81bb3f5fe2b3184f0713810d8c0d5dc5a3860265a6",
+      "width": 459,
+      "height": 816,
+      "bytes": 307430,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/after-hours-stall/gameplay.webp-cdac30c19eb20ecc-459.webp",
+          "width": 459,
+          "height": 816,
+          "bytes": 84290
+        }
+      ]
+    },
+    "assets/taptap/after-hours-stall/hint.webp": {
+      "sourceSha256": "b26810c26e46d99a2983704ffaf14c370b5c667f77cbd88466d6b16a91fe5384",
+      "width": 459,
+      "height": 816,
+      "bytes": 307654,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/after-hours-stall/hint.webp-b26810c26e46d99a-459.webp",
+          "width": 459,
+          "height": 816,
+          "bytes": 83332
+        }
+      ]
+    },
+    "assets/taptap/coin-forge/match.webp": {
+      "sourceSha256": "385a46285093b2c393b0d5e0f5ee5ce880403371d5f6da7fd6b895a65ed3bd74",
+      "width": 461,
+      "height": 847,
+      "bytes": 408094,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/coin-forge/match.webp-385a46285093b2c3-461.webp",
+          "width": 461,
+          "height": 847,
+          "bytes": 103808
+        }
+      ]
+    },
+    "assets/taptap/coin-forge/workshop.webp": {
+      "sourceSha256": "5f727268d1d425dab7124b2ad519a7487568a4d4b1b768b436b7bbbb5c3dd221",
+      "width": 390,
+      "height": 868,
+      "bytes": 318708,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/coin-forge/workshop.webp-5f727268d1d425da-390.webp",
+          "width": 390,
+          "height": 868,
+          "bytes": 74866
+        }
+      ]
+    },
+    "assets/taptap/food-car/growth.webp": {
+      "sourceSha256": "ff2c78d8d33ba847694ea3c85df5f0c42f58fe41f1cd460c13c6f3e679f6f9b2",
+      "width": 720,
+      "height": 1280,
+      "bytes": 305110,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/food-car/growth.webp-ff2c78d8d33ba847-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 47354
+        },
+        {
+          "src": "assets/optimized/taptap/food-car/growth.webp-ff2c78d8d33ba847-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 86282
+        }
+      ]
+    },
+    "assets/taptap/food-car/recipes.webp": {
+      "sourceSha256": "91a2eff998124fa4860f86b2a3d593dde4cf2febbd4ffddacae77f4aed804aa8",
+      "width": 720,
+      "height": 1280,
+      "bytes": 301348,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/food-car/recipes.webp-91a2eff998124fa4-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 44498
+        },
+        {
+          "src": "assets/optimized/taptap/food-car/recipes.webp-91a2eff998124fa4-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 81996
+        }
+      ]
+    },
+    "assets/taptap/food-car/table.webp": {
+      "sourceSha256": "cf25641c842a3c6559cb56983fa9973775c8b89cbd3e5f09da9e2abb603ca389",
+      "width": 720,
+      "height": 1280,
+      "bytes": 653858,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/food-car/table.webp-cf25641c842a3c65-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 84940
+        },
+        {
+          "src": "assets/optimized/taptap/food-car/table.webp-cf25641c842a3c65-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 163032
+        }
+      ]
+    },
+    "assets/taptap/food-car/travel.webp": {
+      "sourceSha256": "a93cb908986db2cb67ca6e6cda9babe9b7f2c58b784eefc1ea07320424e58880",
+      "width": 720,
+      "height": 1280,
+      "bytes": 350090,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/food-car/travel.webp-a93cb908986db2cb-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 48356
+        },
+        {
+          "src": "assets/optimized/taptap/food-car/travel.webp-a93cb908986db2cb-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 90986
+        }
+      ]
+    },
+    "assets/taptap/icecream-master/customers.webp": {
+      "sourceSha256": "900abc1f22884a95b6250a20f5c8bc2d26a9430f697fc587e425cc000c2013c4",
+      "width": 265,
+      "height": 590,
+      "bytes": 162238,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/icecream-master/customers.webp-900abc1f22884a95-265.webp",
+          "width": 265,
+          "height": 590,
+          "bytes": 36862
+        }
+      ]
+    },
+    "assets/taptap/icecream-master/handoff.webp": {
+      "sourceSha256": "a57f3e51e5379acfaf547795f8bee7174cb1fd87d8e3260f3a655a5ca42fe6db",
+      "width": 720,
+      "height": 1600,
+      "bytes": 658936,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/icecream-master/handoff.webp-a57f3e51e5379acf-480.webp",
+          "width": 480,
+          "height": 1067,
+          "bytes": 76252
+        },
+        {
+          "src": "assets/optimized/taptap/icecream-master/handoff.webp-a57f3e51e5379acf-720.webp",
+          "width": 720,
+          "height": 1600,
+          "bytes": 123936
+        }
+      ]
+    },
+    "assets/taptap/icecream-master/making.webp": {
+      "sourceSha256": "b57ac5486b92a6807f03ecac4647240f9b344597b026a120a437bd0e4c7d04a5",
+      "width": 720,
+      "height": 1600,
+      "bytes": 697268,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/icecream-master/making.webp-b57ac5486b92a680-480.webp",
+          "width": 480,
+          "height": 1067,
+          "bytes": 81674
+        },
+        {
+          "src": "assets/optimized/taptap/icecream-master/making.webp-b57ac5486b92a680-720.webp",
+          "width": 720,
+          "height": 1600,
+          "bytes": 133698
+        }
+      ]
+    },
+    "assets/taptap/lunar-freight/dialogue.webp": {
+      "sourceSha256": "61aabf0174247e938087552f295d86bbcf00f882cadec07d0b9eee77fd8cf3ab",
+      "width": 2560,
+      "height": 1440,
+      "bytes": 433848,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/lunar-freight/dialogue.webp-61aabf0174247e93-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 15438
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/dialogue.webp-61aabf0174247e93-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 38376
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/dialogue.webp-61aabf0174247e93-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 65222
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/dialogue.webp-61aabf0174247e93-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 93560
+        }
+      ]
+    },
+    "assets/taptap/lunar-freight/driving.webp": {
+      "sourceSha256": "a3ccd2d2bd5defc99b883986484fb6bfacb583bbedb06291967a10d7b5e4c04e",
+      "width": 1688,
+      "height": 780,
+      "bytes": 314162,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/lunar-freight/driving.webp-a3ccd2d2bd5defc9-480.webp",
+          "width": 480,
+          "height": 222,
+          "bytes": 15286
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/driving.webp-a3ccd2d2bd5defc9-960.webp",
+          "width": 960,
+          "height": 444,
+          "bytes": 37086
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/driving.webp-a3ccd2d2bd5defc9-1440.webp",
+          "width": 1440,
+          "height": 665,
+          "bytes": 64866
+        },
+        {
+          "src": "assets/optimized/taptap/lunar-freight/driving.webp-a3ccd2d2bd5defc9-1688.webp",
+          "width": 1688,
+          "height": 780,
+          "bytes": 80366
+        }
+      ]
+    },
+    "assets/taptap/repair-day/matching.webp": {
+      "sourceSha256": "ff08d673ebc7b00c6a8077ce200b05629b8089c05974f953e832f28b02ade452",
+      "width": 844,
+      "height": 390,
+      "bytes": 32928,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/repair-day/matching.webp-ff08d673ebc7b00c-480.webp",
+          "width": 480,
+          "height": 222,
+          "bytes": 8700
+        },
+        {
+          "src": "assets/optimized/taptap/repair-day/matching.webp-ff08d673ebc7b00c-844.webp",
+          "width": 844,
+          "height": 390,
+          "bytes": 18840
+        }
+      ]
+    },
+    "assets/taptap/repair-day/story.webp": {
+      "sourceSha256": "36bd0289c4d9264f21dc470ebb36815ab2b64bab8bd1f80888ca6088c6a4c16a",
+      "width": 320,
+      "height": 568,
+      "bytes": 18632,
+      "variants": []
+    },
+    "assets/taptap/repair-day/workshop.webp": {
+      "sourceSha256": "464e07fd267d468a8322a1cf5062dcfc7268147205a1a72b7bd73b6c51dc53b9",
+      "width": 390,
+      "height": 777,
+      "bytes": 176958,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/repair-day/workshop.webp-464e07fd267d468a-390.webp",
+          "width": 390,
+          "height": 777,
+          "bytes": 48240
+        }
+      ]
+    },
+    "assets/taptap/sticker-scenery/completed.webp": {
+      "sourceSha256": "64819d6d6075e0838f1259d192eebe51fb7e4eed33cd1036018a274a705a0a33",
+      "width": 1282,
+      "height": 720,
+      "bytes": 230728,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/completed.webp-64819d6d6075e083-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 12970
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/completed.webp-64819d6d6075e083-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 41798
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/completed.webp-64819d6d6075e083-1282.webp",
+          "width": 1282,
+          "height": 720,
+          "bytes": 71620
+        }
+      ]
+    },
+    "assets/taptap/sticker-scenery/free.webp": {
+      "sourceSha256": "d88c7da64f018e8262ce90d498ac4b222290190c3e8fe66f41dc73cd89479c86",
+      "width": 1282,
+      "height": 720,
+      "bytes": 241610,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/free.webp-d88c7da64f018e82-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 13722
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/free.webp-d88c7da64f018e82-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 44478
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/free.webp-d88c7da64f018e82-1282.webp",
+          "width": 1282,
+          "height": 720,
+          "bytes": 75464
+        }
+      ]
+    },
+    "assets/taptap/sticker-scenery/guided.webp": {
+      "sourceSha256": "2fb37e6a0d25a7d1070e4348d9e054e84ce74e3e4ed6716369c060ebd2f17ea6",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 352644,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/guided.webp-2fb37e6a0d25a7d1-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 10324
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/guided.webp-2fb37e6a0d25a7d1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 30450
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/guided.webp-2fb37e6a0d25a7d1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 55944
+        },
+        {
+          "src": "assets/optimized/taptap/sticker-scenery/guided.webp-2fb37e6a0d25a7d1-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 93396
+        }
+      ]
+    },
+    "assets/taptap/tiankeng/equipment.webp": {
+      "sourceSha256": "bce99b9ee937a459b3a81712d36073658464f87c3d708b38a1398defeacfb9b4",
+      "width": 780,
+      "height": 1688,
+      "bytes": 52346,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/tiankeng/equipment.webp-bce99b9ee937a459-480.webp",
+          "width": 480,
+          "height": 1039,
+          "bytes": 37980
+        }
+      ]
+    },
+    "assets/taptap/tiankeng/home.webp": {
+      "sourceSha256": "f1ba66ef11341ea3faaab14bbbaf7505bae09f9d5f9ef9ef4c5e69db84214ab4",
+      "width": 780,
+      "height": 1688,
+      "bytes": 583482,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/tiankeng/home.webp-f1ba66ef11341ea3-480.webp",
+          "width": 480,
+          "height": 1039,
+          "bytes": 120710
+        },
+        {
+          "src": "assets/optimized/taptap/tiankeng/home.webp-f1ba66ef11341ea3-780.webp",
+          "width": 780,
+          "height": 1688,
+          "bytes": 229824
+        }
+      ]
+    },
+    "assets/taptap/tiankeng/map.webp": {
+      "sourceSha256": "6e25b959edaff9e4c8badb3ee7b014a64d28706e710240d80c0fbe26c869b1bd",
+      "width": 720,
+      "height": 1278,
+      "bytes": 231672,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/tiankeng/map.webp-6e25b959edaff9e4-480.webp",
+          "width": 480,
+          "height": 852,
+          "bytes": 73078
+        },
+        {
+          "src": "assets/optimized/taptap/tiankeng/map.webp-6e25b959edaff9e4-720.webp",
+          "width": 720,
+          "height": 1278,
+          "bytes": 123620
+        }
+      ]
+    },
+    "assets/taptap/tiankeng/skills.webp": {
+      "sourceSha256": "451decd0ed834a18f9145880f35a009190a01af7decd4419f1ab003e16bcf418",
+      "width": 780,
+      "height": 1688,
+      "bytes": 75614,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/tiankeng/skills.webp-451decd0ed834a18-480.webp",
+          "width": 480,
+          "height": 1039,
+          "bytes": 60926
+        }
+      ]
+    }
+  }
+}

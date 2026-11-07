@@ -26,9 +26,9 @@ const fit=async()=>{
 };
 const decode=async()=>{
   const dimensions=await page.locator('.taptap-cover img, .taptap-detail .taptap-screenshot').evaluateAll(async images=>{
-    return Promise.all(images.map(async img=>{img.loading='eager';await img.decode();return {width:img.naturalWidth,height:img.naturalHeight,declaredWidth:img.getAttribute('width'),declaredHeight:img.getAttribute('height')};}));
+    return Promise.all(images.map(async img=>{img.loading='eager';await img.decode();return {width:img.naturalWidth,height:img.naturalHeight,declaredWidth:img.getAttribute('width'),declaredHeight:img.getAttribute('height'),src:img.currentSrc};}));
   });
-  for(const size of dimensions){assert.equal(size.width,Number(size.declaredWidth));assert.equal(size.height,Number(size.declaredHeight));}
+  for(const size of dimensions){assert.ok(size.width>0&&size.height>0);assert.ok(Math.abs(size.height-size.width*Number(size.declaredHeight)/Number(size.declaredWidth))<=2+Number(size.declaredHeight)/Number(size.declaredWidth),'Responsive screenshot preserves aspect within density-adjusted pixel rounding: '+JSON.stringify(size));}
 };
 try {
   for(const width of [320,360,390,620,700,701,760,761,768,820,821,1024,1100,1101,1440]) {

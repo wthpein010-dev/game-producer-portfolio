@@ -14,6 +14,7 @@ const layouts = ['producer', 'workbench', 'duology', 'blueprint', 'board', 'arch
 const publicNotes = ['gameplay', 'team', 'data'];
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const hasClass = (node, name) => (node.attrs.class || '').split(/\s+/u).includes(name);
+const originalSource = node => node.attrs['data-original-src'] || node.attrs.src;
 
 function decode(value) {
   return value.replace(/&#(x[\da-f]+|\d+);/giu, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
@@ -208,8 +209,8 @@ test('all detail routes retain independent layouts, factual panels, illustration
     assert.match(textOf(caption), /原创职责结构示意/u);
     assert.match(textOf(caption), /非游戏实机画面/u);
     const image = one(figure, node => node.tag === 'img', `${detail.path} illustrated image`);
-    assert.match(image.attrs.src, /\.svg(?:[?#].*)?$/u, `${detail.path} original structure illustration`);
-    illustrationRoutes.push(routeFor(image.attrs.src, detail.path).path);
+    assert.match(originalSource(image), /\.svg(?:[?#].*)?$/u, `${detail.path} original structure illustration`);
+    illustrationRoutes.push(routeFor(originalSource(image), detail.path).path);
     assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0, `${detail.path} image declares dimensions`);
     assert.ok(image.attrs.alt?.trim().length > 4, `${detail.path} illustration has a useful alternative`);
     const footer = one(detail.document, node => hasClass(node, 'detail-footer'), `${detail.path} footer`);
@@ -274,7 +275,7 @@ test('Sheep Match offers three clearly sourced public responsibility notes witho
     const figure = one(note.document, node => node.tag === 'figure' && hasClass(node, 'note-figure'), `${note.path} responsibility illustration`);
     assert.match(textOf(figure), /职责图示/u);
     const image = one(figure, node => node.tag === 'img', `${note.path} image`);
-    assert.equal(routeFor(image.attrs.src, note.path).path, `assets/diagrams/sheep-match-${publicNotes[index]}.svg`);
+    assert.equal(routeFor(originalSource(image), note.path).path, `assets/diagrams/sheep-match-${publicNotes[index]}.svg`);
     assert.ok(Number(image.attrs.width) && Number(image.attrs.height) && image.attrs.alt?.length > 4);
     const back = one(note.document, node => node.tag === 'a' && hasClass(node, 'note-return'), `${note.path} project return`);
     assert.equal(routeFor(back.attrs.href, note.path).path, project.path);
@@ -342,7 +343,7 @@ test('Sheep Match design references retain reviewed originals, readable alternat
     const images = nodes(card, node => node.tag === 'img');
     assert.equal(images.length, 2, 'Overview and scrollable large image use the same original');
     for (const image of images) {
-      assert.equal(routeFor(image.attrs.src, project.path).path, target);
+      assert.equal(routeFor(originalSource(image), project.path).path, target);
       assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0 && image.attrs.alt?.length > 12);
     }
     const reading = one(card, node => node.tag === 'details' && hasClass(node, 'design-inspect'), 'Native image disclosure');
@@ -416,7 +417,7 @@ test('all eight TapTap details retain real media, version context and their own 
     for(const id of ['gameplay-title','screenshots-title','design-title','practice-title','play-title']) one(doc,n=>n.attrs.id===id,id);
     assert.ok(game.shots.length>=2);
     for(const shot of game.shots) {
-      const img=one(doc,n=>n.tag==='img'&&n.attrs.src==='../../'+shot.src,'Real game screenshot');
+      const img=one(doc,n=>n.tag==='img'&&originalSource(n)==='../../'+shot.src,'Real game screenshot');
       assert.equal(Number(img.attrs.width),shot.width);
       assert.equal(Number(img.attrs.height),shot.height);
       assert.ok((await stat(join(root,shot.src))).size>1000);
@@ -474,12 +475,12 @@ test('homepage independent games retain original screenshots and confirmed two-p
   for (const [index, game] of games.entries()) {
     const [title, filename, hash] = originals[index];
     assert.equal(textOf(one(game, node => node.tag === 'h4', 'Game title')), title);
-    const image = one(game, node => node.tag === 'img' && node.attrs.src === `assets/project-design/${filename}`, 'Preserved original game screenshot');
-    const link = one(game, node => node.tag === 'a' && node.attrs.href === image.attrs.src, 'Original image link');
-    assert.equal(image.attrs.src, `assets/project-design/${filename}`);
-    assert.equal(link.attrs.href, image.attrs.src);
+    const image = one(game, node => node.tag === 'img' && originalSource(node) === `assets/project-design/${filename}`, 'Preserved original game screenshot');
+    const link = one(game, node => node.tag === 'a' && node.attrs.href === originalSource(image), 'Original image link');
+    assert.equal(originalSource(image), `assets/project-design/${filename}`);
+    assert.equal(link.attrs.href, originalSource(image));
     assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
-    assert.equal(createHash('sha256').update(await readFile(join(root, image.attrs.src))).digest('hex'), hash);
+    assert.equal(createHash('sha256').update(await readFile(join(root, originalSource(image)))).digest('hex'), hash);
   }
 });
 
@@ -502,7 +503,7 @@ test('Idiom Scholar exposes sourced systems, gameplay and interaction evidence w
   const images = nodes(design, node => node.tag === 'img');
   assert.ok(images.length >= 6);
   for (const image of images) {
-    assert.match(image.attrs.src, /assets\/project-design\/idiom-scholar\//u);
+    assert.match(originalSource(image), /assets\/project-design\/idiom-scholar\//u);
     assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
     assert.ok(image.attrs.alt?.length > 12);
   }
@@ -566,7 +567,7 @@ test('Matchmaking prioritizes two reviewed system maps across project, company a
       const originals = nodes(card, n => n.tag === 'a' && hasClass(n, 'design-original'));
       assert.equal(originals.length, 1);
       const image = nodes(card, n => n.tag === 'img')[0];
-      assert.equal(originals[0].attrs.href, image.attrs.src);
+      assert.equal(originals[0].attrs.href, originalSource(image));
       one(card, n => n.tag === 'details', 'Native large map disclosure');
     }
   }
@@ -600,7 +601,7 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   for(const item of townMaps){
     const bytes=await readFile(join(root,'assets/project-design/my-town',item.file));
     assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);
-    const img=one(gallery,n=>n.tag==='img'&&n.attrs.src.endsWith(item.file)&&n.parent?.tag==='a','Town original image');
+    const img=one(gallery,n=>n.tag==='img'&&originalSource(n).endsWith(item.file)&&n.parent?.tag==='a','Town original image');
     assert.equal(Number(img.attrs.width),item.width);assert.equal(Number(img.attrs.height),item.height);
   }
 });
@@ -686,7 +687,7 @@ test('Hero evidence separates authored design, chronology gaps and team backgrou
     assert.match(textOf(section),/其他成员|团队/u);assert.match(textOf(section),/不.*全部.*上线/u);
     assert.equal(nodes(section,n=>n.attrs.id==='hero-delivery').length,1);
     assert.doesNotMatch(section.raw||textOf(section),/留存提升\d|全部由我|独立完成所有/u);
-    assert.equal(nodes(section,n=>n.tag==='img'&&/assets\/project-design\/crisis-dawn\//u.test(n.attrs.src)).length,10);
+    assert.equal(nodes(section,n=>n.tag==='img'&&/assets\/project-design\/crisis-dawn\//u.test(originalSource(n))).length,10);
   }
   for(const other of projects.filter(p=>p.path!=='projects/crisis-dawn/index.html'))assert.equal(nodes(other.document,n=>n.attrs.id==='hero-design').length,0);
   const {heroAssets}=await import('../src/hero-design.mjs');assert.equal(heroAssets.length,5);
@@ -753,7 +754,7 @@ test('Goose evidence belongs to Versatile Dog, not Train, and retains reviewed o
     assert.equal(nodes(section,n=>n.tag==='details').length,4);
     assert.equal(nodes(section,n=>n.tag==='a'&&hasClass(n,'design-original')).length,4);
     assert.doesNotMatch(textOf(section),/归入“谁是火车王”|独立完成所有|留存提升/u);
-    for(const img of nodes(section,n=>n.tag==='img'))assert.match(img.attrs.src,/project-design\/versatile-dog\//u);
+    for(const img of nodes(section,n=>n.tag==='img'))assert.match(originalSource(img),/project-design\/versatile-dog\//u);
   }
   for(const other of projects.filter(p=>p.path!==dog.path))assert.equal(nodes(other.document,n=>n.attrs.id==='goose-design').length,0);
   const {gooseAssets}=await import('../src/goose-design.mjs');
@@ -778,10 +779,10 @@ test('featured career covers use landscape publicity assets, not design diagrams
   const images=nodes(section,n=>n.tag==='img');
   assert.equal(images.length,3);
   for(const img of images){
-    assert.match(img.attrs.src,/\/promotional-cover\.(png|jpg)$/u);
+    assert.match(originalSource(img),/\/promotional-cover\.(png|jpg)$/u);
     assert.ok(Number(img.attrs.width)>Number(img.attrs.height));
     assert.match(img.attrs.alt,/推广图|宣传/u);
-    assert.ok((await stat(join(root,img.attrs.src))).size>10000);
+    assert.ok((await stat(join(root,originalSource(img)))).size>10000);
   }
   const css=await readFile(join(root,'assets/site.css'),'utf8');
   assert.match(css,/\.career-case-image\s*\{[^}]*aspect-ratio:\s*460\s*\/\s*215/u);
@@ -805,7 +806,7 @@ test('visual reading enhancement loads on every page and retains no-script evide
 test('independent games lead with official publicity while keeping original store screenshots', async()=>{
   const {home}=await site();
   for(const file of ['magicar','exorcism']){
-    const img=one(home.document,n=>n.tag==='img'&&n.attrs.src===`assets/project-design/indie/${file}-publicity.jpg`,'Official indie cover');
+    const img=one(home.document,n=>n.tag==='img'&&originalSource(n)===`assets/project-design/indie/${file}-publicity.jpg`,'Official indie cover');
     assert.equal(img.attrs.width,'460');assert.equal(img.attrs.height,'215');assert.match(img.attrs.alt,/官方.*宣传/u);
   }
 });
@@ -888,4 +889,37 @@ test('browser artifacts stay private and the publish tree has no PDF files', asy
     }
   }
   await check(root);
+});
+
+
+test('every responsive preview candidate exists and retains the reviewed original identity',async()=>{
+  const {pages}=await site();
+  const manifest=JSON.parse(await readFile(join(root,'assets/optimized/manifest.json'),'utf8'));
+  let previews=0;
+  for(const current of pages)for(const img of nodes(current.document,n=>n.tag==='img'&&n.attrs['data-original-src'])) {
+    previews++;
+    const original=routeFor(img.attrs['data-original-src'],current.path).path;
+    const entry=manifest.images[original];
+    assert.ok(entry?.variants.length,original);
+    assert.ok(Number(img.attrs.width)>0&&Number(img.attrs.height)>0&&img.attrs.alt);
+    const urls=img.attrs.srcset.split(', ').map(part=>part.split(' ')[0]);
+    assert.equal(urls.length,entry.variants.length);
+    for(let i=0;i<urls.length;i++) {
+      assert.equal(routeFor(urls[i],current.path).path,entry.variants[i].src);
+      assert.equal((await stat(join(root,entry.variants[i].src))).size,entry.variants[i].bytes);
+    }
+    assert.ok(entry.variants.some(v=>v.src===routeFor(img.attrs.src,current.path).path));
+    assert.equal(img.attrs.decoding,'async');
+  }
+  assert.ok(previews>100,'Shared processing covers all page types');
+});
+
+
+test('chapter navigation accessible names include their visible chapter number',async()=>{
+  const {home}=await site();
+  const rail=one(home.document,n=>hasClass(n,'chapter-rail'),'Chapter navigation');
+  for(const link of nodes(rail,n=>n.tag==='a')) {
+    const visible=link.children.filter(n=>typeof n==='string').join('').trim();
+    assert.ok(link.attrs['aria-label'].includes(visible),`Accessible name includes ${visible}`);
+  }
 });

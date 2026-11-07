@@ -10,6 +10,8 @@ node --test tests/site.test.mjs
 node scripts/serve.mjs
 ```
 
+图片展示使用已提交的响应式 WebP 预览，所有原图和原图入口保留。修改或新增原始图片后，先安装 Pillow 并运行 `python scripts/generate-image-variants.py`，再运行上面的构建与测试命令；普通构建与 GitHub CI 不需要 Python 或图像编码依赖。细节见 [图片加载说明](docs/image-optimization.md)。
+
 内容集中在 `src/content.mjs`，页面由 `src/render.mjs` 生成。职业信息依据本人提供的履历与确认；公开产品简介附原始来源。公司层面的共同职责不会逐项归为某个项目的独立成果。不展示电话、邮箱、原始简历 PDF、公司内部资料或未核实的商业成绩。
 
 TapTap 游戏实践位于首页个人作品区，两人独立游戏之后。八款游戏的公开文案与截图登记在 `src/taptap-games.mjs`，由 `src/taptap-portfolio.mjs` 生成卡片和详情；来源与版本说明见 [TapTap 作品资料说明](docs/taptap-project-sources.md)。无界面浏览器验收可运行 `node tests/taptap-browser-smoke.mjs`，复用本机 Playwright / Axe 安装，依赖路径可通过 `PLAYWRIGHT_MODULE` 和 `AXE_MODULE` 指定。
