@@ -2,6 +2,8 @@ export const sheepEvidenceAssets = [
   {file:'editor-workflow.jpeg',width:2560,height:176,sha256:'16686eb18f5cfb4607cf36cf63755138db5be56e1fc0e40195b86ac79491aa96',alt:'关卡编辑器流程：新建与摆放、层级调整、校验、保存编辑器数据、导出运行时数据、试玩及返回修改'},
   {file:'login-flow.jpeg',width:2560,height:2032,sha256:'32bbe355d052c54ce22a919db33ea6a23754cb48517a00a5eafc54ee5b984cad',alt:'登录授权设计原图：新用户先进入关卡，新老用户分流、结算返回与主动点击入口后触发微信授权'},
   {file:'board-no-pair-decision-detail.jpg',width:805,height:505,sha256:'04ed2112914458334241b057d836ca3a00489ff7be5ef99bdea1d6c6c28d39d5',caption:'旧版玩法画板局部 · 无配对与槽位道具判断 · 非第二版实机',alt:'旧版判定流程局部：先检查可配对砖块，再检查临时槽位与槽位道具，说明系统如何提示无牌可消并引导解困'},
+  {file:'collection-system-map.png',width:2560,height:1830,sha256:'a9484774673f8853c5c9b79025957d1c0390b2b669c1b40bea6a4808d2b65b57',caption:'图鉴功能文档 · 系统导图原图（仅裁去底部空白）· 交易市场不在该版本范围',alt:'图鉴系统导图：长期收集与个性展示、砖块小人与随身小物、入口与页面恢复、草稿与正式资产、赠送及研发支撑'},
+  {file:'collection-interface-flow.png',width:2560,height:1940,sha256:'ea353e4e791f105eb6a2ead0c631417b5dfcda8e717d3f5667552c07afa64413',caption:'图鉴功能文档 · 系统流程与界面串联原图（仅裁去底部空白）· 团队 UI 设计，非交易市场实机',alt:'换装系统界面流程：主界面入口至角色列表、详情、随身小物搭配、仓库与赠送弹窗，以及未保存时的保存确认'},
 ];
 
 export const sheepEvidenceCases = [
@@ -25,11 +27,17 @@ export const sheepEvidenceCases = [
     points:['独立两关挑战通关后获得兑换券，余额跨天累计；挑战完成与主动抽奖是两个独立操作。','失败保留对应进度，换批只调整候选池；覆盖跨日、广告未知结果、断网恢复和重复回调，分享重置周期保留待核实状态。'],
     output:'把资格、余额、候选池和发奖分别定义为状态，并提供前后端分工、配置与异常验收。通关率属于设计目标，不写成实测结果。',
     source:'【常驻玩法】每日小物。新版规则与下方早期“小物好运局”图分开阅读。'},
-  {id:'sheep-collection-case',title:'图鉴与换装：资产、草稿和正式状态',
-    question:'收集、试穿、保存和赠送如何共用清晰的资产规则？',
-    points:['区分完整砖块角色与按槽位佩戴的小物，明确库存、重复获得、互斥、收藏及获取方式。','试穿和批量收藏先进入草稿；服务端保存成功后才改变正式状态。返回恢复筛选与位置，异常时保留旧方案，并处理赠送去重。'],
-    output:'连接长期收集目标、UI/UE 操作和资产一致性；资料有多位修订者，不据文档归档认定个人独立完成全部设计。',
-    source:'图鉴功能文档。较早立项案记录“未开放”，后续版本记录已包含图鉴功能，不能用单个快照判断全部子功能的上线状态。'},
+  {id:'sheep-collection-case',title:'图鉴与换装：资产、草稿和正式状态',assets:[3,4],
+    question:'如何将关卡奖励接成长线目标，让重复获得的小物也有社交价值？',
+    points:['长期收集：在关卡之外提供持续补齐的目标，以收集进度和获取方式承接回流。个性展示：用砖块小人与随身小物搭配，提供 DIY 和展示乐趣。','社交互动：让符合条件的多余小物可赠送好友，为后续交换与交易预留资产规则，而非只增加库存数量。','区分完整角色与按槽位佩戴的小物；浏览、试穿及批量收藏先进入草稿，服务端保存成功才改变正式状态。覆盖未保存确认、返回恢复、断网与赠送去重。'],
+    output:'把收集动机、界面操作、资产边界与前后端验收串成完整系统；同时通过入口、浏览、装扮保存和赠送等埋点观察实际使用，不以设计目标代替留存成果。',
+    market:{title:'二级交易市场设计思路',status:'设计预留 · 未确认上线',steps:[
+      ['稳定分群','按用户 ID 的哈希结果将玩家稳定分为四类（A / B / C / D）。哈希用于分组，不直接决定抽奖结果；具体掉落仍由服务端按配置权重抽取。'],
+      ['差异化投放','为四类配置不同的小物掉落权重，形成“本组相对多、其他组相对少”的供给互补。借鉴集五福的集齐动机，让重复物成为可交换供给，缺失物形成需求。'],
+      ['稀缺与流通','区分群体间的相对稀缺与全市场总量稀缺；结合活跃人数、获得频次、奖励池、投放周期及回收规则调节供需，避免把四类差异做成永久绝版或无法补齐。'],
+      ['验证与边界','保留基础获取或保底补齐路径；设计赠送／交易资格、次数限制、库存校验与订单去重，防止多账号刷取。观察重复率、缺口、成交与收集完成率，再调整权重。']
+    ],note:'以上为本人补充的市场设计方向，不代表交易功能已开发或上线；具体概率、交易媒介、定价与回收规则尚未披露，也不作真实货币收益承诺。'},
+    source:'《图鉴功能文档》设计目的、系统导图、系统流程与埋点章节；市场方向由本人补充。资料有多位修订者，界面美术为团队成果；不据文档归档认定个人独立完成全部设计，也不将各子功能一概写成上线成果。'},
   {id:'sheep-auth-case',title:'新用户上手与微信授权流程',asset:1,
     question:'怎样先让玩家体验玩法，再在需要的入口请求授权，并处理拒绝后的去向？',
     points:['以首次关卡结算划分新老用户；首次先进入关卡，不在体验前强制申请昵称头像。','按隐私、个人信息两步组织入口状态，区分未请求、已拒绝和仅缺个人信息；结算页再次挑战及返回主页不因授权结果被阻断。'],
@@ -49,10 +57,12 @@ export const sheepEvidenceCases = [
 
 export function renderSheepEvidence(e) {
   const figure=item=>{
+    if(item.assets)return item.assets.map(asset=>figure({...item,assets:undefined,asset})).join('');
     if(item.asset===undefined)return '';
     const asset=sheepEvidenceAssets[item.asset],url=`../../assets/project-design/sheep-match/${asset.file}`;
     const attrs=`src="${url}" width="${asset.width}" height="${asset.height}" loading="lazy" alt="${e(asset.alt)}"`;
     return `<figure><a href="${url}" aria-label="查看${e(item.title)}原图"><img ${attrs}></a><figcaption>${e(asset.caption||'项目文档原始流程图 · 非实机画面')}</figcaption></figure><a class="design-original" href="${url}">查看原图（可缩放） ↗</a><details class="matchmaking-inspect"><summary>展开流程图原尺寸</summary><div class="matchmaking-scroll" role="region" tabindex="0" aria-label="${e(item.title)}大图"><img ${attrs}></div></details>`;
   };
-  return `<section class="matchmaking-design" id="sheep-evidence" aria-labelledby="sheep-evidence-title"><header><p class="eyebrow">DESIGN / DELIVERY</p><h2 id="sheep-evidence-title">设计与研发推进案例</h2><p class="matchmaking-intro">围绕本人已确认的制作人职责，阅读产品取舍、系统规则、关卡工具与版本交付的具体依据。</p></header><p class="matchmaking-boundary">以下是项目资料支持的设计与交付案例，不将团队工作认定为个人独立成果。历史方案、待验收能力与版本表内发布记录分别说明，不以设计目标代替实测业绩。</p><nav class="idiom-jumps" aria-label="设计案例目录">${sheepEvidenceCases.map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}</nav>${sheepEvidenceCases.map(item=>`<article class="matchmaking-map" id="${item.id}" aria-labelledby="${item.id}-title"><h3 id="${item.id}-title">${e(item.title)}</h3>${figure(item)}<div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(item.question)}</p><h4>交付与价值</h4><p>${e(item.output)}</p></div><div><h4>关键方案</h4><ul>${item.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div><p class="record-source">来源：${e(item.source)}</p></article>`).join('')}<p class="matchmaking-boundary">完整原件、内部任务编号、成员信息、精确概率与经济配置不公开；流程图保留原始像素，团队美术与程序实现不扩大为个人职责。</p></section>`;
+  const market=item=>item.market?`<section aria-labelledby="${item.id}-market"><h4 id="${item.id}-market">${e(item.market.title)}</h4><p class="record-source">${e(item.market.status)}</p><div class="matchmaking-map-notes">${item.market.steps.map(([title,copy])=>`<div><h4>${e(title)}</h4><p>${e(copy)}</p></div>`).join('')}</div><p class="record-source">${e(item.market.note)}</p></section>`:'';
+  return `<section class="matchmaking-design" id="sheep-evidence" aria-labelledby="sheep-evidence-title"><header><p class="eyebrow">DESIGN / DELIVERY</p><h2 id="sheep-evidence-title">设计与研发推进案例</h2><p class="matchmaking-intro">围绕本人已确认的制作人职责，阅读产品取舍、系统规则、关卡工具与版本交付的具体依据。</p></header><p class="matchmaking-boundary">以下是项目资料支持的设计与交付案例，不将团队工作认定为个人独立成果。历史方案、待验收能力与版本表内发布记录分别说明，不以设计目标代替实测业绩。</p><nav class="idiom-jumps" aria-label="设计案例目录">${sheepEvidenceCases.map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}</nav>${sheepEvidenceCases.map(item=>`<article class="matchmaking-map" id="${item.id}" aria-labelledby="${item.id}-title"><h3 id="${item.id}-title">${e(item.title)}</h3>${figure(item)}<div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(item.question)}</p><h4>交付与价值</h4><p>${e(item.output)}</p></div><div><h4>关键方案</h4><ul>${item.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div>${market(item)}<p class="record-source">来源：${e(item.source)}</p></article>`).join('')}<p class="matchmaking-boundary">完整原件、内部任务编号、成员信息、精确概率与经济配置不公开；流程图保留原始像素，团队美术与程序实现不扩大为个人职责。</p></section>`;
 }

@@ -8,6 +8,14 @@ import {createHash} from 'node:crypto';
 
 const job=jobs.find(item=>item.slug==='jianyou');
 const html=()=>renderDetail(job,job.projects[0]);
+
+test('Collection case explains purpose, original flows and separates market proposal from delivery',()=>{
+  const page=html();
+  for(const term of ['collection-system-map.png','collection-interface-flow.png','长期收集','DIY','哈希','四类','差异化投放','集五福','供给互补','未确认上线'])assert.ok(page.includes(term),term);
+  assert.match(page,/哈希.*分组.*不.*抽奖/u);
+  assert.match(page,/保底|补齐/u);
+  assert.match(page,/多账号/u);
+});
 test('Sheep project removes tile-pattern section and keeps other reviewed references',()=>{
   assert.equal(sheepDesigns.some(item=>item.id==='tile-patterns'),false);
   assert.doesNotMatch(html(),/砖块图案搭配|tile-patterns\.png/u);

@@ -993,6 +993,70 @@
         }
       ]
     },
+    "assets/project-design/sheep-match/collection-interface-flow.png": {
+      "sourceSha256": "ea353e4e791f105eb6a2ead0c631417b5dfcda8e717d3f5667552c07afa64413",
+      "width": 2560,
+      "height": 1940,
+      "bytes": 2330937,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-interface-flow.png-ea353e4e791f105e-480.webp",
+          "width": 480,
+          "height": 364,
+          "bytes": 103586
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-interface-flow.png-ea353e4e791f105e-960.webp",
+          "width": 960,
+          "height": 728,
+          "bytes": 320856
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-interface-flow.png-ea353e4e791f105e-1440.webp",
+          "width": 1440,
+          "height": 1091,
+          "bytes": 631524
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-interface-flow.png-ea353e4e791f105e-1920.webp",
+          "width": 1920,
+          "height": 1455,
+          "bytes": 1029000
+        }
+      ]
+    },
+    "assets/project-design/sheep-match/collection-system-map.png": {
+      "sourceSha256": "a9484774673f8853c5c9b79025957d1c0390b2b669c1b40bea6a4808d2b65b57",
+      "width": 2560,
+      "height": 1830,
+      "bytes": 1227579,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-system-map.png-a9484774673f8853-480.webp",
+          "width": 480,
+          "height": 343,
+          "bytes": 50460
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-system-map.png-a9484774673f8853-960.webp",
+          "width": 960,
+          "height": 686,
+          "bytes": 149958
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-system-map.png-a9484774673f8853-1440.webp",
+          "width": 1440,
+          "height": 1029,
+          "bytes": 300716
+        },
+        {
+          "src": "assets/optimized/project-design/sheep-match/collection-system-map.png-a9484774673f8853-1920.webp",
+          "width": 1920,
+          "height": 1372,
+          "bytes": 487786
+        }
+      ]
+    },
     "assets/project-design/sheep-match/daily-entry-ui.jpg": {
       "sourceSha256": "aa6935a397491a8df01d457da6b0cca766e7cb1228b9cbe2a501687ed6d0c9ed",
       "width": 289,

@@ -867,8 +867,8 @@ test('Sheep supplied evidence separates design, release scope and personal owner
   for(const term of ['编辑器','运行时','主动抽奖','草稿','隐私','兑换','去重','测试服','全量','1.0.539','2026-09-24'])assert.ok(textOf(section).includes(term),term);
   assert.match(textOf(section),/设计目标.*实测/u);
   assert.match(textOf(section),/团队.*不.*个人独立/u);
-  assert.equal(nodes(section,n=>n.tag==='img').length,6);
-  assert.equal(nodes(section,n=>n.tag==='details').length,3);
+  assert.equal(nodes(section,n=>n.tag==='img').length,10);
+  assert.equal(nodes(section,n=>n.tag==='details').length,5);
   assert.doesNotMatch(textOf(section),/E:\\|J:\/|Tower任务ID|全部已上线|留存提升\s*\d/u);
   const company=companies.find(c=>c.path==='experience/jianyou/index.html');
   one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company evidence entry');
