@@ -42,6 +42,7 @@
   --on-primary: #ffffff;
   --on-primary-muted: #d9e9ee;
   --font-display: "Producer Display", "Microsoft YaHei", sans-serif;
+  --font-home: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif;
   --scrollbar-thumb: #708e9b;
   --scrollbar-track: #e9f0f6;
   --scrollbar-hover: #416674;
@@ -1601,6 +1602,27 @@ button:disabled { cursor: default; }
 .ai-supporting { border-block: 1px solid var(--line); margin-top: 20px; }
 .ai-supporting > summary { padding-block: 24px; cursor: pointer; font-weight: 700; font-size: 18px; }
 .hub-tool-collection a:focus-visible, .hub-more > summary:focus-visible, .ai-supporting > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* Home uses a consistent upright Chinese/Latin face for calm, legible reading. */
+body[data-page="home"] { font-family: var(--font-home); font-synthesis: none; }
+body[data-page="home"] .intro-main h1,
+body[data-page="home"] .section-head h2 {
+  font-family: var(--font-home);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+body[data-page="home"] .intro-main h1 { font-size: clamp(40px, 6vw, 80px); line-height: 1.25; }
+body[data-page="home"] .intro-main h1 > span { font-size: .6em; line-height: 1.4; }
+body[data-page="home"] .section-head h2 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.4; }
+body[data-page="home"] :is(.eyebrow, .kicker, .section-label) {
+  font-family: var(--font-home);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.7;
+}
 @media (max-width: 820px) {
   .hub-tool-feature:first-child { display: block; }
   .hub-tool-heading { align-items: start; flex-direction: column; gap: 16px; }
