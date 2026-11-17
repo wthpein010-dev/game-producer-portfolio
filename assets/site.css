@@ -1041,6 +1041,30 @@ button:disabled { cursor: default; }
 #hero-design .matchmaking-map figure img { width: auto; max-width: 100%; max-height: 760px; margin-inline: auto; }
 #goose-design .matchmaking-map figure img { width: auto; max-width: 100%; max-height: 760px; margin-inline: auto; }
 #sheep-evidence .matchmaking-map figure img { width: auto; max-width: 100%; max-height: 760px; margin-inline: auto; }
+.sheep-visuals, .sheep-flow-gallery { margin-block: 40px 56px; min-width: 0; }
+.sheep-screen-strip { padding: 8px 0 14px; }
+.sheep-screen-grid { display: grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap: 28px; max-width: 960px; margin-inline: auto; }
+.sheep-screen-grid figure { margin: 0; min-width: 0; }
+.sheep-screen-grid figure > a { display: flex; justify-content: center; height: 440px; }
+.sheep-screen-grid img { display: block; width: auto; height: 100%; max-width: 100%; object-fit: contain; }
+.sheep-screen-grid h3 { font-size: 17px; line-height: 1.5; margin: 16px 0 8px; }
+.sheep-screen-grid p { font-size: 14px; line-height: 1.8; margin: 0; color: var(--muted); }
+.sheep-flow-detail { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 36px; align-items: center; padding-block: 32px; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.sheep-flow-detail figure { margin: 0; min-width: 0; }
+.sheep-flow-detail figure a { display: block; background: var(--on-primary); }
+.sheep-flow-detail img { display: block; width: auto; height: auto; max-width: 100%; max-height: 620px; margin-inline: auto; }
+.sheep-flow-detail figcaption { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.sheep-flow-copy { min-width: 0; }
+.sheep-flow-copy h3 { font-size: 22px; line-height: 1.5; margin: 0 0 16px; }
+.sheep-flow-copy p, .sheep-flow-copy li { font-size: 15px; line-height: 1.9; }
+.sheep-flow-copy ul { padding-left: 1.3em; }
+.sheep-flow-copy li + li { margin-top: 10px; }
+@media (max-width: 700px) {
+  .sheep-screen-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .sheep-screen-grid figure > a { height: 420px; }
+  .sheep-flow-detail { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .sheep-flow-copy h3 { font-size: 20px; }
+}
 #hero-design .matchmaking-map figure + a { display: inline-block; margin-block: 8px 18px; }
 .hero-delivery { padding-block: 24px; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
 .hero-delivery h3 { font-size: 24px; line-height: 1.5; }

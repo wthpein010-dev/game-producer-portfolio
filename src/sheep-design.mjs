@@ -1,6 +1,7 @@
 // Selected project design images, reviewed and authorized for public display.
 // These are project references, not individual artwork or a release report.
 import {renderSheepEvidence} from './sheep-evidence.mjs';
+import {renderSheepFlowGallery} from './sheep-visuals.mjs';
 export const sheepDesigns = [
   {
     id: 'save-recovery', number: '01', label: 'STATE / RECOVERY',
@@ -11,15 +12,7 @@ export const sheepDesigns = [
     points: ['主页先检测有效存档，再决定是否展示继续对局弹窗。', '恢复读取最近一次成功保存的进度；失败时保留存档，允许重试。', '放弃需要服务端确认成功后，才作废旧存档。'],
   },
   {
-    id: 'tile-patterns', number: '02', label: 'SYSTEM / RULES',
-    title: '砖块图案搭配', file: 'tile-patterns.png', width: 1550, height: 5527,
-    preview: 'map', caption: '项目设计资料 · 系统规则脑图',
-    alt: '砖块图案与搭配功能脑图：主题浏览、自定义方案、生效规则、首发与后续范围，以及保存失败回退和界面状态',
-    lead: '个性化外观的同时，明确哪些规则保持稳定。',
-    points: ['仅调整普通砖块正面图案，类型、配对、布局与难度规则保持不变。', '区分主题浏览、整套使用与自定义搭配，并规定方案的生效时机。', '保存成功后生效；失败保留旧方案。图中 P0、P1 表示设计范围分层。'],
-  },
-  {
-    id: 'lucky-items', number: '03', label: 'PLAYER / FLOW',
+    id: 'lucky-items', number: '02', label: 'PLAYER / FLOW',
     title: '小物好运局流程', file: 'lucky-items-flow.jpg', width: 2560, height: 2560,
     preview: 'screens', caption: '项目设计资料 · 小物好运局早期流程方案',
     alt: '小物好运局界面流程图：从主界面入口查看奖池、开始挑战、胜利结算到自动揭晓小物，另列挑战失败和重试路径',
@@ -29,8 +22,8 @@ export const sheepDesigns = [
 ];
 
 export function renderSheepDesign(e) {
-  return `${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
-    <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>三份项目资料，<br>阅读状态、系统与操作流程。</p></div>
+  return `${renderSheepFlowGallery(e)}${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
+    <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>存档恢复与早期界面流程。</p></div>
     <p class="design-role">我的角色是游戏制作人，工作范围包括整体方向、玩法与系统、团队与排期、数据迭代。下列资料用于展开项目设计讨论；美术执行由团队相应岗位承担。</p>
     <div class="design-references">${sheepDesigns.map(item => {
       const image = `../../assets/project-design/${item.file}`;

@@ -332,7 +332,6 @@ test('Sheep Match design references retain reviewed originals, readable alternat
   const cards = nodes(gallery, node => node.tag === 'article' && hasClass(node, 'design-reference'));
   const originals = [
     ['save-recovery.png', 'ad51a365327490b0e6a0698afc61bb8fcb8395aab2462fc858b78039f918bce4'],
-    ['tile-patterns.png', '095cee2f642884d15ecce6c9b44ca68c1b1479de969bc2ad8b7bd305e1fd5e75'],
     ['lucky-items-flow.jpg', 'c245367bc7c256c7d0b192e9aaf830e37fededce54815556fd745885342a4db4'],
   ];
   assert.equal(cards.length, originals.length);

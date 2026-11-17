@@ -12,6 +12,7 @@ import {materialCases,renderMaterialCases} from './material-cases.mjs';
 import {jobs,profile,skills,hubBase,sourceSha,companyWork,sharedCompanyWork,projectWork} from './content.mjs';
 import {renderSheepReading,renderSheepNoteBody} from './sheep-notes.mjs';
 import {renderSheepDesign} from './sheep-design.mjs';
+import {renderSheepScreens} from './sheep-visuals.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -74,6 +75,7 @@ function renderWorkValue(job,project){
   return `<section class="work-value" id="work-value" data-work-basis="${basis}" aria-labelledby="work-value-title"><header><p class="eyebrow">MY WORK / DESIGN VALUE</p><h2 id="work-value-title">${shared?'这段任职的工作与价值':'我的工作与价值'}</h2><p class="work-value-basis">${e(note)}</p></header><ol class="work-value-list">${work.items.map((item,n)=>`<li class="work-value-item"><div class="work-value-label"><span>${counter(n+1)}</span><h3>${e(item.title)}</h3></div><dl><div><dt>具体工作</dt><dd>${e(item.action)}</dd></div><div><dt>工作价值</dt><dd>${e(item.value)}</dd></div></dl><a class="text-link" href="../../${item.link[1]}">${e(item.link[0])} ↗</a></li>`).join('')}</ol><p class="work-value-boundary">职责依据本人履历与确认；原图补充设计证据，经营结果另行说明来源与口径。</p>${shared?`<a class="text-link" href="../../experience/${job.slug}/#work-value">查看完整公司经历 ↗</a>`:''}</section>${project?.slug==='word-villas'?renderWordExcerpts(e):''}`;
 }
 function renderProjectCover(project) {
+  if(project?.slug==='sheep-match')return renderSheepScreens(e);
   const covers={
     'idiom-scholar':['idiom-scholar/promotional-cover.png',960,334,'成语小秀才 · 项目推广素材'],
     'word-villas':['word-villas/promotional-cover.jpg',1280,720,'Wordvillas · 宣传视频封面'],
