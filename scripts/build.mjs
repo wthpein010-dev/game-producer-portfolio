@@ -3,6 +3,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {jobs} from '../src/content.mjs';
+import {validateImageManifest} from '../src/responsive-images.mjs';
 import {renderHome,renderDetail,renderDiagram,renderPublicNote,renderMaterialNote} from '../src/render.mjs';
 import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
 import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSummary} from '../src/render.mjs';
@@ -28,6 +29,7 @@ function graphicTheme(css) {
   return svg=>svg.replace(/#[a-f\d]{6}\b/gi,color=>map.get(color.toLowerCase())||color);
 }
 export async function build() {
+  validateImageManifest(siteRoot,JSON.parse(await readFile(path.join(siteRoot,'assets/optimized/manifest.json'),'utf8')));
   const ai=await readFile(path.join(siteRoot,'src/ai.html'),'utf8');
   const theme=graphicTheme(await readFile(path.join(siteRoot,'assets/site.css'),'utf8'));
   await mkdir(path.join(siteRoot,'assets/diagrams'),{recursive:true});

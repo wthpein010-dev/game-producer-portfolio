@@ -10,19 +10,21 @@ let browser;
 const errors=[];
 await mkdir('artifacts/sheep-evidence',{recursive:true});
 try {
-  browser=await chromium.launch(process.env.PORTFOLIO_BROWSER_CHANNEL?{channel:process.env.PORTFOLIO_BROWSER_CHANNEL}:{});
+  browser=await chromium.launch(process.env.PORTFOLIO_CHROME_PATH?{executablePath:process.env.PORTFOLIO_CHROME_PATH}:process.env.PORTFOLIO_BROWSER_CHANNEL?{channel:process.env.PORTFOLIO_BROWSER_CHANNEL}:{});
   for(const width of [360,768,1440])for(const route of ['', 'experience/jianyou/','projects/sheep-match/']){
     const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage();
     page.on('pageerror',error=>errors.push(error.message));
     assert.equal((await page.goto(`http://127.0.0.1:${server.address().port}/${route}`,{waitUntil:'networkidle'})).status(),200);
     if(route==='projects/sheep-match/'){
       const section=page.locator('#sheep-evidence');assert.equal(await section.locator('article').count(),8);
-      for(const image of await section.locator('img').all())await image.evaluate(async el=>{el.loading='eager';await el.decode();if(el.naturalWidth!==Number(el.getAttribute('width'))||el.naturalHeight!==Number(el.getAttribute('height')))throw Error('Image dimensions differ');});
+      for(const image of await section.locator('img').all())await image.evaluate(async el=>{el.loading='eager';await el.decode();const width=Number(el.getAttribute('width')),height=Number(el.getAttribute('height'));if(!el.naturalWidth||!el.naturalHeight)throw Error('Image is blank');if(el.dataset.originalSrc){if(Math.abs(el.naturalHeight-el.naturalWidth*height/width)>2)throw Error(`Preview aspect ratio differs: ${el.currentSrc}, ${el.naturalWidth}x${el.naturalHeight}, ${width}x${height}`);}else if(el.naturalWidth!==width||el.naturalHeight!==height)throw Error('Image dimensions differ');});
       const revision=section.locator('#sheep-revision-case');
+      await section.getByRole('tab',{name:'玩法改版：让失败风险看得见',exact:true}).click();
       assert.ok((await revision.innerText()).includes('次日留存'));
       assert.ok((await revision.locator('figcaption').innerText()).includes('旧版'));
       await revision.screenshot({path:`artifacts/sheep-evidence/sheep-revision-case-${width}.png`});
       for(const id of ['sheep-editor-case','sheep-auth-case']){
+        await section.getByRole('tab',{name:id==='sheep-editor-case'?'关卡编辑器与策划生产闭环':'新用户上手与微信授权流程',exact:true}).click();
         const article=section.locator(`#${id}`),details=article.locator('details');
         await details.locator('summary').focus();await page.keyboard.press('Enter');assert.notEqual(await details.getAttribute('open'),null);
         const region=details.locator('[role="region"]');await region.focus();
