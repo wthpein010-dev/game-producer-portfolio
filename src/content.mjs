@@ -35,10 +35,10 @@ export const jobs = [
 ];
 export const skills = [
   {title:'玩法与系统',text:'从关卡、任务到系统规则，用职业项目串联设计经验。',links:[['当前制作职责','experience/jianyou/?section=scope'],['从 0 到 1 的系统','experience/muyou/?section=scope'],['任务与经营设计','projects/my-town/#town-delivery']]},
-  {title:'制作与推进',text:'项目排期、任务拆分、组内验收与文档交付，连接策划、程序、美术和剧情。',links:[['6 人项目团队','experience/jianyou/'],['跨组协作与 PM','experience/beta/#work-value']]},
+  {title:'制作与推进',text:'项目排期、任务拆分、组内验收与文档交付，连接策划、程序、美术和剧情。',links:[['协作方法与管理实践','skills/ai-collaboration/#ownership'],['6 人项目团队','experience/jianyou/'],['跨组协作与 PM','experience/beta/#work-value']]},
   {title:'交互与体验',text:'PC 端操作、UI/UE 与新手流程，沿着问题调整体验。',links:[['PC 端移植与重构','experience/hero-games/'],['新手留存分析','experience/beta/?section=scope']]},
   {title:'测试与质量',text:'职业测试管理经历，以及个人工具中的验收与一致性检查。',links:[['QA 与游戏策划','experience/iceshi/'],['需求验收实践','#case-gamespec']]},
-  {title:'AI 协作与原型',text:'用于文档撰写与检验、表格与数值工具、项目管理，以及个人工具和小游戏开发；独立游戏中也探索 UI、角色、配音与音乐音效制作。',links:[['小团队完整策划','#indie-games'],['多线程工作台','#case-workbench'],['本地模拟玩法','#case-lighthouse']]},
+  {title:'AI 协作与原型',text:'用于文档撰写与检验、表格与数值工具、项目管理，以及个人工具和小游戏开发；独立游戏中也探索 UI、角色、配音与音乐音效制作。',links:[['AI 辅助研发工作流','skills/ai-collaboration/'],['小团队完整策划','#indie-games'],['多线程工作台','#case-workbench'],['本地模拟玩法','#case-lighthouse']]},
   {title:'结构表达与工具',text:'把想法、关卡和任务变成可编辑、可交接的结构。',links:[['思维导图快捷工作流',hubBase+'projects/planmap/index.html'],['关卡编辑工具',hubBase+'projects/paws-level-editor/index.html']]}
 ];
 

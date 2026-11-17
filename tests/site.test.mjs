@@ -96,7 +96,8 @@ function site() {
       if (error.code === 'ENOENT') return null;
       throw error;
     })))).filter(Boolean);
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages] };
+    const collaboration=await page('skills/ai-collaboration/index.html');
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration] };
   })();
   return sitePromise;
 }

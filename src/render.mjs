@@ -13,6 +13,7 @@ import {jobs,profile,skills,hubBase,sourceSha,companyWork,sharedCompanyWork,proj
 import {renderSheepReading,renderSheepNoteBody} from './sheep-notes.mjs';
 import {renderSheepDesign} from './sheep-design.mjs';
 import {renderSheepScreens} from './sheep-visuals.mjs';
+import {renderCollaborationEntry,renderCollaborationBody} from './collaboration.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -31,6 +32,9 @@ export function renderTownSummary() {
   return shell({title:'我的小镇 · 设计资料摘要',description:'我的小镇经营循环、新手引导与任务交互设计资料。',base:'../../../',page:'document',attrs:'data-company="muyou"',body:`<main id="main" class="detail-main wrap"><nav class="breadcrumbs" aria-label="面包屑"><a href="../">返回我的小镇项目</a><span aria-hidden="true">/</span><a href="../../../experience/muyou/">牧游科技经历</a></nav><header class="detail-hero"><p class="eyebrow">PROJECT JOURNAL / 设计资料摘要</p><h1>我的小镇<span class="title-dot">.</span></h1><p class="detail-lede">经营流程、新手体验与任务状态。</p></header>${renderTownDesign(e,'../../../')}</main>`});
 }
 const counter = n => String(n).padStart(2,'0');
+export function renderCollaborationPage() {
+  return shell({title:'AI 辅助研发与团队协作',description:'需求收口、任务组织、原型交付与验证复盘：吴天昊的人机协同研发方法。',body:renderCollaborationBody(e),base:'../../',page:'document'});
+}
 function chapterRail() {
   return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>CAREER INDEX / 职业章节</span><ol>${jobs.map((job,index)=>`<li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span aria-hidden="true">↘</span></a></li>`).join('')}</ol></nav>`;
 }
@@ -58,7 +62,7 @@ export function renderHome(aiHtml='') {
     <section class="home-intro wrap" id="top" aria-labelledby="intro-title"><div class="intro-main"><p class="eyebrow">GAME PRODUCER / RESUME</p><h1 id="intro-title">${profile.name}<span>游戏制作人<span class="title-dot">.</span></span></h1><p>${e(profile.description)}</p><div class="intro-facts"><span><strong>${profile.experience}</strong>游戏研发经验</span><span><strong>${profile.projectExperience}</strong>完整项目经验</span></div><nav class="intro-reading-links" aria-label="作品直达"><a href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a><a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a><a href="#taptap-games">TapTap 游戏 <span aria-hidden="true">↓</span></a><a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a></nav></div><aside class="intro-aside"><span>NOW / 当前工作</span><h2>羊了个羊：对对碰</h2><p>北京简游科技有限公司<br>游戏制作人 · ${e(jobs[0].start.replaceAll('-','.'))} 起</p><a href="#company-jianyou">查看最近经历 ↓</a></aside>${chapterRail()}</section>
     ${renderCareerCases()}
     <section class="timeline-section wrap" id="experience" aria-labelledby="timeline-title"><div class="section-head"><div><p class="eyebrow">01 / CAREER TIMELINE</p><h2 id="timeline-title">工作经历<span class="title-dot">.</span></h2></div></div><div class="career-timeline">${jobs.map(timeline).join('')}</div><div class="education-row"><span>教育背景</span><strong>北京联合大学</strong><p>计算机科学与技术 · 本科 · 2015.09—2017.07</p></div></section>
-    <section class="skills-section wrap section" id="skills" aria-labelledby="skills-title"><div class="section-head"><div><p class="eyebrow">02 / SKILL TREE</p><h2 id="skills-title">项目技能<span class="title-dot">.</span></h2></div></div><div class="skill-tree">${skills.map((s,i)=>`<article class="skill-card"><span class="skill-index">${counter(i+1)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details class="skill-evidence"><summary>查看项目依据 <span>${s.links.length} 项</span></summary><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></details></article>`).join('')}</div></section>${aiHtml}</main>`});
+    <section class="skills-section wrap section" id="skills" aria-labelledby="skills-title"><div class="section-head"><div><p class="eyebrow">02 / SKILL TREE</p><h2 id="skills-title">项目技能<span class="title-dot">.</span></h2></div></div><div class="skill-tree">${skills.map((s,i)=>`<article class="skill-card"><span class="skill-index">${counter(i+1)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details class="skill-evidence"><summary>查看项目依据 <span>${s.links.length} 项</span></summary><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></details></article>`).join('')}</div></section>${renderCollaborationEntry()}${aiHtml}</main>`});
 }
 export function renderTapTapDetail(game) {
   return shell({title:game.title+' · TapTap 游戏实践',description:game.summary,body:renderTapTapBody(game),base:'../../',page:'document'});
