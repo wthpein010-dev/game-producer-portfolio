@@ -7,7 +7,7 @@ import {createSiteServer} from '../scripts/serve.mjs';
 import {taptapGames} from '../src/taptap-games.mjs';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const artifacts=path.join(root,'artifacts','taptap-layout-20261017');
+const artifacts=path.join(root,'artifacts','taptap-layout-20261025');
 await mkdir(artifacts,{recursive:true});
 const dependency=process.env.PLAYWRIGHT_MODULE || 'playwright';
 const {chromium}=await import(/^[A-Z]:[\\/]/i.test(dependency)?pathToFileURL(dependency).href:dependency);
@@ -35,8 +35,8 @@ try {
     await page.setViewportSize({width,height:1000});
     await page.goto(base+'index.html#taptap-games',{waitUntil:'networkidle'});
     await fit();await decode();
-    assert.equal(await page.locator('#taptap-games article').count(),8);
-    assert.equal(await page.locator('.taptap-project-index a').count(),8);
+    assert.equal(await page.locator('#taptap-games article').count(),taptapGames.length);
+    assert.equal(await page.locator('.taptap-project-index a').count(),taptapGames.length);
     const cardLayout=await page.locator('.taptap-card').evaluateAll(cards=>cards.map(card=>{
       const title=card.querySelector('h4').getBoundingClientRect(),image=card.querySelector('img').getBoundingClientRect();
       const copy=card.querySelector('.taptap-card-copy').getBoundingClientRect(),actions=card.querySelector('.taptap-actions').getBoundingClientRect();
@@ -46,7 +46,7 @@ try {
     if(width<=620)assert.ok(cardLayout.every(card=>card.titleTop<card.imageTop),'Mobile project names precede screenshots');
     await page.locator('#taptap-games').scrollIntoViewIfNeeded();
     if(width===390||width===1440) await page.screenshot({path:path.join(artifacts,`collection-${width}.png`)});
-    checks.push(`home ${width}: eight projects, images decoded, no horizontal overflow`);
+    checks.push(`home ${width}: all current projects, images decoded, no horizontal overflow`);
   }
   await page.goto(base+'index.html',{waitUntil:'networkidle'});
   const destinations=['career-cases','indie-games','taptap-games','ai-tools'];
@@ -108,10 +108,10 @@ try {
   const plain=await noScript.newPage();
   await plain.goto(base+'projects/taptap-after-hours-stall/');
   assert.equal(await plain.locator('h1').textContent(),'下班收摊.');
-  assert.equal(await plain.locator('.taptap-detail .taptap-image-link').count(),2);
-  assert.equal(await plain.locator('.taptap-play a').getAttribute('href'),taptapGames[0].tapUrl);
+  assert.equal(await plain.locator('.taptap-detail .taptap-image-link').count(),3);
+  assert.equal(await plain.locator('.taptap-play a').getAttribute('href'),taptapGames.find(g=>g.slug==='after-hours-stall').tapUrl);
   await plain.goto(base+'projects/taptap-food-car/');
-  assert.equal(await plain.locator('.taptap-detail .taptap-screenshot').count(),4);
+  assert.equal(await plain.locator('.taptap-detail .taptap-screenshot').count(),3);
   const plainGallery=plain.locator('.taptap-shot-grid');await plainGallery.scrollIntoViewIfNeeded();await plainGallery.focus();
   assert.ok(await plainGallery.evaluate(el=>el===document.activeElement&&el.scrollWidth>el.clientWidth));
   await plain.keyboard.press('ArrowRight');

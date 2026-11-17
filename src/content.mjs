@@ -8,10 +8,10 @@ export const profile = {
 };
 export const jobs = [
   {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.05.18—至今', start:'2026-05-18', layout:'producer', teamSize:6,
-    projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'负责整体方向、玩法与系统、团队排期和数据迭代，把设计决策与研发推进放在同一条工作线上。'}],
+    projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'从零组队推进项目，独立使用 Codex 一周完成核心玩法与表现原型；负责玩法与系统、版本交付，推进微信和抖音上线及第二版测试。'}],
     scope:['整体方向','玩法与系统','团队与排期','数据迭代'],
-    lead:'在共 6 人的项目团队中，统筹游戏方向、玩法系统、团队排期与数据迭代，承担设计与研发推进的衔接职责。',
-    note:'项目团队共 6 人，不等同于 6 名直接下属。职责不包含美术表现、发行运营。'},
+    lead:'从零组建峰值 6 人团队，独立使用 Codex 一周完成核心玩法与表现原型，随后统筹正式研发、双端上线与玩法迭代。负责玩法手感、每日挂件、活动系统及道具判定逻辑。',
+    note:'项目团队共 6 人：制作人本人、2 名策划、1 名美术、2 名程序。正式版美术表现和发行运营由相应岗位承担；个人 AI 原型与团队正式交付分开说明。'},
   {slug:'hero-games', employer:'英雄游戏科技股份有限公司', role:'高级系统策划', period:'2025.07—2026.05.15', start:'2025-07', end:'2026-05-15', layout:'workbench',
     projects:[{slug:'crisis-dawn',title:'危机曙光',description:'承担 SOC 项目 PC 移植中的 UI/UE、HUD 与操作逻辑调整，创建和修订跨界面数值显示规范，并推进家园、公会调优与跨岗位问题处理。'}],
     scope:['SOC 项目 PC 端移植','UI/UE 重构','HUD 与操作逻辑','家园及公会调优','问题整理与跨岗位推进'],
@@ -24,8 +24,8 @@ export const jobs = [
     projects:[{slug:'my-town',title:'我的小镇',description:'负责任务与宝箱、图鉴、新手引导、数值设计及角色美术需求；将经营系统框架、资源产消和策划任务交付连接起来。'}, {slug:'zuoyaoji-x',title:'作妖计',description:'参与小游戏项目，撰写并修订魔罩、魔宠系统方案，连接成长规则、战斗表现、UI/UE、配置需求与引导红点。'}],
     scope:['从 0 到 1 的玩法与系统','经营数值与配置','任务、宝箱与新手引导','魔罩与魔宠成长系统','UI/UE与美术需求交付'],lead:'主策划负责《我的小镇》的任务、宝箱、图鉴、新手与数值设计，并参与《作妖计》小游戏的魔罩、魔宠系统；以框架、配置、交互和版本化文档连接设计与研发交付。'},
   {slug:'beta',employer:'北京贝塔科技股份有限公司',role:'高级系统策划',period:'2020.03—2021.02',start:'2020-03',end:'2021-02',layout:'board',
-    projects:[{slug:'word-villas',title:'Word Villas',description:'将分支剧情、锦标赛、多类型活动和投骰子玩法从 0 到 1 推进至上线，完成方案与 UI/UE 设计、跨组对齐和开发测试跟进。'}, {slug:'words-with-colors',title:'Words with Colors',description:'以高级系统策划身份参与；贝塔阶段重点承担系统调优、新手留存分析、活动与项目推进，具体贡献与 Word Villas 署名资料分开说明。'}],
-    scope:['系统调优','新手留存分析','锦标赛与分支剧情','运营活动','立项及项目进度管理'],lead:'在约百人规模项目中协作程序、美术与剧情组，推进 Word Villas 分支剧情、锦标赛、活动及投骰子玩法上线，承接排期、任务拆分、组内验收与项目文档等部分 PM 工作。'},
+    projects:[{slug:'word-villas',title:'Wordvillas',description:'将分支剧情、锦标赛、多类型活动和投骰子玩法从 0 到 1 推进至上线，完成方案与 UI/UE 设计、跨组对齐和开发测试跟进。'}, {slug:'words-with-colors',title:'Words with Colors',description:'以高级系统策划身份参与；贝塔阶段重点承担系统调优、新手留存分析、活动与项目推进，具体贡献与 Wordvillas 署名资料分开说明。'}],
+    scope:['系统调优','新手留存分析','锦标赛与分支剧情','运营活动','立项及项目进度管理'],lead:'在约百人规模项目中协作程序、美术与剧情组，推进 Wordvillas 分支剧情、锦标赛、活动及投骰子玩法上线，承接排期、任务拆分、组内验收与项目文档等部分 PM 工作。'},
   {slug:'haoteng',employer:'北京豪腾嘉科科技有限公司（疯狂游戏）',role:'主策划',period:'2018.02—2020.03',start:'2018-02',end:'2020-03',layout:'archive',
     projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'作为项目唯一策划，主导成语答题玩法、科举升官题材包装与养成线，将文字关卡和角色成长连接为持续参与的目标。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与；通过 Train 项目的合成经营、轨道控制、阶段引导与拼图活动资料，展示规则、界面状态和交付表达。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与；Goose 署名立项资料展示养成经营的系统结构、资源循环、社交操作和 UI/UE 交付，历史方案与最终版本分开阅读。'}],
     scope:[],lead:'作为《成语小秀才》项目唯一策划，主导玩法、科举题材包装与养成线；同时保留《谁是火车王》《百变汪星人》的主策划项目经历。'},
@@ -45,10 +45,10 @@ export const skills = [
 // Value statements describe why the work matters, not measured business results.
 export const companyWork = {
   jianyou:{items:[
-    {title:'统筹方向与玩法系统',action:'负责整体方向、玩法与系统；项目资料将首关上手、第二关挑战、城市包装与阶段范围连接，并补充关卡、编辑器和奖励系统的交付规则。',value:'把产品方向转为具体规则、优先级和验收依据；资料中的历史方案与最终版本分开阅读。',link:['设计与交付案例','projects/sheep-match/#sheep-product-case']},
-    {title:'连接团队协作与研发节奏',action:'在共 6 人的项目团队中承担团队与排期职责，负责项目推进节奏；不包含美术表现和发行运营。',value:'把设计目标与研发协作连接起来，体现制作人对项目整体推进的责任，而非只交付方案。',link:['团队与排期职责','projects/sheep-match/team/']},
-    {title:'连接版本记录与体验迭代',action:'承担数据迭代职责；版本资料区分提测、内部、测试服和全量记录，并关联功能调整与点击拖拽、层级、恢复等缺陷修复。',value:'用交付记录和验收重点支持持续迭代，不把任务归档或埋点接入写成增长业绩。',link:['版本与迭代证据','projects/sheep-match/#sheep-release-case']},
-  ],note:'依据已确认任职与职责；项目团队共 6 人，不等同于 6 名直接下属。'},
+    {title:'从 AI 原型到双端上线',action:'独立使用 Codex，在一周内完成核心玩法及表现原型并持续维护；从零组队，推进微信、抖音于 9 月初上线。',value:'以可运行成果验证设计，再组织团队完成正式研发，连接快速验证和产品交付。',link:['设计与交付案例','projects/sheep-match/#sheep-product-case']},
+    {title:'组建团队并统筹交付',action:'峰值 6 人：制作人本人及 2 名策划、1 名美术、2 名程序；承担任务拆分、排期、跨岗位联调和组内验收。',value:'将玩法、系统与活动需求组织为团队可执行的工作，推进版本落地。',link:['团队与排期职责','projects/sheep-match/team/']},
+    {title:'重构失败压力与玩法节奏',action:'主导第二版由棋盘直接配对转为入槽配对，用槽位占用呈现玩家可预判的风险；负责手感、挂件、活动及道具逻辑。',value:'本人确认第二版测试后，次日留存与人均挑战次数明显提升；仅作定性成果，不补写具体比例。',link:['玩法改版与测试反馈','projects/sheep-match/#sheep-revision-case']},
+  ],note:'职责及阶段成果由本人确认；第二关难度飞升模式为既定方向，不归为本人决策。个人原型、团队研发与当前测试结果分别说明。'},
   'hero-games':{items:[
     {title:'PC 移植中的交互重构',action:'承担 SOC 项目 PC 端移植、UI/UE 重构及 HUD 与操作逻辑调整。',value:'将界面信息、操作提示与系统入口一起考虑，体现跨端体验设计能力，而非单纯调整画面尺寸。',link:['PC 交互职责摘要','projects/crisis-dawn/design-summary/']},
     {title:'将局部问题转为通用规范',action:'创建和修订系统数值显示规范，区分中英文单位、精确数字与紧凑物品格缩写，并列出 QA 检查点。',value:'把显示一致性、量级辨识与布局约束整理为可复用交付规则；以更新表记录支持个人产出，而非用团队截图代替作者依据。',link:['本人记录与规范摘要','projects/crisis-dawn/#hero-numbers']},
@@ -64,10 +64,10 @@ export const companyWork = {
     {title:'策划任务拆解与跨岗位衔接',action:'小镇甘特图记录本人策划任务及阶段状态，覆盖基础文档、玩法、文案、数值和角色美需。',value:'将方案按工作项组织，明确设计产出和研发衔接；历史计划不等同于实际完工或上线。',link:['策划交付与排期资料','projects/my-town/#town-delivery']},
   ],note:'小镇分工依据甘特图负责人记录，魔罩与魔宠依据正文署名；团队开发与美术分别归属，设计目标不作为已验证业绩。'},
   beta:{items:[
-    {title:'竞技活动的完整生命周期',action:'撰写 Word Villas 锦标赛策划案，覆盖独立参与路径、预热开启、排行结算、休赛展示与未领奖补发。',value:'设计考虑活动前中后及异常分支，不只给出一个排行榜面板，体现规则完整性与长期目标组织。',link:['署名锦标赛设计','projects/word-villas/#beta-tournament']},
+    {title:'竞技活动的完整生命周期',action:'撰写 Wordvillas 锦标赛策划案，覆盖独立参与路径、预热开启、排行结算、休赛展示与未领奖补发。',value:'设计考虑活动前中后及异常分支，不只给出一个排行榜面板，体现规则完整性与长期目标组织。',link:['署名锦标赛设计','projects/word-villas/#beta-tournament']},
     {title:'剧情与任务的交互交付',action:'撰写分支剧情、限时任务文档，明确入口、锁定、重玩、任务返回、领奖状态和埋点需求。',value:'把内容入口、操作反馈与验证事件一起交付，为程序、UI 和后续分析提供一致的规则。',link:['署名剧情与活动设计','projects/word-villas/#beta-story']},
     {title:'跨组协作与部分 PM 工作',action:'在约百人规模项目中协作程序、美术与剧情组，并配合运营和 UI；承接项目排期、任务拆分、组内工作验收与项目文档。',value:'将需求变成可排期、可交接、可验收的交付；项目协作规模不代表直属人数。',link:['上线设计与交互资料','projects/word-villas/#word-design-excerpts']},
-  ],note:'署名文档归于 Word Villas；约百人为项目协作规模，不是直接下属人数。其他项目专属成果不自动推定。'},
+  ],note:'署名文档归于 Wordvillas；约百人为项目协作规模，不是直接下属人数。其他项目专属成果不自动推定。'},
   haoteng:{items:[
     {title:'多款轻游戏的主策划经历',action:'以主策划身份参与《成语小秀才》《谁是火车王》《百变汪星人》，保留三款项目的任职关联。',value:'说明主策划岗位的多项目经验；项目名单本身不被当作每款游戏全部方案或业绩的证明。',link:['该段任职与项目','experience/haoteng/#projects']},
     {title:'用具体规则展开设计讨论',action:'以成语项目资料展开成长循环、填字判定、每日挑战、玩家创建关卡及生词本交互的设计讨论。',value:'让面试交流落到状态转换、异常分支和交互取舍，而不是只展示产品截图；资料未逐项确认独立作者。',link:['成语系统与交互资料','projects/idiom-scholar/#idiom-design']},
@@ -87,7 +87,7 @@ export const sharedCompanyWork = {
   beta:{items:[
     {title:'系统调优与新手体验分析',action:'贝塔任职职责包含系统调优、新手留存分析与运营活动；具体到本项目的方案分工尚未逐项确认。',value:'呈现从体验问题进入设计调整的岗位经验，不用其他项目的署名方案代替本项目产出。',link:['公司设计与分析职责','experience/beta/#scope']},
     {title:'立项与研发节奏推进',action:'在公司阶段承担立项及项目进度管理，具体项目专属交付与业务效果未在本页新增主张。',value:'体现设计之外的项目组织职责，说明可以连接方案设计与研发推进，而不把职责等同于已验证业绩。',link:['公司任职记录','experience/beta/#role']},
-  ],note:'只使用共同任职职责；Word Villas 署名文档不作为本项目贡献。'},
+  ],note:'只使用共同任职职责；Wordvillas 署名文档不作为本项目贡献。'},
   haoteng:{items:[
     {title:'主策划岗位的项目经历',action:'以主策划身份参与本项目，任职及项目关联已有履历记录；具体负责的系统、方案与交付尚未单独核实。',value:'保留真实的职业项目经验，为面试交流提供岗位背景；不借用同公司其他游戏的设计资料补写个人成果。',link:['公司任职与项目记录','experience/haoteng/#projects']},
   ],note:'当前仅确认任职与项目参与，不将成语方案或团队成果归入本项目。'},

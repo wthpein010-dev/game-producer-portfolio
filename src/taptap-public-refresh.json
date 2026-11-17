@@ -1,0 +1,332 @@
+[
+  {
+    "appId": "963733",
+    "title": "下班收摊",
+    "appUrl": "https://www.taptap.cn/app/963733",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/after-hours-stall/public-01.png",
+        "source": "https://img-tc.tapimg.com/market/images/FoMpUkvaLoutWQthDYkXTCEDCZlh.png",
+        "sha256": "7b11301e9899d0fd9bd4480462a1a761ce636914cbfb0f4c9c48acd7d6b9e81f",
+        "width": 768,
+        "height": 1376
+      },
+      {
+        "src": "assets/taptap/after-hours-stall/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/FmyMkiw2obKApAFQmCQQtdL0PWBz.png",
+        "sha256": "671fcbbf10a9c762db4e31143f11f6b9f719ff2036c58dd53a48309c7e27567e",
+        "width": 768,
+        "height": 1376
+      },
+      {
+        "src": "assets/taptap/after-hours-stall/public-03.png",
+        "source": "https://img-tc.tapimg.com/market/images/FsNC9nDum7L6MyexROhBIcy1LSlF.png",
+        "sha256": "539a0fd592829ebc3d317a2f9c15e704699896d38e67707891412301fb2beb94",
+        "width": 768,
+        "height": 1376
+      }
+    ]
+  },
+  {
+    "appId": "964337",
+    "title": "天坑",
+    "appUrl": "https://www.taptap.cn/app/964337",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/tiankeng/public-02.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FgcPX-jeYUD_Gv1cPCVDkns2cMXY.jpg",
+        "sha256": "b303a0da6b1ea1df544d2255aee8fcb7220678c5f09067497a390a9823b782d4",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/tiankeng/public-01.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FtrL4KSUKty54mDFNQTspuzicRcv.jpg",
+        "sha256": "4701a5342ec68d31d0ef283fb748149ebe99512121f60db1258a13c4bf590155",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/tiankeng/public-03.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FswVtOlkI4b5SmKawoI08eikRBbf.jpg",
+        "sha256": "6e5ce2e9ed568b4ec1fc089eeb63ea8bdac58ab9a6cb17b22b7bf72b9a253836",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "appId": "969204",
+    "title": "冰激凌大师",
+    "appUrl": "https://www.taptap.cn/app/969204",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/icecream-master/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/Fj6R9Zm8adP0wKAwJfHVDICDY23i.png",
+        "sha256": "f3ec58da41e97403ad011afe42b9293f02b6e67c25f80b204b3a12b865d8af51",
+        "width": 720,
+        "height": 1602
+      },
+      {
+        "src": "assets/taptap/icecream-master/public-01.png",
+        "source": "https://img-tc.tapimg.com/market/images/FnkVJSYbjApN0eLe8Olbbi4ZYVZv.png",
+        "sha256": "843734e892b6bd731806d3a198d8bf7540ed77b86a5e105339dc2eb877e9c2f3",
+        "width": 720,
+        "height": 1602
+      },
+      {
+        "src": "assets/taptap/icecream-master/public-03.png",
+        "source": "https://img-tc.tapimg.com/market/images/Fk1PmOSXZL8fvH4DaJNTjkSh4rAO.png",
+        "sha256": "1a19262f4b7617ec7c272430f38a4ba7e4de80d34ce08b443f33bb3263b61952",
+        "width": 720,
+        "height": 1602
+      }
+    ]
+  },
+  {
+    "appId": "964090",
+    "title": "月面货运",
+    "appUrl": "https://www.taptap.cn/app/964090",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/lunar-freight/public-01.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FvkpNiLHdsIadhaLAT-m7VPorVps.jpg",
+        "sha256": "c9a374d3045e6ed7ed8cfba8dee6f102a0d9e2820d05e72882e43f7319ca8f77",
+        "width": 1688,
+        "height": 780
+      },
+      {
+        "src": "assets/taptap/lunar-freight/public-03.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FmiTovWTiCDoaoNpp5PHkKzAKk9s.jpg",
+        "sha256": "9459af5b6db7955587991e8c311556beeda42d1f3c0b39b8acae0a3498612ac8",
+        "width": 1688,
+        "height": 780
+      },
+      {
+        "src": "assets/taptap/lunar-freight/public-05.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/Fn8dyWnyoUKlP8BDfO3IgFasRWF_.jpg",
+        "sha256": "dc71cde89c3914da66435bfca96a57d8907155205ed8960c28396b9443432473",
+        "width": 1688,
+        "height": 780
+      }
+    ]
+  },
+  {
+    "appId": "969065",
+    "title": "砸钱搞点事",
+    "appUrl": "https://www.taptap.cn/app/969065",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/coin-forge/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/FjGRfVlWvt9qgVZaFGm5L1FFP1EV.png",
+        "sha256": "cf0cff7465df1241ea8b4d0ebc1e56985f99ee6c2e0d5597885860b2d82d9db1",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/coin-forge/public-01.png",
+        "source": "https://img-tc.tapimg.com/market/images/FvNY4NdctSIjLnHm6oLNNvZHbf5k.png",
+        "sha256": "81bbac3803ebccd5354d3f764532c692d0c8c9738c572cc103c73ac0e3c2795b",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/coin-forge/public-03.png",
+        "source": "https://img-tc.tapimg.com/market/images/FpfubqzoDOGHB-u9GrxfqA5TFCCF.png",
+        "sha256": "824fb74e32af3aec06f7d75cca2a4112543b6eede5e8492c5265b9774ba85a31",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "appId": "984529",
+    "title": "你的孩子",
+    "appUrl": "https://www.taptap.cn/app/984529",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/your-child/public-01.png",
+        "source": "https://img-tc.tapimg.com/market/images/FvB05Gl71LhKtIuDZNIRM9rhBpDC.png",
+        "sha256": "e85b07d7aa7b2300320f4780c28c70278001f271431bd92ae44e2ffeb2b42723",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/your-child/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/FhlvnMpss1CSK4RjPm1aBO-s3eop.png",
+        "sha256": "be2d2ccc8cd804e0682a46177149a2c966552d750d598efb799b5d9e8de500a3",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/your-child/public-03.png",
+        "source": "https://img-tc.tapimg.com/market/images/FjqqQsgf6Dcz7ponXPOF7s5emS81.png",
+        "sha256": "27fb310055314cadac628a0014c09fbf7c9d138bd20073374c54c57749a8c59d",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "appId": "974262",
+    "title": "造景贴纸：贴了不烧心",
+    "appUrl": "https://www.taptap.cn/app/974262",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/sticker-scenery/public-03.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/b56bbb25e60ed6cf717d0596181c82d5.jpg",
+        "sha256": "9f5916628f9a9ce925651814f84dabe881757c2c100bc679cc08eb46105dd053",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/sticker-scenery/public-05.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/76df361b68a2a5e6d2e0bd50830a7bf1.jpg",
+        "sha256": "73af82605be2ac3cda9540181ba95464c51a1edfd7ac4508df143b6f84723fca",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/sticker-scenery/public-06.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/a54bf4c4e8906bfbc13454c9168ba656.jpg",
+        "sha256": "1160a8c197f901d297a427758921fec1acb2ae0c9b765f4f4115759917e9857c",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "appId": "984008",
+    "title": "封神对决",
+    "appUrl": "https://www.taptap.cn/app/984008",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/fengshen-duel/public-01.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/cec9ddc8f92c7b4a78978396e031aff2.jpg",
+        "sha256": "5c198ca567872511276e58f142f2c450028dfab5796738135a143daa3425c684",
+        "width": 786,
+        "height": 1704
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/public-04.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/758ce6d8f18bb2fc278680f33c329048.jpg",
+        "sha256": "abc79fb684bbbac5e792d6813d71750a25f011d56c588d956d8b5782678532b6",
+        "width": 786,
+        "height": 1704
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/public-07.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/feaa0c4529ed1f88fe94ce152bdafa6d.jpg",
+        "sha256": "64a0be44f9c859ad88e81e088b6e7be98795ec256ea4a192ba6b3f63ff8725e7",
+        "width": 786,
+        "height": 1704
+      }
+    ]
+  },
+  {
+    "appId": "984393",
+    "title": "我的一生",
+    "appUrl": "https://www.taptap.cn/app/984393",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/my-life/public-04.png",
+        "source": "https://img-tc.tapimg.com/market/images/Fn5kl5vHNf4RWXnGqh_aFEg1EzcV.png",
+        "sha256": "372cf42ee09756838265c3a9573a4c0b93b2c4a7ab799ad349ad282f6eecbf78",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/my-life/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/FmprQP4iqX17794YMBgEsopkqQP7.png",
+        "sha256": "c254a54f0005972083308918ed3dd73d02729a6c001f0335cb72639265dc2f54",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/my-life/public-06.png",
+        "source": "https://img-tc.tapimg.com/market/images/Fpj19PkDquOzwkP1GXzi2hQd1q1O.png",
+        "sha256": "437f993fc1f0b6403db128a0d56e671cd72212e27505e294b565a9b2ff10ab7b",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  },
+  {
+    "appId": "971511",
+    "title": "修好这一天",
+    "appUrl": "https://www.taptap.cn/app/971511",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/repair-day/public-01.png",
+        "source": "https://img-tc.tapimg.com/market/images/FiBdrMLXA43Te5JYwb9Ntzl80jcF.png",
+        "sha256": "8191fc97cc95ae53ae9fd7806c3705be27090e5ce4b59978744bcd8f7f525ede",
+        "width": 768,
+        "height": 1376
+      },
+      {
+        "src": "assets/taptap/repair-day/public-02.png",
+        "source": "https://img-tc.tapimg.com/market/images/FqPhJ_dfHm3k-kyqWkv_kFBQCYKn.png",
+        "sha256": "1b2c8d1c318f54cb403099c32c209ddae34e2969010ec3a95c7036c119e5761f",
+        "width": 768,
+        "height": 1376
+      },
+      {
+        "src": "assets/taptap/repair-day/public-03.png",
+        "source": "https://img-tc.tapimg.com/market/images/FterV_RXB3Qa-_K_hY3YEUo3AK19.png",
+        "sha256": "8f57056b670f010954ac01192acb00233516c813abb27e470d59ef71375530e9",
+        "width": 768,
+        "height": 1376
+      }
+    ]
+  },
+  {
+    "appId": "969688",
+    "title": "开饭啦！餐车",
+    "appUrl": "https://www.taptap.cn/app/969688",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-10-25",
+    "shots": [
+      {
+        "src": "assets/taptap/food-car/public-01.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FpC5beD8tJwnArYxwDLKyZ3J0-IK.jpg",
+        "sha256": "1a02180dd5732ca188ca8fb446395b91f9b5457cfeb41c6f705a4aff540b98f1",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/food-car/public-02.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FsFP__pGtk2lb_BoHeUwoYEdpd67.jpg",
+        "sha256": "8e434ea5552a3ebd1ee683ed75d6419aeddb5113aa257528a6ebe9108a9ad6a1",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "assets/taptap/food-car/public-03.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/FpM4kdkiGqekcjz7kFlUHEdykS57.jpg",
+        "sha256": "cb1cf9affd6b31a1e2e08333bd2c6386f4f7129c8b2d33e5b03de2806c3ec756",
+        "width": 720,
+        "height": 1280
+      }
+    ]
+  }
+]

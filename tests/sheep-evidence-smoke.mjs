@@ -16,8 +16,12 @@ try {
     page.on('pageerror',error=>errors.push(error.message));
     assert.equal((await page.goto(`http://127.0.0.1:${server.address().port}/${route}`,{waitUntil:'networkidle'})).status(),200);
     if(route==='projects/sheep-match/'){
-      const section=page.locator('#sheep-evidence');assert.equal(await section.locator('article').count(),7);
+      const section=page.locator('#sheep-evidence');assert.equal(await section.locator('article').count(),8);
       for(const image of await section.locator('img').all())await image.evaluate(async el=>{el.loading='eager';await el.decode();if(el.naturalWidth!==Number(el.getAttribute('width'))||el.naturalHeight!==Number(el.getAttribute('height')))throw Error('Image dimensions differ');});
+      const revision=section.locator('#sheep-revision-case');
+      assert.ok((await revision.innerText()).includes('次日留存'));
+      assert.ok((await revision.locator('figcaption').innerText()).includes('旧版'));
+      await revision.screenshot({path:`artifacts/sheep-evidence/sheep-revision-case-${width}.png`});
       for(const id of ['sheep-editor-case','sheep-auth-case']){
         const article=section.locator(`#${id}`),details=article.locator('details');
         await details.locator('summary').focus();await page.keyboard.press('Enter');assert.notEqual(await details.getAttribute('open'),null);
@@ -38,7 +42,7 @@ try {
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}}),page=await context.newPage();
   await page.goto(`http://127.0.0.1:${server.address().port}/projects/sheep-match/`);
-  assert.equal(await page.locator('#sheep-evidence article').count(),7);
+  assert.equal(await page.locator('#sheep-evidence article').count(),8);
   await page.locator('#sheep-editor-case summary').click();assert.notEqual(await page.locator('#sheep-editor-case details').getAttribute('open'),null);
   await context.close();assert.deepEqual(errors,[]);console.log('PASS no-JavaScript reading');
 }finally{if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

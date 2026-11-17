@@ -1,6 +1,7 @@
 export const sheepEvidenceAssets = [
   {file:'editor-workflow.jpeg',width:2560,height:176,sha256:'16686eb18f5cfb4607cf36cf63755138db5be56e1fc0e40195b86ac79491aa96',alt:'关卡编辑器流程：新建与摆放、层级调整、校验、保存编辑器数据、导出运行时数据、试玩及返回修改'},
   {file:'login-flow.jpeg',width:2560,height:2032,sha256:'32bbe355d052c54ce22a919db33ea6a23754cb48517a00a5eafc54ee5b984cad',alt:'登录授权设计原图：新用户先进入关卡，新老用户分流、结算返回与主动点击入口后触发微信授权'},
+  {file:'board-no-pair-decision-detail.jpg',width:805,height:505,sha256:'04ed2112914458334241b057d836ca3a00489ff7be5ef99bdea1d6c6c28d39d5',caption:'旧版玩法画板局部 · 无配对与槽位道具判断 · 非第二版实机',alt:'旧版判定流程局部：先检查可配对砖块，再检查临时槽位与槽位道具，说明系统如何提示无牌可消并引导解困'},
 ];
 
 export const sheepEvidenceCases = [
@@ -9,6 +10,11 @@ export const sheepEvidenceCases = [
     points:['以双牌配对消除降低理解成本，用首关上手、第二关挑战和城市搬砖包装组织核心体验。','立项资料以核心关卡、主界面、反馈和稳定性作为阶段重点；关卡文档细化点击拖拽、遮挡、道具、复活和结算状态。'],
     output:'把产品方向落为阶段范围、优先级与验收要求。不同日期的道具方案有变化，保留版本差异，不将早期规则当成当前最终规则。',
     source:'《羊了个羊：对对碰》立项策划案、关卡玩法。立项案包含 AI 辅助整理，范围按其对应阶段阅读。'},
+  {id:'sheep-revision-case',title:'玩法改版：让失败风险看得见',asset:2,
+    question:'棋盘直接配对的失败判定，为什么与玩家感受到的节奏和难度不匹配？',
+    points:['第一版在棋盘中直接配对；无牌可消时，玩家被动接受系统按规则给出的失败处理。上图保留旧版无解与临时槽位道具判断的局部，说明调整前的判定链路。','我将第二版改为先入槽、再配对消除，槽位满时失败，让压力随选牌与占位逐步累积，使玩家能预判风险并在配对和保留空间之间取舍。第二关难度飞升为既定模式，不归为我的决策。'],
+    output:'本人确认：第二版测试后，次日留存和人均挑战次数明显提升。该结果为定性反馈，未提供对照周期和具体提升比例，不将同期其他变化排除后作单一因果结论。',
+    source:'本人于 2026-11-16 确认改版决策及测试反馈；关卡玩法画板局部截图经本人授权展示。画板记录旧版与道具流程演进，不是第二版实机或统计报表。'},
   {id:'sheep-editor-case',title:'关卡编辑器与策划生产闭环',asset:0,
     question:'怎样让策划可调整关卡，同时避免编辑器和游戏运行结果不一致？',
     points:['分离编辑器保存数据和运行时导出数据；明确坐标、层级、遮挡、特殊砖块与数量校验。','要求手动摆放不被保存、导出或试玩随机改写；通过可点击预览、类型统计和试玩回到调整环节。'],
@@ -46,7 +52,7 @@ export function renderSheepEvidence(e) {
     if(item.asset===undefined)return '';
     const asset=sheepEvidenceAssets[item.asset],url=`../../assets/project-design/sheep-match/${asset.file}`;
     const attrs=`src="${url}" width="${asset.width}" height="${asset.height}" loading="lazy" alt="${e(asset.alt)}"`;
-    return `<figure><a href="${url}" aria-label="查看${e(item.title)}原图"><img ${attrs}></a><figcaption>项目文档原始流程图 · 非实机画面</figcaption></figure><a class="design-original" href="${url}">查看原图（可缩放） ↗</a><details class="matchmaking-inspect"><summary>展开流程图原尺寸</summary><div class="matchmaking-scroll" role="region" tabindex="0" aria-label="${e(item.title)}大图"><img ${attrs}></div></details>`;
+    return `<figure><a href="${url}" aria-label="查看${e(item.title)}原图"><img ${attrs}></a><figcaption>${e(asset.caption||'项目文档原始流程图 · 非实机画面')}</figcaption></figure><a class="design-original" href="${url}">查看原图（可缩放） ↗</a><details class="matchmaking-inspect"><summary>展开流程图原尺寸</summary><div class="matchmaking-scroll" role="region" tabindex="0" aria-label="${e(item.title)}大图"><img ${attrs}></div></details>`;
   };
   return `<section class="matchmaking-design" id="sheep-evidence" aria-labelledby="sheep-evidence-title"><header><p class="eyebrow">DESIGN / DELIVERY</p><h2 id="sheep-evidence-title">设计与研发推进案例</h2><p class="matchmaking-intro">围绕本人已确认的制作人职责，阅读产品取舍、系统规则、关卡工具与版本交付的具体依据。</p></header><p class="matchmaking-boundary">以下是项目资料支持的设计与交付案例，不将团队工作认定为个人独立成果。历史方案、待验收能力与版本表内发布记录分别说明，不以设计目标代替实测业绩。</p><nav class="idiom-jumps" aria-label="设计案例目录">${sheepEvidenceCases.map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}</nav>${sheepEvidenceCases.map(item=>`<article class="matchmaking-map" id="${item.id}" aria-labelledby="${item.id}-title"><h3 id="${item.id}-title">${e(item.title)}</h3>${figure(item)}<div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(item.question)}</p><h4>交付与价值</h4><p>${e(item.output)}</p></div><div><h4>关键方案</h4><ul>${item.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div><p class="record-source">来源：${e(item.source)}</p></article>`).join('')}<p class="matchmaking-boundary">完整原件、内部任务编号、成员信息、精确概率与经济配置不公开；流程图保留原始像素，团队美术与程序实现不扩大为个人职责。</p></section>`;
 }

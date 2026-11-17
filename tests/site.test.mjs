@@ -5,6 +5,8 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import './magicar-planning.test.mjs';
+import './taptap-refresh.test.mjs';
+import './project-name.test.mjs';
 import './muyou-update.test.mjs';
 import './retired-content.test.mjs';
 
@@ -392,8 +394,8 @@ test('TapTap works follow the independent games and replace the retired stall pr
   const blocks = selected.children.filter(n => typeof n !== 'string');
   assert.equal(blocks.indexOf(collection), blocks.findIndex(n => n.attrs.id === 'indie-games') + 1);
   const cards = nodes(collection, n => n.tag === 'article');
-  assert.equal(cards.length, 8, 'Eight distinct games, with the two food-car builds counted once');
-  for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','贴纸造景']) {
+  assert.equal(cards.length, 11, 'Eleven distinct verified studio games');
+  for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
     const card = one(collection, n => n.tag === 'article' && textOf(n).includes(title), title);
     assert.ok(nodes(card, n => n.tag === 'img' && n.attrs.alt && Number(n.attrs.width) > 0 && Number(n.attrs.height) > 0).length >= 1);
     assert.ok(nodes(card, n => n.tag === 'a' && /^https:\/\/www\.taptap\.cn\/app\/\d+/u.test(n.attrs.href || '')).length >= 1);
@@ -402,9 +404,9 @@ test('TapTap works follow the independent games and replace the retired stall pr
   assert.doesNotMatch(home.html, /ai-application-hub\/projects\/after-hours-stall\/|10 关 \/ 滑动整理|Unity 原创游戏/u);
 });
 
-test('all eight TapTap details retain real media, version context and their own public game link', async () => {
+test('all eleven TapTap details retain real media, version context and their own public game link', async () => {
   const {taptapGames} = await import('../src/taptap-games.mjs');
-  const expected = ['963733','969065','969688','969204','964337','964090','971511','974262'];
+  const expected = ["984529","984008","984393","963733","969065","969688","969204","964337","964090","971511","974262"];
   assert.equal(taptapGames.length, expected.length);
   for (const [index,game] of taptapGames.entries()) {
     assert.equal(new URL(game.tapUrl).pathname, '/app/'+expected[index], game.title);
@@ -605,7 +607,7 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   }
 });
 
-test('Beta authored evidence connects Word Villas, company and summary with explicit document and art attribution', async()=>{
+test('Beta authored evidence connects Wordvillas, company and summary with explicit document and art attribution', async()=>{
   const {projects,companies}=await site();
   const targets=[projects.find(p=>p.path==='projects/word-villas/index.html'),companies.find(c=>c.path==='experience/beta/index.html')];
   for(const target of targets){
@@ -765,7 +767,7 @@ test('home prioritizes three confirmed career cases before the full timeline', a
   const {home}=await site();
   const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
   const cards=nodes(section,n=>n.tag==='article');
-  assert.deepEqual(cards.map(c=>one(c,n=>n.tag==='h3','Case heading').children.join('')),['成语小秀才','Word Villas','中国式相亲']);
+  assert.deepEqual(cards.map(c=>one(c,n=>n.tag==='h3','Case heading').children.join('')),['成语小秀才','Wordvillas','中国式相亲']);
   assert.ok(home.html.indexOf('id="career-cases"')<home.html.indexOf('id="experience"'));
   assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/开发测试.*上线/u);
   assert.match(textOf(section),/系统框架.*剧情大纲/u);
@@ -861,12 +863,12 @@ test('Sheep supplied evidence separates design, release scope and personal owner
   const {projects,companies}=await site();
   const project=projects.find(p=>p.path==='projects/sheep-match/index.html');
   const section=one(project.document,n=>n.attrs.id==='sheep-evidence','Sheep evidence cases');
-  assert.equal(nodes(section,n=>n.tag==='article').length,7);
+  assert.equal(nodes(section,n=>n.tag==='article').length,8);
   for(const term of ['编辑器','运行时','主动抽奖','草稿','隐私','兑换','去重','测试服','全量','1.0.539','2026-09-24'])assert.ok(textOf(section).includes(term),term);
   assert.match(textOf(section),/设计目标.*实测/u);
   assert.match(textOf(section),/团队.*不.*个人独立/u);
-  assert.equal(nodes(section,n=>n.tag==='img').length,4);
-  assert.equal(nodes(section,n=>n.tag==='details').length,2);
+  assert.equal(nodes(section,n=>n.tag==='img').length,6);
+  assert.equal(nodes(section,n=>n.tag==='details').length,3);
   assert.doesNotMatch(textOf(section),/E:\\|J:\/|Tower任务ID|全部已上线|留存提升\s*\d/u);
   const company=companies.find(c=>c.path==='experience/jianyou/index.html');
   one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company evidence entry');

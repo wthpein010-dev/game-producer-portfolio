@@ -7,7 +7,7 @@
 | 项目 | 来源 | 公开资源与原始尺寸 | SHA256 |
 | --- | --- | --- | --- |
 | 成语小秀才 | 用户授权项目目录 `F:/豪腾嘉科工作文件/ChengYu_2/美术资源/Publish/推广用图/banner/banner_1.png`；原始团队推广素材 | `assets/project-design/idiom-scholar/promotional-cover.png`，960×334 | DB64AC4F2BAF5FFAED13A47A9E7401B412D43C5B4D72467D24B38C03F33B140B |
-| Word Villas | [Uptodown 项目页](https://word-villas.en.uptodown.com/android) 所关联视频 `6uioSzPPZXU` 的[高清封面](https://i.ytimg.com/vi/6uioSzPPZXU/maxresdefault.jpg)；第三方宣传视频封面，非认定为官方美术原稿 | `assets/project-design/word-villas/promotional-cover.jpg`，1280×720 | 0614BCAFA43D2440D0FDB4D73239D659876AD4DC0579510D62C8FA8BE6256AD4 |
+| Wordvillas | [Uptodown 项目页](https://word-villas.en.uptodown.com/android) 所关联视频 `6uioSzPPZXU` 的[高清封面](https://i.ytimg.com/vi/6uioSzPPZXU/maxresdefault.jpg)；第三方宣传视频封面，非认定为官方美术原稿 | `assets/project-design/word-villas/promotional-cover.jpg`，1280×720 | 0614BCAFA43D2440D0FDB4D73239D659876AD4DC0579510D62C8FA8BE6256AD4 |
 | 中国式相亲 | [Steam 官方商店](https://store.steampowered.com/app/2103130/)；Steam appdetails 返回的 `header_image`（中文宣传头图） | `assets/project-design/matchmaking-inc/promotional-cover.jpg`，460×215 | EC66986CB77B452A59E235C11ED25EA41DC8154C340C950B7E5C938CC69C1692 |
 
 仅精选图片进入站点，完整资料与抓取缓存留在被忽略的 `artifacts/`。本次本地修改不自动发布。

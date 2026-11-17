@@ -21,7 +21,7 @@
   if (page === 'project') {
     const covers = {
       'idiom-scholar':['idiom-scholar/promotional-cover.png',960,334,'成语小秀才 · 项目推广素材'],
-      'word-villas':['word-villas/promotional-cover.jpg',1280,720,'Word Villas · 宣传视频封面'],
+      'word-villas':['word-villas/promotional-cover.jpg',1280,720,'Wordvillas · 宣传视频封面'],
       'matchmaking-inc':['matchmaking-inc/promotional-cover.jpg',460,215,'中国式相亲 · Steam 官方宣传图']
     };
     const cover = covers[slug];
