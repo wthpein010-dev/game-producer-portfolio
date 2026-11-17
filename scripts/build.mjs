@@ -9,7 +9,7 @@ import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
 import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSummary} from '../src/render.mjs';
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
-import {renderCollaborationPage,renderAiPocketPage} from '../src/render.mjs';
+import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -41,6 +41,9 @@ export async function build() {
   const pocketDir=path.join(siteRoot,'projects','ai-pocket');
   await mkdir(pocketDir,{recursive:true});
   await writeFile(path.join(pocketDir,'index.html'),renderAiPocketPage());
+  const ringDir=path.join(siteRoot,'projects','ring-haven');
+  await mkdir(ringDir,{recursive:true});
+  await writeFile(path.join(ringDir,'index.html'),renderRingHavenPage());
   for(const game of taptapGames) {
     const dir=path.join(siteRoot,'projects','taptap-'+game.slug);
     await mkdir(dir,{recursive:true});

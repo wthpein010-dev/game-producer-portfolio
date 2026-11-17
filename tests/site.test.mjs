@@ -98,7 +98,8 @@ function site() {
     })))).filter(Boolean);
     const collaboration=await page('skills/ai-collaboration/index.html');
     const pocket=await page('projects/ai-pocket/index.html');
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket] };
+    const ringHaven=await page('projects/ring-haven/index.html');
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven] };
   })();
   return sitePromise;
 }
@@ -394,7 +395,9 @@ test('TapTap works follow the independent games and replace the retired stall pr
   const selected = one(home.document, n => n.attrs.id === 'selected', 'Personal works');
   const collection = one(selected, n => n.attrs.id === 'taptap-games', 'TapTap games');
   const blocks = selected.children.filter(n => typeof n !== 'string');
-  assert.equal(blocks.indexOf(collection), blocks.findIndex(n => n.attrs.id === 'indie-games') + 1);
+  const ringHaven = one(selected, n => n.attrs.id === 'ring-haven', 'Ring Haven personal prototype');
+  assert.equal(blocks.indexOf(ringHaven), blocks.findIndex(n => n.attrs.id === 'indie-games') + 1);
+  assert.equal(blocks.indexOf(collection), blocks.indexOf(ringHaven) + 1);
   const cards = nodes(collection, n => n.tag === 'article');
   assert.equal(cards.length, 11, 'Eleven distinct verified studio games');
   for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {

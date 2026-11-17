@@ -17,6 +17,6 @@ jobs:
       - name: Rebuild static pages
         run: node scripts/build.mjs
       - name: Validate content, routes and publication boundaries
-        run: node --test tests/site.test.mjs tests/responsive-images.test.mjs tests/sheep-revision.test.mjs tests/sheep-visuals.test.mjs tests/collaboration.test.mjs tests/hub-tools.test.mjs tests/sheep-playtest.test.mjs tests/media-server.test.mjs tests/ai-pocket.test.mjs
+        run: node --test tests/site.test.mjs tests/responsive-images.test.mjs tests/sheep-revision.test.mjs tests/sheep-visuals.test.mjs tests/collaboration.test.mjs tests/hub-tools.test.mjs tests/sheep-playtest.test.mjs tests/media-server.test.mjs tests/ai-pocket.test.mjs tests/ring-haven.test.mjs
       - name: Ensure generated pages match source
         run: git diff --exit-code

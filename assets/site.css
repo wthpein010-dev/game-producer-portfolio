@@ -1613,3 +1613,36 @@ button:disabled { cursor: default; }
   .hub-more > summary { font-size: 16px; }
   .hub-count { display: block; margin: 8px 0 0 20px; }
 }
+
+/* Ring Haven: extend the project journal without cropping portrait evidence. */
+.ring-haven-entry { margin-block: 56px; padding-block: 32px; border-top: 1px solid var(--line); }
+.ring-haven-entry-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, .7fr); gap: 40px; align-items: center; }
+.ring-haven-entry-grid > *, .ring-haven-workflow > *, .ring-haven-pair > * { min-width: 0; }
+.ring-haven-thesis { font-size: 26px; font-weight: 700; line-height: 1.55; }
+.ring-haven-figure { margin: 0; }
+.ring-haven-figure > a { display: block; width: fit-content; max-width: 100%; margin-inline: auto; }
+.ring-haven-figure img { display: block; width: 100%; max-width: 340px; height: auto; border: 1px solid var(--line); border-radius: 7px; }
+.ring-haven-figure figcaption { max-width: 40em; margin: 12px auto 0; color: var(--muted); font-size: 14px; }
+.ring-haven-entry .ring-haven-figure { max-width: 300px; justify-self: center; }
+.ring-haven-page .detail-hero { max-width: 980px; }
+.ring-haven-page .detail-hero h1 { font-size: 48px; line-height: 1.25; }
+.ring-haven-status { padding-left: 16px; border-left: 3px solid var(--accent); color: var(--muted); }
+.ring-haven-page > .ring-haven-figure { max-width: 420px; margin: 32px auto 48px; }
+.ring-haven-section { margin-block: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.ring-haven-workflow { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 40px; align-items: start; }
+.ring-haven-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 28px; }
+.ring-haven-path { padding-left: 24px; }
+.ring-haven-path li { padding-left: 6px; margin-block: 12px; }
+.ring-haven-pair article { min-width: 0; }
+.ring-haven-limits { margin-block: 28px; padding-block: 16px; border-block: 1px solid var(--line); }
+.ring-haven-limits summary { cursor: pointer; font-weight: 600; }
+.ring-haven-entry a:focus-visible, .ring-haven-page a:focus-visible, .ring-haven-limits summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 820px) {
+  .ring-haven-entry-grid, .ring-haven-workflow { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+@media (max-width: 620px) {
+  .ring-haven-pair { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .ring-haven-page .detail-hero h1 { font-size: 34px; }
+  .ring-haven-thesis { font-size: 22px; }
+}
+.ring-haven-entry #ring-haven-title { font-size: 26px; line-height: 1.35; }
