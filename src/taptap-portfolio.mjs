@@ -49,10 +49,11 @@ function tapLink(game, label, className) {
 
 function playSection(game, base) {
   const video = game.video;
+  const videoTitle = video?.title || '一回合战斗录制';
   const action = video
-    ? `<video controls playsinline preload="none" width="360" height="640" poster="${base}${e(video.poster)}" aria-label="竖屏战斗录制"><source src="${base}${e(video.src)}" type="video/mp4"><a href="${base}${e(video.src)}">打开战斗录制</a></video>`
+    ? `<video controls playsinline preload="none" width="360" height="640" poster="${base}${e(video.poster)}" aria-label="${e(video.title || '竖屏战斗录制')}"><source src="${base}${e(video.src)}" type="video/mp4"><a href="${base}${e(video.src)}">${video.title ? '打开玩法实录' : '打开战斗录制'}</a></video>`
     : tapLink(game, '打开 TapTap 游戏页', 'button primary');
-  return `<section class="taptap-play" id="play" aria-labelledby="play-title"><div><p class="eyebrow">${video?'GAMEPLAY / 运行录制':'TAPTAP / 游戏入口'}</p><h2 id="play-title">${video?'一回合战斗录制':'去 TapTap 看看'}</h2><p>${e(game.linkNote)}</p></div>${action}</section>`;
+  return `<section class="taptap-play" id="play" aria-labelledby="play-title"><div><p class="eyebrow">${video?'GAMEPLAY / 运行录制':'TAPTAP / 游戏入口'}</p><h2 id="play-title">${video?e(videoTitle):'去 TapTap 看看'}</h2><p>${e(game.linkNote)}</p>${video ? tapLink(game, '打开 TapTap 游戏页', 'text-link') : ''}</div>${action}</section>`;
 }
 
 function card(game) {
@@ -80,11 +81,12 @@ export function renderTapTapBody(game) {
   const scrollGallery=game.galleryScroll!==false&&remaining.length>1&&new Set(remaining.map(format)).size===1;
   const sections=[['gameplay','玩法循环'],['screenshots','更多画面'],['design','设计取舍'],['practice','我的实践']];
   if (game.windowsPreview) sections.push(['windows-preview','Windows 开发实录']);
-  sections.push(['play',game.video?'战斗录制':'游戏入口']);
+  const videoLabel=game.video?.title?'玩法实录':'战斗录制';
+  sections.push(['play',game.video?videoLabel:'游戏入口']);
   return `<main id="main" class="detail-main wrap taptap-detail">
     <nav class="breadcrumbs" aria-label="面包屑"><a href="${base}index.html#work-${e(game.slug)}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><a href="${base}index.html#taptap-games">TapTap 游戏实践</a></nav>
     <div class="taptap-hero">
-      <header class="detail-hero"><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h1>${e(game.title)}<span class="title-dot">.</span></h1><p class="taptap-genre">${e(game.genre)}</p><p class="detail-lede">${e(game.summary)}</p><div class="taptap-hero-actions"><a class="button primary" href="#gameplay">了解核心玩法 <span aria-hidden="true">↓</span></a>${game.video?'<a class="text-link" href="#play">看战斗录制 <span aria-hidden="true">↓</span></a>':game.tapUrl?`<a class="text-link" href="${e(game.tapUrl)}">TapTap 游戏页 <span aria-hidden="true">↗</span></a>`:''}</div></header>
+      <header class="detail-hero"><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h1>${e(game.title)}<span class="title-dot">.</span></h1><p class="taptap-genre">${e(game.genre)}</p><p class="detail-lede">${e(game.summary)}</p><div class="taptap-hero-actions"><a class="button primary" href="#gameplay">了解核心玩法 <span aria-hidden="true">↓</span></a>${game.video?`<a class="text-link" href="#play">看${videoLabel} <span aria-hidden="true">↓</span></a>`:game.tapUrl?`<a class="text-link" href="${e(game.tapUrl)}">TapTap 游戏页 <span aria-hidden="true">↗</span></a>`:''}</div></header>
       ${screenshot(game.shots[0],base,'taptap-hero-shot',true)}
       <div class="taptap-hero-context">${tags(game)}<p class="taptap-hero-status">${e(game.shortStatus)}</p><time class="taptap-updated" datetime="${e(game.updatedAt)}">${game===myLifeGame||game.windowsPreview?'TapTap 展示图收录于':'项目资料更新于'} ${e(game.updatedAt.replaceAll('-','.'))}</time></div>
     </div>

@@ -117,72 +117,125 @@ export const taptapGames = [
   },
   {
     "slug": "fengshen-duel",
-    "genre": "三牌构筑 / 城池经营 / 自动战斗",
+    "genre": "卡牌构筑 / 城池布阵 / 自动战斗",
     "tags": [
+      "每年一牌",
       "两教八将",
-      "空间与资源布阵",
-      "十二年征伐"
+      "手机竖屏"
     ],
-    "summary": "选择阐教或截教英雄，用三张手牌经营城池、布置建筑与军团。有限空间和铜钱决定每年的准备，布阵完成后自动交战。",
-    "gameplay": "点选手牌，在合法地块或建筑主体上部署建筑、军团和神器，再进入自动交战。战后选择奖励，围绕英雄技能和修习分支完善阵容；公开介绍包含两教八位英雄、十二年征伐与局外培养。",
+    "summary": "三张手牌，一年一战。选择阐教或截教英雄，用有限的资源和地块建城、增援或施法，在十二年征伐中逐步成形自己的军团。",
+    "gameplay": "每年从三张手牌里使用或弃置一张。选牌后，点亮起的地块或建筑即可建造、升级、增援或布置法术，神器单独确认。队伍随后自动交战，战后三选一为下一年的阵容补上关键一环。",
     "loop": [
-      "选择英雄，观察年度对手",
-      "用三张手牌规划空间与铜钱",
-      "部署后自动交战，选择战后奖励",
-      "修习与培养阵容，继续下一年"
+      "选英雄，查看年度对手",
+      "在产出、兵力与空地之间取舍",
+      "出一张牌，进入自动战斗",
+      "从战利品中选一项，带进下一年"
     ],
     "design": [
       {
-        "title": "有限手牌压缩每回合决策",
-        "text": "以三张手牌聚焦当前选择，将建筑、军团和神器放在同一资源与空间约束下比较。"
+        "title": "把准备压缩到每年一张牌",
+        "text": "收入、战力和格位争用同一次出牌。早建资源建筑能多收几年收益，临战增援能马上补兵，升级则能在有限地块里继续成长。"
       },
       {
-        "title": "经营准备连接自动交战",
-        "text": "布置先决定阵容关系，战斗再验证准备结果，让观察、部署与反馈构成循环。"
+        "title": "让战场随阶段切换",
+        "text": "准备时高亮可放位置，点建筑主体也能操作。开战时淡出手牌和网格，镜头展开军阵。玩家能先看清落点，再看清布阵怎样影响交锋。"
       },
       {
-        "title": "英雄分支提供不同构筑路线",
-        "text": "两教英雄拥有各自技能与修习，战后奖励承接持续成形的阵容。"
+        "title": "用英雄技能改变构筑方向",
+        "text": "雷震子靠连锁雷击压制多目标，多宝道人随已激活的神器种类增伤，龟灵圣母可以减速和治疗。三层修习给同一位英雄不同的成长路线。"
       },
       {
-        "title": "年度征伐与局外成长分层",
-        "text": "十二年推进形成单轮目标，英雄解锁与培养连接多次挑战，不将其表述为在线多人对战。"
+        "title": "为竖屏重新安排操作顺序",
+        "text": "把手牌、取消和弃牌放到底部，把长说明收进按需打开的详情。选角按阵营分组，战利品纵向三选一，修习和培养的确认按钮保留在近手位置。"
       }
     ],
-    "practice": "作为个人AI策略游戏实践收录，重点展示卡牌、经济、布阵空间与战斗反馈的衔接。公开资料用于解释规则结构，不扩展为未经确认的商业成绩或个人独立美术执行。",
+    "practice": "我确定玩法节奏和界面方向，提出每回合的决策约束、建造落点、战斗界面和竖屏适配要求，并根据运行画面推进迭代。借助 AI 实现并回归验证 Windows 原型与 TapTap 制造手机版，验证范围覆盖完整征伐、触控流程、存档恢复及英雄培养。",
     "title": "封神对决",
     "tapUrl": "https://www.taptap.cn/app/984008",
-    "updatedAt": "2026-10-25",
+    "updatedAt": "2026-11-18",
     "shots": [
       {
-        "src": "assets/taptap/fengshen-duel/public-01.jpg",
-        "width": 786,
-        "height": 1704,
-        "label": "三牌布阵与合法落点",
-        "caption": "封神对决 · TapTap 公开展示图，2026.10.25 收录；保留平台原图。",
-        "alt": "封神对决：三牌布阵与合法落点，来自 TapTap 公开游戏页"
+        "src": "assets/taptap/fengshen-duel/maker-cover.jpg",
+        "width": 1920,
+        "height": 1080,
+        "label": "阐教与截教",
+        "caption": "TapTap 官方横版宣传图。",
+        "alt": "封神对决宣传图：阐教与截教人物对峙，背景为山水和城关"
       },
       {
-        "src": "assets/taptap/fengshen-duel/public-04.jpg",
-        "width": 786,
-        "height": 1704,
-        "label": "年度征伐与自动交战",
-        "caption": "封神对决 · TapTap 公开展示图，2026.10.25 收录；保留平台原图。",
-        "alt": "封神对决：年度征伐与自动交战，来自 TapTap 公开游戏页"
+        "src": "assets/taptap/fengshen-duel/mobile-036-02-building-placement.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "选牌与布阵",
+        "caption": "牌面显示用途与费用，合法地块高亮，还能看见建筑原有位置。",
+        "alt": "选中建筑卡后，城池地块显示合法落点，底部保留三张手牌"
       },
       {
-        "src": "assets/taptap/fengshen-duel/public-07.jpg",
-        "width": 786,
-        "height": 1704,
-        "label": "英雄修习分支",
-        "caption": "封神对决 · TapTap 公开展示图，2026.10.25 收录；保留平台原图。",
-        "alt": "封神对决：英雄修习分支，来自 TapTap 公开游戏页"
+        "src": "assets/taptap/fengshen-duel/mobile-036-01-year5-army.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "第五年军团交战",
+        "caption": "开战后收起手牌和网格，保留双方军团、己方城池与战速控制。",
+        "alt": "第五年自动战斗中的双方军团、城池与底部战速"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-05-reward-choice.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "战利品三选一",
+        "caption": "战后从三张奖励中选一张，决定下一年的构筑方向。",
+        "alt": "战后界面纵向排列三张奖励，可选中后确认"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-06-hero-selection.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "两教八将",
+        "caption": "按阵营浏览英雄，当前角色的定位与启程操作分开展示。",
+        "alt": "阐教英雄四人选择、姜子牙立绘与启程按钮"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-07-training-choice.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "英雄修习",
+        "caption": "每位英雄三层修习，每层在两项效果中作选择。",
+        "alt": "姜子牙第一层修习的连雷和护阵两个选项"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-04-leizhenzi-chain.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "雷震子的连锁雷击",
+        "caption": "雷光沿实际命中顺序逐跳呈现，便于读出群攻路径。",
+        "alt": "雷震子的蓝白雷光沿战场中的实际命中目标连线"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-03-guiling-healing.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "龟灵圣母的治疗",
+        "caption": "局部玄水效果帮助辨认受到治疗的友军。",
+        "alt": "龟灵圣母与己方军团在城池前交战并触发治疗反馈"
+      },
+      {
+        "src": "assets/taptap/fengshen-duel/mobile-036-08-cultivation.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "局外英魂培养",
+        "caption": "英雄获得胜场并结算后可开启培养，购得效果随下一次征途生效。",
+        "alt": "龟灵圣母的英魂培养页和底部购买入口"
       }
     ],
-    "status": "2026.10.25 核对 TapTap 公开作品页。本页按平台公开介绍和当前展示图更新，不将商店描述当作本次独立试玩、生产功能或商业数据的验证结果。",
-    "shortStatus": "TapTap 公开测试 · 2026.10.25 核对",
-    "captureNote": "以下来自 2026.10.25 核对的 TapTap 公开游戏页展示图；保留原图，部分含商店宣传文案，不冒充本次重新运行游戏的实机录制。",
-    "linkNote": "试玩入口与当前可玩版本以 TapTap 游戏页为准；公开介绍中的功能和数量属于开发者在平台展示的信息。"
+    "status": "Windows 原型已完成本地运行验证。TapTap 制造手机版 0.36 于 2026 年 10 月 26 日发布更新，包含阐教与截教共八位英雄、24 张局外培养卡。",
+    "shortStatus": "Windows 原型 · TapTap 手机版 0.36 已发布",
+    "captureNote": "八张截图来自 0.36 发布素材，为 Windows 引擎中的 720×1280 竖屏运行画面。",
+    "linkNote": "使用 TapTap App 打开游戏页试玩。48 秒实录展示建造、战后选择及英雄技能。",
+    "video": {
+      "src": "assets/taptap/fengshen-duel/mobile-036-gameplay.mp4",
+      "poster": "assets/taptap/fengshen-duel/mobile-036-02-building-placement.webp",
+      "title": "48 秒玩法实录"
+    }
   },
   {
     "slug": "my-life",

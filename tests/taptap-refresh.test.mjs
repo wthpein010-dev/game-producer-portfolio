@@ -11,11 +11,26 @@ test('TapTap catalog matches verified studio entries and current project names',
  }
  assert.equal(new Set(published.map(g=>g.tapUrl)).size,published.length);
  for(const game of published){
-  assert.match(game.captureNote,/TapTap.*展示图/u);
+  assert.match(game.captureNote,game.slug==='fengshen-duel' ? /0\.36.*竖屏运行画面/u : /TapTap.*展示图/u);
   const html=await readFile(new URL(`../projects/taptap-${game.slug}/index.html`,import.meta.url),'utf8');
   assert.ok(html.includes(`datetime="${game.updatedAt}"`));
   assert.ok(html.includes(game.title));
  }
+});
+test('Fengshen Duel publishes the 0.36 release gallery and real gameplay clip on the existing route',async()=>{
+ const game=taptapGames.find(entry=>entry.slug==='fengshen-duel');
+ const root=new URL('../',import.meta.url);
+ const manifest=JSON.parse(await readFile(new URL('assets/taptap/fengshen-duel/media-036.json',root),'utf8'));
+ assert.equal(manifest.publicSource,game.tapUrl);
+ assert.equal(manifest.version,'0.36');
+ assert.deepEqual(manifest.assets.filter(asset=>asset.kind==='engine-screenshot').map(asset=>[asset.width,asset.height]),Array.from({length:8},()=>[720,1280]));
+ assert.deepEqual(new Set(manifest.assets.map(asset=>asset.path)),new Set([...game.shots.map(shot=>shot.src),game.video.src]));
+ for(const asset of manifest.assets) {
+  const bytes=await readFile(new URL(asset.path,root));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256,asset.path);
+ }
+ const detail=await readFile(new URL('projects/taptap-fengshen-duel/index.html',root),'utf8');
+ assert.ok(detail.includes(`<source src="../../${game.video.src}" type="video/mp4">`));
 });
 test('refreshed TapTap images retain original bytes and public provenance',async()=>{
  const provenance=JSON.parse(await readFile(new URL('../src/taptap-public-refresh.json',import.meta.url),'utf8'));
@@ -25,10 +40,12 @@ test('refreshed TapTap images retain original bytes and public provenance',async
  for(const entry of provenance){
   const game=published.find(item=>item.tapUrl===entry.appUrl);
   assert.ok(game,entry.appUrl);
-  assert.equal(entry.verifiedOn,game.updatedAt);
+  assert.equal(entry.verifiedOn,game.slug==='fengshen-duel' ? '2026-10-25' : game.updatedAt);
   assert.equal(entry.developerUrl,'https://www.taptap.cn/developer/486853');
-  assert.deepEqual(entry.shots.map(({src,width,height})=>({src,width,height})),
-   game.shots.map(({src,width,height})=>({src,width,height})));
+  if(game.slug!=='fengshen-duel'){
+   assert.deepEqual(entry.shots.map(({src,width,height})=>({src,width,height})),
+    game.shots.map(({src,width,height})=>({src,width,height})));
+  }
   for(const shot of entry.shots){
    const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
    assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);
