@@ -1,0 +1,62 @@
+{
+  "version": "0.19.0",
+  "platform": "Unity Windows",
+  "capturedOn": "2026-10-29",
+  "sourceType": "受控 Windows 试玩流程中的游戏画面，角色和数据均为虚构测试内容。",
+  "sources": [
+    {
+      "src": "assets/my-life/title-screen.webp",
+      "sourceFrame": "menu-first.png",
+      "sourceSha256": "f840caf069e7e7589ad5b405b419b03e48e9bd54c5a7baea8a97aca08d1ab129",
+      "sha256": "bef7d39825898b0abfbd093550020bd3e46842a350f31b17e61df2e2fb35e336",
+      "bytes": 1222342,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/my-life/family-tree.webp",
+      "sourceFrame": "family-three.png",
+      "sourceSha256": "47c09ff17b4b44e3295a004b81a36740b5fc97dc13970a2cca93cd44072cac1b",
+      "sha256": "b80ecea396840486b1574f26992cfbfd4b65cfec7f8382b844ec583018720559",
+      "bytes": 389772,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/my-life/school-choice.webp",
+      "sourceFrame": "school-four-options.png",
+      "sourceSha256": "0cb6e77feef76822a462c58060101b6a2dd3b69b21cc6c88141ccfe18157f98b",
+      "sha256": "55ea81b4c994074cc5cf056fb6336a06b5de79cb2c3472a0f19e0017d791ed03",
+      "bytes": 230104,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/my-life/monthly-ledger.webp",
+      "sourceFrame": "ledger.png",
+      "sourceSha256": "3860ee763dc559277bc528d18110f682b056f4ff86db1b8fde3c0dcefe99f50c",
+      "sha256": "7d7c7821f64f39450406f46285edcb71b10ea0a5f569b4c96cf6eaa154436bde",
+      "bytes": 246660,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/my-life/property-inheritance.webp",
+      "sourceFrame": "estate25-arrangement.png",
+      "sourceSha256": "ace50623f580dfbf3b16e3e82df15184ff68b8839405c78248e93d915d83fa53",
+      "sha256": "1371daf602c757500d1ec18ad98a7654c617e70771af4ae532febea9d7f347a4",
+      "bytes": 132514,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/my-life/farewell-result.webp",
+      "sourceFrame": "farewell26-result.png",
+      "sourceSha256": "74ed6c7f4a1a04b7f20f13b15e230d0d4570c6769a530853972e5a689f7485e6",
+      "sha256": "9e2fd5f9a9166968a2e4f47d3437f1f76c6632b78f2577a20708834746f72055",
+      "bytes": 215104,
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}
