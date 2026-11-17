@@ -1,12 +1,5 @@
 /* Public portfolio. Shared reading system, company maps and editorial layouts. */
 @font-face {
-  font-family: "Producer Display";
-  src: url("fonts/ProducerDisplay.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
   font-family: "IBM Plex Sans";
   src: url("fonts/IBMPlexSans-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -36,13 +29,11 @@
   --radius: 14px;
   --radius-small: 7px;
   --shadow: 0 12px 26px rgb(21 59 69 / 5%);
-  --font-sans: "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-sans: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif;
   --font-mono: "IBM Plex Sans", "Cascadia Code", Consolas, monospace;
   --accent: #c04926;
   --on-primary: #ffffff;
   --on-primary-muted: #d9e9ee;
-  --font-display: "Producer Display", "Microsoft YaHei", sans-serif;
-  --font-home: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif;
   --scrollbar-thumb: #708e9b;
   --scrollbar-track: #e9f0f6;
   --scrollbar-hover: #416674;
@@ -828,7 +819,7 @@ button:disabled { cursor: default; }
 .hub-link { min-height: 44px; display: inline-flex; align-items: center; padding-inline: 14px; border: 1px solid var(--line); border-radius: 7px; font-size: 13px; text-decoration: none; }
 .hub-link:hover { background: var(--surface); border-color: var(--plum); }
 .home-intro { grid-template-columns: minmax(0, 1.6fr) minmax(280px, .8fr); gap: 44px 64px; padding-block: 54px 40px; }
-.intro-main h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(64px, 8vw, 110px); letter-spacing: 0; line-height: 1.04; max-width: none; margin: 19px 0 25px; }
+.intro-main h1 { max-width: none; margin: 19px 0 25px; }
 .intro-main h1 > span { display: block; margin-top: 10px; font-size: .68em; color: var(--plum); }
 .title-dot { color: var(--accent); }
 .intro-main > p:not(.eyebrow):not(.kicker) { max-width: 35em; font-size: 16px; color: var(--ink); }
@@ -852,7 +843,7 @@ button:disabled { cursor: default; }
 .chapter-rail a:hover, .chapter-rail a:focus-visible { background: var(--plum); border-color: var(--plum); color: var(--on-primary); }
 .chapter-rail a:hover > span, .chapter-rail a:focus-visible > span { color: var(--on-primary); }
 .section-head { padding-top: 28px; margin-bottom: 31px; }
-.section-head h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px, 3vw, 43px); letter-spacing: 0; line-height: 1.3; }
+.section-head h2 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.4; }
 .section-head .eyebrow { font-size: 11px; }
 .career-timeline::before { left: 175px; width: 2px; }
 .company-entry { grid-template-columns: 153px minmax(0, 1fr); gap: 45px; padding-bottom: 38px; }
@@ -884,7 +875,7 @@ button:disabled { cursor: default; }
 .skill-card h3 { font-size: 20px; }
 .skill-card li a { min-height: 44px; display: inline-flex; align-items: center; }
 .skill-index { color: var(--muted); }
-.detail-hero h1 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0; font-size: clamp(38px, 5.3vw, 74px); line-height: 1.25; }
+.detail-hero h1 { font-size: clamp(38px, 4.5vw, 64px); line-height: 1.25; }
 .detail-meta { font-size: 13px; }
 .detail-meta > span { border-bottom: 1px solid var(--line); padding-bottom: 4px; }
 .detail-meta time { font-variant-numeric: tabular-nums; }
@@ -909,7 +900,7 @@ button:disabled { cursor: default; }
 .public-note { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 38px; padding: 32px 0; }
 .note-heading { align-self: center; }
 .note-type { display: inline-block; border: 1px solid var(--line); padding: 3px 8px; font-size: 11px; color: var(--muted); margin-bottom: 16px; }
-.note-heading h1 { font: 400 clamp(40px, 5.5vw, 72px)/1.2 var(--font-display); margin-bottom: 21px; }
+.note-heading h1 { font-size: clamp(38px, 4.5vw, 64px); line-height: 1.25; margin-bottom: 21px; }
 .note-lead { max-width: 28em; font-size: 17px; line-height: 1.9; }
 .note-figure { border: 1px solid var(--line); border-radius: 4px 14px 14px 4px; background: var(--surface); align-self: center; overflow: hidden; }
 .note-figure img { width: 100%; }
@@ -1602,11 +1593,12 @@ button:disabled { cursor: default; }
 .ai-supporting { border-block: 1px solid var(--line); margin-top: 20px; }
 .ai-supporting > summary { padding-block: 24px; cursor: pointer; font-weight: 700; font-size: 18px; }
 .hub-tool-collection a:focus-visible, .hub-more > summary:focus-visible, .ai-supporting > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-/* Home uses a consistent upright Chinese/Latin face for calm, legible reading. */
-body[data-page="home"] { font-family: var(--font-home); font-synthesis: none; }
-body[data-page="home"] .intro-main h1,
-body[data-page="home"] .section-head h2 {
-  font-family: var(--font-home);
+/* Keep titles on the same upright font stack as the surrounding text. */
+.intro-main h1,
+.section-head h2,
+.detail-hero h1,
+.note-heading h1 {
+  font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0;
@@ -1615,8 +1607,8 @@ body[data-page="home"] .section-head h2 {
 body[data-page="home"] .intro-main h1 { font-size: clamp(40px, 6vw, 80px); line-height: 1.25; }
 body[data-page="home"] .intro-main h1 > span { font-size: .6em; line-height: 1.4; }
 body[data-page="home"] .section-head h2 { font-size: clamp(28px, 2.6vw, 36px); line-height: 1.4; }
-body[data-page="home"] :is(.eyebrow, .kicker, .section-label) {
-  font-family: var(--font-home);
+:is(.eyebrow, .kicker, .section-label) {
+  font-family: var(--font-sans);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

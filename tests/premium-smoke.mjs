@@ -25,11 +25,14 @@ const check=async(name,action)=>{try{await action();results.push({name,status:'p
 async function go(route){const response=await page.goto(base+route,{waitUntil:'networkidle'});assert.equal(response.status(),200);await page.evaluate(()=>document.fonts.ready);}
 async function fit(){const size=await page.evaluate(()=>({width:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));assert.ok(size.scroll<=size.width+1,JSON.stringify(size));}
 try {
-  await check('self-hosted title and utility fonts load without fallback-only rendering',async()=>{
+  await check('titles use the upright text stack and the self-hosted utility face loads',async()=>{
     await page.setViewportSize({width:1440,height:1100});await go('index.html');
-    const fonts=await page.evaluate(()=>({display:document.fonts.check('48px "Producer Display"','吴天昊'),utility:document.fonts.check('16px "IBM Plex Sans"','CAREER'),face:[...document.fonts].map(face=>({family:face.family,status:face.status}))}));
-    assert.equal(fonts.display,true);assert.equal(fonts.utility,true);
-    assert.ok(fonts.face.some(face=>face.family==='Producer Display'&&face.status==='loaded'));
+    const fonts=await page.evaluate(async()=>({
+      heading:getComputedStyle(document.querySelector('h1')).fontFamily,
+      utility:(await document.fonts.load('16px "IBM Plex Sans"','CAREER')).map(face=>face.status),
+    }));
+    assert.ok(fonts.heading.startsWith('"Microsoft YaHei"'));
+    assert.deepEqual(fonts.utility,['loaded']);
     await page.screenshot({path:path.join(artifacts,'portfolio-premium-PC.png')});
   });
   await check('chapter index follows real career anchors through keyboard activation',async()=>{
