@@ -2933,6 +2933,138 @@
         }
       ]
     },
+    "assets/taptap/wangwang-stack/board.webp": {
+      "sourceSha256": "02ebf258c0aa791a5a1b88019e4e43eb40d2dd3495d8a11b4c2455202b5bb207",
+      "width": 720,
+      "height": 1280,
+      "bytes": 769596,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/board.webp-02ebf258c0aa791a-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 102048
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/board.webp-02ebf258c0aa791a-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 169954
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/camp.webp": {
+      "sourceSha256": "c8b00515dbdb66fdd9530edf1619df582c382b35822a0a2efdad6a56bb9bb0d6",
+      "width": 720,
+      "height": 1280,
+      "bytes": 689006,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/camp.webp-c8b00515dbdb66fd-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 65640
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/camp.webp-c8b00515dbdb66fd-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 112860
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/collection.webp": {
+      "sourceSha256": "68796fb46a52e071bed4494c6ceec3b94c3ff37b64def06cb176b26cef82518a",
+      "width": 720,
+      "height": 1280,
+      "bytes": 926978,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/collection.webp-68796fb46a52e071-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 112716
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/collection.webp-68796fb46a52e071-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 189840
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/cover.webp": {
+      "sourceSha256": "dc31560e5ecf6bee95b1a10cf152394241e39facba70b0d8326bcc0e497786ed",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 2084802,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 47006
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 143488
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 264186
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 375816
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/home.webp": {
+      "sourceSha256": "f7cdc0b39ec06fb344b831a3a7a022ca4cadc8e7887e1cd44e1a267cb1e41a2c",
+      "width": 720,
+      "height": 1280,
+      "bytes": 868564,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/home.webp-f7cdc0b39ec06fb3-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 80886
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/home.webp-f7cdc0b39ec06fb3-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 141196
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/training.webp": {
+      "sourceSha256": "e364dfa7886bedd198092aec46cdde96dd469adde1f81ef41129ece2dce254cd",
+      "width": 720,
+      "height": 1280,
+      "bytes": 684602,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/training.webp-e364dfa7886bedd1-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 70474
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/training.webp-e364dfa7886bedd1-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 120626
+        }
+      ]
+    },
     "assets/taptap/your-child/public-01.png": {
       "sourceSha256": "e85b07d7aa7b2300320f4780c28c70278001f271431bd92ae44e2ffeb2b42723",
       "width": 720,

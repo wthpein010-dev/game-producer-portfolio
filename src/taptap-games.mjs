@@ -1,6 +1,7 @@
 import {daynightFate} from './daynight-fate.mjs';
+import {wangwangStack} from './wangwang-stack.mjs';
 
-// Current public descriptions and reviewed display media; provenance retained separately.
+// Public games and Maker case studies, with media provenance retained separately.
 export const taptapGames = [
   daynightFate,
   {
@@ -981,5 +982,6 @@ export const taptapGames = [
       "src": "assets/taptap/throne-war/battle-playback.mp4",
       "poster": "assets/taptap/throne-war/battle.webp"
     }
-  }
+  },
+  wangwangStack,
 ];
