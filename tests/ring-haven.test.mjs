@@ -11,27 +11,24 @@ test('The homepage offers a short game design entry with three planning themes a
   const tags=html.match(/<ul class="collaboration-tags">([\s\S]*?)<\/ul>/u)?.[1];
   assert.ok(tags,'planning themes remain visible on the homepage');
   assert.equal((tags.match(/<li>/gu)||[]).length,3);
-  assert.match(html,/AI 协作实现/u);
-  assert.match(html,/试玩阶段/u);
-  assert.match(html,/安卓未实测/u);
+  assert.match(html,/用 AI 做出了一款圆环解谜游戏/u);
+  assert.doesNotMatch(html,/试玩包|安卓未实测|code14/u);
   assert.equal((html.match(/<figure\b/gu)||[]).length,1);
   assert.match(html,/src="assets\/ring-haven\/home.webp"/u);
 });
 
 test('The case explains the core loop, feedback, mode rhythm and bounded daily challenge',()=>{
   const html=renderRingHavenBody();
-  for(const term of ['旋转圆环','对齐开口','解开连接','绿色细描边','同色碎裂','30 个炸弹关','30 个奖励关','有效操作回合','允许部分结算','10 个普通关','每天一次','24 环、29 扣','大环','触控','核心操作的先后顺序','整局只有唯一解'])assert.ok(html.includes(term),term);
+  for(const term of ['旋转圆环','对齐开口','解开连接','绿色细描边','同色碎裂','30 个炸弹关','30 个奖励关','有效操作回合','允许部分结算','10 个普通关','每天一次','24 环、29 扣','大环','先后顺序'])assert.ok(html.includes(term),term);
   assert.match(html,/<ol class="ring-haven-path">[\s\S]*?<li>[\s\S]*?<li>[\s\S]*?<li>/u);
-  assert.match(html,/至少需要 2 次清除/u);
-  assert.match(html,/专用木槌不扣普通库存/u);
-  assert.match(html,/回到 Home 或重启后续同局/u);
+  assert.match(html,/至少用两次木槌/u);
+  assert.match(html,/配有专用木槌/u);
+  assert.match(html,/退出后可续玩同一局/u);
 });
 
 test('The reward loop and human contribution stay distinct from AI assisted implementation',()=>{
   const html=renderRingHavenBody();
-  for(const term of ['Night Keeper','新海狸外观','Home 换装','不提供数值加成','我的需求与设计决策','AI 协作实现','具体排程、数值','24 环、29 扣的结构','75 个真实 UI Prefab','存档恢复','八语言'])assert.ok(html.includes(term),term);
-  assert.match(html,/要求完成 10 个普通关解锁/u);
-  assert.match(html,/要求原生 UI/u);
+  for(const term of ['Night Keeper','新海狸外观','主页换装','我怎么用 AI 做这个项目','我确定','用 AI 把需求做成'])assert.ok(html.includes(term),term);
   assert.doesNotMatch(html,/全部独立手写|独立完成全部|手机 FPS 提升|零 GC|留存提升\s*\d|收入增长\s*\d/u);
 });
 
@@ -57,24 +54,21 @@ test('Eight complete portrait figures reserve geometry and keep same-image origi
   }
 });
 
-test('The visible delivery status and folded detail boundaries prevent false device, launch or public-download claims',()=>{
+test('The case reads as a personal portfolio and omits the package delivery report',()=>{
   const html=renderRingHavenBody();
   const hero=html.match(/<header class="detail-hero">([\s\S]*?)<\/header>/u)?.[1];
   assert.ok(hero);
-  for(const term of ['0.5.0 / code14','离线 QA 试玩阶段','Unity Editor','安卓未实测'])assert.ok(hero.includes(term),term);
-  const limits=html.match(/<details class="ring-haven-limits">([\s\S]*?)<\/details>/u)?.[1];
-  assert.ok(limits);
-  for(const term of ['非安卓真机','未在安卓设备安装或运行','未在商店上线','AI 辅助研发','演示存档','不公开 APK 或源码'])assert.ok(limits.includes(term),term);
+  for(const term of ['AI','30 个炸弹关','30 个奖励关','海狸换装'])assert.ok(hero.includes(term),term);
+  assert.doesNotMatch(html,/ring-haven-delivery|试玩包|静态校验|code14|安卓未实测/u);
   assert.doesNotMatch(html,/<a[^>]+(?:download|href="[^"]+\.(?:apk|zip|unitypackage|cs)(?:[?#"]))/u);
   assert.doesNotMatch(html,/已正式发布|正式上线成功|手机性能提升|增长验证|service_role|localhost|file:\/\/|[A-F]:[\\/]/u);
 });
 
-test('The detail reading path uses native navigation, disclosures and a stable return anchor',()=>{
+test('The detail reading path uses native navigation and a stable return anchor',()=>{
   const html=renderRingHavenBody();
   assert.match(html,/<main id="main"/u);
   assert.match(html,/href="\.\.\/\.\.\/index.html#ring-haven"/u);
   for(const match of html.matchAll(/href="#(ring-haven-[^"]+)"/gu))assert.ok(html.includes(`id="${match[1]}"`),match[1]);
-  assert.match(html,/<details class="ring-haven-limits"><summary>/u);
   assert.doesNotMatch(html,/<(?:iframe|video|canvas)\b|onclick=|role="button"/u);
 });
 

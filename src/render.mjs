@@ -43,7 +43,7 @@ export function renderAiPocketPage() {
   return shell({title:'AI 随身舱 · AI 工具应用实践',description:'从场景拆解到工具选择、提示词组织与产物检查：办公、图片、写作和视频场景中的 AI 工具运用方法。',body:renderAiPocketBody(e),base:'../../',page:'document'});
 }
 export function renderRingHavenPage() {
-  return shell({title:'环环小憩 · 解谜玩法与挑战设计',description:'从旋转解锁到每日挑战与海狸装扮：环环小憩的玩法反馈、关卡目标和 AI 协作迭代。',body:renderRingHavenBody(e),base:'../../',page:'document'});
+  return shell({title:'环环小憩 · 我的 AI 游戏作品',description:'我用 AI 做出圆环解谜游戏，加入 60 个特别关、每日挑战和海狸换装。',body:renderRingHavenBody(e),base:'../../',page:'document'});
 }
 function chapterRail() {
   return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>CAREER INDEX / 职业章节</span><ol>${jobs.map((job,index)=>`<li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span aria-hidden="true">↘</span></a></li>`).join('')}</ol></nav>`;
