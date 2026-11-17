@@ -1,0 +1,100 @@
+{
+  "game": "封神对决",
+  "version": "0.36",
+  "publicSource": "https://www.taptap.cn/app/984008",
+  "releaseDate": "2026-10-26",
+  "capture": "Windows 原生引擎竖屏渲染，720×1280，使用公开版本的运行素材。截图无损转换为 WebP。",
+  "assets": [
+    {
+      "path": "assets/taptap/fengshen-duel/maker-cover.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source": "promotional-1920x1080.jpg",
+      "sha256": "e0b3dfadb782f17fae986113e40db349e768ff748d6a090420f702a3e3584193",
+      "sourceSha256": "e0b3dfadb782f17fae986113e40db349e768ff748d6a090420f702a3e3584193",
+      "kind": "official-cover"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-01-year5-army.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-01-year5-army.png",
+      "sha256": "3634c248953751cedcabbd114a3e058ee478dcfa41b115f91aedd33c1704f29a",
+      "sourceSha256": "f1c09e87aa664fcaa125601d6af0d8269232b2c344ecfd3b889cc57702b88d78",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-02-building-placement.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-02-building-placement.png",
+      "sha256": "a9646c1eef827172a34f3586ae48e96a766be74fc132890bb3b388667212126b",
+      "sourceSha256": "763eafc0579d547ac8889f2023d983484ccb9945e0a499c7ba447f10b0e9975e",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-03-guiling-healing.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-03-guiling-healing.png",
+      "sha256": "c8bd1c25987915e3c4f9e856ebef27db8cee33646b4c8460d11dcf3af7ac635b",
+      "sourceSha256": "6868fadeeea09b62496cb0e0a91c4e481ba3063dc177168a4a37e01241b4e409",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-04-leizhenzi-chain.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-04-leizhenzi-chain.png",
+      "sha256": "90c4158dde0ca455c5b5ae3d95903e914caaeabaa838957b3870e558440c7b8e",
+      "sourceSha256": "73cc0118f8ce0b9f5365dfea0193d2d347bcb1a825bbfd0ac61915a6fd169e2f",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-05-reward-choice.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-05-reward-choice.png",
+      "sha256": "78c5d8e7bb772bc7319b7c07b3132d649ef7e3d97478edff56dca5d5bf9634c4",
+      "sourceSha256": "019d3585c22bd37143f74fb3edb7fad64fd0870e2e5081292932f9653d915792",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-06-hero-selection.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-06-hero-selection.png",
+      "sha256": "a616510c9763574d8f6cf54fcd7da8db1aeda65c7fe818f99598e8f7ce3bb2b1",
+      "sourceSha256": "d4e48845e50e6bf50f6909b030264831b78e64a7eb29f01d71fa16e18e205962",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-07-training-choice.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-07-training-choice.png",
+      "sha256": "98ffb00d9d2baec766d989883f9c87626c1449323015ed191a00dea063b75114",
+      "sourceSha256": "ebe95f2862eb1ef434d8bfb582245c7e3ace09bc1185c5bb1c633f8ef892b015",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-08-cultivation.webp",
+      "width": 720,
+      "height": 1280,
+      "source": "screenshot-08-cultivation.png",
+      "sha256": "e35e55c554570872e84e46ba33552a6b6cdad04a48c4c45effb298e9cba4ecfd",
+      "sourceSha256": "15207e9ad72f639c24a78c0d7bb680c0e571060a5306a7be9dde92d98b8ed8f5",
+      "kind": "engine-screenshot"
+    },
+    {
+      "path": "assets/taptap/fengshen-duel/mobile-036-gameplay.mp4",
+      "width": 720,
+      "height": 1280,
+      "seconds": 48,
+      "source": "gameplay-native-720x1280.mp4",
+      "sha256": "018dc63603f9990dda5200ec969244e01ee90f60e7bea486fee4aab9d264da86",
+      "sourceSha256": "018dc63603f9990dda5200ec969244e01ee90f60e7bea486fee4aab9d264da86",
+      "kind": "engine-video"
+    }
+  ]
+}

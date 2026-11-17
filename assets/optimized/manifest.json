@@ -1740,6 +1740,178 @@
         }
       ]
     },
+    "assets/taptap/daynight-fate/card-journal.webp": {
+      "sourceSha256": "8c1954290f4dd45b764bad400c98463a044d3681669c8989bdca52ebef4ca04c",
+      "width": 1024,
+      "height": 768,
+      "bytes": 99964,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/card-journal.webp-8c1954290f4dd45b-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34360
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/city-day.webp": {
+      "sourceSha256": "7b19e0596b5c213a4f54f243e0422214c64bbd35ebcf8910fe3d931a4bb147fc",
+      "width": 1536,
+      "height": 512,
+      "bytes": 224488,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/city-day.webp-7b19e0596b5c213a-480.webp",
+          "width": 480,
+          "height": 160,
+          "bytes": 37978
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/city-day.webp-7b19e0596b5c213a-960.webp",
+          "width": 960,
+          "height": 320,
+          "bytes": 127400
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/city-night.webp": {
+      "sourceSha256": "5ec14e1eaf07758efe62ef03a75dd457e68bc655599191d39ea439d7592da635",
+      "width": 1536,
+      "height": 512,
+      "bytes": 167174,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/city-night.webp-5ec14e1eaf07758e-480.webp",
+          "width": 480,
+          "height": 160,
+          "bytes": 29400
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/city-night.webp-5ec14e1eaf07758e-960.webp",
+          "width": 960,
+          "height": 320,
+          "bytes": 99610
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/day.webp": {
+      "sourceSha256": "10b46dc19b2026f1bd1ee07a12ab42c2f31f42470c5038366e5258bc4b69a587",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 470668,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/day.webp-10b46dc19b2026f1-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 65486
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/day.webp-10b46dc19b2026f1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 210808
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/day.webp-10b46dc19b2026f1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 376750
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/first-night-guide.webp": {
+      "sourceSha256": "5eefe83b20b03ba3056867c6893990ddbc7a3fb53990260778570b20f5ce2d62",
+      "width": 1024,
+      "height": 768,
+      "bytes": 64068,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/first-night-guide.webp-5eefe83b20b03ba3-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 23020
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/night.webp": {
+      "sourceSha256": "de1406bb52fb5404dfb4f063d886c8c1780735c616f4081209647554e6e94635",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 466442,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/night.webp-de1406bb52fb5404-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 59996
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/night.webp-de1406bb52fb5404-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 189140
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/night.webp-de1406bb52fb5404-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 362484
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/story-choice.webp": {
+      "sourceSha256": "d6799a55b91c2c623edbe494b70f3511f301eaa15e09dbf7bb43803209f1dfa0",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 328628,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-choice.webp-d6799a55b91c2c62-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 34900
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-choice.webp-d6799a55b91c2c62-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 115022
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-choice.webp-d6799a55b91c2c62-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 233082
+        }
+      ]
+    },
+    "assets/taptap/daynight-fate/story-result.webp": {
+      "sourceSha256": "d6029bb14c5bc5e3dde96a3a5cf3711c210ef1ccc99b3c257f58ca2557ea3a4c",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 119342,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-result.webp-d6029bb14c5bc5e3-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 18080
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-result.webp-d6029bb14c5bc5e3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 52606
+        },
+        {
+          "src": "assets/optimized/taptap/daynight-fate/story-result.webp-d6029bb14c5bc5e3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 93450
+        }
+      ]
+    },
     "assets/taptap/fengshen-duel/public-01.jpg": {
       "sourceSha256": "5c198ca567872511276e58f142f2c450028dfab5796738135a143daa3425c684",
       "width": 786,
@@ -2758,6 +2930,138 @@
           "width": 480,
           "height": 1039,
           "bytes": 60930
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/board.webp": {
+      "sourceSha256": "02ebf258c0aa791a5a1b88019e4e43eb40d2dd3495d8a11b4c2455202b5bb207",
+      "width": 720,
+      "height": 1280,
+      "bytes": 769596,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/board.webp-02ebf258c0aa791a-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 102048
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/board.webp-02ebf258c0aa791a-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 169954
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/camp.webp": {
+      "sourceSha256": "c8b00515dbdb66fdd9530edf1619df582c382b35822a0a2efdad6a56bb9bb0d6",
+      "width": 720,
+      "height": 1280,
+      "bytes": 689006,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/camp.webp-c8b00515dbdb66fd-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 65640
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/camp.webp-c8b00515dbdb66fd-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 112860
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/collection.webp": {
+      "sourceSha256": "68796fb46a52e071bed4494c6ceec3b94c3ff37b64def06cb176b26cef82518a",
+      "width": 720,
+      "height": 1280,
+      "bytes": 926978,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/collection.webp-68796fb46a52e071-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 112716
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/collection.webp-68796fb46a52e071-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 189840
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/cover.webp": {
+      "sourceSha256": "dc31560e5ecf6bee95b1a10cf152394241e39facba70b0d8326bcc0e497786ed",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 2084802,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 47006
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 143488
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 264186
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/cover.webp-dc31560e5ecf6bee-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 375816
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/home.webp": {
+      "sourceSha256": "f7cdc0b39ec06fb344b831a3a7a022ca4cadc8e7887e1cd44e1a267cb1e41a2c",
+      "width": 720,
+      "height": 1280,
+      "bytes": 868564,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/home.webp-f7cdc0b39ec06fb3-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 80886
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/home.webp-f7cdc0b39ec06fb3-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 141196
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/training.webp": {
+      "sourceSha256": "e364dfa7886bedd198092aec46cdde96dd469adde1f81ef41129ece2dce254cd",
+      "width": 720,
+      "height": 1280,
+      "bytes": 684602,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/training.webp-e364dfa7886bedd1-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 70474
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/training.webp-e364dfa7886bedd1-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 120626
         }
       ]
     },

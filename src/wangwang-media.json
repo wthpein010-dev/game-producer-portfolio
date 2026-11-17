@@ -1,0 +1,56 @@
+{
+  "captureDate": "2026-10-28",
+  "gameVersion": "0.5.0",
+  "runtimeBuild": "926eed4",
+  "source": "TapTap Maker native preview captures and separately prepared promotional art",
+  "media": [
+    {
+      "src": "assets/taptap/wangwang-stack/cover.webp",
+      "width": 1920,
+      "height": 1080,
+      "kind": "promotional-art",
+      "sha256": "dc31560e5ecf6bee95b1a10cf152394241e39facba70b0d8326bcc0e497786ed",
+      "sourceSha256": "7498ae9c626d9e2b50c7bd1c444ccc2c1c8cff354edcbb670ca73d07a4385df7"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/home.webp",
+      "width": 720,
+      "height": 1280,
+      "kind": "native-preview",
+      "sha256": "f7cdc0b39ec06fb344b831a3a7a022ca4cadc8e7887e1cd44e1a267cb1e41a2c",
+      "sourceSha256": "21fba0e4ca8e99984c42e95077ca1c6d5689f5ba4b38a95324173f3a4ae5ee64"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/board.webp",
+      "width": 720,
+      "height": 1280,
+      "kind": "native-preview",
+      "sha256": "02ebf258c0aa791a5a1b88019e4e43eb40d2dd3495d8a11b4c2455202b5bb207",
+      "sourceSha256": "6b569205a05dece5bba921314f96ad4a083dcb3eca5847f096a89b5961221cf9"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/camp.webp",
+      "width": 720,
+      "height": 1280,
+      "kind": "native-preview",
+      "sha256": "c8b00515dbdb66fdd9530edf1619df582c382b35822a0a2efdad6a56bb9bb0d6",
+      "sourceSha256": "a676a1db0eeea2931a08c66c5baf3b9cebc6e6c19f5625e1e40f96b243d7308d"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/training.webp",
+      "width": 720,
+      "height": 1280,
+      "kind": "native-preview",
+      "sha256": "e364dfa7886bedd198092aec46cdde96dd469adde1f81ef41129ece2dce254cd",
+      "sourceSha256": "e2dfd8dbfd4cf8af0beeaf673d288085366f7136432901667e91132763a329c2"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/collection.webp",
+      "width": 720,
+      "height": 1280,
+      "kind": "native-preview",
+      "sha256": "68796fb46a52e071bed4494c6ceec3b94c3ff37b64def06cb176b26cef82518a",
+      "sourceSha256": "6959ff216ae670e0ffb768558b5a0ffd89e6c62aaa77e10e19123a87d56c477a"
+    }
+  ]
+}
