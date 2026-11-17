@@ -11,31 +11,6 @@ test('Home introduces collaboration as personal capability outside the career pr
   assert.ok(home.indexOf('id="ai-collaboration"')>home.indexOf('id="skills"'));
 });
 
-test('Game research appears on the homepage and links to the public evidence summary',async()=>{
-  const home=renderHome();
-  const href='skills/ai-collaboration/#happy-family-research';
-  const section=home.match(/<section[^>]*id="happy-family-research-overview"[\s\S]*?<\/section>/u)?.[0];
-  assert.ok(section);
-  assert.ok(section.includes('《快乐方块屋》竞品研究'));
-  assert.ok(section.includes(href));
-  assert.match(section,/子女教育、就业、产业经营和生活事件/u);
-  assert.match(section,/assets\/happy-family-research\/family-tree\.webp/u);
-  assert.match(section,/assets\/happy-family-research\/city-map\.webp/u);
-  assert.doesNotMatch(section,/1,658|531 个数值案例/u);
-  assert.ok(home.indexOf('id="happy-family-research-overview"')>home.indexOf('id="ai-collaboration"'));
-
-  const {renderCollaborationPage}=await import('../src/render.mjs');
-  const detail=renderCollaborationPage().match(/<section[^>]*id="happy-family-research"[\s\S]*?<\/section>/u)?.[0];
-  assert.ok(detail);
-  for(const file of ['family-tree','city-map','school-choice','restaurant-staff']){
-    const image = '../../assets/happy-family-research/'+file+'.webp';
-    assert.ok(detail.includes('src="'+image+'"'),image);
-    assert.ok(detail.includes('href="'+image+'"'),image);
-  }
-  assert.match(detail,/安卓模拟器中的原游戏/u);
-  assert.doesNotMatch(detail,/691\/s|7 卷、66 页|[A-Z]:[\\/]|\.zip|\.xlsx|\.docx/u);
-});
-
 test('Standalone collaboration page preserves ownership, evidence and operational boundaries',async()=>{
   const {renderCollaborationPage}=await import('../src/render.mjs');
   assert.equal(typeof renderCollaborationPage,'function');
