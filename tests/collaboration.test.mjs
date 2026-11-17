@@ -11,6 +11,25 @@ test('Home introduces collaboration as personal capability outside the career pr
   assert.ok(home.indexOf('id="ai-collaboration"')>home.indexOf('id="skills"'));
 });
 
+test('Game research appears on the homepage and links to the public evidence summary',async()=>{
+  const home=renderHome();
+  const href='skills/ai-collaboration/#happy-family-research';
+  const section=home.match(/<section[^>]*id="happy-family-research-overview"[\s\S]*?<\/section>/u)?.[0];
+  assert.ok(section);
+  assert.ok(section.includes('《快乐方块屋》竞品研究'));
+  assert.ok(section.includes(href));
+  assert.match(section,/1,658 张试玩截图、531 个数值案例和 39 项系统记录/u);
+  assert.ok(home.indexOf('id="happy-family-research-overview"')>home.indexOf('id="ai-collaboration"'));
+
+  const {renderCollaborationPage}=await import('../src/render.mjs');
+  const detail=renderCollaborationPage().match(/<section[^>]*id="happy-family-research"[\s\S]*?<\/section>/u)?.[0];
+  assert.ok(detail);
+  assert.match(detail,/691\/s 升至 712\/s/u);
+  assert.match(detail,/7 卷、66 页/u);
+  assert.match(detail,/待验证/u);
+  assert.doesNotMatch(detail,/<img|[A-Z]:[\\/]|\.zip|\.xlsx|\.docx/u);
+});
+
 test('Standalone collaboration page preserves ownership, evidence and operational boundaries',async()=>{
   const {renderCollaborationPage}=await import('../src/render.mjs');
   assert.equal(typeof renderCollaborationPage,'function');
