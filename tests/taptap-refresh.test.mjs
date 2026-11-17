@@ -3,28 +3,32 @@ import assert from 'node:assert/strict';
 import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
-test('TapTap catalog matches eleven verified studio entries and current project names',async()=>{
+test('TapTap catalog matches verified studio entries and current project names',async()=>{
  const published = taptapGames.filter(game=>game.tapUrl);
- assert.equal(published.length,11);
- for(const [id,title] of [['984529','你的孩子'],['984008','封神对决'],['984393','我的一生'],['974262','造景贴纸：贴了不烧心']]){
+ assert.equal(published.length,12);
+ for(const [id,title] of [['1005408','拼拼不烧心'],['984529','你的孩子'],['984008','封神对决'],['984393','我的一生'],['974262','造景贴纸：贴了不烧心']]){
   assert.equal(published.find(g=>new URL(g.tapUrl).pathname==='/app/'+id)?.title,title);
  }
- assert.equal(new Set(published.map(g=>g.tapUrl)).size,11);
+ assert.equal(new Set(published.map(g=>g.tapUrl)).size,published.length);
  for(const game of published){
-  assert.equal(game.updatedAt,'2026-10-25');
-  assert.equal(game.shots.length,3);
   assert.match(game.captureNote,/TapTap.*展示图/u);
   const html=await readFile(new URL(`../projects/taptap-${game.slug}/index.html`,import.meta.url),'utf8');
-  assert.ok(html.includes('datetime="2026-10-25"'));
+  assert.ok(html.includes(`datetime="${game.updatedAt}"`));
   assert.ok(html.includes(game.title));
  }
 });
 test('refreshed TapTap images retain original bytes and public provenance',async()=>{
  const provenance=JSON.parse(await readFile(new URL('../src/taptap-public-refresh.json',import.meta.url),'utf8'));
- assert.equal(provenance.length,11);
+ const published = taptapGames.filter(game=>game.tapUrl);
+ assert.equal(provenance.length,published.length);
+ assert.equal(new Set(provenance.map(entry=>entry.appUrl)).size,published.length);
  for(const entry of provenance){
-  assert.equal(entry.verifiedOn,'2026-10-25');
+  const game=published.find(item=>item.tapUrl===entry.appUrl);
+  assert.ok(game,entry.appUrl);
+  assert.equal(entry.verifiedOn,game.updatedAt);
   assert.equal(entry.developerUrl,'https://www.taptap.cn/developer/486853');
+  assert.deepEqual(entry.shots.map(({src,width,height})=>({src,width,height})),
+   game.shots.map(({src,width,height})=>({src,width,height})));
   for(const shot of entry.shots){
    const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
    assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);

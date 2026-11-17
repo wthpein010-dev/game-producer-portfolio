@@ -2054,6 +2054,132 @@
         }
       ]
     },
+    "assets/taptap/jigmeme/01-home.jpg": {
+      "sourceSha256": "ccbd74f6e7fe33ad189dbecff367df2c8571201dad606e98db32b4d07c269ef9",
+      "width": 688,
+      "height": 1224,
+      "bytes": 359068,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/01-home.jpg-ccbd74f6e7fe33ad-480.webp",
+          "width": 480,
+          "height": 854,
+          "bytes": 79890
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/01-home.jpg-ccbd74f6e7fe33ad-688.webp",
+          "width": 688,
+          "height": 1224,
+          "bytes": 148574
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/02-puzzle.jpg": {
+      "sourceSha256": "f678b591af3546e37dd872b4153c2a5558b981b53f48bdb174eb8c2cd64e4a55",
+      "width": 688,
+      "height": 1224,
+      "bytes": 221043,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/02-puzzle.jpg-f678b591af3546e3-480.webp",
+          "width": 480,
+          "height": 854,
+          "bytes": 50246
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/02-puzzle.jpg-f678b591af3546e3-688.webp",
+          "width": 688,
+          "height": 1224,
+          "bytes": 93676
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/03-profile.jpg": {
+      "sourceSha256": "18b6ec4a346d3f1c60bdeda3e4434094494c513a6ec2b827517981c3c364ffc1",
+      "width": 688,
+      "height": 1224,
+      "bytes": 255706,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/03-profile.jpg-18b6ec4a346d3f1c-480.webp",
+          "width": 480,
+          "height": 854,
+          "bytes": 54526
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/03-profile.jpg-18b6ec4a346d3f1c-688.webp",
+          "width": 688,
+          "height": 1224,
+          "bytes": 99426
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/04-appearance.jpg": {
+      "sourceSha256": "6c6cf95b54b4ba751cd1ad0799da4d5b603662a42ab27089938977aae0c6da22",
+      "width": 550,
+      "height": 1224,
+      "bytes": 167706,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/04-appearance.jpg-6c6cf95b54b4ba75-480.webp",
+          "width": 480,
+          "height": 1068,
+          "bytes": 51092
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/04-appearance.jpg-6c6cf95b54b4ba75-550.webp",
+          "width": 550,
+          "height": 1224,
+          "bytes": 65622
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/05-artwork.jpg": {
+      "sourceSha256": "670a3e6efa37eb363a0cd8e3f300c8d88e648e76ec68295d67f96901718a3b7e",
+      "width": 720,
+      "height": 1200,
+      "bytes": 386126,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/05-artwork.jpg-670a3e6efa37eb36-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 80850
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/05-artwork.jpg-670a3e6efa37eb36-720.webp",
+          "width": 720,
+          "height": 1200,
+          "bytes": 173858
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/store-cover.jpg": {
+      "sourceSha256": "52696766489b70531d460bdfe40efb662a454226340274d2f8887b5bdd71fa74",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 475542,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/store-cover.jpg-52696766489b7053-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 70518
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/store-cover.jpg-52696766489b7053-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 233242
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/store-cover.jpg-52696766489b7053-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 411252
+        }
+      ]
+    },
     "assets/taptap/lunar-freight/dialogue.webp": {
       "sourceSha256": "61aabf0174247e938087552f295d86bbcf00f882cadec07d0b9eee77fd8cf3ab",
       "width": 2560,

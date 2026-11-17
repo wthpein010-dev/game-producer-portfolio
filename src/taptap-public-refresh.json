@@ -328,5 +328,56 @@
         "height": 1280
       }
     ]
+  },
+  {
+    "appId": "1005408",
+    "title": "拼拼不烧心",
+    "appUrl": "https://www.taptap.cn/app/1005408",
+    "developerUrl": "https://www.taptap.cn/developer/486853",
+    "verifiedOn": "2026-11-18",
+    "shots": [
+      {
+        "src": "assets/taptap/jigmeme/store-cover.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/Fk-QxD3OyUzRNUFffLsKK0uYPLKn.jpg",
+        "sha256": "52696766489b70531d460bdfe40efb662a454226340274d2f8887b5bdd71fa74",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "src": "assets/taptap/jigmeme/02-puzzle.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/9f3f4a58e45b80edc503b77c3d4aa415.jpg",
+        "sha256": "f678b591af3546e37dd872b4153c2a5558b981b53f48bdb174eb8c2cd64e4a55",
+        "width": 688,
+        "height": 1224
+      },
+      {
+        "src": "assets/taptap/jigmeme/05-artwork.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/a4bafb59f6b98a489483d83ea5dee3e6.jpg",
+        "sha256": "670a3e6efa37eb363a0cd8e3f300c8d88e648e76ec68295d67f96901718a3b7e",
+        "width": 720,
+        "height": 1200
+      },
+      {
+        "src": "assets/taptap/jigmeme/01-home.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/c6ba984ffa59e85c01c7aa84f6302af4.jpg",
+        "sha256": "ccbd74f6e7fe33ad189dbecff367df2c8571201dad606e98db32b4d07c269ef9",
+        "width": 688,
+        "height": 1224
+      },
+      {
+        "src": "assets/taptap/jigmeme/03-profile.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/3381980187f5b822d6bb5a884af9e847.jpg",
+        "sha256": "18b6ec4a346d3f1c60bdeda3e4434094494c513a6ec2b827517981c3c364ffc1",
+        "width": 688,
+        "height": 1224
+      },
+      {
+        "src": "assets/taptap/jigmeme/04-appearance.jpg",
+        "source": "https://img-tc.tapimg.com/market/images/9f513083be1356ef030a260084e1b8ea.jpg",
+        "sha256": "6c6cf95b54b4ba751cd1ad0799da4d5b603662a42ab27089938977aae0c6da22",
+        "width": 550,
+        "height": 1224
+      }
+    ]
   }
 ]

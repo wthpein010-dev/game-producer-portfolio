@@ -378,8 +378,8 @@ test('TapTap works follow the independent games and replace the retired stall pr
   assert.equal(blocks.indexOf(myLife), blocks.indexOf(tokenGame) + 1);
   assert.equal(blocks.indexOf(collection), blocks.indexOf(myLife) + 1);
   const cards = nodes(collection, n => n.tag === 'article');
-  assert.equal(cards.length, 12, 'Eleven public games and one Maker test project');
-  for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
+  assert.equal(cards.length, 13, 'Twelve public games and one Maker test project');
+  for (const title of ['拼拼不烧心','下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
     const card = one(collection, n => n.tag === 'article' && textOf(n).includes(title), title);
     assert.ok(nodes(card, n => n.tag === 'img' && n.attrs.alt && Number(n.attrs.width) > 0 && Number(n.attrs.height) > 0).length >= 1);
     assert.ok(nodes(card, n => n.tag === 'a' && /^https:\/\/www\.taptap\.cn\/app\/\d+/u.test(n.attrs.href || '')).length >= 1);
@@ -409,7 +409,7 @@ test('Nanjie is an illustrated personal work with a public video and a return li
 
 test('TapTap details retain real media, version context and verified public game links', async () => {
   const {taptapGames} = await import('../src/taptap-games.mjs');
-  const expected = ["984529","984008","984393","963733","969065","969688","969204","964337","964090","971511","974262",null];
+  const expected = ["1005408","984529","984008","984393","963733","969065","969688","969204","964337","964090","971511","974262",null];
   assert.equal(taptapGames.length, expected.length);
   for (const [index,game] of taptapGames.entries()) {
     assert.equal(game.tapUrl ? new URL(game.tapUrl).pathname : null, expected[index] ? '/app/'+expected[index] : null, game.title);

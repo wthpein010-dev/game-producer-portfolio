@@ -1,6 +1,42 @@
 // Current public descriptions and original TapTap display media; provenance retained separately.
 export const taptapGames = [
   {
+    "slug": "jigmeme",
+    "title": "拼拼不烧心",
+    "genre": "竖屏休闲 / 拼图益智",
+    "tags": ["点选交换", "整图消除与补片", "作品图鉴"],
+    "summary": "点选两片交换位置，也能拖动已拼合的小组。每拼好一幅画，碎片就退场并补入新片，玩家在 70 个关卡中逐步收集 40 幅作品。",
+    "gameplay": "根据画面接缝寻找相邻碎片，点选交换或拖动已拼合的小组。完整图片消除后，待补碎片分批进入棋盘。拼出本关全部作品即可结算，首次通关获得 20 金币，可用于补充提示和磁铁。主线和六个主题馆串起关卡，完成的作品可在图鉴中重看。",
+    "loop": [
+      "观察接缝，点选两片交换",
+      "拖动拼合小组，完成一幅画",
+      "接收补片，继续拼合本关作品",
+      "通关领取首通奖励，回图鉴欣赏作品"
+    ],
+    "design": [
+      {"title": "让小屏操作更轻松", "text": "用点选交换减少在竖屏上反复拖动小碎片的操作。相邻碎片拼成小组后，玩家可以整组移动，保留已经找到的接缝。"},
+      {"title": "让每次拼成都有明确反馈", "text": "整图完成就消除，按批次补进新的碎片。最后一批落稳后，棋盘再展开，给剩余拼图腾出操作空间。"},
+      {"title": "把通关结果变成收藏", "text": "把完整画作留在图鉴里，也可以从结算页逐幅回看。金币只在首次通关发放，提示和磁铁库存能带到下一关。"},
+      {"title": "让长期目标和外观选择各有位置", "text": "主线和六个主题馆承接关卡进度。个人资料、头像框、首页背景与钢琴曲目提供独立的外观和听感选择。"}
+    ],
+    "practice": "这次个人作品实践把碎片交换、整图消除和分批补片串成一套可反复游玩的关卡规则，再用首通奖励与图鉴连接局内和局外。迭代时通过原生 Maker 验证点选操作、最后一批补片、结算重开及旧档语言保留，并把新玩家默认简体中文和竖屏体验带到公开版。",
+    "tapUrl": "https://www.taptap.cn/app/1005408",
+    "tapLabel": "TapTap 试玩入口",
+    "updatedAt": "2026-11-18",
+    "shortStatus": "TapTap 制造 · 已上线",
+    "status": "TapTap 制造版 1.0.4 已上线，默认竖屏和简体中文。2026 年 10 月 31 日更新五张中文商店截图，2026 年 11 月 18 日复核公开入口。",
+    "captureNote": "以下五张为 TapTap 公开展示图，来自 1.0.4 的 Windows 原生 Maker 验证。个人资料展示的是游戏预设昵称与动物头像。",
+    "linkNote": "前往 TapTap 查看当前发行版本、商店实机视频与试玩入口。",
+    "shots": [
+      {"src": "assets/taptap/jigmeme/store-cover.jpg", "width": 1920, "height": 1080, "label": "TapTap 商店宣传图", "caption": "横版公开宣传图。", "alt": "拼拼不烧心商店宣传图，阳光下的书房、沙发与橘猫"},
+      {"src": "assets/taptap/jigmeme/02-puzzle.jpg", "width": 688, "height": 1224, "label": "拼图关卡与待补碎片", "caption": "棋盘顶部显示待补碎片，底部提供提示、磁铁与免费原图。", "alt": "竖屏拼图关卡中的碎片棋盘、待补碎片与提示工具"},
+      {"src": "assets/taptap/jigmeme/05-artwork.jpg", "width": 720, "height": 1200, "label": "通关后的完整作品", "caption": "玩家可以从结算中逐幅打开本关拼成的作品。", "alt": "结算中打开的灯塔作品，显示本关第 5 幅完整画作"},
+      {"src": "assets/taptap/jigmeme/01-home.jpg", "width": 688, "height": 1224, "label": "竖屏首页与主题入口", "caption": "首页提供继续拼图、主题馆和图鉴入口。", "alt": "拼拼不烧心简体中文首页，展示主线、主题馆和图鉴"},
+      {"src": "assets/taptap/jigmeme/03-profile.jpg", "width": 688, "height": 1224, "label": "玩家资料与头像框", "caption": "个人资料使用游戏内预设动物头像，头像框随通关进度逐步解锁。", "alt": "个人资料界面中的动物头像选择与头像框页签"},
+      {"src": "assets/taptap/jigmeme/04-appearance.jpg", "width": 550, "height": 1224, "label": "外观与音乐", "caption": "首页背景和曲目可以分别选择。", "alt": "外观与音乐界面中的暖阳书角和薄荷花房背景"}
+    ]
+  },
+  {
     "slug": "your-child",
     "genre": "家庭照护 / 角色调度 / 生活模拟",
     "tags": [
