@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 
 test('Hub snapshot retains every current project and only three featured AI tools',async()=>{
   const {hubProjects,featuredHubIds,renderHubTools}=await import('../src/hub-tools.mjs');
-  assert.equal(hubProjects.length,38);
-  assert.equal(new Set(hubProjects.map(p=>p.id)).size,38);
+  assert.equal(hubProjects.length,35);
+  assert.equal(new Set(hubProjects.map(p=>p.id)).size,35);
   assert.deepEqual(featuredHubIds,['gamespec-relay','planmap','codex-multi-thread-workbench']);
   const html=renderHubTools();
   assert.equal((html.match(/class="hub-tool-feature"/gu)||[]).length,3);

@@ -8,10 +8,10 @@ export const profile = {
 };
 export const jobs = [
   {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.05.18—至今', start:'2026-05-18', layout:'producer', teamSize:6,
-    projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'从零组队推进项目，独立使用 Codex 一周完成核心玩法与表现原型；负责玩法与系统、版本交付，推进微信和抖音上线及第二版测试。'}],
+    projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'担任游戏制作人，负责玩法与系统设计、任务拆分、跨岗位协作及版本验收，推进微信、抖音平台的研发交付。'}],
     scope:['整体方向','玩法与系统','团队与排期','数据迭代'],
-    lead:'从零组建峰值 6 人团队，独立使用 Codex 一周完成核心玩法与表现原型，随后统筹正式研发、双端上线与玩法迭代。负责玩法手感、每日挂件、活动系统及道具判定逻辑。',
-    note:'项目团队共 6 人：制作人本人、2 名策划、1 名美术、2 名程序。正式版美术表现和发行运营由相应岗位承担；个人 AI 原型与团队正式交付分开说明。'},
+    lead:'负责玩法与系统设计，组织研发协作、任务拆分、排期与版本验收，结合体验反馈持续推进产品迭代。',
+    note:'项目团队共 6 人；个人承担制作与统筹职责；程序、美术及发行运营由对应岗位执行。'},
   {slug:'hero-games', employer:'英雄游戏科技股份有限公司', role:'高级系统策划', period:'2025.07—2026.05.15', start:'2025-07', end:'2026-05-15', layout:'workbench',
     projects:[{slug:'crisis-dawn',title:'危机曙光',description:'承担 SOC 项目 PC 移植中的 UI/UE、HUD 与操作逻辑调整，创建和修订跨界面数值显示规范，并推进家园、公会调优与跨岗位问题处理。'}],
     scope:['SOC 项目 PC 端移植','UI/UE 重构','HUD 与操作逻辑','家园及公会调优','问题整理与跨岗位推进'],
@@ -39,16 +39,16 @@ export const skills = [
   {title:'交互与体验',text:'PC 端操作、UI/UE 与新手流程，沿着问题调整体验。',links:[['PC 端移植与重构','experience/hero-games/'],['新手留存分析','experience/beta/?section=scope']]},
   {title:'测试与质量',text:'职业测试管理经历，以及个人工具中的验收与一致性检查。',links:[['QA 与游戏策划','experience/iceshi/'],['需求验收实践','#case-gamespec']]},
   {title:'AI 协作与原型',text:'用于文档撰写与检验、表格与数值工具、项目管理，以及个人工具和小游戏开发；独立游戏中也探索 UI、角色、配音与音乐音效制作。',links:[['AI 辅助研发工作流','skills/ai-collaboration/'],['小团队完整策划','#indie-games'],['多线程工作台','#case-workbench'],['本地模拟玩法','#case-lighthouse']]},
-  {title:'结构表达与工具',text:'把想法、关卡和任务变成可编辑、可交接的结构。',links:[['思维导图快捷工作流',hubBase+'projects/planmap/index.html'],['关卡编辑工具',hubBase+'projects/paws-level-editor/index.html']]}
+  {title:'结构表达与工具',text:'把想法、关卡和任务变成可编辑、可交接的结构。',links:[['思维导图快捷工作流',hubBase+'projects/planmap/index.html'],['玩法与系统职责','projects/sheep-match/gameplay/']]}
 ];
 
 // Value statements describe why the work matters, not measured business results.
 export const companyWork = {
   jianyou:{items:[
-    {title:'从 AI 原型到双端上线',action:'独立使用 Codex，在一周内完成核心玩法及表现原型并持续维护；从零组队，推进微信、抖音于 9 月初上线。',value:'以可运行成果验证设计，再组织团队完成正式研发，连接快速验证和产品交付。',link:['设计与交付案例','projects/sheep-match/#sheep-product-case']},
-    {title:'组建团队并统筹交付',action:'峰值 6 人：制作人本人及 2 名策划、1 名美术、2 名程序；承担任务拆分、排期、跨岗位联调和组内验收。',value:'将玩法、系统与活动需求组织为团队可执行的工作，推进版本落地。',link:['团队与排期职责','projects/sheep-match/team/']},
-    {title:'重构失败压力与玩法节奏',action:'主导第二版由棋盘直接配对转为入槽配对，用槽位占用呈现玩家可预判的风险；负责手感、挂件、活动及道具逻辑。',value:'本人确认第二版测试后，次日留存与人均挑战次数明显提升；仅作定性成果，不补写具体比例。',link:['玩法改版与测试反馈','projects/sheep-match/#sheep-revision-case']},
-  ],note:'职责及阶段成果由本人确认；第二关难度飞升模式为既定方向，不归为本人决策。个人原型、团队研发与当前测试结果分别说明。'},
+    {title:'玩法与系统设计',action:'负责核心体验、系统需求与操作反馈，整理设计目标及验收要求。',value:'将设计判断转成团队可执行的工作。',link:['设计与交付职责','projects/sheep-match/#sheep-product-case']},
+    {title:'团队协作与交付',action:'承担任务拆分、排期、跨岗位联调和组内验收。',value:'协调策划、程序与美术推进版本落地。',link:['团队与排期职责','projects/sheep-match/team/']},
+    {title:'体验反馈与迭代',action:'结合体验测试梳理问题，确定调整优先级并跟进复验。',value:'让反馈进入后续设计与交付流程。',link:['体验迭代职责','projects/sheep-match/#sheep-revision-case']},
+  ],note:'职责依据本人已确认履历整理；个人制作与统筹职责和团队执行分开说明。'},
   'hero-games':{items:[
     {title:'PC 移植中的交互重构',action:'承担 SOC 项目 PC 端移植、UI/UE 重构及 HUD 与操作逻辑调整。',value:'将界面信息、操作提示与系统入口一起考虑，体现跨端体验设计能力，而非单纯调整画面尺寸。',link:['PC 交互职责摘要','projects/crisis-dawn/design-summary/']},
     {title:'将局部问题转为通用规范',action:'创建和修订系统数值显示规范，区分中英文单位、精确数字与紧凑物品格缩写，并列出 QA 检查点。',value:'把显示一致性、量级辨识与布局约束整理为可复用交付规则；以更新表记录支持个人产出，而非用团队截图代替作者依据。',link:['本人记录与规范摘要','projects/crisis-dawn/#hero-numbers']},

@@ -233,7 +233,7 @@ test('all career pages lead with work value and distinguish project evidence fro
     const section=one(p.document,n=>n.attrs.id==='work-value','Work-first resume section');
     assert.match(textOf(section),/工作.*价值/u);
     const items=nodes(section,n=>hasClass(n,'work-value-item'));assert.ok(items.length>=1&&items.length<=3);
-    for(const item of items){assert.match(textOf(item),/具体工作/u);assert.match(textOf(item),/工作价值/u);assert.ok(textOf(item).length>70);}
+    for(const item of items){assert.match(textOf(item),/具体工作/u);assert.match(textOf(item),/工作价值/u);assert.ok(textOf(item).length>40);}
     const main=one(p.document,n=>n.tag==='main','Main');
     assert.ok(main.children.indexOf(section)<main.children.findIndex(n=>typeof n!=='string'&&hasClass(n,'detail-grid')),'Work value precedes archival panels');
     assert.doesNotMatch(textOf(section),/提升\s*\d+%|增长\s*\d+%|独立完成全部|保证上线|全部由我/u);
@@ -325,43 +325,16 @@ test('every local href, src, and fragment resolves inside the public site', asyn
 });
 
 test('Sheep Match design references retain reviewed originals, readable alternatives, and clear role attribution', async () => {
-  const { projects, companies, notes } = await site();
-  const project = projects.find(value => value.path === 'projects/sheep-match/index.html');
-  const gallery = one(project.document, node => node.attrs.id === 'project-design', 'Project design references');
-  assert.match(textOf(gallery), /项目设计资料/u);
-  assert.match(textOf(gallery), /游戏制作人/u);
-  assert.match(textOf(gallery), /美术执行由团队相应岗位承担/u);
-  assert.match(textOf(gallery), /设计方案[^。]*不代表[^。]*上线/u);
-  const cards = nodes(gallery, node => node.tag === 'article' && hasClass(node, 'design-reference'));
-  const originals = [
-    ['sheep-match/board-no-pair-decision-detail.jpg', '04ed2112914458334241b057d836ca3a00489ff7be5ef99bdea1d6c6c28d39d5'],
-    ['lucky-items-flow.jpg', 'c245367bc7c256c7d0b192e9aaf830e37fededce54815556fd745885342a4db4'],
-  ];
-  assert.equal(cards.length, originals.length);
-  for (const [index, card] of cards.entries()) {
-    const [filename, sha] = originals[index];
-    const link = one(card, node => node.tag === 'a' && hasClass(node, 'design-original'), 'Full resolution reference');
-    const target = routeFor(link.attrs.href, project.path).path;
-    assert.equal(target, `assets/project-design/${filename}`);
-    assert.equal(createHash('sha256').update(await readFile(join(root, target))).digest('hex'), sha, 'Reviewed original is copied without replacement or generated edits');
-    const images = nodes(card, node => node.tag === 'img');
-    assert.equal(images.length, 2, 'Overview and scrollable large image use the same original');
-    for (const image of images) {
-      assert.equal(routeFor(originalSource(image), project.path).path, target);
-      assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0 && image.attrs.alt?.length > 12);
-    }
-    const reading = one(card, node => node.tag === 'details' && hasClass(node, 'design-inspect'), 'Native image disclosure');
-    one(reading, node => node.tag === 'summary', 'Keyboard accessible image disclosure');
-    const scroll = one(reading, node => hasClass(node, 'design-scroll'), 'Large image reading region');
-    assert.equal(scroll.attrs.tabindex, '0');
-    assert.equal(scroll.attrs.role, 'region');
-    assert.ok(scroll.attrs['aria-label']?.includes('大图'));
-    assert.ok(nodes(card, node => node.tag === 'li').length >= 2, 'Text explains the readable design decisions');
-  }
-  for (const other of [...companies, ...notes, ...projects.filter(value => value !== project)]) {
-    assert.equal(nodes(other.document, node => node.attrs.id === 'project-design').length, 0, 'Project references stay with their actual project');
-  }
-});
+      const {projects,companies}=await site();
+      const project=projects.find(p=>p.path==='projects/sheep-match/index.html');
+      assert.equal(nodes(project.document,n=>n.attrs.id==='project-design').length,0);
+      const section=one(project.document,n=>n.attrs.id==='sheep-evidence','Public responsibilities');
+      assert.equal(nodes(section,n=>n.tag==='article').length,3);
+      assert.equal(nodes(section,n=>n.tag==='img').length,0);
+      assert.doesNotMatch(project.html,/次日留存|人均挑战次数|哈希|交易市场|lucky-items-flow|board-no-pair|login-flow|collection-interface-flow/u);
+      const company=companies.find(c=>c.path==='experience/jianyou/index.html');
+      one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company responsibilities entry');
+    });
 
 test('public pages exclude contacts, private artifacts, local placeholders, and unsupported commercial claims', async () => {
   const { pages, companies, projects } = await site();
@@ -865,23 +838,16 @@ test('exorcism retrospective adds scoped planning evidence without claiming all 
 });
 
 test('Sheep supplied evidence separates design, release scope and personal ownership', async () => {
-  const {projects,companies}=await site();
-  const project=projects.find(p=>p.path==='projects/sheep-match/index.html');
-  const section=one(project.document,n=>n.attrs.id==='sheep-evidence','Sheep evidence cases');
-  assert.equal(nodes(section,n=>n.tag==='article').length,8);
-  for(const term of ['编辑器','运行时','主动抽奖','草稿','隐私','兑换','去重','测试服','全量','1.0.539','2026-09-24'])assert.ok(textOf(section).includes(term),term);
-  assert.match(textOf(section),/设计目标.*实测/u);
-  assert.match(textOf(section),/团队.*不.*个人独立/u);
-  assert.equal(nodes(section,n=>n.tag==='img').length,10);
-  assert.equal(nodes(section,n=>n.tag==='details').length,5);
-  assert.doesNotMatch(textOf(section),/E:\\|J:\/|Tower任务ID|全部已上线|留存提升\s*\d/u);
-  const company=companies.find(c=>c.path==='experience/jianyou/index.html');
-  one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company evidence entry');
-  for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='sheep-evidence').length,0);
-  const {sheepEvidenceAssets}=await import('../src/sheep-evidence.mjs');
-  for(const asset of sheepEvidenceAssets){const bytes=await readFile(join(root,'assets/project-design/sheep-match',asset.file));assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256);}
-  assert.match(textOf(one(project.document,n=>n.attrs.id==='project-design','Historical figures')),/早期方案.*主动抽奖/u);
-});
+      const {projects,companies}=await site();
+      const project=projects.find(p=>p.path==='projects/sheep-match/index.html');
+      assert.equal(nodes(project.document,n=>n.attrs.id==='project-design').length,0);
+      const section=one(project.document,n=>n.attrs.id==='sheep-evidence','Public responsibilities');
+      assert.equal(nodes(section,n=>n.tag==='article').length,3);
+      assert.equal(nodes(section,n=>n.tag==='img').length,0);
+      assert.doesNotMatch(project.html,/次日留存|人均挑战次数|哈希|交易市场|lucky-items-flow|board-no-pair|login-flow|collection-interface-flow/u);
+      const company=companies.find(c=>c.path==='experience/jianyou/index.html');
+      one(company.document,n=>n.tag==='a'&&n.attrs.href==='../../projects/sheep-match/#sheep-product-case','Company responsibilities entry');
+    });
 
 test('browser artifacts stay private and the publish tree has no PDF files', async () => {
   const ignore = await readFile(join(root, '.gitignore'), 'utf8');

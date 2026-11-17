@@ -5,6 +5,8 @@ import {pathToFileURL} from 'node:url';
 
 const base='https://wthpein010-dev.github.io/ai-application-hub/';
 const featured=['gamespec-relay','planmap','codex-multi-thread-workbench'];
+// Excluded from the resume's public catalog after publication-boundary review.
+const excludedIds=new Set(['vita-mahjong','paws-home-client','paws-level-editor']);
 const featuredImages={
   'gamespec-relay':'projects/gamespec-relay/og.png',
   planmap:'projects/planmap/video/poster.jpg',
@@ -23,7 +25,7 @@ const mediaContext=context();new Script(mediaSource).runInContext(mediaContext,{
 const media=mediaContext.HUB_PROJECT_MEDIA;
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const href=value=>{const url=new URL(typeof value==='object'?value.href:value,base);if(url.protocol!=='https:')throw Error('Non-public URL');return url.href;};
-const projects=JSON.parse(JSON.stringify(raw)).map(p=>({id:p.id,name:p.name,category:p.category,status:p.status,brief:p.brief,aiUse:p.aiUse,entry:href(p.entry),video:p.video?href(p.video):null,tags:p.tags||[],downloads:Object.entries(p.platforms||{}).filter(([key,value])=>key!=='web'&&value).map(([platform,value])=>({platform,url:href(value)}))}));
+const projects=JSON.parse(JSON.stringify(raw)).filter(p=>!excludedIds.has(p.id)).map(p=>({id:p.id,name:p.name,category:p.category,status:p.status,brief:p.brief,aiUse:p.aiUse,entry:href(p.entry),video:p.video?href(p.video):null,tags:p.tags||[],downloads:Object.entries(p.platforms||{}).filter(([key,value])=>key!=='web'&&value).map(([platform,value])=>({platform,url:href(value)}))}));
 if(projects.length<30||new Set(projects.map(p=>p.id)).size!==projects.length)throw Error('Unexpected catalog count or duplicates');
 await mkdir('assets/hub-tools',{recursive:true});
 const dependency=process.env.SHARP_MODULE||'sharp';

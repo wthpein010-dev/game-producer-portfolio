@@ -7,11 +7,11 @@ import {createSiteServer} from '../scripts/serve.mjs';
 test('Preview server supports real media ranges, suffixes, HEAD and invalid ranges',async()=>{
   const server=createSiteServer();server.listen(0,'127.0.0.1');await once(server,'listening');
   try{
-    const url=`http://127.0.0.1:${server.address().port}/assets/project-design/sheep-match/slot-playback-redacted.mp4`;
-    const bytes=await readFile(new URL('../assets/project-design/sheep-match/slot-playback-redacted.mp4',import.meta.url));
+    const url=`http://127.0.0.1:${server.address().port}/assets/project-design/sheep-match/slot-frame-75.jpg`;
+    const bytes=await readFile(new URL('../assets/project-design/sheep-match/slot-frame-75.jpg',import.meta.url));
     const first=await fetch(url,{headers:{Range:'bytes=0-31'}});assert.equal(first.status,206);
     assert.equal(first.headers.get('content-range'),`bytes 0-31/${bytes.length}`);
-    assert.equal(first.headers.get('content-type'),'video/mp4');
+    assert.equal(first.headers.get('content-type'),'image/jpeg');
     assert.deepEqual(Buffer.from(await first.arrayBuffer()),bytes.subarray(0,32));
     const suffix=await fetch(url,{headers:{Range:'bytes=-24'}});assert.equal(suffix.status,206);
     assert.deepEqual(Buffer.from(await suffix.arrayBuffer()),bytes.subarray(-24));

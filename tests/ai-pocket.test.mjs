@@ -15,7 +15,7 @@ test('Home introduces the product case without replacing the three featured Hub 
   assert.ok(home.indexOf('id="ai-pocket"')<home.indexOf('id="selected"'));
   assert.equal((home.match(/class="hub-tool-feature"/gu)||[]).length,3);
   assert.match(home,/<details class="hub-more" id="hub-more">/u);
-  assert.match(home,/查看其余 35 个应用与小游戏/u);
+  assert.match(home,/查看其余 32 个应用与小游戏/u);
 });
 
 test('The standalone case explains design, human ownership and verified delivery boundaries',async()=>{
