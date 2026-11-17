@@ -7,13 +7,38 @@ export const collaborationSteps = [
   ['复盘沉淀','将新增要求补回任务，记录完成项、阻塞、调整原因和验收口径，形成下一轮迭代依据。','版本记录与项目经验'],
 ];
 
+const happyFamilyShots = [
+  ['family-tree', '家庭成长', '家庭树展示多代成员及其状态'],
+  ['city-map', '城市与产业', '城市地图展示住宅和可经营的商铺'],
+  ['school-choice', '教育选择', '学龄阶段提供不同学校选项'],
+  ['restaurant-staff', '餐厅经营', '餐厅面板展示业主和厨师的岗位配置'],
+];
+
+function renderHappyFamilyShots(shots, base) {
+  const figures = shots.map(([file, title, alt]) => {
+    const href = `${base}assets/happy-family-research/${file}.webp`;
+    return `<figure class="collaboration-evidence" data-shot-format="portrait">
+      <a class="taptap-image-link" href="${href}" aria-label="放大查看${title}截图">
+        <img src="${href}" width="1440" height="2560" loading="lazy" decoding="async" alt="${alt}">
+      </a>
+      <figcaption>${title}</figcaption>
+    </figure>`;
+  }).join('');
+  return `<div class="taptap-shot-grid taptap-scroll-gallery" role="group" aria-label="原游戏试玩截图">${figures}</div>`;
+}
+
 export function renderCollaborationEntry() {
   return `<section class="collaboration-entry wrap section" id="ai-collaboration" aria-labelledby="collaboration-entry-title"><div class="section-head"><div><p class="eyebrow">CAPABILITY / 方法与协作</p><h2 id="collaboration-entry-title">AI 辅助研发与团队协作<span class="title-dot">.</span></h2></div></div><div class="collaboration-entry-grid"><div><p class="collaboration-thesis">我负责产品判断、任务组织与验收，<br>让 AI 产出进入团队的实际研发流程。</p><p>从需求收口、可运行原型到任务跟进与测试复盘，连接真人成员和专项 AI 助手。以《对对碰》的使用记录呈现方法，以跨组协作经历补充管理实践。</p><ul class="collaboration-tags"><li>需求与变更管理</li><li>人机分工</li><li>验证与复盘</li></ul><a class="text-link" href="skills/ai-collaboration/">查看协作方法与实际案例 ↗</a></div><figure><a href="skills/ai-collaboration/#delivery"><img src="assets/collaboration/task-conversation-redacted.png" width="1710" height="790" loading="lazy" alt="Multica 使用记录：从自然语言需求创建任务，并将追加要求更新到原任务"></a><figcaption>实际使用记录 · 人员标识已遮盖</figcaption></figure></div>
     <section class="collaboration-section" id="happy-family-research-overview" aria-labelledby="happy-family-research-overview-title">
-      <h3 id="happy-family-research-overview-title">《快乐方块屋》竞品研究</h3>
-      <p>我设定试玩范围与证据标准，用 Codex 辅助记录家庭成长、职业和经营的关键节点，把事件触发条件、玩家选择与数值变化整理成策划可核查的资料。</p>
-      <p>截至 2026 年 10 月 24 日，已归档 1,658 张试玩截图、531 个数值案例和 39 项系统记录。</p>
-      <a class="text-link" href="skills/ai-collaboration/#happy-family-research">查看试玩方法与数值案例 ↗</a>
+      <div class="collaboration-entry-grid">
+        <div>
+          <h3 id="happy-family-research-overview-title">《快乐方块屋》竞品研究</h3>
+          <p>这是一款家庭模拟经营游戏。我通过持续试玩，梳理子女教育、就业、产业经营和生活事件如何串起几代人的成长。</p>
+          <p class="record-source">原游戏试玩截图。<span class="gallery-scroll-help">左右滑动查看。</span></p>
+          <a class="text-link" href="skills/ai-collaboration/#happy-family-research">查看玩法拆解与试玩图集 ↗</a>
+        </div>
+        ${renderHappyFamilyShots(happyFamilyShots.slice(0, 2), '')}
+      </div>
     </section>
   </section>`;
 }
@@ -30,18 +55,10 @@ export function renderCollaborationBody(e) {
     <section class="collaboration-section" id="validation" aria-labelledby="validation-title"><p class="eyebrow">VALIDATION / 证据与判断</p><h2 id="validation-title">用模拟筛问题，用体验做判断</h2><div class="collaboration-columns"><div><h3>关卡模拟 + 人工试玩</h3><p>阶段月报记录每关进行 10,000 次 AI 模拟，用于筛查极端概率与潜在死局；再结合人工挑战次数、时长、连击、道具使用和主观感受，调整后重新验证。</p><p class="record-source">模拟通关率不等于玩家真实通关率，也不直接构成上线标准；本专题未重新运行或独立审计该批跑测。</p></div><div><h3>专项数据助手</h3><p>配置数数数据分析助手，使用已授权的网页查询、项目经验及相关技能，支持报表、看板和 AB 测试分析。分析问题与任务记录关联，不以“工具执行成功”替代结论审核。</p><p class="record-source">截图支持助手配置与运行实践，不证明特定分析带来了留存或收入增长。</p></div></div>${figure('analyst-role.jpg',1100,235,'数数数据分析助手的职责配置','本人提供的助手配置局部 · 不展示连接信息、运行成功率或账号设置。')}<h3>把调整原因沉淀为团队依据</h3><p>会议后整理决定、待办与待确认项；版本记录保留“改了什么、为什么改、按什么验收”。《对对碰》六版生命周期方案围绕提示、继续尝试、复活与失败时机收敛，是方法应用于具体体验问题的案例。</p><a class="text-link" href="../../projects/sheep-match/#sheep-evidence">查看《对对碰》设计与研发推进案例 ↗</a></section>
     <section class="collaboration-section" id="happy-family-research" aria-labelledby="happy-family-research-title">
       <h2 id="happy-family-research-title">《快乐方块屋》竞品研究</h2>
-      <p>我确定研究范围、试玩优先级与验收标准。Codex 协助在安卓模拟器上按正常流程试玩，按入口、条件、选择、结果和复核整理证据，并将界面观察、配置旁证和推算分别标注。</p>
-      <div class="collaboration-columns">
-        <div>
-          <h3>用单次案例核对收入变化</h3>
-          <p>一次家庭成员自然离世后，界面显示的家庭净收入由 691/s 升至 712/s。差额 21/s 与该成员此前的每秒净支出一致。当轮没有重新测量餐厅经营收入。</p>
-        </div>
-        <div>
-          <h3>把试玩证据整理为策划资料</h3>
-          <p>阶段交付包括 7 卷、66 页系统文档及配套数值工作簿和截图索引，覆盖家庭与教育、职业与经营、生活事件及内容解锁。</p>
-        </div>
-      </div>
-      <p class="record-source">试玩版本为安卓版 1.00。资料截至 2026 年 10 月 24 日，部分后期分支待验证。</p>
+      <p>玩家为家庭成员选择学校和职业，也能在城市购置产业、安排岗位。生活事件会突然引入新的选择，改变家庭成员的状态或收支。</p>
+      <p>我确定试玩路线，用 Codex 辅助把事件入口、选择和结果整理成玩法说明和截图索引，供策划查阅。</p>
+      <p class="record-source">画面来自安卓模拟器中的原游戏。<span class="gallery-scroll-help">左右滑动查看。</span>点击截图可放大。</p>
+      ${renderHappyFamilyShots(happyFamilyShots, '../../')}
       <a class="text-link" href="../../index.html#happy-family-research-overview">返回首页项目介绍 ↑</a>
     </section>
     <section class="collaboration-section" aria-labelledby="sources-title"><h2 id="sources-title">资料与说明</h2><p class="record-source">依据本人提供的三张 Multica 使用截图、《羊了个羊：对对碰》7–8 月度进展汇报及已确认的跨组协作职责整理。截图裁取相关区域并遮盖人员姓名、昵称与账号，非功能演示页面；不公开完整聊天、连接凭据或内部统计。效率提升幅度未验证，不补写节省工时、自动化比例或增长归因。</p><a class="text-link" href="../../index.html#ai-collaboration">返回首页能力介绍 ↑</a></section>
