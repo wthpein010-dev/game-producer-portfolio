@@ -20,10 +20,22 @@ try{
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),route+' overflow');
    const text=await page.locator('main').innerText();
    assert.doesNotMatch(text,/次日留存|人均挑战次数|交易市场|SPAR-|10,000/u);
-   assert.equal(await page.locator('video').count(),0);
+   assert.equal(await page.locator('video').count(),route==='projects/sheep-match/'?1:0);
    if(route==='projects/sheep-match/'){
-    assert.equal(await page.locator('#sheep-playtest img').count(),6);
-    await page.locator('#sheep-playtest').screenshot({path:`artifacts/sheep-privacy/gallery-${width}.png`});
+    assert.equal(await page.locator('#sheep-playtest img').count(),13);
+    assert.equal(await page.locator('#sheep-system-screens img').count(),7);
+    assert.doesNotMatch(text,/线上游戏画面/u);
+    const video=page.locator('#sheep-playback video');
+    await video.evaluate(async el=>{el.muted=true;await el.play();});
+    await page.waitForFunction(()=>document.querySelector('#sheep-playback video').currentTime>.5);
+    const media=await video.evaluate(el=>{el.pause();return {width:el.videoWidth,height:el.videoHeight,duration:el.duration};});
+    assert.equal(media.width,720);assert.equal(media.height,1350);assert.equal(media.duration,60);
+    for(const time of [1,30,58]){
+      await video.evaluate((el,time)=>new Promise(resolve=>{el.addEventListener('seeked',resolve,{once:true});el.currentTime=time;}),time);
+      assert.ok(Math.abs(await video.evaluate(el=>el.currentTime)-time)<.25);
+    }
+    await page.locator('.sheep-current-media').screenshot({path:`artifacts/sheep-privacy/media-${width}.png`});
+    await page.locator('#sheep-system-screens').screenshot({path:`artifacts/sheep-privacy/systems-${width}.png`});
     await page.locator('#sheep-playtest a').first().focus();await page.keyboard.press('Enter');
     assert.equal(await page.locator('dialog[open]').count(),1);await page.keyboard.press('Escape');
     assert.equal(await page.locator('dialog[open]').count(),0);
@@ -34,6 +46,6 @@ try{
  }
  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:1000}});
  const page=await context.newPage();await page.goto(base+'projects/sheep-match/');
- assert.equal(await page.locator('#sheep-playtest img').count(),6);await context.close();
- assert.deepEqual(errors,[]);await writeFile('artifacts/sheep-privacy/report.json',JSON.stringify({results,noScript:'passed',errors},null,2));console.log('18 route/viewport checks, six screenshots, keyboard lightbox and no-script reading passed.');
+ assert.equal(await page.locator('#sheep-playtest img').count(),13);assert.equal(await page.locator('video[controls]').count(),1);await context.close();
+ assert.deepEqual(errors,[]);await writeFile('artifacts/sheep-privacy/report.json',JSON.stringify({results,screenshots:13,systemScreenshots:7,video:'playback and seeking passed',noScript:'passed',errors},null,2));console.log('18 route/viewport checks, 13 screenshots, video playback/seek, keyboard lightbox and no-script reading passed.');
 }finally{await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
