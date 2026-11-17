@@ -1,0 +1,116 @@
+{
+  "version": "0.16.0",
+  "platform": "Windows",
+  "sourceType": "实际运行的开发版，隔离验证存档与合成输入",
+  "images": [
+    {
+      "id": "home",
+      "file": "home.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "渔江咖啡开场菜单，海窗外是晴朗的群岛",
+      "caption": "游戏开场菜单。开始航行前，也可以直接进船舱听海。",
+      "source": "01-buttons-v16-home.png",
+      "sourceSha256": "48462ca80d7e5fbdf639983050bce2be34adcd434238675524a1bf62a44d0a85",
+      "sha256": "209b630eb004df51dcd24b91c3a9065923bcbd9718a71657d0959cc988719c90"
+    },
+    {
+      "id": "deck",
+      "file": "deck.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "俯视角的咖啡渔船，甲板上已建成长桌、座位和咖啡吧台",
+      "caption": "已建成长桌、雨棚和座位的甲板。改造会改变船上的可见设施。",
+      "source": "50-full-ship-construction.png",
+      "sourceSha256": "9591e6596a836a76e40090912b0b2d56fd446d1d79b4802fd32b5b42d21811fc",
+      "sha256": "af954ba212317228dd504193287273de36152b4657d19400d1347b6521a1db94"
+    },
+    {
+      "id": "salvage",
+      "file": "salvage.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "甲板预判打捞面板，圆形范围指向一件漂浮物",
+      "caption": "预判打捞。先看漂浮物的位置和工具范围，再决定是否下网。",
+      "source": "05-predictive-salvage.png",
+      "sourceSha256": "4895498163c938ef48df26348cb91c826a54a7f1a8dece70f34202e667941262",
+      "sha256": "a65e183db839aa30011da403077ef4ca3ff040e7232e2ca1fec6bd4488125ba9"
+    },
+    {
+      "id": "tools",
+      "file": "tools.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "船只建设面板的打捞工具页，显示网兜各级升级条件",
+      "caption": "网兜升级页。面板列出等级、费用和打捞能力。",
+      "source": "55-full-tool-progression.png",
+      "sourceSha256": "0a44d8d7935d653c1c4dd80f19fb8d5613604670500ee545cf17fae386519269",
+      "sha256": "c7811fc8af6c2cf36085c094fc2d24af3c02562807febed1ce134680c5e5ce02"
+    },
+    {
+      "id": "pour",
+      "file": "pour.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "船舱第一人称冲泡桌面，奶壶正朝杯中倾倒",
+      "caption": "海风拿铁加奶中的一帧。画面保留杯口、液流和左上角配方进度。",
+      "source": "35-milk-pour.png",
+      "sourceSha256": "1896fdae57304b8a399658c66252d5d4f2b57ab1665558e7f6049881fe76a65b",
+      "sha256": "c870f52da4b7097217343f1ffbce456203e30cd9d4d8646890b009776db8321b"
+    },
+    {
+      "id": "visitor",
+      "file": "visitor.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "来客阿澄的对话面板叠在船舱背景上",
+      "caption": "来客阿澄的对话。人物需求和回访承接经营与故事。",
+      "source": "15-npc-dialogue.png",
+      "sourceSha256": "e06896649c13c35cfbc0b9a8160f1a080e6328ff43741c08f5a4e267557ff442",
+      "sha256": "e32801c6123ea2853369ce7c40b90fe608f867515ade2a72aa943fe8402c6f15"
+    },
+    {
+      "id": "letter",
+      "file": "letter.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "打捞上来的系统来信《多烤的一盘》，下方可收藏或放回海里",
+      "caption": "系统来信《多烤的一盘》。读完可以收藏、放回海里或先收好。",
+      "source": "03-first-letter.png",
+      "sourceSha256": "d480199414d5e7d2396862e933e9cf15b06789534419e996587eab6d34b15322",
+      "sha256": "e8817ef7e76c4391be8b367a404971084951f039b52ecf98de297c43c08e7ced"
+    },
+    {
+      "id": "sunset",
+      "file": "sunset.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "从船舱海窗看黄昏群岛，阳光照在咖啡桌和海面上",
+      "caption": "船舱黄昏。留在窗边时，海面和灯色随时间变化。",
+      "source": "21-cabin-sunset.png",
+      "sourceSha256": "755e43261b00a462f03ca883650cbd716593c6baf548729f40b9e8581cf2d8ba",
+      "sha256": "1fda172a47a9cf1da43418b20a5e604c81f16befb7320093182b63bac94f55d8"
+    },
+    {
+      "id": "rain",
+      "file": "rain.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "雨夜的船舱与深蓝色海景，木窗边和咖啡桌保留暖光",
+      "caption": "船舱雨夜。暗下来的海面与室内灯光保持同一构图。",
+      "source": "09-cabin-rain-night.png",
+      "sourceSha256": "aee8507ba7e1a94148dc1cab9affd0f57cc203ffa41c66d05b1e87792d62dde6",
+      "sha256": "8e60827c7a3f435053d048fe2799cd52fce5995589d2c402688f060314926933"
+    }
+  ],
+  "video": {
+    "file": "brewing.mp4",
+    "width": 960,
+    "height": 540,
+    "duration": 39.48,
+    "audio": false,
+    "source": "coffee-prop-only-v16.mp4",
+    "sourceSha256": "3f555b1f4e793e888ab1ccaad28d331aa34e287b731360ca1ddde0c0d86e5036",
+    "sha256": "73070e89f3cbc1de217fc517927b93aee12864c3697772b60774aade5c6ef40b"
+  }
+}

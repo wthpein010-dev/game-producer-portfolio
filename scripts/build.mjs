@@ -10,6 +10,7 @@ import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSumma
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
 import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage} from '../src/render.mjs';
+import {renderYujiangCoffeePage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -86,6 +87,9 @@ export async function build() {
   const zuoyaoSummary=path.join(siteRoot,'projects','zuoyaoji-x','design-summary');
   await mkdir(zuoyaoSummary,{recursive:true});
   await writeFile(path.join(zuoyaoSummary,'index.html'),renderZuoyaoSummary());
+  const coffeeDir=path.join(siteRoot,'projects','yujiang-coffee');
+  await mkdir(coffeeDir,{recursive:true});
+  await writeFile(path.join(coffeeDir,'index.html'),renderYujiangCoffeePage());
   await writeFile(path.join(siteRoot,'.nojekyll'),'');
   console.log(`Built home, ${jobs.length} company pages, ${jobs.reduce((n,j)=>n+j.projects.length,0)} career project pages, ${taptapGames.length} TapTap project pages and ${sheepNotes.length} public responsibility notes.`);
 }

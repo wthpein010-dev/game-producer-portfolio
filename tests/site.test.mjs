@@ -100,7 +100,8 @@ function site() {
     const pocket=await page('projects/ai-pocket/index.html');
     const ringHaven=await page('projects/ring-haven/index.html');
     const nanjie=await page('projects/nanjie-repair-shop/index.html');
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven, nanjie] };
+    const coffee=await page('projects/yujiang-coffee/index.html');
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven, nanjie, coffee] };
   })();
   return sitePromise;
 }
