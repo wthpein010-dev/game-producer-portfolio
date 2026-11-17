@@ -377,7 +377,7 @@ test('TapTap works follow the independent games and replace the retired stall pr
   assert.equal(blocks.indexOf(myLife), blocks.indexOf(tokenGame) + 1);
   assert.equal(blocks.indexOf(collection), blocks.indexOf(myLife) + 1);
   const cards = nodes(collection, n => n.tag === 'article');
-  assert.equal(cards.length, 11, 'Eleven distinct verified studio games');
+  assert.equal(cards.length, 12, 'Eleven public games and one Maker test project');
   for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
     const card = one(collection, n => n.tag === 'article' && textOf(n).includes(title), title);
     assert.ok(nodes(card, n => n.tag === 'img' && n.attrs.alt && Number(n.attrs.width) > 0 && Number(n.attrs.height) > 0).length >= 1);
@@ -406,16 +406,16 @@ test('Nanjie is an illustrated personal work with a public video and a return li
   assert.doesNotMatch(detail.html, /1009474|localDev|bef2eb86/u);
 });
 
-test('all eleven TapTap details retain real media, version context and their own public game link', async () => {
+test('TapTap details retain real media, version context and verified public game links', async () => {
   const {taptapGames} = await import('../src/taptap-games.mjs');
-  const expected = ["984529","984008","984393","963733","969065","969688","969204","964337","964090","971511","974262"];
+  const expected = ["984529","984008","984393","963733","969065","969688","969204","964337","964090","971511","974262",null];
   assert.equal(taptapGames.length, expected.length);
   for (const [index,game] of taptapGames.entries()) {
-    assert.equal(new URL(game.tapUrl).pathname, '/app/'+expected[index], game.title);
+    assert.equal(game.tapUrl ? new URL(game.tapUrl).pathname : null, expected[index] ? '/app/'+expected[index] : null, game.title);
     const html = await readFile(join(root,'projects','taptap-'+game.slug,'index.html'),'utf8');
     const doc = parseHtml(html);
     assert.equal(textOf(one(doc,n=>n.tag==='h1','Project title')).replace(/\s+\.$/u,'.'),game.title+'.');
-    assert.ok(nodes(doc,n=>n.tag==='a'&&n.attrs.href===game.tapUrl).length>=1);
+    if (game.tapUrl) assert.ok(nodes(doc,n=>n.tag==='a'&&n.attrs.href===game.tapUrl).length>=1);
     one(doc,n=>n.tag==='a'&&n.attrs.href===`../../index.html#work-${game.slug}`&&textOf(n).includes('返回个人作品 ↑'),'Exact return anchor');
     for(const id of ['gameplay-title','screenshots-title','design-title','practice-title','play-title']) one(doc,n=>n.attrs.id===id,id);
     assert.ok(game.shots.length>=2);
@@ -426,6 +426,31 @@ test('all eleven TapTap details retain real media, version context and their own
       assert.ok((await stat(join(root,shot.src))).size>1000);
     }
     assert.doesNotMatch(html, /(?:E:|C:)[\\/]|raw-sessions|resume-cards|app\/788134|localhost|待补充/u);
+  }
+});
+
+test('Throne War appears in personal works with reviewed captures and a playable recording', async () => {
+  const {home} = await site();
+  const selected = one(home.document,n=>n.attrs.id==='selected','Personal works');
+  const card = one(selected,n=>n.attrs.id==='work-throne-war','Throne War card');
+  one(card,n=>n.tag==='a'&&n.attrs.href==='projects/taptap-throne-war/'&&textOf(n).includes('玩法与设计详情'),'Project link');
+  assert.match(textOf(card), /顶上战争：屋顶之旅/u);
+  assert.match(textOf(card), /测试阶段/u);
+
+  const {taptapGames} = await import('../src/taptap-games.mjs');
+  const game = taptapGames.find(entry=>entry.slug==='throne-war');
+  const detail = parseHtml(await readFile(join(root,'projects/taptap-throne-war/index.html'),'utf8'));
+  const gallery = one(detail,n=>n.attrs.id==='screenshots','Game screenshots');
+  assert.equal(nodes(gallery,n=>n.tag==='img').length,8);
+  assert.match(textOf(detail),/宣传插画.*生成/u);
+  assert.match(textOf(detail),/Windows.*竖屏/u);
+  const video = one(detail,n=>n.tag==='video'&&Object.hasOwn(n.attrs,'controls'),'Battle playback');
+  const source = one(video,n=>n.tag==='source'&&n.attrs.type==='video/mp4','Video source');
+  assert.equal(source.attrs.src,'../../'+game.video.src);
+  assert.equal(video.attrs.poster,'../../'+game.video.poster);
+  assert.ok((await stat(join(root,game.video.src))).size>1000);
+  for (const surface of [card,detail]) {
+    assert.equal(nodes(surface,n=>n.tag==='a'&&/taptap\.cn\/app\//u.test(n.attrs.href||'')).length,0);
   }
 });
 

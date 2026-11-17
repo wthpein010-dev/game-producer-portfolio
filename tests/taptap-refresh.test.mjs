@@ -4,12 +4,13 @@ import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
 test('TapTap catalog matches eleven verified studio entries and current project names',async()=>{
- assert.equal(taptapGames.length,11);
+ const published = taptapGames.filter(game=>game.tapUrl);
+ assert.equal(published.length,11);
  for(const [id,title] of [['984529','你的孩子'],['984008','封神对决'],['984393','我的一生'],['974262','造景贴纸：贴了不烧心']]){
-  assert.equal(taptapGames.find(g=>new URL(g.tapUrl).pathname==='/app/'+id)?.title,title);
+  assert.equal(published.find(g=>new URL(g.tapUrl).pathname==='/app/'+id)?.title,title);
  }
- assert.equal(new Set(taptapGames.map(g=>g.tapUrl)).size,11);
- for(const game of taptapGames){
+ assert.equal(new Set(published.map(g=>g.tapUrl)).size,11);
+ for(const game of published){
   assert.equal(game.updatedAt,'2026-10-25');
   assert.equal(game.shots.length,3);
   assert.match(game.captureNote,/TapTap.*展示图/u);

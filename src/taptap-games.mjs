@@ -758,5 +758,126 @@ export const taptapGames = [
       }
     ],
     "updatedAt": "2026-10-25"
+  },
+  {
+    "slug": "throne-war",
+    "title": "顶上战争：屋顶之旅",
+    "genre": "轻策略 / 自走棋 / 卡牌构筑",
+    "tags": [
+      "采购与合成",
+      "屋顶布阵",
+      "战中施法"
+    ],
+    "summary": "在金币和格位有限的屋顶上买牌、合成、布阵，交锋时亲手选择法术落点。最多十回合，率先拿下六胜。",
+    "gameplay": "选择英雄后从空手牌开局。金币用于购买或刷新，行动点和格位约束部署。准备阶段摆放部队和陷阱、调整装备；开战后部队自动交锋，玩家选择何时、在哪里施法。",
+    "loop": [
+      "选英雄，在集市买牌",
+      "合成手牌，部署部队与陷阱",
+      "观战，择时施放法术",
+      "结算胜负，带着阵容进入下一轮"
+    ],
+    "design": [
+      {
+        "title": "让购买结果看得见",
+        "text": "选角后先进入商店，已买的牌即时进入下方手牌。选购时可以对照现有阵容和合成所需，准备时再决定具体站位。"
+      },
+      {
+        "title": "让格位参与构筑",
+        "text": "用屋顶上的罐头障碍标识锁定格。部署时预览陷阱作用范围，地刺作为地面效果，给路线布置留下空间。"
+      },
+      {
+        "title": "让自动战斗保留操作决策",
+        "text": "准备时法术置灰，开战默认展示法术牌。施放后保留卡牌，冷却进度直接显示在卡面上，玩家按战况等待下一次机会。"
+      },
+      {
+        "title": "把桌面操作转成竖屏点按",
+        "text": "战场保持在中央，手牌按阶段和类型切换。把悬停说明改成点按详情，装备集中到独立入口，结算在同一战场上反馈胜负与收益。"
+      }
+    ],
+    "practice": "我定义了开局采购、战前布阵、战中施法与回合结算的节奏，细化购买到账、可部署状态、卡面冷却与首次教学的反馈，并推进桌面原型向竖屏版本迭代。以买牌到账和上阵可用作为同一条验证链，用画面和战斗录制检查回合交接。",
+    "updatedAt": "2026-11-18",
+    "shots": [
+      {
+        "src": "assets/taptap/throne-war/cover.webp",
+        "width": 2048,
+        "height": 1152,
+        "label": "屋顶之旅 · 宣传插画",
+        "caption": "项目宣传图，使用 AI 生成插画。",
+        "alt": "夕阳屋顶上的提灯英雄与《顶上战争：屋顶之旅》标题"
+      },
+      {
+        "src": "assets/taptap/throne-war/select.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "四种英雄",
+        "caption": "在火系、守护、诅咒与雷匠之间选择，开局方向不同。",
+        "alt": "竖屏选角界面，显示火系英雄和四个职业入口"
+      },
+      {
+        "src": "assets/taptap/throne-war/shop-bought-hand.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "采购后立即可见",
+        "caption": "商店下方保留已购手牌，方便确认到账、判断还缺哪张牌。",
+        "alt": "屋顶集市下方的阵容牌栏已出现购买的烛亮卫士"
+      },
+      {
+        "src": "assets/taptap/throne-war/prepare.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "布阵与准备",
+        "caption": "战场保持在中间，底部手牌按类型切换。准备阶段法术置灰。",
+        "alt": "准备阶段的棋盘、可部署格与置灰的冰霜法术卡"
+      },
+      {
+        "src": "assets/taptap/throne-war/battle.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "卡面冷却",
+        "caption": "交锋时保留法术牌，在卡面显示剩余冷却，让出战场视野。",
+        "alt": "战场上的双方血条与显示 8 秒冷却的冰霜卡"
+      },
+      {
+        "src": "assets/taptap/throne-war/result.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "胜负与下一轮",
+        "caption": "先读胜负和金币奖励，再带着现有阵容回到商店。",
+        "alt": "回合胜利结算显示一胜与十枚金币，并提供前往集市按钮"
+      },
+      {
+        "src": "assets/taptap/throne-war/equipment.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "装备信息",
+        "caption": "单独查看装备效果、佩戴限制和卸下消耗。",
+        "alt": "王冠护符说明，列出生命、攻击与卸下所需行动点"
+      },
+      {
+        "src": "assets/taptap/throne-war/tutorial.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "图文教学",
+        "caption": "用分步图文说明施法落点、冷却与阶段限制。",
+        "alt": "教程第四步用火球插图说明战斗中如何施法"
+      },
+      {
+        "src": "assets/taptap/throne-war/collection.webp",
+        "width": 720,
+        "height": 1280,
+        "label": "屋顶藏品",
+        "caption": "用暗色与锁标呈现未解锁藏品，已收集的图标直接可辨。",
+        "alt": "屋顶藏品里显示已解锁的烛亮卫士和三个锁定物品"
+      }
+    ],
+    "galleryScroll": false,
+    "shortStatus": "Godot 桌面原型 · TapTap Maker 竖屏测试阶段",
+    "status": "已有桌面原型与 Maker 竖屏测试版。作品页展示本地运行素材，公开试玩入口待开放。",
+    "captureNote": "以下 8 张为 Windows 上运行的 TapTap Maker 竖屏测试版截图，保留完整画面。截图可用于比对不同阶段的交互，实体手机兼容性待验证。",
+    "linkNote": "约 20 秒，静音。展示法术卡冷却、单位自动交锋和回合失败结算。录制来自 Windows 上运行的 TapTap Maker 竖屏测试版。",
+    "video": {
+      "src": "assets/taptap/throne-war/battle-playback.mp4",
+      "poster": "assets/taptap/throne-war/battle.webp"
+    }
   }
 ];
