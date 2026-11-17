@@ -1,0 +1,56 @@
+{
+  "version": "0.11.8",
+  "platform": "Windows",
+  "source": "Godot 导出包隔离测试场景",
+  "images": [
+    {
+      "id": "workbench",
+      "width": 1280,
+      "height": 800,
+      "bytes": 187908,
+      "sha256": "f17d7eaa0ab1c90a61d506e83845c98b5bd53e0550f507956f94ed94424c7f18"
+    },
+    {
+      "id": "threads",
+      "width": 1024,
+      "height": 768,
+      "bytes": 185856,
+      "sha256": "a7625743c3560bc83aa3817d82658184387aae732aec5383be29fcbe58bd2742"
+    },
+    {
+      "id": "revision",
+      "width": 1280,
+      "height": 800,
+      "bytes": 112790,
+      "sha256": "399fdfd7b296dbfef8283aa7bfc9546a144e2d8210c98f14a6f4f77689f5f4dc"
+    },
+    {
+      "id": "commission",
+      "width": 1024,
+      "height": 768,
+      "bytes": 111620,
+      "sha256": "49168442c394407d68976e796befc3eb14ee38a5ab24d14b489ff9c3709126f9"
+    },
+    {
+      "id": "settlement",
+      "width": 1280,
+      "height": 800,
+      "bytes": 48566,
+      "sha256": "301520c303f1f2775ebedf893a96e3735d54abb862886a4040d9b5192ee3597e"
+    },
+    {
+      "id": "collection",
+      "width": 1280,
+      "height": 800,
+      "bytes": 155566,
+      "sha256": "d6b3261ad46ca192fee03f271b52203e4b6830ff373bc94a17cd8a9c8b2d6f66"
+    },
+    {
+      "id": "ending",
+      "width": 1280,
+      "height": 800,
+      "bytes": 91818,
+      "sha256": "9321b3f68abbe3a7c04e18e87a9239a1a1a59c42527c9c4f10a340faf544b5cf"
+    }
+  ]
+}

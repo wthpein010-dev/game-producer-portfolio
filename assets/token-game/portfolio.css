@@ -1,0 +1,44 @@
+.token-game-entry {
+  margin-block: 56px;
+  padding-block: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.token-game-entry h3 {
+  font-size: 26px;
+  line-height: 1.35;
+}
+
+.token-game-entry-grid,
+.token-game-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.token-game-entry-grid { align-items: center; }
+.token-game-thesis { font-size: 23px; font-weight: 700; line-height: 1.5; }
+.token-game-figure { min-width: 0; margin: 0; }
+.token-game-figure > a { display: block; }
+.token-game-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.token-game-figure figcaption,
+.token-game-source { color: var(--muted); font-size: 14px; }
+.token-game-figure figcaption { margin-top: 9px; }
+.token-game-page > .token-game-figure { max-width: 1000px; }
+.token-game-pair article { display: flex; flex-direction: column; }
+.token-game-pair article > .token-game-figure { margin-top: auto; }
+.token-game-section { margin-block: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+.token-game-section > p { max-width: 48em; }
+
+@media (max-width: 760px) {
+  .token-game-entry-grid,
+  .token-game-pair { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .token-game-thesis { font-size: 21px; }
+}

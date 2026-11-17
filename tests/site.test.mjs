@@ -369,8 +369,10 @@ test('TapTap works follow the independent games and replace the retired stall pr
   const collection = one(selected, n => n.attrs.id === 'taptap-games', 'TapTap games');
   const blocks = selected.children.filter(n => typeof n !== 'string');
   const ringHaven = one(selected, n => n.attrs.id === 'ring-haven', 'Ring Haven personal prototype');
+  const tokenGame = one(selected, n => n.attrs.id === 'token-game', 'Token game personal prototype');
   assert.equal(blocks.indexOf(ringHaven), blocks.findIndex(n => n.attrs.id === 'indie-games') + 1);
-  assert.equal(blocks.indexOf(collection), blocks.indexOf(ringHaven) + 1);
+  assert.equal(blocks.indexOf(tokenGame), blocks.indexOf(ringHaven) + 1);
+  assert.equal(blocks.indexOf(collection), blocks.indexOf(tokenGame) + 1);
   const cards = nodes(collection, n => n.tag === 'article');
   assert.equal(cards.length, 11, 'Eleven distinct verified studio games');
   for (const title of ['下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
