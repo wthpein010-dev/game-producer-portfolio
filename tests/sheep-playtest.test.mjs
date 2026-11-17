@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {sheepPlaytestAssets,sheepPlaytestMedia,renderSheepPlaytest} from '../src/sheep-playtest.mjs';
 test('Confirmed live-game screenshots and recording retain inspected source bytes',async()=>{
-  assert.equal(sheepPlaytestAssets.length,13);
+  assert.equal(sheepPlaytestAssets.length,12);
   for(const a of sheepPlaytestAssets){
     assert.equal(a.sourceType,'live-game-screenshot');
     assert.equal(a.releaseConfirmedAt,'2026-11-18');
@@ -17,6 +17,11 @@ test('Confirmed live-game screenshots and recording retain inspected source byte
   assert.match(html,/<video[^>]*controls[^>]*playsinline/u);
   assert.match(html,/slot-playback-redacted\.mp4/u);
   assert.doesNotMatch(html,/<video[^>]*autoplay/u);
+  assert.doesNotMatch(html,/live-daily-rules|玩法说明|当前账号暂无挂件|当前库存为空|inventory-empty/u);
+  for(const a of sheepPlaytestAssets.filter(a=>a.group==='systems')){
+    assert.equal(a.captureSet,'live-account-refresh-20261118');
+    assert.equal(a.cursorOutsideContent,true);
+  }
   assert.ok(sheepPlaytestAssets.filter(a=>a.group==='systems').length>=6);
   for(const a of sheepPlaytestMedia){
     assert.equal(a.sourceType,'live-game-recording');
