@@ -2,6 +2,7 @@
 // These are project references, not individual artwork or a release report.
 import {renderSheepEvidence} from './sheep-evidence.mjs';
 import {renderSheepFlowGallery} from './sheep-visuals.mjs';
+import {renderSheepLevelEvaluation} from './sheep-playtest.mjs';
 export const sheepDesigns = [
   {
     id: 'level-gameplay', number: '01', label: 'GAMEPLAY / LOGIC',
@@ -22,7 +23,7 @@ export const sheepDesigns = [
 ];
 
 export function renderSheepDesign(e) {
-  return `${renderSheepFlowGallery(e)}${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
+  return `${renderSheepLevelEvaluation(e)}${renderSheepFlowGallery(e)}${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
     <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>关卡规则、逻辑判定与早期界面流程。</p></div>
     <p class="design-role">我的角色是游戏制作人，工作范围包括整体方向、玩法与系统、团队与排期、数据迭代。下列资料用于展开项目设计讨论；美术执行由团队相应岗位承担。</p>
     <div class="design-references">${sheepDesigns.map(item => {

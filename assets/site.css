@@ -1507,6 +1507,39 @@ button:disabled { cursor: default; }
 @media print { .collaboration-nav { display: none; } .collaboration-section { break-inside: auto; } }
 
 .hub-tool-collection { padding-top: 56px; scroll-margin-top: 100px; }
+.sheep-playtest, .sheep-level-evaluation { padding: 36px 0; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.sheep-playtest .section-head, .sheep-level-evaluation .section-head { margin-bottom: 20px; }
+.sheep-current-media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; margin: 24px 0; }
+.sheep-playtest-image { margin: 0; min-width: 0; }
+.sheep-current-media .sheep-playtest-image > a { display: block; max-width: 280px; margin: 0 auto; }
+.sheep-playtest-image img { display: block; width: 100%; height: auto; }
+.sheep-playtest-image figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.sheep-playtest-image figcaption strong { display: block; color: var(--ink); font-size: 17px; }
+.sheep-playtest-image figcaption p { margin: 8px 0; }
+.sheep-video-block { min-width: 0; }
+.sheep-playtest video { display: block; max-width: 100%; height: auto; background: var(--ink); }
+.sheep-video-block video { width: 315px; margin-inline: auto; }
+.sheep-video-block h3 { font-size: 18px; margin: 14px 0 8px; }
+.sheep-video-block p { font-size: 14px; color: var(--muted); }
+.sheep-media-more, .sheep-history { border-block: 1px solid var(--line); margin: 22px 0; padding: 0; }
+.sheep-media-more > summary, .sheep-history > summary { padding: 18px 0; cursor: pointer; font-weight: 700; }
+.sheep-frame-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 24px 0; }
+.sheep-frame-grid .sheep-playtest-image > a { display: block; max-width: 240px; margin: 0 auto; }
+.sheep-legacy-row { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1fr); gap: 36px; align-items: start; padding: 20px 0; }
+.sheep-legacy-row video { width: 280px; margin-inline: auto; }
+.sheep-legacy-row h3 { font-size: 22px; margin-top: 0; }
+.sheep-review-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin: 28px 0; }
+.sheep-review-fields > div { min-width: 0; border-top: 2px solid var(--line); padding-top: 18px; }
+.sheep-review-fields h3 { font-size: 19px; margin: 0; }
+.sheep-level-evaluation > .sheep-playtest-image { margin-top: 32px; }
+.sheep-level-evaluation > .sheep-playtest-image > a { display: block; max-width: 100%; }
+.sheep-playtest summary:focus-visible, .sheep-history > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 700px) {
+  .sheep-current-media, .sheep-review-fields, .sheep-legacy-row { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .sheep-frame-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .sheep-playtest, .sheep-level-evaluation { padding-block: 24px; }
+  .sheep-playtest h2, .sheep-level-evaluation h2 { font-size: 26px; }
+}
 .hub-tool-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .hub-tool-heading h3 { font-size: 32px; line-height: 1.35; margin: 8px 0 16px; }
 .hub-tool-heading p { margin-bottom: 0; }

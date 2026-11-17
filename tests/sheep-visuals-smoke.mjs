@@ -38,6 +38,7 @@ try{
     const levelImage=level.locator('figure img');await levelImage.evaluate(async el=>{el.loading='eager';await el.decode();if(!el.naturalWidth)throw Error('Level logic image is blank');});
     await level.screenshot({path:`artifacts/sheep-visuals/level-gameplay-${width}.png`});
     assert.equal(await page.locator('#sheep-visuals figure').count(),3);
+    await page.locator('#sheep-history > summary').click();
     assert.equal(await page.locator('#sheep-flow-gallery article').count(),2);
     for(const image of await page.locator('#sheep-visuals img,#sheep-flow-gallery img').all()){
       await image.evaluate(async el=>{el.loading='eager';await el.decode();if(!el.naturalWidth)throw Error('Image is blank');});
