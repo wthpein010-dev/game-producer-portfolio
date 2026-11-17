@@ -18,9 +18,9 @@ colors:
   on-primary-muted: "#d9e9ee"
 typography:
   display:
-    fontFamily: "Producer Display, Microsoft YaHei, sans-serif"
+    fontFamily: "Microsoft YaHei, PingFang SC, Noto Sans CJK SC, system-ui, sans-serif"
   body:
-    fontFamily: "IBM Plex Sans, PingFang SC, Microsoft YaHei, system-ui, sans-serif"
+    fontFamily: "Microsoft YaHei, PingFang SC, Noto Sans CJK SC, system-ui, sans-serif"
     fontSize: "16px"
     lineHeight: "1.75"
   utility:
@@ -50,7 +50,7 @@ components:
 
 审美来自游戏制作过程中的项目档案与阶段标记。最有辨识度的元素是把真实的七段任职经历做成可点击的章节索引，并用同一条时间轴继续展开公司、项目与职责。它表示阅读顺序，不表示游戏等级、工作进度或能力评分。
 
-大标题使用窄斜的中文展示字，带出游戏行业的速度感；信息区保持安静。配色采用冷蓝纸面、深墨绿文字与橙色当前节点。不使用任意技能百分比、无关装饰性图表、未经授权和审核的公司素材或人物头像猜测。
+主标题用直立无衬线字和字号拉开阅读层级。配色采用冷蓝纸面、深墨绿文字与橙色当前节点。不使用任意技能百分比、无关装饰性图表、未经授权和审核的公司素材或人物头像猜测。
 
 此任务为用户明确要求的全站视觉更新。已确认履历与项目文案保留于 `src/content.mjs`；个人实践内容保留于 `src/ai.html`。这些文件是内容事实来源。现有路由、原生 details、职责 query、返回位置恢复、AI 标签与过滤行为由 `assets/app.js` 和项目验收测试维持。
 
@@ -64,11 +64,9 @@ components:
 
 ## Typography
 
-2026-11-18 按用户反馈优化主页文字：主页以 `--font-home` 为字体来源，优先微软雅黑、苹方与 Noto Sans CJK SC，统一中英文直立无衬线显示。姓名与职业标题采用 40–80px、栏目标题 28–36px 的响应式层级，字重700；小标题使用12px、常规字距，避免斜体展示字与等宽字体的中文回退混用。该规则仅作用于主页，原有内容、颜色及详情页字体保持。
+首页、作品、任职经历和职责摘要共用 `--font-sans`。依序选用微软雅黑、苹方或 Noto Sans CJK SC 的直立字形，避免旧得意黑子集缺字时，同一标题混用斜体和直立字形。主标题和首页栏目采用 700 字重，按页面及屏幕宽度调整字号。栏目小标签使用直立字体和适度字距，日期保留等宽数字特性。
 
-Producer Display 是本站对开源得意黑的网页子集使用名；仅用于姓名、职业标题和页面主标题。得意黑不用于长正文、导航标签或小字号。IBM Plex Sans 用于拉丁文字、数字与日期；中文正文由平台中文无衬线字体承接。日期使用等宽数字特性。
-
-正文为 16px / 1.75，长摘要行宽约 40em。中文允许换行，不通过截断或悬浮才能获得完整内容。字体自托管并保留许可；标题分行由结构控制，避免字体加载改变主要按钮位置。
+正文为 16px / 1.75，长摘要行宽约 40em。中文允许换行，不通过截断或悬浮才能获得完整内容。IBM Plex Sans 用于数字和索引等辅助元素，自托管文件保留许可。
 
 ## Layout
 
