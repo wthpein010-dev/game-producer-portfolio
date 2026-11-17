@@ -97,7 +97,8 @@ function site() {
       throw error;
     })))).filter(Boolean);
     const collaboration=await page('skills/ai-collaboration/index.html');
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration] };
+    const pocket=await page('projects/ai-pocket/index.html');
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket] };
   })();
   return sitePromise;
 }
