@@ -82,3 +82,29 @@ test('My Life shows documented Windows gameplay separately from TapTap images',a
   assert.ok(html.includes(`href="../../${shot.src}"`),shot.src);
  }
 });
+
+test('Your Child adds its Windows development evidence to the existing personal work',async()=>{
+ const game=taptapGames.find(entry=>entry.slug==='your-child');
+ const home=await readFile(new URL('../index.html',import.meta.url),'utf8');
+ const page=await readFile(new URL('../projects/taptap-your-child/index.html',import.meta.url),'utf8');
+ assert.equal((home.match(/id="work-your-child"/gu)||[]).length,1);
+ const card=home.match(/<article[^>]+id="work-your-child"[\s\S]*?<\/article>/u)?.[0]||'';
+ assert.match(card,/照护任务链/gu);
+ assert.match(card,/projects\/taptap-your-child\//u);
+ const section=page.match(/<section[^>]+id="windows-preview"[\s\S]*?<\/section>/u)?.[0]||'';
+ assert.match(section,/Windows 3D 开发实录/u);
+ assert.match(section,/0\.34\.4/u);
+ assert.match(page,/TapTap 2D 试玩/u);
+ assert.equal(game.shots.length,3);
+ assert.equal(game.windowsPreview.shots.length,5);
+ for(const shot of game.windowsPreview.shots){
+  const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
+  assert.equal(bytes.subarray(1,4).toString(),'PNG');
+  assert.equal(bytes.readUInt32BE(16),shot.width);
+  assert.equal(bytes.readUInt32BE(20),shot.height);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);
+  assert.ok(section.includes(`src="../../${shot.src}"`));
+  assert.ok(section.includes(`href="../../${shot.src}"`));
+  assert.doesNotMatch(card,new RegExp(shot.src,'u'));
+ }
+});
