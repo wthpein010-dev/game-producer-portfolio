@@ -29,7 +29,7 @@ try{
     assert.equal(await page.locator('#ai-supporting').getAttribute('open'),null);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
     await page.locator('#ai-pocket').screenshot({path:`${output}/home-${width}.png`});
-    await page.locator('#ai-pocket').getByRole('link',{name:'查看产品设计与真实成果'}).click();
+    await page.locator('#ai-pocket').getByRole('link',{name:'查看 AI 工具应用与真实成果'}).click();
     await page.waitForURL('**/projects/ai-pocket/');
     assert.equal(await page.locator('h1').innerText(),'AI 随身舱.');
     assert.equal(await page.locator('main .ai-pocket-figure').count(),6);
@@ -55,7 +55,8 @@ try{
     const limits=page.locator('.ai-pocket-limits');
     await limits.locator('summary').focus();await page.keyboard.press('Enter');
     assert.notEqual(await limits.getAttribute('open'),null);
-    assert.ok((await limits.innerText()).includes('实体 U 盘'));
+    assert.ok((await limits.innerText()).includes('另一台 Windows'));
+    assert.doesNotMatch(await page.locator('main').innerText(),/U\s*盘|USB\s*交付/iu);
     await page.locator('main a[href="../../index.html#ai-pocket"]').last().click();
     await page.waitForURL('**/index.html#ai-pocket');
     results.push({width,passed:true,images:6});await context.close();

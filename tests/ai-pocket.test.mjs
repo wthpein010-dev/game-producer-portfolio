@@ -22,7 +22,8 @@ test('The standalone case explains design, human ownership and verified delivery
   const {renderAiPocketPage}=await import('../src/render.mjs');
   assert.equal(typeof renderAiPocketPage,'function');
   const html=renderAiPocketPage();
-  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV','Wan2.1','24 页','Codex','0.36.0-usb.1','4090D','不上传账号','自有账号或 API','另一台 Windows','实体 U 盘','Mac'])assert.ok(html.includes(term),term);
+  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV','Wan2.1','24 页','Codex','0.36.0-usb.1','4090D','不上传账号','自有账号或 API','另一台 Windows','Mac','选择工具','提示词','产物检查'])assert.ok(html.includes(term),term);
+  assert.doesNotMatch(html,/U\s*盘|USB\s*交付|便携交付/iu);
   assert.match(html,/href="\.\.\/\.\.\/index.html#ai-pocket"/u);
   for(const id of ['problem','office','scenarios','video','ownership','delivery'])assert.ok(html.includes(`id="${id}"`),id);
   assert.doesNotMatch(html,/自研大模型|商业化成功|全设备即插即用|效率提升\s*\d|service_role|localhost|file:\/\/|[A-F]:[\\/]/u);

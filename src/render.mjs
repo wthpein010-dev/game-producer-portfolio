@@ -39,7 +39,7 @@ export function renderCollaborationPage() {
   return shell({title:'AI 辅助研发与团队协作',description:'需求收口、任务组织、原型交付与验证复盘：吴天昊的人机协同研发方法。',body:renderCollaborationBody(e),base:'../../',page:'document'});
 }
 export function renderAiPocketPage() {
-  return shell({title:'AI 随身舱 · 产品设计与交付',description:'面向小白用户的任务分类、本地办公与视频流程、教程及交付验证：AI 随身舱产品实践。',body:renderAiPocketBody(e),base:'../../',page:'document'});
+  return shell({title:'AI 随身舱 · AI 工具应用实践',description:'从场景拆解到工具选择、提示词组织与产物检查：办公、图片、写作和视频场景中的 AI 工具运用方法。',body:renderAiPocketBody(e),base:'../../',page:'document'});
 }
 function chapterRail() {
   return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>CAREER INDEX / 职业章节</span><ol>${jobs.map((job,index)=>`<li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span aria-hidden="true">↘</span></a></li>`).join('')}</ol></nav>`;
