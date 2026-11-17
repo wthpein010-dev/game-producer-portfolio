@@ -198,7 +198,7 @@
   document.addEventListener('click',event => {
     const link = event.target.closest('figure a');
     const img = link?.querySelector('img');
-    if (!img || !link.getAttribute('href')?.match(/\.(png|jpe?g|webp)$/i) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (!img || !link.getAttribute('href')?.match(/\.(png|jpe?g|webp)(?:[?#].*)?$/i) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     if (typeof dialog.showModal !== 'function') return;
     event.preventDefault();
     image.src=link.href;image.alt=img.alt;
