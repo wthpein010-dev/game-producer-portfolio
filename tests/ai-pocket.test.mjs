@@ -22,7 +22,8 @@ test('The standalone case explains design, human ownership and verified delivery
   const {renderAiPocketPage}=await import('../src/render.mjs');
   assert.equal(typeof renderAiPocketPage,'function');
   const html=renderAiPocketPage();
-  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV','Wan2.1','24 页','Codex','0.36.0-usb.1','4090D','不上传账号','自有账号或 API','另一台 Windows','Mac','选择工具','提示词','产物检查'])assert.ok(html.includes(term),term);
+  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV','Wan2.1','24 页','Codex','4090D','不上传账号','自有账号或 API','另一台 Windows','Mac','选择工具','提示词','产物检查'])assert.ok(html.includes(term),term);
+  assert.doesNotMatch(html,/0\.36\.0-usb\.1|六类任务直接进入，免登录/u);
   assert.doesNotMatch(html,/U\s*盘|USB\s*交付|便携交付/iu);
   assert.match(html,/href="\.\.\/\.\.\/index.html#ai-pocket"/u);
   for(const id of ['problem','office','scenarios','video','ownership','delivery'])assert.ok(html.includes(`id="${id}"`),id);
@@ -38,7 +39,7 @@ test('Six distinct reviewed images preserve real dimensions, original access and
   const html=renderAiPocketBody(value=>String(value));
   for(const image of aiPocketMedia){
     assert.ok(image.alt.length>12);
-    assert.ok(image.caption.length>10);
+    if(image.key!=='home')assert.ok(image.caption.length>10);
     assert.match(html,new RegExp(`href="\\.\\./\\.\\./assets/ai-pocket/${image.file}"`));
     assert.ok(html.includes(`width="${image.width}" height="${image.height}"`));
   }
@@ -83,7 +84,7 @@ test('Public media matches its reviewed manifest, original dimensions and metada
       offset=data+size+(size%2);
     }
     assert.deepEqual(dimensions,[image.width,image.height],image.id);
-    assert.equal(image.version,'0.36.0-usb.1');assert.ok(image.sourceType&&image.caption);
+    assert.equal(image.version,undefined);assert.ok(image.sourceType&&image.caption);
   }
   assert.doesNotMatch(JSON.stringify(manifest),/[A-F]:[\\/]|Users[\\/]|localhost|service_role/u);
 });

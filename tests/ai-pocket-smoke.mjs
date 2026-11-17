@@ -24,6 +24,18 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-pocket',{waitUntil:'networkidle'})).status(),200);
     await page.evaluate(()=>document.fonts.ready);
     assert.equal(await page.locator('#ai-pocket').count(),1);
+    assert.doesNotMatch(await page.locator('#ai-pocket').innerText(),/0\.36\.0-usb\.1|六类任务直接进入，免登录/u);
+    assert.equal(await page.locator('#ai-pocket figcaption').count(),0);
+    if(width>940){
+      const alignment=await page.locator('#ai-pocket').evaluate(section=>{
+        const copy=section.querySelector('.ai-pocket-entry-grid > div').getBoundingClientRect();
+        const image=section.querySelector('figure').getBoundingClientRect();
+        const tags=[...section.querySelectorAll('.collaboration-tags > li')].map(el=>el.getBoundingClientRect().top);
+        return {columns:Math.abs(copy.top-image.top),tags:Math.max(...tags)-Math.min(...tags)};
+      });
+      assert.ok(alignment.columns<1,'Home text and image must share a top edge');
+      assert.ok(alignment.tags<1,'Inline labels must share a baseline');
+    }
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#hub-more').getAttribute('open'),null);
     assert.equal(await page.locator('#ai-supporting').getAttribute('open'),null);
@@ -33,6 +45,7 @@ try{
     await page.waitForURL('**/projects/ai-pocket/');
     assert.equal(await page.locator('h1').innerText(),'AI 随身舱.');
     assert.equal(await page.locator('main .ai-pocket-figure').count(),6);
+    assert.doesNotMatch(await page.locator('main').innerText(),/0\.36\.0-usb\.1|六类任务直接进入，免登录/u);
     for(const element of await page.locator('main .ai-pocket-figure img').all()){
       const geometry=await element.evaluate(async image=>{
         image.loading='eager';await image.decode();
