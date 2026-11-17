@@ -4,12 +4,12 @@ import {renderSheepEvidence} from './sheep-evidence.mjs';
 import {renderSheepFlowGallery} from './sheep-visuals.mjs';
 export const sheepDesigns = [
   {
-    id: 'save-recovery', number: '01', label: 'STATE / RECOVERY',
-    title: '第二关存档恢复', file: 'save-recovery.png', width: 3936, height: 2936,
-    preview: 'flow', caption: '项目设计资料 · 状态与异常分支',
-    alt: '第二关存档恢复流程图：主页检测有效存档，恢复成功进入原对局，恢复或放弃失败时保留存档与弹窗供重试',
-    lead: '一条恢复路径，需要同时处理成功、放弃和失败。',
-    points: ['主页先检测有效存档，再决定是否展示继续对局弹窗。', '恢复读取最近一次成功保存的进度；失败时保留存档，允许重试。', '放弃需要服务端确认成功后，才作废旧存档。'],
+    id: 'level-gameplay', number: '01', label: 'GAMEPLAY / LOGIC',
+    title: '关卡玩法与胜负判定', file: 'sheep-match/board-no-pair-decision-detail.jpg', width: 805, height: 505,
+    preview: 'flow', caption: '关卡玩法文档 · 历史判定流程局部',
+    alt: '关卡玩法历史逻辑流程：进入第二关后检查可配对砖块、是否全部配对完成，以及临时槽位和道具的补救分支',
+    lead: '把教学、核心挑战、配对规则与胜负结算组织为可执行的关卡流程。',
+    points: ['第一关承担教学，完成后直接进入第二关难度飞升，第二关承担核心挑战。', '开局生成全部砖块，相同类型的可操作砖块两两配对；坐标、层级和遮挡关系共同决定操作范围。', '无可配对时分别定义临时槽位、道具补救、复活和放弃的处理路径；配对完成后进入通关结算。图中为文档历史版本，与第二版入槽玩法分开阅读。'],
   },
   {
     id: 'lucky-items', number: '02', label: 'PLAYER / FLOW',
@@ -23,7 +23,7 @@ export const sheepDesigns = [
 
 export function renderSheepDesign(e) {
   return `${renderSheepFlowGallery(e)}${renderSheepEvidence(e)}<section class="project-design" id="project-design" aria-labelledby="project-design-title">
-    <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>存档恢复与早期界面流程。</p></div>
+    <div class="section-head"><div><p class="eyebrow">PROJECT DESIGN / 项目设计资料</p><h2 id="project-design-title">项目设计资料<span class="title-dot">.</span></h2></div><p>关卡规则、逻辑判定与早期界面流程。</p></div>
     <p class="design-role">我的角色是游戏制作人，工作范围包括整体方向、玩法与系统、团队与排期、数据迭代。下列资料用于展开项目设计讨论；美术执行由团队相应岗位承担。</p>
     <div class="design-references">${sheepDesigns.map(item => {
       const image = `../../assets/project-design/${item.file}`;

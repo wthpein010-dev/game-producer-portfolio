@@ -18,6 +18,12 @@ try{
     assert.equal((await page.goto(base+'projects/sheep-match/',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('#design-tile-patterns-title').count(),0);
     assert.equal(await page.getByText('砖块图案搭配',{exact:true}).count(),0);
+    assert.equal(await page.getByText('第二关存档恢复',{exact:true}).count(),0);
+    assert.equal(await page.locator('a[href*="save-recovery"],img[src*="save-recovery"]').count(),0);
+    const level=page.locator('.design-reference').filter({has:page.locator('#design-level-gameplay-title')});
+    assert.ok((await level.innerText()).includes('第一关承担教学'));
+    const levelImage=level.locator('figure img');await levelImage.evaluate(async el=>{el.loading='eager';await el.decode();if(!el.naturalWidth)throw Error('Level logic image is blank');});
+    await level.screenshot({path:`artifacts/sheep-visuals/level-gameplay-${width}.png`});
     assert.equal(await page.locator('#sheep-visuals figure').count(),3);
     assert.equal(await page.locator('#sheep-flow-gallery article').count(),2);
     for(const image of await page.locator('#sheep-visuals img,#sheep-flow-gallery img').all()){

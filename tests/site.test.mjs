@@ -331,7 +331,7 @@ test('Sheep Match design references retain reviewed originals, readable alternat
   assert.match(textOf(gallery), /设计方案[^。]*不代表[^。]*上线/u);
   const cards = nodes(gallery, node => node.tag === 'article' && hasClass(node, 'design-reference'));
   const originals = [
-    ['save-recovery.png', 'ad51a365327490b0e6a0698afc61bb8fcb8395aab2462fc858b78039f918bce4'],
+    ['sheep-match/board-no-pair-decision-detail.jpg', '04ed2112914458334241b057d836ca3a00489ff7be5ef99bdea1d6c6c28d39d5'],
     ['lucky-items-flow.jpg', 'c245367bc7c256c7d0b192e9aaf830e37fededce54815556fd745885342a4db4'],
   ];
   assert.equal(cards.length, originals.length);

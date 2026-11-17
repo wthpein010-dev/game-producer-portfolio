@@ -11,8 +11,19 @@ const html=()=>renderDetail(job,job.projects[0]);
 test('Sheep project removes tile-pattern section and keeps other reviewed references',()=>{
   assert.equal(sheepDesigns.some(item=>item.id==='tile-patterns'),false);
   assert.doesNotMatch(html(),/砖块图案搭配|tile-patterns\.png/u);
-  assert.ok(sheepDesigns.some(item=>item.id==='save-recovery'));
+  assert.equal(sheepDesigns.some(item=>item.id==='save-recovery'),false);
   assert.ok(sheepDesigns.some(item=>item.id==='lucky-items'));
+});
+test('Level document explanation and logic replace the removed recovery case',()=>{
+  const page=html();
+  assert.doesNotMatch(page,/第二关存档恢复|save-recovery\.png|design-save-recovery/u);
+  const level=sheepDesigns.find(item=>item.id==='level-gameplay');
+  assert.ok(level);
+  assert.match(level.title,/关卡玩法/u);
+  assert.match(level.file,/board-no-pair-decision-detail\.jpg/u);
+  const copy=JSON.stringify(level);
+  for(const term of ['教学','第二关','配对','结算'])assert.ok(copy.includes(term),term);
+  assert.match(copy,/历史/u);
 });
 test('Real interface excerpts precede role copy and three readable board details have original links',()=>{
   const page=html();
