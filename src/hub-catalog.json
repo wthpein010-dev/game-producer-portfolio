@@ -1,0 +1,780 @@
+{
+  "source": "https://wthpein010-dev.github.io/ai-application-hub/",
+  "checkedAt": "2026-11-17T03:20:16.980Z",
+  "sourceSha256": "30c2bcfe5cf33466402ffc09a628934a649f653550fb838497bb63d97ed9f5d5",
+  "mediaSha256": "65d7cb8c32a5a2dacd3978d349070ef4ad3de3c2485b8d884b49b163369d1d15",
+  "featured": [
+    "gamespec-relay",
+    "planmap",
+    "codex-multi-thread-workbench"
+  ],
+  "projects": [
+    {
+      "id": "hub",
+      "name": "AI 应用方案整理器",
+      "category": "项目总览",
+      "status": "navigation",
+      "brief": "集中汇总全部应用、小游戏和工程体验，统一查看演示、视频与适用的平台版本。",
+      "aiUse": "AI 用于整理项目说明、入口状态、兼容信息和维护建议。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/AI%E5%BA%94%E7%94%A8%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86%E5%99%A8/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/index.html",
+      "tags": [
+        "总览",
+        "导航",
+        "清单",
+        "维护"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "gamepulse-mini-radar",
+      "name": "小游戏每日排行",
+      "category": "小游戏产品洞察",
+      "status": "assistant",
+      "brief": "把国内与海外榜单、行业知识库、玩法拆解、发布合作和开放接口放在同一张开发者工作台上。",
+      "aiUse": "AI 参与榜单清洗、知识摘要、关联推荐和异常回退；投稿审核后公开，站点每天北京时间 07:10 后检查更新。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamepulse-mini-radar/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamepulse-mini-radar/video/index.html",
+      "tags": [
+        "小游戏排行",
+        "行业知识库",
+        "玩法拆解",
+        "发布合作",
+        "开放接口"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "icecream",
+      "name": "吃了个冰",
+      "category": "Unity 跨平台小游戏",
+      "status": "game",
+      "brief": "竖屏冰激凌配单游戏：按顾客需求制作甜筒，连续闯过 10 个关卡，支持在线试玩与 Windows、Mac 桌面游玩。",
+      "aiUse": "AI 参与玩法扩展、10 关配置、UGUI 预制体、750×1624 安全区适配、进度存档、WebGL 与双平台桌面构建及发布验证。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/icecream/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/icecream/video/index.html",
+      "tags": [
+        "Unity",
+        "UGUI",
+        "冰激凌",
+        "跨平台"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/downloads/icecream-windows.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/downloads/icecream-mac.zip"
+        }
+      ]
+    },
+    {
+      "id": "vita-mahjong",
+      "name": "羊了个羊：对对碰",
+      "category": "Unity H5 AI版",
+      "status": "ai",
+      "brief": "基于羊了个羊体验做的后续玩法变形，以拟人砖块、槽位、道具和城市羊群包装构成可直接游玩的 H5 原型。",
+      "aiUse": "AI 参与关卡编辑器、关卡逻辑、道具流程、UI 调整、WebGL 打包和外网发布流程维护。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/vita-mahjong/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/vita-mahjong/video/index.html",
+      "tags": [
+        "Unity",
+        "WebGL",
+        "AI版",
+        "羊了个羊"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "zhuanglege-sha",
+      "name": "装了个啥",
+      "category": "Unity H5 小游戏",
+      "status": "game",
+      "brief": "机场安检审核题材的竖屏闯关小游戏，切换普通、X 光和轮廓视图，判断行李能否放行。",
+      "aiUse": "AI 参与玩法设定、关卡规则、文档排版、Unity 工程拆分、程序化 UI 和 WebGL 构建同步。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/zhuanglege-sha/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/zhuanglege-sha/video/index.html",
+      "tags": [
+        "Unity",
+        "WebGL",
+        "安检",
+        "观察判定"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "paws-home-client",
+      "name": "羊了个羊：碰碰消",
+      "category": "项目组打包内部体验测试",
+      "status": "engineering",
+      "brief": "用于项目组打包测试，已打出 WebGL 体验包，适合直接在浏览器里打开试玩。",
+      "aiUse": "AI 参与离线 WebGL 打包、私有依赖兼容处理、发布目录整理、主页入口接入和跨平台访问验证。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/paws-home-client/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/paws-home-client/video/index.html",
+      "tags": [
+        "Unity",
+        "WebGL",
+        "内部测试",
+        "工程包"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "paws-level-editor",
+      "name": "关卡3D编辑器",
+      "category": "关卡编辑与3D预览",
+      "status": "engineering",
+      "brief": "内置关卡库已清空：可导入本地 JSON、浏览器内 AI 生成可解关卡，并在 2D/3D 中编辑和试玩验证。",
+      "aiUse": "AI 参与关卡统计学习、受约束布局生成、自动求解、JSON 兼容、2D/3D 编辑视图和自动化验收。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/paws-level-editor/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/paws-level-editor/video/index.html",
+      "tags": [
+        "关卡编辑",
+        "AI关卡",
+        "Three.js",
+        "2D/3D",
+        "试玩"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "fill-what",
+      "name": "填了个啥",
+      "category": "Unity 微信小游戏原型",
+      "status": "game",
+      "brief": "以成语填字和诗意来信为核心的竖屏小游戏，使用 Unity UGUI 搭建界面，支持调试面板、关卡快照和过关结算。",
+      "aiUse": "AI 参与玩法拆解、UGUI 预制体结构、750×1624 适配、关卡内容、WebGL 发布页和下载包整理。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/fill-what/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/fill-what/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/index.html",
+      "tags": [
+        "Unity",
+        "UGUI",
+        "成语填字",
+        "微信小游戏"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "codex-quota-bar",
+      "name": "Codex 用量悬浮条",
+      "category": "AI 开发桌面工具",
+      "status": "desktop",
+      "brief": "醒目的额度数字与进度条贴在桌宠上方；Codex 桌宠优先，没有时自动使用内置西装仓鼠。",
+      "aiUse": "工具只读本机 Codex 额度与任务完成事件，不接触 auth.json；始终只显示一个宠物，并支持开机启动、托盘、固定置顶及 Windows/macOS 双平台工具包。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-quota-bar/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-quota-bar/video/index.html",
+      "tags": [
+        "Codex",
+        "内置桌宠",
+        "任务提示",
+        "跨平台"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/codex-quota-bar-v1.0.0/CodexQuotaBar-Windows-x64.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/codex-quota-bar-v1.0.0/CodexQuotaBar-macOS.zip"
+        }
+      ]
+    },
+    {
+      "id": "codex-thread-workbench",
+      "name": "Codex 待确认悬浮助手",
+      "category": "AI 开发桌面工具",
+      "status": "desktop",
+      "brief": "自动扫描真正需要你回复的 Codex 任务；空闲时左侧收纳，左侧悬停展开竖版面板，可查看原任务，并按需开启自动确认。",
+      "aiUse": "桌面端通过本机 codex app-server 和会话日志识别未决确认，不读取凭据；Windows/macOS 负责真实线程操作，iOS 提供可安装的演示伴侣入口。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/video/index.html",
+      "tags": [
+        "Codex",
+        "待确认提醒",
+        "置顶悬浮",
+        "Windows",
+        "macOS",
+        "iOS"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/download/"
+        },
+        {
+          "platform": "mac",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/download/mac/"
+        },
+        {
+          "platform": "ios",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/ios/index.html"
+        }
+      ]
+    },
+    {
+      "id": "web-media-collector",
+      "name": "网页素材一键收桌面版",
+      "category": "网页素材整理",
+      "status": "desktop",
+      "brief": "输入网页 URL，在始终置顶的桌面窗口里扫描、筛选、预览并批量下载公开网页素材。",
+      "aiUse": "AI 参与产品定位、桌面交互设计、跨平台打包说明、参赛说明和工具文案整理。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/01_%E4%BD%9C%E5%93%81%E4%BD%93%E9%AA%8C%E5%85%A5%E5%8F%A3/%E7%BD%91%E9%A1%B5%E7%B4%A0%E6%9D%90%E4%B8%80%E9%94%AE%E6%94%B6%E6%A1%8C%E9%9D%A2%E7%89%88/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/01_%E4%BD%9C%E5%93%81%E4%BD%93%E9%AA%8C%E5%85%A5%E5%8F%A3/%E7%BD%91%E9%A1%B5%E7%B4%A0%E6%9D%90%E4%B8%80%E9%94%AE%E6%94%B6%E6%A1%8C%E9%9D%A2%E7%89%88/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+      "tags": [
+        "网页素材",
+        "桌面版",
+        "始终置顶",
+        "批量下载"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "xiang-le-ge-xiang",
+      "name": "箱了个箱",
+      "category": "2D 推箱子解谜小游戏",
+      "status": "game",
+      "brief": "只有两关的竖屏推箱子原型：第一关一推即过，第二关开场扫出大地图，再缩回当前区域，让玩家在低理解成本里一路觉得快过了。",
+      "aiUse": "AI 参与玩法定位、第二关大地图结构、推箱子规则引擎、Canvas 渲染、移动端操作和自动化通关测试。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/xiang-le-ge-xiang/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/xiang-le-ge-xiang/video/index.html",
+      "tags": [
+        "推箱子",
+        "小游戏",
+        "第二关",
+        "解谜"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "minigame-project-simulator",
+      "name": "小游戏立项工具",
+      "category": "游戏立项与需求工具",
+      "status": "assistant",
+      "brief": "用快速选项和可展开问卷整理小游戏立项需求，生成可直接交给 Codex 的项目需求与 Unity 微信小游戏通用开发记忆。",
+      "aiUse": "工具把用户选择整理为结构化 Markdown，让 Codex 先检查关键缺失和冲突，再按 Unity 2022.3.62f3c1、uGUI、750×1624 与微信小游戏约束开展设计和开发。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/minigame-project-tool/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/minigame-project-tool/video/index.html",
+      "tags": [
+        "微信小游戏",
+        "Unity",
+        "需求文档",
+        "Codex"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "ai-game-requirements-workshop",
+      "name": "AI游戏需求工坊",
+      "category": "游戏需求与 AI 开发",
+      "status": "assistant",
+      "brief": "通过灵感组合和开发配置，一次生成可直接交给 Codex 等 AI 工具执行的游戏开发任务书。",
+      "aiUse": "工具把设计者的选择整理成包含技术环境、核心循环、MVP、模块、风险、验收标准和原型计划的结构化 Markdown。",
+      "entry": "https://gamepop-studio-20260713.polite-chord-7994.chatgpt.site/",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/ai-game-requirements-workshop/video/index.html",
+      "tags": [
+        "游戏策划",
+        "Unity",
+        "Cocos",
+        "Codex"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "planner-daily-quiz",
+      "name": "每日策划知识考核",
+      "category": "策划训练答卷",
+      "status": "training",
+      "brief": "60道通用游戏策划基础题，覆盖玩法、系统、关卡、数值、经济与数据等10类知识；每天抽取10题，提交后查看答案、解析和练习建议。",
+      "aiUse": "AI 后续可接入主观题点评、错题解释、同类练习生成和能力画像总结；当前版本先完成每日抽题、倒计时、自动批改和本地记录。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/planner-daily-quiz/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/planner-daily-quiz/video/index.html",
+      "tags": [
+        "策划训练",
+        "每日答题",
+        "错题反馈",
+        "题库"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "travel-generator",
+      "name": "朋友圈发图神器",
+      "category": "AI 内容生成",
+      "status": "content",
+      "brief": "输入旅行心情和目的地，生成拍照任务、九宫格结构、预算建议和可直接发布的朋友圈文案。",
+      "aiUse": "AI 理解场景与情绪，生成拍照任务、图片收集建议、预算提醒和多风格分享文案。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/01_%E4%BD%9C%E5%93%81%E4%BD%93%E9%AA%8C%E5%85%A5%E5%8F%A3/app/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/03_%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+      "tags": [
+        "旅行",
+        "朋友圈",
+        "文案",
+        "九宫格"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "feishu-downloader",
+      "name": "飞书文件批量下载插件",
+      "category": "浏览器插件",
+      "status": "plugin",
+      "brief": "面向飞书文档和文件资源整理场景，提供更清晰的批量下载和插件说明入口。",
+      "aiUse": "AI 参与需求拆解、交互文案、安装说明和审核材料梳理。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E9%A3%9E%E4%B9%A6%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E9%A3%9E%E4%B9%A6%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+      "tags": [
+        "飞书",
+        "插件",
+        "批量下载",
+        "资料整理"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/downloads/feishu-batch-downloader-extension.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/downloads/feishu-batch-downloader-extension.zip"
+        }
+      ]
+    },
+    {
+      "id": "codex-reviewer",
+      "name": "Codex 对话评分工具",
+      "category": "效率工具",
+      "status": "assistant",
+      "brief": "导入 Codex 对话记录，按维度评分并给出问题与改进建议，可导出 Excel 复盘表。",
+      "aiUse": "AI 用于总结对话、抽取任务进展、检查风险点并形成复盘报告。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/Codex%E5%AF%B9%E8%AF%9D%E8%AF%84%E5%88%86%E5%B7%A5%E5%85%B7/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/Codex%E5%AF%B9%E8%AF%9D%E8%AF%84%E5%88%86%E5%B7%A5%E5%85%B7/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+      "tags": [
+        "Codex",
+        "复盘",
+        "报告",
+        "整理"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "codex-habit-tool",
+      "name": "Codex 习惯设置工具",
+      "category": "Codex 效率工具",
+      "status": "desktop",
+      "brief": "把常用模型、中文界面、全局快捷键、任务命名和对话报告集中到一个本地设置工具里。",
+      "aiUse": "AI 用于归纳任务内容、生成精简名称、提取对话报告，并把个人使用习惯沉淀为可复用的本地配置。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-habit-tool/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/videos/codex-habit-tool-demo.html",
+      "tags": [
+        "Codex",
+        "快捷键",
+        "中文界面",
+        "任务命名"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "wanhuatong",
+      "name": "万话筒",
+      "category": "AI 表达转换",
+      "status": "life",
+      "brief": "把一段话转换成情绪表达、生活说明、情书暗语、多语言或古诗古文版本。",
+      "aiUse": "AI 用于识别表达意图、切换语气风格、生成多语言版本，并把复杂内容整理成可直接使用的文本。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E4%B8%87%E8%AF%9D%E7%AD%92/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E4%B8%87%E8%AF%9D%E7%AD%92/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+      "tags": [
+        "表达转换",
+        "多语言",
+        "情书",
+        "古诗古文"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "brick-light-motion-lab",
+      "name": "砖块点亮动效实验台",
+      "category": "美术设计参考",
+      "status": "engineering",
+      "brief": "作为砖块叠层显露的美术参考，用于比较材质、百叶窗、棋盘格、遮罩与形变回退，帮助团队挑选克制且明显不同的呈现。",
+      "aiUse": "AI 参与动效方案拆分、暴露进度模型、交互原型、慢速对比、自动化测试和公开发布。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/brick-light-motion-lab/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/brick-light-motion-lab/video/index.html",
+      "tags": [
+        "美术设计参考",
+        "砖块动效",
+        "交互原型",
+        "暗亮切换"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "nang-keng-pai-pai-xiang",
+      "name": "馕了个馕",
+      "category": "Unity WebGL 小游戏",
+      "status": "game",
+      "brief": "围绕新疆馕设计的竖屏休闲解谜体验：把不同馕放入烤位，利用火候、温区与订单顺序完成十个普通模式关卡。",
+      "aiUse": "AI 参与玩法规则、十关解法、纯图形馕资源、UGUI 产品流、WebGL 构建与发布验收。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/nang-keng-pai-pai-xiang/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/nang-keng-pai-pai-xiang/video/index.html",
+      "tags": [
+        "Unity",
+        "WebGL",
+        "竖屏解谜",
+        "新疆馕"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "clickflow",
+      "name": "ClickFlow 鼠标自动化",
+      "category": "桌面自动化工具",
+      "status": "assistant",
+      "brief": "把定点连点、点击录制、动作编辑与循环回放放进同一工作台，用快捷键避开录制控制按钮，并在每次点击后尽快恢复光标位置。",
+      "aiUse": "AI 参与跨平台输入适配、线程安全任务编排、桌面交互设计、自动测试、原生打包和公开教程制作。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/clickflow/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/clickflow/video/index.html",
+      "tags": [
+        "自动点击",
+        "录制回放",
+        "快捷键",
+        "跨平台"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/clickflow-v2.0.0/ClickFlow-Windows-x64.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/clickflow-v2.0.0/ClickFlow-macOS.zip"
+        }
+      ]
+    },
+    {
+      "id": "pureshrink",
+      "name": "无损压缩工坊",
+      "category": "媒体压缩工具",
+      "status": "assistant",
+      "brief": "在设备本地批量压缩图片、视频、GIF、音频和一般文件，严格无损默认开启，原件永不覆盖。",
+      "aiUse": "AI 参与压缩策略编排、无损边界说明、跨平台执行引擎、自动测试和公开教程制作。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/pureshrink/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/pureshrink/video/index.html",
+      "tags": [
+        "无损压缩",
+        "图片视频",
+        "GIF",
+        "本地处理"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/pureshrink-v1.0.5/PureShrink-Windows-x64.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/pureshrink-v1.0.5/PureShrink-macOS.zip"
+        }
+      ]
+    },
+    {
+      "id": "planmap",
+      "name": "思维导图快捷工具",
+      "category": "AI 思维导图",
+      "status": "assistant",
+      "brief": "不用手动摆节点，也不用先选节点：直接通过对话替换文字、重组内容，或切换鱼骨、树状、横向等结构，脑图自动排版。",
+      "aiUse": "AI 将自然语言意图转换为全局或局部节点操作，快速定位原文本完成替换，并可连接 Ollama、LM Studio、LocalAI 等 OpenAI 兼容模型。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/planmap/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/planmap/video/index.html",
+      "tags": [
+        "思维导图",
+        "全局对话编辑",
+        "六种结构",
+        "开源模型"
+      ],
+      "downloads": [],
+      "image": {
+        "src": "assets/hub-tools/planmap.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "思维导图快捷工具功能画面",
+        "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/planmap/video/poster.jpg",
+        "sha256": "9daf313fa5a426f97aaf05de02418f4973faa6e6447e496dd8120e9664296609"
+      }
+    },
+    {
+      "id": "simuai",
+      "name": "万象实验室",
+      "category": "AI 互动实验",
+      "status": "assistant",
+      "brief": "从 30 个受控实验中本地匹配模型，拖动参数，并在 5 种图表视图间切换，观察指标、曲线与结论如何变化。",
+      "aiUse": "AI 参与 9 种确定性模型设计、问题匹配、安全边界、交互体验、自动测试与公开教程制作；公开版不调用远程模型。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/simuai/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/simuai/video/index.html",
+      "tags": [
+        "30 个实验",
+        "本地匹配",
+        "曲线切换",
+        "透明模型"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "brick-character-copy-preview",
+      "name": "砖块小人与随身小物图鉴",
+      "category": "美术设计参考",
+      "status": "engineering",
+      "brief": "同步 Unity 正式配置的45个砖块小人、11件随身小物，默认全解锁；左侧筛选列表，右侧详情与换装检查同步呈现。",
+      "aiUse": "AI 参与 Unity 配置与贴图同步、角色分层还原、横版双图鉴、视觉位置统计和响应式排版验收。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/brick-character-copy-preview/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/brick-character-copy-preview/video/index.html",
+      "tags": [
+        "双图鉴",
+        "文案换行",
+        "随身小物",
+        "Unity同步"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "gamespec-relay",
+      "name": "游戏需求开工台",
+      "category": "游戏研发效率工具",
+      "status": "assistant",
+      "brief": "把群聊、会议纪要和策划文档拆成能开工、能验收的六职能任务，并标出决定、疑问和改动影响。",
+      "aiUse": "智能助手负责理解材料、追溯证据、按职能拆单、检查验收和计算改动影响；完整示例可离线运行。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/video/index.html",
+      "tags": [
+        "需求拆解",
+        "开工任务",
+        "验收标准",
+        "改动影响"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/gamespec-relay-v1.2.0/youxi-xuqiu-kaigongtai-windows-x64.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/gamespec-relay-v1.2.0/youxi-xuqiu-kaigongtai-macos.zip"
+        }
+      ],
+      "image": {
+        "src": "assets/hub-tools/gamespec-relay.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "游戏需求开工台功能画面",
+        "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/og.png",
+        "sha256": "2b8f5fd43777b763a572694f8b655278c883066257c272c56ead4ca8c77e1f7c"
+      }
+    },
+    {
+      "id": "x-ai-codex-radar",
+      "name": "X 情报吧｜AI / Codex 雷达",
+      "category": "AI 情报工具",
+      "status": "assistant",
+      "brief": "贴吧式整理 X 上 Tibo、马斯克、Codex 与 OpenAI 官方发言，每天北京时间 08:00 检查 Token／额度重置预告；首屏可展开中英文对照的完整原帖、中文翻译、编辑整理与精选评论。",
+      "aiUse": "AI 参与公开来源聚合、Tibo 专项监测、身份与主题分层和中文整理；公开演示保留完整英文原帖、中文翻译、重要评论及可核验链接，私有站点每天北京时间 08:00 检查真实帖子。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/x-ai-codex-radar/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/x-ai-codex-radar/video/index.html",
+      "tags": [
+        "Tibo",
+        "Codex Token",
+        "X 公开来源",
+        "重置提醒"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "loop-bgm-lab",
+      "name": "循环乐工房",
+      "category": "AI 音乐工作流",
+      "status": "assistant",
+      "brief": "在浏览器本地分析参考音乐，编排循环背景音乐提示词批次，并比较候选与维护授权台账。",
+      "aiUse": "AI 辅助把本地音频特征归纳为风格画像和提示词计划；原始音频、路径与个人文件名不写入可导出项目状态。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/loop-bgm-lab/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/loop-bgm-lab/video/index.html",
+      "tags": [
+        "循环音乐",
+        "本地分析",
+        "提示词批次",
+        "授权台账"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "codex-multi-thread-workbench",
+      "name": "Codex 多线程工作台",
+      "category": "AI 开发桌面工具",
+      "status": "desktop",
+      "brief": "把多个真实 Codex 任务放进同一个一级界面：并排看标题与对话、直接输入消息、辨认运行状态，并拖拽交换卡片位置。",
+      "aiUse": "桌面端只连接本机 codex app-server 与会话日志，不读取凭据；Windows 与 macOS 双平台默认直接打开完整工作台，悬浮模式保留为显式可选功能。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/video/index.html",
+      "tags": [
+        "Codex",
+        "多线程操作",
+        "拖拽布局",
+        "Windows",
+        "macOS"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/download/"
+        },
+        {
+          "platform": "mac",
+          "url": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/download/mac/"
+        }
+      ],
+      "image": {
+        "src": "assets/hub-tools/codex-multi-thread-workbench.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Codex 多线程工作台功能画面",
+        "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/video/poster.jpg",
+        "sha256": "4e418608ba88bd86b3b14ec29325a2c267cb0401d40e0872fc0ea8e3d254d546"
+      }
+    },
+    {
+      "id": "trinket-market",
+      "name": "随身小物交易市场",
+      "category": "游戏物品展示",
+      "status": "engineering",
+      "brief": "集中浏览砖块角色的随身小物，按数量、物品 ID 或中文名排序，并用苹果桌面式拖拽整理陈列顺序。",
+      "aiUse": "AI 参与小物素材整理、透明像素视觉居中、密集响应式陈列、拖拽动效、可导入导出的本地编辑能力与自动化验证。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/trinket-market/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/trinket-market/video/index.html",
+      "tags": [
+        "小物仓库",
+        "获得数量",
+        "拖拽排序",
+        "公开编辑"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "v-curve-tool",
+      "name": "V曲线对比工具",
+      "category": "项目开发",
+      "status": "engineering",
+      "brief": "左右独立导入关卡，一键载入羊 900121 与 Paws 0020 示例；切换参考图复现和当前工程规则，对比 V 曲线与河道上下界。",
+      "aiUse": "工具完全离线，内置羊关卡库与 Paws 关卡；1.5 版明确区分参考图算法和当前工程规则，修正侧锁、进度口径与河道显示，支持双侧导入和报告导出。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/v-curve-tool/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/v-curve-tool/video/index.html",
+      "tags": [
+        "V曲线",
+        "双模型",
+        "双侧导入",
+        "Windows",
+        "macOS"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/v-curve-tool-v1.5.0/V-Curve-Comparison-Tool-1.5.0-Windows-x64.zip"
+        },
+        {
+          "platform": "mac",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/v-curve-tool-v1.5.0/V-Curve-Comparison-Tool-1.5.0-macOS.zip"
+        }
+      ]
+    },
+    {
+      "id": "lunar-freight",
+      "name": "月面货运",
+      "category": "实时 3D 小游戏",
+      "status": "game",
+      "brief": "与四名驻站 NPC 合作，完成重连基地、回收失联货物和中继供能三段委托；管理载重、货物完整度与配送评级。",
+      "aiUse": "AI 参与实时 3D 场景、车辆物理、任务流程、键鼠与触控操作适配，以及公开网页体验的构建与验收。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/lunar-freight/index.html",
+      "video": null,
+      "tags": [
+        "月球车",
+        "实时 3D",
+        "低重力",
+        "货运任务"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "lighthouse-rescue",
+      "name": "灯塔救援队",
+      "category": "Unity 直播互动游戏",
+      "status": "game",
+      "brief": "俯视航行、船上视角救人。一起选路、修船和照明，在三段风暴中带三个人回家。",
+      "aiUse": "Unity 规则状态机、模拟观众事件、可恢复的 Windows 客户端与 WebGL 试玩共同构建；正式抖音直播权限尚待官方 SDK 和真实直播间联调。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/video/index.html",
+      "tags": [
+        "Unity",
+        "直播互动",
+        "合作救援",
+        "Windows",
+        "WebGL"
+      ],
+      "downloads": [
+        {
+          "platform": "windows",
+          "url": "https://github.com/wthpein010-dev/ai-application-hub/releases/download/lighthouse-rescue-v1.4.15/LighthouseRescue-Windows-x64.zip"
+        }
+      ]
+    },
+    {
+      "id": "holiday-gifts",
+      "name": "好事成双 · 双节活动",
+      "category": "双节活动交互原型",
+      "status": "engineering",
+      "brief": "月饼碰三次，喜欢哪件就换哪件。体验中秋国庆活动的自由兑换、限定砖块皮肤与完整挑战结算流程。",
+      "aiUse": "基于游戏美术资源制作750×1624交互原型；可切换演示日期，调出成功、暂无可消和墓碑失败页面。关卡为简化演示，不代表正式难度。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/holiday-gifts/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/holiday-gifts/video/index.html",
+      "tags": [
+        "月饼碰撞",
+        "自由兑换",
+        "双节限定",
+        "交互原型"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "announcement-center",
+      "name": "公告中心 · 挂件焕新",
+      "category": "游戏UI交互原型",
+      "status": "engineering",
+      "brief": "点击横幅展开公告，切换查看更新与挂件焕新补偿说明。",
+      "aiUse": "基于游戏美术制作响应式网页原型，图片等比显示，支持内联展开和单项切换。仅演示交互，不发放奖励。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/announcement-center/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/announcement-center/video/index.html",
+      "tags": [
+        "公告UI",
+        "内联展开",
+        "挂件焕新",
+        "交互原型"
+      ],
+      "downloads": []
+    },
+    {
+      "id": "game-design-textbook",
+      "name": "游戏设计研习册",
+      "category": "游戏策划学习",
+      "status": "training",
+      "brief": "从玩家动机到随机奖励与虚拟交易，沿50课路线学习；当前19课可阅读全文。",
+      "aiUse": "原创教材、全文讲解、知识脑图和参数实验；逐课引用并核验参考来源。阅读与同内容音频可替代，学习记录仅存本地。",
+      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/index.html",
+      "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/video/index.html",
+      "tags": [
+        "游戏策划",
+        "玩家心理",
+        "概率原理",
+        "虚拟经济"
+      ],
+      "downloads": []
+    }
+  ]
+}

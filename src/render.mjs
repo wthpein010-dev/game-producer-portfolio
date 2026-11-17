@@ -14,6 +14,7 @@ import {renderSheepReading,renderSheepNoteBody} from './sheep-notes.mjs';
 import {renderSheepDesign} from './sheep-design.mjs';
 import {renderSheepScreens} from './sheep-visuals.mjs';
 import {renderCollaborationEntry,renderCollaborationBody} from './collaboration.mjs';
+import {renderHubTools} from './hub-tools.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -58,6 +59,7 @@ function renderCareerCases() {
 }
 export function renderHome(aiHtml='') {
   aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderTapTapCollection());
+  aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools());
   return shell({title:'职业时间轴与项目实践',description:profile.description,body:`<main id="main">
     <section class="home-intro wrap" id="top" aria-labelledby="intro-title"><div class="intro-main"><p class="eyebrow">GAME PRODUCER / RESUME</p><h1 id="intro-title">${profile.name}<span>游戏制作人<span class="title-dot">.</span></span></h1><p>${e(profile.description)}</p><div class="intro-facts"><span><strong>${profile.experience}</strong>游戏研发经验</span><span><strong>${profile.projectExperience}</strong>完整项目经验</span></div><nav class="intro-reading-links" aria-label="作品直达"><a href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a><a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a><a href="#taptap-games">TapTap 游戏 <span aria-hidden="true">↓</span></a><a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a></nav></div><aside class="intro-aside"><span>NOW / 当前工作</span><h2>羊了个羊：对对碰</h2><p>北京简游科技有限公司<br>游戏制作人 · ${e(jobs[0].start.replaceAll('-','.'))} 起</p><a href="#company-jianyou">查看最近经历 ↓</a></aside>${chapterRail()}</section>
     ${renderCareerCases()}
