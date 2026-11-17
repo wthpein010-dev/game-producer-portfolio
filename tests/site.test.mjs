@@ -99,7 +99,8 @@ function site() {
     const collaboration=await page('skills/ai-collaboration/index.html');
     const pocket=await page('projects/ai-pocket/index.html');
     const ringHaven=await page('projects/ring-haven/index.html');
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven] };
+    const nanjie=await page('projects/nanjie-repair-shop/index.html');
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven, nanjie] };
   })();
   return sitePromise;
 }
@@ -382,6 +383,25 @@ test('TapTap works follow the independent games and replace the retired stall pr
     assert.ok(nodes(card, n => n.tag === 'a' && /^projects\/taptap-/u.test(n.attrs.href || '')).length >= 1);
   }
   assert.doesNotMatch(home.html, /ai-application-hub\/projects\/after-hours-stall\/|10 关 \/ 滑动整理|Unity 原创游戏/u);
+});
+
+test('Nanjie is an illustrated personal work with a public video and a return link', async () => {
+  const home = await page('index.html');
+  const selected = one(home.document, n => n.attrs.id === 'selected', 'Personal works');
+  const entry = one(selected, n => n.attrs.id === 'nanjie-repair-shop', 'Nanjie entry');
+  assert.match(textOf(entry), /南街修物志/u);
+  one(entry, n => n.tag === 'a' && n.attrs.href === 'projects/nanjie-repair-shop/', 'Nanjie detail link');
+  const detail = await page('projects/nanjie-repair-shop/index.html');
+  one(detail.document, n => n.tag === 'a' && n.attrs.href === '../../index.html#nanjie-repair-shop', 'Return link');
+  const images = nodes(detail.document, n => n.tag === 'img');
+  assert.equal(images.length, 9);
+  for (const {attrs} of images) {
+    assert.ok(attrs.alt && Number(attrs.width) > 0 && Number(attrs.height) > 0);
+    assert.ok((await stat(join(root, routeFor(attrs.src, detail.path).path))).size > 0);
+  }
+  const {attrs} = one(detail.document, n => n.tag === 'video' && 'controls' in n.attrs, 'Native video controls');
+  assert.ok((await stat(join(root, routeFor(attrs.src, detail.path).path))).size > 0);
+  assert.doesNotMatch(detail.html, /1009474|localDev|bef2eb86/u);
 });
 
 test('all eleven TapTap details retain real media, version context and their own public game link', async () => {

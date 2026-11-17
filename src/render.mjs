@@ -19,6 +19,7 @@ import {renderHubTools} from './hub-tools.mjs';
 import {renderAiPocketEntry,renderAiPocketBody} from './ai-pocket.mjs';
 import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
+import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -50,6 +51,9 @@ export function renderRingHavenPage() {
 export function renderTokenGamePage() {
   return shell({title:'又没Token了！ · 个人作品',description:'用有限 Token 运营一家 AI 工作室。个人游戏策划、经营循环与 Godot 可玩原型。',body:renderTokenGameBody(),base:'../../',page:'document',stylesheet:tokenGameStyles});
 }
+export function renderNanjiePage() {
+  return shell({title:'南街修物志 · 个人作品',description:'竖屏旧物修复与小店经营游戏，附真实修复流程、设计取舍与手机版开发记录。',body:renderNanjieBody(),base:'../../',page:'document'});
+}
 function chapterRail() {
   return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>CAREER INDEX / 职业章节</span><ol>${jobs.map((job,index)=>`<li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span aria-hidden="true">↘</span></a></li>`).join('')}</ol></nav>`;
 }
@@ -75,7 +79,7 @@ function renderCareerCases() {
   return `<section class="career-cases wrap" id="career-cases" aria-labelledby="career-cases-title"><header class="section-head"><div><p class="eyebrow">SELECTED CAREER / 代表案例</p><h2 id="career-cases-title">代表项目<span class="title-dot">.</span></h2></div></header><div class="career-case-grid">${cases.map(c=>`<article class="career-case"><a class="career-case-image" href="projects/${c.slug}/#${c.anchor}" aria-label="查看${e(c.title)}设计资料"><img src="assets/project-design/${c.file}" width="${c.width}" height="${c.height}" loading="lazy" alt="${e(c.alt)}"></a><div class="career-case-copy"><p class="eyebrow">${e(c.role)}</p><h3>${e(c.title)}</h3><p>${e(c.text)}</p><ul class="case-keywords" aria-label="核心工作">${keywords[c.slug].map(k=>`<li>${e(k)}</li>`).join('')}</ul><footer><span>${e(c.value)}</span><a href="projects/${c.slug}/">项目详情 ↗</a></footer></div></article>`).join('')}</div></section>`;
 }
 export function renderHome(aiHtml='') {
-  aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderRingHavenEntry(e)+renderTokenGameEntry()+renderTapTapCollection());
+  aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderRingHavenEntry(e)+renderTokenGameEntry()+renderTapTapCollection()+renderNanjieEntry());
   aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools());
   return shell({title:'职业时间轴与项目实践',description:profile.description,stylesheet:tokenGameStyles,body:`<main id="main">
     <section class="home-intro wrap" id="top" aria-labelledby="intro-title"><div class="intro-main"><p class="eyebrow">GAME PRODUCER / RESUME</p><h1 id="intro-title">${profile.name}<span>游戏制作人<span class="title-dot">.</span></span></h1><p>${e(profile.description)}</p><div class="intro-facts"><span><strong>${profile.experience}</strong>游戏研发经验</span><span><strong>${profile.projectExperience}</strong>完整项目经验</span></div><nav class="intro-reading-links" aria-label="作品直达"><a href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a><a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a><a href="#taptap-games">TapTap 游戏 <span aria-hidden="true">↓</span></a><a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a></nav></div><aside class="intro-aside"><span>NOW / 当前工作</span><h2>羊了个羊：对对碰</h2><p>北京简游科技有限公司<br>游戏制作人 · ${e(jobs[0].start.replaceAll('-','.'))} 起</p><a href="#company-jianyou">查看最近经历 ↓</a></aside>${chapterRail()}</section>

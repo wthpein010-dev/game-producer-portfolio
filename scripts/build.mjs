@@ -9,7 +9,7 @@ import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
 import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSummary} from '../src/render.mjs';
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
-import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage} from '../src/render.mjs';
+import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -47,6 +47,9 @@ export async function build() {
   const tokenGameDir=path.join(siteRoot,'projects','token-game');
   await mkdir(tokenGameDir,{recursive:true});
   await writeFile(path.join(tokenGameDir,'index.html'),renderTokenGamePage());
+  const nanjieDir=path.join(siteRoot,'projects','nanjie-repair-shop');
+  await mkdir(nanjieDir,{recursive:true});
+  await writeFile(path.join(nanjieDir,'index.html'),renderNanjiePage());
   for(const game of taptapGames) {
     const dir=path.join(siteRoot,'projects','taptap-'+game.slug);
     await mkdir(dir,{recursive:true});

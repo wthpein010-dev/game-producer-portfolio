@@ -1,0 +1,76 @@
+{
+  "title": "南街修物志",
+  "makerBuild": "a7967bf",
+  "media": [
+    {
+      "path": "assets/nanjie-repair-shop/assembly.webp",
+      "width": 688,
+      "height": 1224,
+      "sha256": "3d6f45cd9ac69af45677c768e51e8046a3fc3769eda6017892d3f64d7fef9ce1",
+      "source": "TapTap 制造 Windows Runtime 原生截图，零件装配。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/clean.webp",
+      "width": 688,
+      "height": 1224,
+      "sha256": "f81203080540857be624af0297a30a5ccfea55298e475af0d02287b5a271b4fb",
+      "source": "TapTap 制造 Windows Runtime 原生截图，清理工作台。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/commission.webp",
+      "width": 564,
+      "height": 1224,
+      "sha256": "f0de98441f5a9515fc74decbd41aa879afeb64461745c5167a5cc8f8c89feb55",
+      "source": "更名版 Windows Runtime 实录 3.71 秒，工单。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/cover.webp",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "0d62cbff980f97cba27861e2beb3380f63e517c58b49da2d73c50ef644023be3",
+      "source": "项目横版宣传图，2026-10-30 更名素材。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/delivery.webp",
+      "width": 564,
+      "height": 1224,
+      "sha256": "6929349b3ced11314393ecffa98d8944c37de92aa3c542cff17d9debd885bc3f",
+      "source": "更名版 Windows Runtime 实录 30.48 秒，交付与到账。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/home.webp",
+      "width": 687,
+      "height": 1224,
+      "sha256": "38f33cf41a1da848fb90f0210d7073288b191fbbd154caa4fd80f850fd539c3d",
+      "source": "更名版 TapTap 制造 Windows Runtime 原生首页截图。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/opening-day.webp",
+      "width": 688,
+      "height": 1224,
+      "sha256": "7f8c8f7a266f9104b703f0d9a5358b11ff05f1ce99f8cfa360c9963459f67752",
+      "source": "TapTap 制造 Windows Runtime 原生截图，共同营业日展示存档。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/radio-repair.mp4",
+      "width": 564,
+      "height": 1224,
+      "sha256": "cdc27b31ee9db29acc003eef16b7a10d3aa144a1a7c699726a07757c3869e012",
+      "source": "更名版 Windows Runtime 实录，34.08 秒，静音，保留时序与原分辨率。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/street.webp",
+      "width": 688,
+      "height": 1224,
+      "sha256": "2226b99b08b7865b6361bcf5d88399bec9c83cd7b140b67bf9fe23f38f3d8848",
+      "source": "TapTap 制造 Windows Runtime 原生截图，街区页面。"
+    },
+    {
+      "path": "assets/nanjie-repair-shop/tuning.webp",
+      "width": 564,
+      "height": 1224,
+      "sha256": "889219d4725bc62c2eb59965437744697492316b3a12903984b96d88e4c27851",
+      "source": "更名版 Windows Runtime 实录 25.11 秒，信号调试。"
+    }
+  ]
+}
