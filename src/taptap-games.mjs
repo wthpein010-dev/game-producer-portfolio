@@ -1,5 +1,8 @@
-// Current public descriptions and original TapTap display media; provenance retained separately.
+import {daynightFate} from './daynight-fate.mjs';
+
+// Current public descriptions and reviewed display media; provenance retained separately.
 export const taptapGames = [
+  daynightFate,
   {
     "slug": "jigmeme",
     "title": "拼拼不烧心",

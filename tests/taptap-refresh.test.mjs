@@ -5,13 +5,17 @@ import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
 test('TapTap catalog matches verified studio entries and current project names',async()=>{
  const published = taptapGames.filter(game=>game.tapUrl);
- assert.equal(published.length,12);
- for(const [id,title] of [['1005408','拼拼不烧心'],['984529','你的孩子'],['984008','封神对决'],['984393','我的一生'],['974262','造景贴纸：贴了不烧心']]){
+ assert.equal(published.length,13);
+ for(const [id,title] of [['989864','昼夜命运：塔罗之城'],['1005408','拼拼不烧心'],['984529','你的孩子'],['984008','封神对决'],['984393','我的一生'],['974262','造景贴纸：贴了不烧心']]){
   assert.equal(published.find(g=>new URL(g.tapUrl).pathname==='/app/'+id)?.title,title);
  }
  assert.equal(new Set(published.map(g=>g.tapUrl)).size,published.length);
  for(const game of published){
-  assert.match(game.captureNote,game.slug==='fengshen-duel' ? /0\.36.*竖屏运行画面/u : /TapTap.*展示图/u);
+  const capturePattern = {
+   'fengshen-duel': /0\.36.*竖屏运行画面/u,
+   'daynight-fate': /TapTap Maker.*运行采集/u,
+  }[game.slug] ?? /TapTap.*展示图/u;
+  assert.match(game.captureNote,capturePattern);
   const html=await readFile(new URL(`../projects/taptap-${game.slug}/index.html`,import.meta.url),'utf8');
   assert.ok(html.includes(`datetime="${game.updatedAt}"`));
   assert.ok(html.includes(game.title));
@@ -34,7 +38,8 @@ test('Fengshen Duel publishes the 0.36 release gallery and real gameplay clip on
 });
 test('refreshed TapTap images retain original bytes and public provenance',async()=>{
  const provenance=JSON.parse(await readFile(new URL('../src/taptap-public-refresh.json',import.meta.url),'utf8'));
- const published = taptapGames.filter(game=>game.tapUrl);
+ // Daynight Fate uses engine captures, checked against its own media records.
+ const published = taptapGames.filter(game=>game.tapUrl&&game.slug!=='daynight-fate');
  assert.equal(provenance.length,published.length);
  assert.equal(new Set(provenance.map(entry=>entry.appUrl)).size,published.length);
  for(const entry of provenance){
@@ -124,4 +129,28 @@ test('Your Child adds its Windows development evidence to the existing personal 
   assert.ok(section.includes(`href="../../${shot.src}"`));
   assert.doesNotMatch(card,new RegExp(shot.src,'u'));
  }
+});
+
+test('Daynight Fate publishes reviewed images with accurate dimensions and separate platform captions',async()=>{
+ const game=taptapGames.find(game=>game.slug==='daynight-fate');
+ const {images}=JSON.parse(await readFile(new URL('../assets/taptap/daynight-fate/media.json',import.meta.url),'utf8'));
+ const html=await readFile(new URL('../projects/taptap-daynight-fate/index.html',import.meta.url),'utf8');
+ assert.equal(images.length,8);
+ assert.equal(images.filter(image=>image.platform==='TapTap Maker').length,4);
+ assert.equal(images.filter(image=>image.platform==='Windows').length,4);
+ assert.deepEqual(game.shots.map(shot=>shot.src),images.map(image=>image.src));
+ for(const [index,image] of images.entries()){
+  const bytes=await readFile(new URL('../'+image.src,import.meta.url));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);
+  assert.equal(bytes.toString('ascii',8,16),'WEBPVP8 ');
+  const [width,height]=[bytes.readUInt16LE(26)&0x3fff,bytes.readUInt16LE(28)&0x3fff];
+  const shot=game.shots[index];
+  assert.deepEqual([width,height],[image.width,image.height],image.src);
+  assert.deepEqual([width,height],[shot.width,shot.height],image.src);
+  assert.ok(shot.caption.includes(image.platform),image.src);
+ }
+ assert.match(html,/TapTap Maker 0\.1\.9/u);
+ assert.match(html,/Windows 0\.41/u);
+ assert.match(html,/2026 年 10 月 30 日开放 TapTap 试玩/u);
+ assert.match(html,/我用 AI 协助实现这些设计/u);
 });

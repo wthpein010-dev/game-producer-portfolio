@@ -1,0 +1,84 @@
+{
+  "images": [
+    {
+      "src": "assets/taptap/daynight-fate/day.webp",
+      "platform": "TapTap Maker",
+      "version": "0.1.9",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "10b46dc19b2026f1bd1ee07a12ab42c2f31f42470c5038366e5258bc4b69a587",
+      "sourceFilename": "01-day-workshop.png",
+      "sourceSha256": "091f61bc7e1a8df5d5643ae0f9f222b962b2be337064362a186dfa7c520608d4"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/night.webp",
+      "platform": "TapTap Maker",
+      "version": "0.1.9",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "de1406bb52fb5404dfb4f063d886c8c1780735c616f4081209647554e6e94635",
+      "sourceFilename": "03-night-nightmare.png",
+      "sourceSha256": "2f464615fe62ee5865d6e8bc553eea49c953aeec87cf948d2800c10f8b5632c1"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/story-choice.webp",
+      "platform": "TapTap Maker",
+      "version": "0.1.9",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "d6799a55b91c2c623edbe494b70f3511f301eaa15e09dbf7bb43803209f1dfa0",
+      "sourceFilename": "02-story-choice.png",
+      "sourceSha256": "e21412e89e47c4cb4c3f67787aaa8e0594c14bb1f2109a9413f3841df36a0232"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/story-result.webp",
+      "platform": "TapTap Maker",
+      "version": "0.1.9",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "d6029bb14c5bc5e3dde96a3a5cf3711c210ef1ccc99b3c257f58ca2557ea3a4c",
+      "sourceFilename": "04-story-result.png",
+      "sourceSha256": "db4bc929ea6e2e184102799f4c44dcfcb95883f2a7bdfc7482ce3f2bf816f0ed"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/first-night-guide.webp",
+      "platform": "Windows",
+      "version": "0.31.0",
+      "width": 1024,
+      "height": 768,
+      "sha256": "5eefe83b20b03ba3056867c6893990ddbc7a3fb53990260778570b20f5ce2d62",
+      "sourceFilename": "guide31-night-preview-zh.png",
+      "sourceSha256": "46b424f67bce69ff62f2639ecda5ffc5a62c805821b119a6d2111909672895af"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/card-journal.webp",
+      "platform": "Windows",
+      "version": "0.32.0",
+      "width": 1024,
+      "height": 768,
+      "sha256": "8c1954290f4dd45b764bad400c98463a044d3681669c8989bdca52ebef4ca04c",
+      "sourceFilename": "combinations32-pairs-zh.png",
+      "sourceSha256": "c6a99745dcc29fa2dc326788280c80b04916004d5cda6428010e2246621633c7"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/city-day.webp",
+      "platform": "Windows",
+      "version": "0.41.0",
+      "width": 1536,
+      "height": 512,
+      "sha256": "7b19e0596b5c213a4f54f243e0422214c64bbd35ebcf8910fe3d931a4bb147fc",
+      "sourceFilename": "doorway41-day.png",
+      "sourceSha256": "f4b2c14d12c15a7fce1299a0ab689a6988a189c8e7bba91d750ef548779737cf"
+    },
+    {
+      "src": "assets/taptap/daynight-fate/city-night.webp",
+      "platform": "Windows",
+      "version": "0.41.0",
+      "width": 1536,
+      "height": 512,
+      "sha256": "5ec14e1eaf07758efe62ef03a75dd457e68bc655599191d39ea439d7592da635",
+      "sourceFilename": "doorway41-night.png",
+      "sourceSha256": "2af5c671372a7a25238d0dc63c44dc76c786b0a0e8e4398aa301328fd08425ec"
+    }
+  ]
+}
