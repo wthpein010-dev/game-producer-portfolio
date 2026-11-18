@@ -3,6 +3,8 @@ import {once} from 'node:events';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import {createSiteServer} from '../scripts/serve.mjs';
+import {featuredHubIds,hubProjects} from '../src/hub-tools.mjs';
+const catalogCount=hubProjects.length-featuredHubIds.length;
 const dependency=process.env.PLAYWRIGHT_MODULE||'playwright';
 const {chromium}=await import(/^[A-Z]:[\\/]/iu.test(dependency)?pathToFileURL(dependency).href:dependency);
 const server=createSiteServer();server.listen(0,'127.0.0.1');await once(server,'listening');
@@ -25,7 +27,7 @@ try{
     await page.locator('.hub-tool-feature figure > a').first().click();assert.equal(await page.locator('dialog[open]').count(),1);await page.keyboard.press('Escape');
     assert.equal(await page.locator('dialog[open]').count(),0);
     await more.locator(':scope > summary').focus();await page.keyboard.press('Enter');
-    assert.equal(await page.locator('.hub-catalog-item:visible').count(),35);
+    assert.equal(await page.locator('.hub-catalog-item:visible').count(),catalogCount);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
     await more.locator(':scope > summary').press('Enter');assert.equal(await more.getAttribute('open'),null);
     await page.goto(base+'index.html#hub-loop-bgm-lab');
@@ -43,7 +45,7 @@ try{
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage();
   await page.goto(base+'index.html#ai-tools');
-  await page.locator('#hub-more > summary').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.hub-catalog-item:visible').count(),35);
+  await page.locator('#hub-more > summary').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.hub-catalog-item:visible').count(),catalogCount);
   assert.equal(await page.locator('.hub-tool-feature figure > a').count(),3);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   await context.close();assert.deepEqual(errors,[]);console.log('PASS no-script hub catalog');

@@ -35,6 +35,8 @@ try {
     await page.setViewportSize({width,height:1000});
     await page.goto(base+'index.html#taptap-games',{waitUntil:'networkidle'});
     await fit();await decode();
+    const columns=await page.locator('.taptap-grid').evaluate(grid=>getComputedStyle(grid).gridTemplateColumns.split(' ').length);
+    assert.equal(columns,width<=620?1:width<=1000?2:3);
     assert.equal(await page.locator('#taptap-games article').count(),taptapGames.length);
     assert.equal(await page.locator('.taptap-project-index a').count(),taptapGames.length);
     const cardLayout=await page.locator('.taptap-card').evaluateAll(cards=>cards.map(card=>{
@@ -55,6 +57,14 @@ try {
     const shortcut=page.locator(`.intro-reading-links a[href="#${id}"]`);await shortcut.focus();await page.keyboard.press('Enter');
     assert.equal(new URL(page.url()).hash,'#'+id);
   }
+  const chapterLinks=page.locator('#experience .chapter-rail a');
+  assert.equal(await chapterLinks.count(),await page.locator('#experience .company-entry').count());
+  for(const link of await chapterLinks.all()) {
+    const target=await link.getAttribute('href');
+    await link.press('Enter');
+    assert.equal(new URL(page.url()).hash,target);
+    assert.ok(await page.locator(target).isVisible());
+  }
   const skills=page.locator('.skill-evidence');assert.equal(await skills.count(),6);
   for(const skill of await skills.all()) {
     assert.equal(await skill.getAttribute('open'),null);
@@ -62,24 +72,24 @@ try {
     await skill.locator('summary').click();assert.equal(await skill.locator('a').first().isVisible(),false);
   }
   checks.push('Four first-screen shortcuts and six native skill disclosures work with keyboard and pointer');
-  for(const tab of await page.locator('[data-tabs] [role="tab"]').all()) {
+  const supporting=page.locator('#ai-supporting');
+  const tabs=supporting.locator('[data-tabs] [role="tab"]');
+  assert.equal(await tabs.count(),4);
+  await supporting.locator(':scope > summary').press('Enter');
+  for(const tab of await tabs.all()) {
     await tab.click();assert.equal(await tab.getAttribute('aria-selected'),'true');
     assert.equal(await page.locator('#'+await tab.getAttribute('aria-controls')).isVisible(),true);
   }
-  for(const filter of await page.locator('[data-filter]').all()) {
-    await filter.click();const value=await filter.getAttribute('data-filter');
-    const states=await page.locator('[data-category]').evaluateAll(nodes=>nodes.map(n=>({category:n.dataset.category,hidden:n.hidden})));
-    assert.ok(states.every(n=>n.hidden===(value!=='all'&&n.category!==value)));
-  }
-  checks.push('Existing four workflow tabs and four archive filters remain operational');
+  checks.push('All career chapter links and the four tabs inside the AI workflow disclosure remain operational');
   for(const game of taptapGames) for(const width of [390,1440]) {
     await page.setViewportSize({width,height:1000});
     const response=await page.goto(base+`projects/taptap-${game.slug}/`,{waitUntil:'networkidle'});
     assert.equal(response.status(),200);await fit();await decode();
     assert.equal(await page.locator('h1').textContent(),game.title+'.');
-    assert.equal(await page.locator('.taptap-detail .taptap-screenshot').count(),game.shots.length);
-    assert.equal(await page.locator('.taptap-shot-grid img').count(),game.shots.length-1);
-    assert.equal(await page.locator('.taptap-play a').getAttribute('href'),game.tapUrl);
+    assert.equal(await page.locator('.taptap-hero-shot img').count(),1);
+    assert.equal(await page.locator('#screenshots .taptap-shot-grid img').count(),game.shots.length-1);
+    const playLinks=await page.locator('.taptap-play a[href^="https:"]').evaluateAll(links=>links.map(link=>link.getAttribute('href')));
+    assert.deepEqual(playLinks,game.tapUrl?[game.tapUrl]:[]);
     const hero=await page.locator('.taptap-hero-shot img').boundingBox();
     assert.ok(hero.y<(width===390?1000:500),'First game image appears early in the page');
     await page.screenshot({path:path.join(artifacts,`${game.slug}-${width}.png`)});
@@ -96,9 +106,9 @@ try {
       assert.ok(top>=-1&&top<page.viewportSize().height-120,`${game.slug}/${width}/${id}: section heading is in the viewport (top=${top})`);
     }
     if(width===390&&await page.locator('.taptap-scroll-gallery').count()) {
-      const gallery=page.locator('.taptap-shot-grid');
+      const gallery=page.locator('#screenshots .taptap-scroll-gallery');
       await gallery.focus();await page.keyboard.press('ArrowRight');
-      await page.waitForFunction(()=>document.querySelector('.taptap-shot-grid').scrollLeft>0);
+      await page.waitForFunction(()=>document.querySelector('#screenshots .taptap-scroll-gallery').scrollLeft>0);
     }
     await page.locator('.taptap-next [data-return-home]').click();
     await page.waitForURL(`**/index.html#work-${game.slug}`);await fit();
@@ -110,14 +120,16 @@ try {
   assert.equal(await plain.locator('h1').textContent(),'下班收摊.');
   assert.equal(await plain.locator('.taptap-detail .taptap-image-link').count(),3);
   assert.equal(await plain.locator('.taptap-play a').getAttribute('href'),taptapGames.find(g=>g.slug==='after-hours-stall').tapUrl);
-  await plain.goto(base+'projects/taptap-food-car/');
-  assert.equal(await plain.locator('.taptap-detail .taptap-screenshot').count(),3);
-  const plainGallery=plain.locator('.taptap-shot-grid');await plainGallery.scrollIntoViewIfNeeded();await plainGallery.focus();
+  const plainGallery=plain.locator('#screenshots .taptap-scroll-gallery');await plainGallery.scrollIntoViewIfNeeded();await plainGallery.focus();
   assert.ok(await plainGallery.evaluate(el=>el===document.activeElement&&el.scrollWidth>el.clientWidth));
   await plain.keyboard.press('ArrowRight');
   // Poll from the test process: disabled page scripts also disable page-owned timers.
   for(let attempt=0;attempt<20&&await plainGallery.evaluate(el=>el.scrollLeft)===0;attempt++)await new Promise(resolve=>setTimeout(resolve,50));
   assert.ok(await plainGallery.evaluate(el=>el.scrollLeft>0),'No-script gallery responds to native arrow keys');
+  await plain.goto(base+'projects/taptap-food-car/');
+  const foodCar=taptapGames.find(game=>game.slug==='food-car');
+  assert.equal(await plain.locator('#screenshots .taptap-screenshot').count(),foodCar.shots.length-1);
+  assert.equal(await plain.locator('#production-art .taptap-screenshot').count(),foodCar.artwork.length);
   await noScript.close();checks.push('No-script details preserve all images, native gallery scrolling and TapTap links');
   assert.equal(errors.length,0,JSON.stringify(errors));
   await writeFile(path.join(artifacts,'report.json'),JSON.stringify({checks,errors,passed:checks.length},null,2));

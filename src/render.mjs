@@ -30,6 +30,10 @@ export function renderIdiomSummary() {
 }
 const e = escapeHtml;
 const tokenGameStyles = 'assets/token-game/portfolio.css';
+const homeStyles = 'assets/home.css';
+const homeStyleVersion = createHash('sha256')
+  .update(readFileSync(new URL('../'+homeStyles,import.meta.url)))
+  .digest('hex').slice(0,12);
 export function renderZuoyaoSummary() {
   return shell({title:'作妖计 · 设计资料摘要',description:'署名魔罩、魔宠成长与阵容交互设计资料。',base:'../../../',page:'document',attrs:'data-company="muyou"',body:`<main id="main" class="detail-main wrap"><nav class="breadcrumbs" aria-label="面包屑"><a href="../">返回作妖计项目</a><span aria-hidden="true">/</span><a href="../../../experience/muyou/">牧游科技经历</a></nav><header class="detail-hero"><p class="eyebrow">AUTHORED DESIGN / 策划资料摘要</p><h1>作妖计<span class="title-dot">.</span></h1><p class="detail-lede">成长规则、战斗作用与界面交付。</p></header>${renderZuoyaoDesign(e,'../../../')}</main>`});
 }
@@ -59,7 +63,12 @@ export function renderYujiangCoffeePage() {
   return shell({title:'渔江咖啡 · 个人游戏作品',description:'在海上打捞、冲泡咖啡、听来客讲故事。查看经营循环、策划取舍和 Windows 实机画面。',body:renderYujiangCoffeeBody(e),base:'../../',page:'document'});
 }
 function chapterRail() {
-  return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>CAREER INDEX / 职业章节</span><ol>${jobs.map((job,index)=>`<li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span aria-hidden="true">↘</span></a></li>`).join('')}</ol></nav>`;
+  const labels = {
+    jianyou: '简游', 'hero-games': '英雄游戏', bolang: '波浪', muyou: '牧游',
+    beta: '贝塔', haoteng: '豪腾嘉科', iceshi: '冰狮',
+  };
+  return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>经历索引</span><ol>${jobs.map((job,index)=>`
+    <li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span class="chapter-name" aria-hidden="true">${e(labels[job.slug] ?? job.employer)}</span></a></li>`).join('')}</ol></nav>`;
 }
 export function renderPublicNote(note) {
   return shell({title:`${note.title} · 公开职责摘要`,description:note.lead,
@@ -69,28 +78,84 @@ export function renderPublicNote(note) {
 function header(base='') {return `<a class="skip-link" href="#main">跳到主要内容</a><header class="site-header wrap"><a class="brand" href="${base}index.html"><span class="brand-symbol" aria-hidden="true">↗</span><span>${profile.name}<small>GAME PRODUCER / PROJECT JOURNAL</small></span></a><nav aria-label="主要导航"><a href="${base}index.html#experience">职业时间轴</a><a href="${base}index.html#skills">技能树</a><a href="${base}index.html#selected">个人作品</a><a href="${base}index.html#taptap-games">TapTap</a></nav><a class="hub-link" href="${hubBase}">公开 Hub ↗</a></header>`;}
 function footer(base='') {return `<footer class="site-footer wrap"><div><span class="footer-mark" aria-hidden="true">↗</span><p>工作经历<br><strong>与个人作品</strong></p></div><div class="footer-evidence"><span>职业信息来自本人履历与确认；项目介绍另附公开来源。</span><a href="https://github.com/wthpein010-dev/ai-application-hub/tree/${sourceSha}">个人实践公开证据 ↗</a><span>不展示电话、邮箱或原始简历附件。</span></div><a class="back-top" href="${base}index.html#top">回到首页 ↑</a></footer>`;}
 function shell({title,description,body,base='',page='home',attrs='',stylesheet}) {
-  const extraStyle = stylesheet ? `<link rel="stylesheet" href="${base}${e(stylesheet)}">` : '';
+  const extraStyle = (stylesheet ? `<link rel="stylesheet" href="${base}${e(stylesheet)}">` : '')
+    + (page==='home' ? `<link rel="stylesheet" href="${homeStyles}?v=${homeStyleVersion}">` : '');
   return `<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${e(description)}"><meta name="color-scheme" content="light"><title>${e(title)} · ${profile.name}</title><link rel="icon" href="${base}assets/app-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/legacy.css?v=${sharedAssetVersion}"><link rel="stylesheet" href="${base}assets/site.css?v=${sharedAssetVersion}">${extraStyle}<script src="${base}assets/app.js?v=${sharedAssetVersion}" defer></script><script src="${base}assets/reading.js?v=${sharedAssetVersion}" defer></script></head><body data-page="${page}" ${attrs}>${header(base)}${decorateImageMarkup(body,imageManifest)}${footer(base)}</body></html>\n`;
 }
 function timeline(job,i) {const companyHref=`experience/${job.slug}/`;return `<article class="company-entry" id="company-${job.slug}" data-company="${job.slug}"><div class="timeline-date"><time datetime="${job.start}">${e(job.period)}</time><span class="entry-count">${counter(i+1)} / ${i===0?'CURRENT CHAPTER':'CAREER CHAPTER'}</span></div><div class="company-map"><div class="company-root"><span class="role-label">${e(job.role)}</span><h3><a class="company-title" href="${companyHref}">${e(job.employer)} <span aria-hidden="true">↗</span></a></h3><p class="company-projects">${job.projects.map(p=>e(p.title)).join(' · ')}</p><p class="entry-lede">${e(job.lead)}</p><a class="role-node" href="${companyHref}?section=role">查看我的角色 ↗</a>${job.teamSize?`<p class="team-note">项目团队共 ${job.teamSize} 人</p>`:''}</div><div class="map-branches"><details class="branch-group" id="branch-${job.slug}-projects" open ${i===0?'data-priority="true"':''}><summary>项目节点 <span>${counter(job.projects.length)}</span></summary><ul class="branch-nodes">${job.projects.map(p=>`<li><a class="mindmap-node" data-kind="project" href="projects/${p.slug}/"><span>PROJECT</span>${e(p.title)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details><details class="branch-group" id="branch-${job.slug}-scope" open><summary>${job.scope.length?'职责节点':'经历节点'} <span>${counter(job.scope.length||1)}</span></summary><ul class="branch-nodes">${(job.scope.length?job.scope:['项目与任职记录']).map(s=>`<li><a class="mindmap-node" data-kind="scope" href="${companyHref}?section=scope"><span>${job.scope.length?'SCOPE':'RECORD'}</span>${e(s)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details></div></div></article>`;}
 function renderCareerCases() {
   const keywords={'idiom-scholar':['成语答题','科举包装','成长循环'],'word-villas':['系统落地','UI/UE','跨组协作'],'matchmaking-inc':['系统框架','经营循环','内容统筹']};
   const cases=[
-    {slug:'idiom-scholar',title:'成语小秀才',role:'小游戏 · 唯一策划',file:'idiom-scholar/promotional-cover.png',width:960,height:334,alt:'成语小秀才横版推广图，展示成语填字与科举人物包装',text:'主导成语答题、科举题材包装与养成线，把文字关卡和升官成长连接起来。',value:'玩法与受众包装',anchor:'idiom-design'},
-    {slug:'word-villas',title:'Wordvillas',role:'海外手游 · 高级系统策划',file:'word-villas/promotional-cover.jpg',width:1280,height:720,alt:'Wordvillas 横版宣传视频封面，展示项目标识、角色与房屋改造',text:'分支剧情、锦标赛、多类型活动与投骰子玩法，从设计、开发测试到上线。',value:'系统落地与跨组协作',anchor:'word-design-excerpts'},
-    {slug:'matchmaking-inc',title:'中国式相亲',role:'独立游戏 · 主策划 / 执行制作人',file:'matchmaking-inc/promotional-cover.jpg',width:460,height:215,alt:'中国式相亲 Steam 官方横版宣传图，展示项目名称与主要角色',text:'负责系统框架到落地、剧情大纲与后续验收，统筹经营、成长和恋爱养成循环。',value:'整体系统与内容统筹',anchor:'matchmaking-design'},
+    {slug:'idiom-scholar',title:'成语小秀才',role:'小游戏 · 唯一策划',file:'idiom-scholar/promotional-cover.png',width:960,height:334,alt:'成语小秀才横版推广图，展示成语填字与科举人物包装',text:'主导成语答题、科举题材包装与养成线，把文字关卡和升官成长连接起来。',anchor:'idiom-design'},
+    {slug:'word-villas',title:'Wordvillas',role:'海外手游 · 高级系统策划',file:'word-villas/promotional-cover.jpg',width:1280,height:720,alt:'Wordvillas 横版宣传视频封面，展示项目标识、角色与房屋改造',text:'分支剧情、锦标赛、多类型活动与投骰子玩法，从设计、开发测试到上线。',anchor:'word-design-excerpts'},
+    {slug:'matchmaking-inc',title:'中国式相亲',role:'独立游戏 · 主策划 / 执行制作人',file:'matchmaking-inc/promotional-cover.jpg',width:460,height:215,alt:'中国式相亲 Steam 官方横版宣传图，展示项目名称与主要角色',text:'负责系统框架到落地、剧情大纲与后续验收，统筹经营、成长和恋爱养成循环。',anchor:'matchmaking-design'},
   ];
-  return `<section class="career-cases wrap" id="career-cases" aria-labelledby="career-cases-title"><header class="section-head"><div><p class="eyebrow">SELECTED CAREER / 代表案例</p><h2 id="career-cases-title">代表项目<span class="title-dot">.</span></h2></div></header><div class="career-case-grid">${cases.map(c=>`<article class="career-case"><a class="career-case-image" href="projects/${c.slug}/#${c.anchor}" aria-label="查看${e(c.title)}设计资料"><img src="assets/project-design/${c.file}" width="${c.width}" height="${c.height}" loading="lazy" alt="${e(c.alt)}"></a><div class="career-case-copy"><p class="eyebrow">${e(c.role)}</p><h3>${e(c.title)}</h3><p>${e(c.text)}</p><ul class="case-keywords" aria-label="核心工作">${keywords[c.slug].map(k=>`<li>${e(k)}</li>`).join('')}</ul><footer><span>${e(c.value)}</span><a href="projects/${c.slug}/">项目详情 ↗</a></footer></div></article>`).join('')}</div></section>`;
+  return `<section class="career-cases wrap" id="career-cases" aria-labelledby="career-cases-title">
+    <header class="section-head"><h2 id="career-cases-title">代表项目</h2></header>
+    <div class="career-case-grid">${cases.map(c=>`
+      <article class="career-case">
+        <a class="career-case-image" href="projects/${c.slug}/#${c.anchor}" aria-label="查看${e(c.title)}设计资料"><img src="assets/project-design/${c.file}" width="${c.width}" height="${c.height}" loading="lazy" alt="${e(c.alt)}"></a>
+        <div class="career-case-copy">
+          <p class="eyebrow">${e(c.role)}</p>
+          <h3>${e(c.title)}</h3>
+          <p>${e(c.text)}</p>
+          <ul class="case-keywords" aria-label="核心工作">${keywords[c.slug].map(k=>`<li>${e(k)}</li>`).join('')}</ul>
+          <footer><a href="projects/${c.slug}/" aria-label="查看${e(c.title)}项目详情">项目详情 <span aria-hidden="true">↗</span></a></footer>
+        </div>
+      </article>`).join('')}
+    </div>
+  </section>`;
+}
+
+function renderHomeIntro() {
+  const currentJob = jobs[0];
+  const currentProject = currentJob.projects[0];
+  return `<section class="home-intro wrap" id="top" aria-labelledby="intro-title">
+    <div class="intro-main">
+      <p class="eyebrow">游戏研发 · 职业简历</p>
+      <h1 id="intro-title">${e(profile.name)}<span>${e(profile.role)}</span></h1>
+      <p class="intro-summary">兼具主策划与系统策划经验，负责玩法与系统设计、跨岗位协作和版本交付。</p>
+      <div class="intro-facts">
+        <span><strong>${e(profile.experience)}</strong>游戏研发经验</span>
+        <span><strong>${e(profile.projectExperience)}</strong>完整项目经验</span>
+      </div>
+      <nav class="intro-reading-links" aria-label="作品直达">
+        <a class="button primary" href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a>
+        <a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a>
+        <a href="#taptap-games">TapTap 游戏 <span aria-hidden="true">↓</span></a>
+        <a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a>
+      </nav>
+    </div>
+    <aside class="intro-aside" aria-labelledby="current-project-title">
+      <div class="intro-current-copy">
+        <p class="eyebrow">当前项目</p>
+        <h2 id="current-project-title">${e(currentProject.title)}</h2>
+        <p>${e(currentJob.employer)}<br>${e(currentJob.role)} · ${e(currentJob.start.replaceAll('-','.'))} 起</p>
+        <a href="projects/${e(currentProject.slug)}/">查看项目 <span aria-hidden="true">↗</span></a>
+      </div>
+      <img class="intro-project-shot" src="assets/project-design/sheep-match/slot-frame-75.jpg" width="720" height="1350" decoding="async" alt="《羊了个羊：对对碰》入槽配对玩法截图">
+    </aside>
+  </section>`;
 }
 export function renderHome(aiHtml='') {
   aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderRingHavenEntry(e)+renderTokenGameEntry()+renderMyLifeShowcase()+renderTapTapCollection()+renderNanjieEntry());
   aiHtml=aiHtml.replace('<!-- YUJIANG_COFFEE -->',renderYujiangCoffeeEntry(e));
   aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools());
   return shell({title:'职业时间轴与项目实践',description:profile.description,stylesheet:tokenGameStyles,body:`<main id="main">
-    <section class="home-intro wrap" id="top" aria-labelledby="intro-title"><div class="intro-main"><p class="eyebrow">GAME PRODUCER / RESUME</p><h1 id="intro-title">${profile.name}<span>游戏制作人<span class="title-dot">.</span></span></h1><p>${e(profile.description)}</p><div class="intro-facts"><span><strong>${profile.experience}</strong>游戏研发经验</span><span><strong>${profile.projectExperience}</strong>完整项目经验</span></div><nav class="intro-reading-links" aria-label="作品直达"><a href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a><a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a><a href="#taptap-games">TapTap 游戏 <span aria-hidden="true">↓</span></a><a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a></nav></div><aside class="intro-aside"><span>NOW / 当前工作</span><h2>羊了个羊：对对碰</h2><p>北京简游科技有限公司<br>游戏制作人 · ${e(jobs[0].start.replaceAll('-','.'))} 起</p><a href="#company-jianyou">查看最近经历 ↓</a></aside>${chapterRail()}</section>
+    ${renderHomeIntro()}
     ${renderCareerCases()}
-    <section class="timeline-section wrap" id="experience" aria-labelledby="timeline-title"><div class="section-head"><div><p class="eyebrow">01 / CAREER TIMELINE</p><h2 id="timeline-title">工作经历<span class="title-dot">.</span></h2></div></div><div class="career-timeline">${jobs.map(timeline).join('')}</div><div class="education-row"><span>教育背景</span><strong>北京联合大学</strong><p>计算机科学与技术 · 本科 · 2015.09—2017.07</p></div></section>
-    <section class="skills-section wrap section" id="skills" aria-labelledby="skills-title"><div class="section-head"><div><p class="eyebrow">02 / SKILL TREE</p><h2 id="skills-title">项目技能<span class="title-dot">.</span></h2></div></div><div class="skill-tree">${skills.map((s,i)=>`<article class="skill-card"><span class="skill-index">${counter(i+1)}</span><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details class="skill-evidence"><summary>查看项目依据 <span>${s.links.length} 项</span></summary><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></details></article>`).join('')}</div></section>${renderCollaborationEntry()}${renderAiPocketEntry(e)}${aiHtml}</main>`});
+    <section class="timeline-section wrap" id="experience" aria-labelledby="timeline-title">
+      <header class="section-head"><h2 id="timeline-title">工作经历</h2></header>
+      ${chapterRail()}
+      <div class="career-timeline">${jobs.map(timeline).join('')}</div>
+      <div class="education-row"><span>教育背景</span><strong>北京联合大学</strong><p>计算机科学与技术 · 本科 · 2015.09—2017.07</p></div>
+    </section>
+    <section class="skills-section wrap section" id="skills" aria-labelledby="skills-title">
+      <header class="section-head"><h2 id="skills-title">项目技能</h2></header>
+      <div class="skill-tree">${skills.map(s=>`<article class="skill-card"><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details class="skill-evidence"><summary>查看项目依据 <span>${s.links.length} 项</span></summary><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></details></article>`).join('')}</div>
+    </section>
+    <div class="home-practice wrap">${renderCollaborationEntry()}${renderAiPocketEntry(e)}</div>
+    ${aiHtml}</main>`});
 }
 export function renderTapTapDetail(game) {
   return shell({title:game.title+' · TapTap 游戏实践',description:game.summary,body:renderTapTapBody(game),base:'../../',page:'document'});
