@@ -51,8 +51,8 @@ try {
     checks.push(`home ${width}: all current projects, images decoded, no horizontal overflow`);
   }
   await page.goto(base+'index.html',{waitUntil:'networkidle'});
-  const destinations=['career-cases','indie-games','taptap-games','ai-tools'];
-  assert.equal(await page.locator('.intro-reading-links a').count(),4);
+  const destinations=['career-cases','indie-games','ai-tools'];
+  assert.equal(await page.locator('.intro-reading-links a').count(),destinations.length);
   for(const id of destinations) {
     const shortcut=page.locator(`.intro-reading-links a[href="#${id}"]`);await shortcut.focus();await page.keyboard.press('Enter');
     assert.equal(new URL(page.url()).hash,'#'+id);
@@ -71,7 +71,7 @@ try {
     await skill.locator('summary').click();assert.ok(await skill.locator('a').first().isVisible());
     await skill.locator('summary').click();assert.equal(await skill.locator('a').first().isVisible(),false);
   }
-  checks.push('Four first-screen shortcuts and six native skill disclosures work with keyboard and pointer');
+  checks.push('Three first-screen shortcuts and six native skill disclosures work with keyboard and pointer');
   const supporting=page.locator('#ai-supporting');
   const tabs=supporting.locator('[data-tabs] [role="tab"]');
   assert.equal(await tabs.count(),4);

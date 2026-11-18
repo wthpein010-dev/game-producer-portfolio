@@ -17,7 +17,7 @@ test('confirmed May departure and entry dates remain consistent across resume ro
   assert.doesNotMatch(html,/2026[.-]07[.-](?:23|27)/u);
   assert.match(html,file.includes('hero-games')||file.includes('crisis-dawn')?/2026\.05\.15/u:/2026\.05\.18/u);
  }
- assert.match(await read('index.html'),/游戏制作人 · 2026\.05\.18 起/u);
+ assert.match(await read('index.html'),/<article class="company-entry" id="company-jianyou"[^>]*><div class="timeline-date"><time datetime="2026-05-18">2026\.05\.18—至今/u);
 });
 
 test('corrected Muyou tenure removes Quwan and retains two separately sourced projects',async()=>{

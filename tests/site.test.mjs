@@ -821,24 +821,48 @@ test('home prioritizes three confirmed career cases before the full timeline', a
   const cards=nodes(section,n=>n.tag==='article');
   assert.deepEqual(cards.map(c=>one(c,n=>n.tag==='h3','Case heading').children.join('')),['成语小秀才','Wordvillas','中国式相亲']);
   assert.ok(home.html.indexOf('id="career-cases"')<home.html.indexOf('id="experience"'));
-  assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/开发测试.*上线/u);
+  assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/分支剧情.*上线/u);
   assert.match(textOf(section),/系统框架.*剧情大纲/u);
   for(const card of cards){one(card,n=>n.tag==='img','Real project evidence');one(card,n=>n.tag==='a'&&/^projects\/[\w-]+\/$/u.test(n.attrs.href),'Project entry');}
 });
 
-test('featured career covers use landscape publicity assets, not design diagrams', async()=>{
+test('home publishes three landscape covers and seven linked gallery images', async()=>{
   const {home}=await site();
-  const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
-  const images=nodes(section,n=>n.tag==='img');
-  assert.equal(images.length,3);
+  const featured=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
+  const gallery=one(home.document,n=>n.attrs.id==='project-gallery','More projects');
+  const images=nodes(featured,n=>n.tag==='img');
+  assert.deepEqual(images.map(originalSource),[
+    'assets/project-design/idiom-scholar/promotional-cover.png',
+    'assets/project-design/home-showcase/wordvillas.webp',
+    'assets/project-design/home-showcase/matchmaking.webp'
+  ]);
+  const galleryLinks=nodes(gallery,n=>n.tag==='a');
+  assert.deepEqual(galleryLinks.map(n=>n.attrs.href),[
+    'projects/sheep-match/','projects/my-town/','projects/zuoyaoji-x/','projects/vanity-fair/',
+    '#indie-magicar','#indie-exorcism','projects/crisis-dawn/'
+  ]);
+  assert.equal(nodes(gallery,n=>n.tag==='p'||n.tag==='article').length,0);
+  for(const link of galleryLinks){
+    assert.ok(link.attrs['aria-label']);
+    images.push(one(link,n=>n.tag==='img','Project gallery image'));
+  }
   for(const img of images){
-    assert.match(originalSource(img),/\/promotional-cover\.(png|jpg)$/u);
     assert.ok(Number(img.attrs.width)>Number(img.attrs.height));
-    assert.match(img.attrs.alt,/推广图|宣传/u);
+    assert.ok(img.attrs.alt);
     assert.ok((await stat(join(root,originalSource(img)))).size>10000);
   }
-  const css=await readFile(join(root,'assets/site.css'),'utf8');
-  assert.match(css,/\.career-case-image\s*\{[^}]*aspect-ratio:\s*460\s*\/\s*215/u);
+  assert.match(one(gallery,n=>n.attrs.src?.endsWith('/my-town.webp'),'Reviewed Town showcase').attrs.alt,/界面效果/u);
+});
+
+test('home skill tree is keyboard reachable and keeps TapTap within the portfolio', async()=>{
+  const {home}=await site();
+  const tree=one(home.document,n=>n.attrs.id==='producer-skills','Producer skill tree');
+  assert.deepEqual(nodes(tree,n=>n.tag==='h3').map(textOf),['策划设计','玩家体验','研发交付']);
+  assert.equal(nodes(tree,n=>n.tag==='a').length,6);
+  const intro=one(home.document,n=>hasClass(n,'home-intro'),'Homepage intro');
+  const header=one(home.document,n=>hasClass(n,'site-header'),'Homepage header');
+  for(const block of [intro,header])assert.equal(nodes(block,n=>n.attrs.href?.endsWith('#taptap-games')).length,0);
+  assert.equal(nodes(home.document,n=>n.attrs.id==='taptap-games').length,1);
 });
 
 test('visual reading enhancement loads on every page and retains no-script evidence', async()=>{
@@ -847,8 +871,6 @@ test('visual reading enhancement loads on every page and retains no-script evide
     const script=one(p.document,n=>n.tag==='script'&&new URL(n.attrs.src,'https://site.invalid/').pathname.endsWith('/reading.js'),'Reading interactions');
     assert.ok('defer' in script.attrs);
   }
-  const section=one(home.document,n=>n.attrs.id==='career-cases','Career cases');
-  assert.equal(nodes(section,n=>hasClass(n,'case-keywords')).length,3);
   const js=await readFile(join(root,'assets/reading.js'),'utf8');
   for(const token of ['prefers-reduced-motion','hashchange','ArrowRight','showModal','IntersectionObserver'])assert.ok(js.includes(token));
   assert.doesNotMatch(js,/setInterval\s*\(/u);

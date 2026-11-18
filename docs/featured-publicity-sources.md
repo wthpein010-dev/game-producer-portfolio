@@ -18,3 +18,19 @@
 
 - 《舌尖上的魔术师》：Steam appdetails `2904420` 返回 `header_image`，资源 `assets/project-design/indie/magicar-publicity.jpg`，SHA256 `35EFCA94B966E56921E8EACAF500E1791DBA316E46BB91C193A00E033D1310CE`。
 - 《除灵事务所》：Steam appdetails `3408380` 返回 `header_image`，资源 `assets/project-design/indie/exorcism-publicity.jpg`，SHA256 `1FDC395E3E2C53BA735D439212B91A5226B223A80315DDE42F8C7A542D787EE8`。
+
+## 首页展示图更新
+
+2026-11-18。成语小秀才沿用原推广图。其余首页展示图为 960×540 WebP，仅使用核对过的公开素材及用户确认发布的界面选段。《我的小镇》对应设计案例，三张原图没有纳入发布资源。
+
+| 项目 | 来源 | 发布资源 | SHA256 |
+| --- | --- | --- | --- |
+| Wordvillas | [App Store](https://apps.apple.com/us/app/word-villas-crossword-design/id1466588301) 的改造与填词界面，横版组合 | assets/project-design/home-showcase/wordvillas.webp | d1c1ccd6aab394e845ce942e325237d8bfd6b48a15e3617a526407227f6ac325 |
+| 中国式相亲 | [Steam 商店](https://store.steampowered.com/app/2103130/) 的会所经营截图 | assets/project-design/home-showcase/matchmaking.webp | 6a43b2e66883afb621bc759a900e5d45c4525d7e1a0ddfd2a782d55ca67f6a5b |
+| 羊了个羊：对对碰 | 用户确认的正式版入槽配对截图，本站横版组合 | assets/project-design/home-showcase/sheep-match.webp | 2ba95a3cb46973e7c8d0be3e828224143d3165815b77815e5cc1c1901de9a841 |
+| 我的小镇 | 用户提供的街景、顾客选择与引导界面效果图，裁去界面数值与奖励栏后横版组合 | assets/project-design/home-showcase/my-town.webp | 4d58b541ea597665bed73364b91f6a1ce2af22a37a4fbdb19ba5fbdb31779a8a |
+| 作妖计 | [官方 TapTap 游戏页](https://www.taptap.cn/app/6515) 的手游宣传图，作为产品展示 | assets/project-design/home-showcase/zuoyao.webp | bd932af6d6bddcfe1643fe888d632832e12a427df1dae78481d75f11963f8906 |
+| 名利游戏 | [Steam 商店](https://store.steampowered.com/app/2758000/) 的公开剧情选项截图 | assets/project-design/home-showcase/vanity.webp | ec95a360eee53737f5fab6f509db371af74b7b95f82f7967e0c4af137d175422 |
+| 舌尖上的魔术师 | [Steam 商店](https://store.steampowered.com/app/2904420/) 的公开战斗截图 | assets/project-design/home-showcase/magicar.webp | 6120b6d780f614914297336da190f6891ef6c5c7a12816f20db870f07b267504 |
+| 除灵事务所 | [Steam 商店](https://store.steampowered.com/app/3408380/) 的公开图鉴与养成截图 | assets/project-design/home-showcase/exorcism.webp | 163d9b8f2f362cc58b881277b8bd08ed718f969f8fd1344e5aca67de41fa42ee |
+| 危机曙光 | [Steam 商店](https://store.steampowered.com/app/2512880/) 的公开建造截图 | assets/project-design/home-showcase/crisis.webp | b6e1ff20166052c2f14f647c14f21ad2752b83479d4d9da855cd72c00ef61031 |
