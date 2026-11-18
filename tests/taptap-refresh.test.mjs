@@ -4,27 +4,32 @@ import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
 
-test('Cozy Pieces links its Android 0.60.0 captures separately from the TapTap release', async () => {
+test('拼拼不烧心 uses only its Chinese Android 0.60.0 captures', async () => {
  const home=await readFile(new URL('../index.html',import.meta.url),'utf8');
  const detail=await readFile(new URL('../projects/taptap-jigmeme/index.html',import.meta.url),'utf8');
  assert.equal((home.match(/id="work-jigmeme"/gu)||[]).length,1);
  assert.match(home,/href="projects\/taptap-jigmeme\/#android-preview"/u);
- const gallery=detail.match(/<section[^>]+id="android-preview"[\s\S]*?<\/section>/u)?.[0]||'';
+ const card=home.match(/<article[^>]+id="work-jigmeme"[\s\S]*?<\/article>/u)?.[0]||'';
+ const gallery=detail.match(/<section[^>]+id="screenshots"[\s\S]*?<\/section>/u)?.[0]||'';
+ assert.match(card,/拼拼不烧心/u);
  assert.match(gallery,/Android 试玩版 0\.60\.0/u);
- assert.ok(detail.indexOf('id="android-preview"')<detail.indexOf('id="screenshots"'));
- assert.match(detail,/TapTap 制造版 1\.0\.4/u);
+ assert.match(gallery,/id="android-preview"/u);
+ assert.doesNotMatch(card+detail,/Cozy Pieces|jigmeme\/[^/"\s]+\.jpg|TapTap 制造版 1\.0\.4/u);
  const game=taptapGames.find(entry=>entry.slug==='jigmeme');
  const manifest=JSON.parse(await readFile(new URL('../assets/taptap/jigmeme/android-060/media.json',import.meta.url),'utf8'));
  assert.equal(manifest.version,'0.60.0');
  assert.equal(manifest.versionCode,64);
- assert.deepEqual(manifest.shots,game.developmentPreview.shots);
+ assert.equal(manifest.locale,'zh-CN');
+ assert.deepEqual(manifest.shots,game.shots);
  assert.equal(manifest.shots.length,8);
+ assert.ok(card.includes(manifest.shots[0].src));
+ assert.equal([...detail.matchAll(/<img[^>]+src="\.\.\/\.\.\/assets\/taptap\/jigmeme\//gu)].length,8);
  for(const shot of manifest.shots){
   const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
   assert.equal(bytes.toString('ascii',8,12),'WEBP');
   assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256,shot.src);
-  assert.ok(gallery.includes(`src="../../${shot.src}" width="${shot.width}" height="${shot.height}"`),shot.src);
-  assert.ok(gallery.includes(`href="../../${shot.src}"`),shot.src);
+  assert.ok(detail.includes(`src="../../${shot.src}" width="${shot.width}" height="${shot.height}"`),shot.src);
+  assert.ok(detail.includes(`href="../../${shot.src}"`),shot.src);
  }
 });
 test('TapTap catalog matches verified studio entries and current project names',async()=>{
@@ -39,6 +44,7 @@ test('TapTap catalog matches verified studio entries and current project names',
    'fengshen-duel': /0\.36.*竖屏运行画面/u,
    'daynight-fate': /TapTap Maker.*运行采集/u,
    'food-car': /竖屏开发版.*Windows 引擎采集/u,
+   'jigmeme': /简体中文.*模拟器/u,
   }[game.slug] ?? /TapTap.*展示图/u;
   assert.match(game.captureNote,capturePattern);
   const html=await readFile(new URL(`../projects/taptap-${game.slug}/index.html`,import.meta.url),'utf8');
@@ -63,8 +69,8 @@ test('Fengshen Duel publishes the 0.36 release gallery and real gameplay clip on
 });
 test('refreshed TapTap images retain original bytes and public provenance',async()=>{
  const provenance=JSON.parse(await readFile(new URL('../src/taptap-public-refresh.json',import.meta.url),'utf8'));
- // Daynight Fate uses engine captures, checked against its own media records.
- const published = taptapGames.filter(game=>game.tapUrl&&game.slug!=='daynight-fate');
+ // Engine captures are checked against their own media records.
+ const published = taptapGames.filter(game=>game.tapUrl&&game.slug!=='daynight-fate'&&!game.previewVersion);
  assert.equal(provenance.length,published.length);
  assert.equal(new Set(provenance.map(entry=>entry.appUrl)).size,published.length);
  for(const entry of provenance){

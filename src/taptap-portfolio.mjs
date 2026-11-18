@@ -47,7 +47,7 @@ function card(game) {
     <header class="taptap-card-heading"${legacyAnchor?` id="${legacyAnchor}"`:''}><p class="eyebrow">${e(game.genre)}</p><h4><a href="projects/taptap-${e(game.slug)}/">${e(game.title)}</a></h4></header>
     <figure class="taptap-cover"><a href="${e(cover.src)}" aria-label="放大${e(game.title)}：${e(cover.label)}">${image(cover)}</a><figcaption>${e(cover.label)}</figcaption></figure>
     <div class="taptap-card-copy"><p>${e(game.summary)}</p>${tags(game)}<p class="taptap-card-state">${e(game.shortStatus)}</p></div>
-    <footer class="taptap-actions"><a class="text-link" href="projects/taptap-${e(game.slug)}/">玩法与设计详情 <span aria-hidden="true">→</span></a>${game.developmentPreview ? `<a class="text-link" href="projects/taptap-${e(game.slug)}/#android-preview">Android 试玩界面 <span aria-hidden="true">→</span></a>` : ''}${tapLink(game, 'TapTap 游戏页', 'text-link')}</footer>
+    <footer class="taptap-actions"><a class="text-link" href="projects/taptap-${e(game.slug)}/">玩法与设计详情 <span aria-hidden="true">→</span></a>${game.previewVersion ? `<a class="text-link" href="projects/taptap-${e(game.slug)}/#android-preview">Android 试玩界面 <span aria-hidden="true">→</span></a>` : ''}${tapLink(game, 'TapTap 游戏页', 'text-link')}</footer>
   </article>`;
 }
 
@@ -69,8 +69,6 @@ export function renderTapTapBody(game) {
   const scrollGallery=game.galleryScroll!==false&&remaining.length>1&&new Set(remaining.map(format)).size===1;
   const sections=[['gameplay','玩法循环'],['screenshots','更多画面'],['design','设计取舍'],['practice','我的实践']];
   if (game.artwork?.length) sections.splice(2,0,['production-art','游戏美术']);
-  const preview=game.developmentPreview;
-  if (preview) sections.unshift(['android-preview','Android 试玩界面']);
   if (game.windowsPreview) sections.push(['windows-preview','Windows 开发实录']);
   const videoLabel=game.video?.title?'玩法实录':'战斗录制';
   sections.push(['play',game.video?videoLabel:game.tapUrl?'游戏入口':'体验状态']);
@@ -81,13 +79,9 @@ export function renderTapTapBody(game) {
       ${screenshot(game.shots[0],base,'taptap-hero-shot',true)}
       <div class="taptap-hero-context">${tags(game)}<p class="taptap-hero-status">${e(game.shortStatus)}</p><time class="taptap-updated" datetime="${e(game.updatedAt)}">${game===myLifeGame||game.windowsPreview?'TapTap 展示图收录于':'项目资料更新于'} ${e(game.updatedAt.replaceAll('-','.'))}</time></div>
     </div>
-    <nav class="taptap-section-nav" aria-label="本页内容">${sections.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</nav>${preview ? `
-    <section class="taptap-gallery" id="android-preview" aria-labelledby="android-preview-title">
-      <header><h2 id="android-preview-title">Android 试玩版 ${e(preview.version)}</h2><p>${e(preview.captureNote)}</p></header>
-      <div class="taptap-shot-grid" data-shot-count="${preview.shots.length}">${preview.shots.map(shot=>screenshot(shot,base)).join('')}</div>
-    </section>` : ''}
+    <nav class="taptap-section-nav" aria-label="本页内容">${sections.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</nav>
     <section class="taptap-overview" id="gameplay" aria-labelledby="gameplay-title"><div><p class="eyebrow">GAMEPLAY / 核心体验</p><h2 id="gameplay-title">怎么玩</h2><p>${e(game.gameplay)}</p>${editionLink}</div><ol class="taptap-loop">${game.loop.map(step=>`<li>${e(step)}</li>`).join('')}</ol></section>
-    <section class="taptap-gallery" id="screenshots" aria-labelledby="screenshots-title"><header><p class="eyebrow">TAPTAP GALLERY / 游戏展示图</p><h2 id="screenshots-title">更多游戏画面</h2><p>${e(game.captureNote)}</p><p class="taptap-image-tip">${game.video?'点击任意图片可查看大图。':'点击任意截图可查看原图。'}${scrollGallery?'<span class="gallery-scroll-help"> 多张画面可左右滑动，也可聚焦图库后使用方向键浏览。</span>':''}</p>${game===myLifeGame?'<p><a class="text-link" href="#my-life-pc">查看 Windows 试玩画面 ↓</a></p>':''}</header><div class="taptap-shot-grid${scrollGallery?' taptap-scroll-gallery':''}" data-shot-count="${remaining.length}" ${scrollGallery?'tabindex="0" role="region" aria-label="更多游戏画面"':''}>${remaining.map(shot=>screenshot(shot,base)).join('')}</div></section>
+    <section class="taptap-gallery" id="screenshots" aria-labelledby="screenshots-title"><header${game.previewVersion?' id="android-preview"':''}><p class="eyebrow">${game.previewVersion?'ANDROID / 游戏实跑':'TAPTAP GALLERY / 游戏展示图'}</p><h2 id="screenshots-title">${game.previewVersion?`Android 试玩版 ${e(game.previewVersion)}`:'更多游戏画面'}</h2><p>${e(game.captureNote)}</p><p class="taptap-image-tip">${game.video?'点击任意图片可查看大图。':'点击任意截图可查看原图。'}${scrollGallery?'<span class="gallery-scroll-help"> 多张画面可左右滑动，也可聚焦图库后使用方向键浏览。</span>':''}</p>${game===myLifeGame?'<p><a class="text-link" href="#my-life-pc">查看 Windows 试玩画面 ↓</a></p>':''}</header><div class="taptap-shot-grid${scrollGallery?' taptap-scroll-gallery':''}" data-shot-count="${remaining.length}" ${scrollGallery?'tabindex="0" role="region" aria-label="更多游戏画面"':''}>${remaining.map(shot=>screenshot(shot,base)).join('')}</div></section>
     ${game.artwork?.length ? `<section class="taptap-gallery" id="production-art" aria-labelledby="production-art-title">
       <header><h2 id="production-art-title">游戏美术资产</h2><p>${e(game.artworkNote)}</p></header>
       <div class="taptap-shot-grid" data-shot-count="${game.artwork.length}">${game.artwork.map(shot=>screenshot(shot,base)).join('')}</div>

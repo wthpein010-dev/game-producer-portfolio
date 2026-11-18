@@ -493,8 +493,7 @@ test('TapTap reading starts with named projects, a complete jump index and an ea
     const nav=one(page.document,n=>n.tag==='nav'&&n.attrs['aria-label']==='本页内容','In-page reading navigation');
     const hasWindowsPreview=nodes(page.document,n=>n.attrs.id==='windows-preview').length===1;
     const hasProductionArt=nodes(page.document,n=>n.attrs.id==='production-art').length===1;
-    const hasAndroidPreview=nodes(page.document,n=>n.attrs.id==='android-preview').length===1;
-    assert.equal(nodes(nav,n=>n.tag==='a').length,5+Number(hasWindowsPreview)+Number(hasProductionArt)+Number(hasAndroidPreview));
+    assert.equal(nodes(nav,n=>n.tag==='a').length,5+Number(hasWindowsPreview)+Number(hasProductionArt));
     for(const link of nodes(nav,n=>n.tag==='a'))one(page.document,n=>n.attrs.id===link.attrs.href.slice(1),'Reading section target');
   }
 });
