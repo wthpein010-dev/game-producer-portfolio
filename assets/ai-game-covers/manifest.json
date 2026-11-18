@@ -198,6 +198,18 @@
       ],
       "sha256": "0d62cbff980f97cba27861e2beb3380f63e517c58b49da2d73c50ef644023be3"
     },
+    "zhuyin-jianghu": {
+      "src": "assets/ai-game-covers/zhuyin-jianghu.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "竹林场景、江湖地图和装备界面",
+      "sources": [
+        "assets/zhuyin-jianghu/home.webp",
+        "assets/zhuyin-jianghu/map.webp",
+        "assets/zhuyin-jianghu/bag.webp"
+      ],
+      "sha256": "68e800c8875894e59f02557eb2449424ddd1d3baf11289186a439ecb9731d755"
+    },
     "yujiang-coffee": {
       "src": "assets/yujiang-coffee/pour.webp",
       "width": 1600,

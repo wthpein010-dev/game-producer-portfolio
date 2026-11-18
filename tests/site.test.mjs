@@ -482,7 +482,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
   const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
   const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
   const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
-  assert.equal(cards.length,24);
+  assert.equal(cards.length,25);
   for(const card of cards){
     const children=card.children.filter(child=>typeof child!=='string');
     assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);

@@ -46,7 +46,7 @@ try {
         description:rect('.ai-game-description').top,tags:rect('.ai-game-tags').top,
         status:rect('.ai-game-status').top,actions:rect('.ai-game-actions').top};
     }));
-    assert.equal(rows.length,taptapGames.length+9);
+    assert.equal(rows.length,taptapGames.length+10);
     for(const row of rows){
       assert.ok(Math.abs(row.aspect-16/9)<.02,'Landscape cover must use a 16:9 frame');
       assert.ok(row.heading<row.image&&row.image<row.description&&row.description<row.tags&&row.tags<row.actions);

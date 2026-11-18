@@ -9,7 +9,7 @@ import {sheepNotes,renderSheepNoteDiagram} from '../src/sheep-notes.mjs';
 import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSummary} from '../src/render.mjs';
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
-import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage} from '../src/render.mjs';
+import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage,renderZhuyinPage} from '../src/render.mjs';
 import {renderYujiangCoffeePage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
@@ -48,6 +48,10 @@ export async function build() {
   const tokenGameDir=path.join(siteRoot,'projects','token-game');
   await mkdir(tokenGameDir,{recursive:true});
   await writeFile(path.join(tokenGameDir,'index.html'),renderTokenGamePage());
+  const zhuyinDir=path.join(siteRoot,'projects','zhuyin-jianghu');
+  await mkdir(zhuyinDir,{recursive:true});
+  await writeFile(path.join(zhuyinDir,'index.html'),renderZhuyinPage());
+
   const nanjieDir=path.join(siteRoot,'projects','nanjie-repair-shop');
   await mkdir(nanjieDir,{recursive:true});
   await writeFile(path.join(nanjieDir,'index.html'),renderNanjiePage());

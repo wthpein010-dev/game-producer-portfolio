@@ -1,3 +1,4 @@
+import {renderZhuyinEntry,renderZhuyinBody} from './zhuyin-jianghu.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {decorateImageMarkup} from './responsive-images.mjs';
@@ -57,6 +58,10 @@ export function renderRingHavenPage() {
 export function renderTokenGamePage() {
   return shell({title:'又没Token了！ · 个人作品',description:'用有限 Token 运营一家 AI 工作室。个人游戏策划、经营循环与 Godot 可玩原型。',body:renderTokenGameBody(),base:'../../',page:'document',stylesheet:tokenGameStyles});
 }
+export function renderZhuyinPage() {
+  return shell({title:'竹隐江湖2D · 我的 AI 游戏作品',description:'竖屏武侠 RPG 安卓原型，附实机截图和 AI 协作方法。',body:renderZhuyinBody(),base:'../../',page:'document'});
+}
+
 export function renderNanjiePage() {
   return shell({title:'南街修物志 · 个人作品',description:'竖屏旧物修复与小店经营游戏，附真实修复流程、设计取舍与手机版开发记录。',body:renderNanjieBody(),base:'../../',page:'document'});
 }
@@ -118,6 +123,7 @@ export function renderHome(aiHtml='') {
         ${renderRingHavenEntry()}
         ${renderTokenGameEntry()}
         ${renderNanjieEntry()}
+        ${renderZhuyinEntry()}
         ${renderYujiangCoffeeEntry()}
       </div>
     </section>
