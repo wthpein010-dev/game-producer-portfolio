@@ -1,0 +1,98 @@
+{
+  "version": "0.60.0",
+  "versionCode": 64,
+  "platform": "Android 模拟器",
+  "source": "用户提供的 0.60.0 试玩安装包",
+  "apkSha256": "bbda3f15e7ce8b2604fc0f661a0ccf03c2ff84bc94654ace192751b74fae637c",
+  "captureNote": "画面来自 Android 模拟器实跑。完成首关后回看原图、进入图鉴和第二关。截图保留完整画面与开发版标识。",
+  "shots": [
+    {
+      "src": "assets/taptap/jigmeme/android-060/home.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "新版首页",
+      "caption": "猫咪标识、继续闯关和每日挑战入口集中在首页，底栏可切换外观、任务和图鉴。",
+      "alt": "Cozy Pieces 首页，中央为猫咪标识、第二关按钮及每日挑战入口",
+      "sourceCapture": "09-home-ready.png",
+      "sourceSha256": "4195010b71d58c7876eeb8f6f0065ff875b671186a13ddea476614b831b914e4",
+      "sha256": "7f39e2920a99fa147212c68294d697bf5ab4b6221c5bdd789efbc54a56fed22e"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/tutorial.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "首关拖拽教学",
+      "caption": "首关直接进入棋盘，用手势指示提示玩家观察画面并移动碎片。",
+      "alt": "首关棋盘上的手风琴、蓝莓挞碎片及拖拽手势提示",
+      "sourceCapture": "01-home.png",
+      "sourceSha256": "e15836cc2142d63dfa86d57df24da9b2853d624308854d8e64dc29ac374b125d",
+      "sha256": "08501b37b66c55b8fc6e6f33a9356b091d8fd0e2c0cc1a3c766ffb360d980a48"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/board.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "第二关与分列补牌",
+      "caption": "拼图占据屏幕主要区域，待补牌数量、步数、计时和道具集中在顶部。",
+      "alt": "第二关的面包、花朵与小船拼图，顶部两列待补牌",
+      "sourceCapture": "19-level-two.png",
+      "sourceSha256": "8080c50b304764154c8fe857bcb61fd00bf371de4894a427840b999fdd86e073",
+      "sha256": "62b5cb16bf3516fa7c91ce0cf8f0afbdfb11c0739f56a822398f95361a665dd7"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/after-deal.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "补牌后的棋盘",
+      "caption": "首关两幅作品拼合消除后，剩余三张背牌补入棋盘，棋盘向上展开。",
+      "alt": "首关待补牌落完后展开的棋盘与橘猫碎片",
+      "sourceCapture": "05-stock-drop.png",
+      "sourceSha256": "4f970a96c6109377788d75368f96e8845062da3e5aeed166cd3c45652e129a3e",
+      "sha256": "445b96b21a0efd1b451e120cb6de2601faa9f6b684dfe552a951e1499c21e994"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/result.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "通关结算",
+      "caption": "首关实测完成，结算集中显示用时、步数、连击与本关三幅作品。",
+      "alt": "猫咪庆祝画面及首关用时、步数、连击和三幅作品",
+      "sourceCapture": "06-level-result.png",
+      "sourceSha256": "9695f46980a0a169eb6cd71617706788a24479b5e266b4e951d9061af177e8b4",
+      "sha256": "9fea09f9033d90955f5f3905ec72ea129b3a1543ecc3903ede65c35ac17cb008"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/artwork.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "结算回看原图",
+      "caption": "从结算缩略图打开完整插画，可在本关拼成的作品间翻看。",
+      "alt": "结算原图窗口中的篮中橘猫和作品翻页按钮",
+      "sourceCapture": "07-completed-art.png",
+      "sourceSha256": "0cbbc88cdae1081c05c6584199a18e3fac07e6056dfecc6ef491b14c41994b69",
+      "sha256": "dbe97bc244bc8fdd9fbaf408d84e46e380c57c303a14b739014dabc0051b5720"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/album.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "作品图鉴",
+      "caption": "图鉴按主题展示收藏进度，并提供只看已收藏的筛选。",
+      "alt": "图鉴作品页，显示已收集的手风琴、主题筛选和收藏计数",
+      "sourceCapture": "13-album.png",
+      "sourceSha256": "7a2713420e596c6244c18cf00f075e939b946e0a03e26b8171c2b89c327ae727",
+      "sha256": "41135f81b3c8ac3d5adf91aa04285e48fee69f3e2f40cd350eec05b432a79688"
+    },
+    {
+      "src": "assets/taptap/jigmeme/android-060/hidden-finds.webp",
+      "width": 1080,
+      "height": 1920,
+      "label": "隐藏收藏",
+      "caption": "隐藏物独立展示发现进度，未到达的关卡会显示锁定状态。",
+      "alt": "隐藏收藏页，列出待解锁关卡及隐藏物收藏进度",
+      "sourceCapture": "15-hidden-finds.png",
+      "sourceSha256": "f0e50b069f2439c196d87e34d7a937be0c7a4fa2b6118d4a4cee40961f6c420b",
+      "sha256": "b93d5f24bd8443e080957b134d8138a80fc12a6896e2992a13934c22ad0391a6"
+    }
+  ]
+}

@@ -3,6 +3,30 @@ import assert from 'node:assert/strict';
 import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
+
+test('Cozy Pieces links its Android 0.60.0 captures separately from the TapTap release', async () => {
+ const home=await readFile(new URL('../index.html',import.meta.url),'utf8');
+ const detail=await readFile(new URL('../projects/taptap-jigmeme/index.html',import.meta.url),'utf8');
+ assert.equal((home.match(/id="work-jigmeme"/gu)||[]).length,1);
+ assert.match(home,/href="projects\/taptap-jigmeme\/#android-preview"/u);
+ const gallery=detail.match(/<section[^>]+id="android-preview"[\s\S]*?<\/section>/u)?.[0]||'';
+ assert.match(gallery,/Android 试玩版 0\.60\.0/u);
+ assert.ok(detail.indexOf('id="android-preview"')<detail.indexOf('id="screenshots"'));
+ assert.match(detail,/TapTap 制造版 1\.0\.4/u);
+ const game=taptapGames.find(entry=>entry.slug==='jigmeme');
+ const manifest=JSON.parse(await readFile(new URL('../assets/taptap/jigmeme/android-060/media.json',import.meta.url),'utf8'));
+ assert.equal(manifest.version,'0.60.0');
+ assert.equal(manifest.versionCode,64);
+ assert.deepEqual(manifest.shots,game.developmentPreview.shots);
+ assert.equal(manifest.shots.length,8);
+ for(const shot of manifest.shots){
+  const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
+  assert.equal(bytes.toString('ascii',8,12),'WEBP');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256,shot.src);
+  assert.ok(gallery.includes(`src="../../${shot.src}" width="${shot.width}" height="${shot.height}"`),shot.src);
+  assert.ok(gallery.includes(`href="../../${shot.src}"`),shot.src);
+ }
+});
 test('TapTap catalog matches verified studio entries and current project names',async()=>{
  const published = taptapGames.filter(game=>game.tapUrl);
  assert.equal(published.length,13);

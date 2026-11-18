@@ -1,5 +1,6 @@
 import {daynightFate} from './daynight-fate.mjs';
 import {wangwangStack} from './wangwang-stack.mjs';
+import jigmemePreview from '../assets/taptap/jigmeme/android-060/media.json' with {type:'json'};
 
 // Public games and Maker case studies, with media provenance retained separately.
 export const taptapGames = [
@@ -9,8 +10,8 @@ export const taptapGames = [
     "title": "拼拼不烧心",
     "genre": "竖屏休闲 / 拼图益智",
     "tags": ["点选交换", "整图消除与补片", "作品图鉴"],
-    "summary": "点选两片交换位置，也能拖动已拼合的小组。每拼好一幅画，碎片就退场并补入新片，玩家在 70 个关卡中逐步收集 40 幅作品。",
-    "gameplay": "根据画面接缝寻找相邻碎片，点选交换或拖动已拼合的小组。完整图片消除后，待补碎片分批进入棋盘。拼出本关全部作品即可结算，首次通关获得 20 金币，可用于补充提示和磁铁。主线和六个主题馆串起关卡，完成的作品可在图鉴中重看。",
+    "summary": "在同一块棋盘上拼合几幅生活插画。拼好的作品退场，待补碎片分批落下，完整插画可以收进图鉴。Android 试玩版展示了新版界面、结算和隐藏收藏。",
+    "gameplay": "根据画面接缝寻找相邻碎片，移动碎片或已经拼合的小组。完整图片消除后，待补碎片分批进入棋盘。拼出本关全部作品即可结算，完成的作品可在图鉴中重看。TapTap 版包含 70 关和 40 幅作品，首次通关奖励可用于补充道具。",
     "loop": [
       "观察接缝，点选两片交换",
       "拖动拼合小组，完成一幅画",
@@ -28,7 +29,8 @@ export const taptapGames = [
     "tapLabel": "TapTap 试玩入口",
     "updatedAt": "2026-11-18",
     "shortStatus": "TapTap 制造 · 已上线",
-    "status": "TapTap 制造版 1.0.4 已上线，默认竖屏和简体中文。2026 年 10 月 31 日更新五张中文商店截图，2026 年 11 月 18 日复核公开入口。",
+    "status": "TapTap 制造版 1.0.4 已上线，默认竖屏和简体中文。Android 试玩版 0.60.0 的界面见本页试玩截图。",
+    "developmentPreview": jigmemePreview,
     "captureNote": "以下五张为 TapTap 公开展示图，来自 1.0.4 的 Windows 原生 Maker 验证。个人资料展示的是游戏预设昵称与动物头像。",
     "linkNote": "前往 TapTap 查看当前发行版本、商店实机视频与试玩入口。",
     "shots": [
