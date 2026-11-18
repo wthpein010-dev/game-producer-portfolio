@@ -63,7 +63,7 @@
 | --- | --- | --- |
 | after-hours-stall | 2 | 萤灯夜市原生验收的 main-final / hint-final，2026-10-15 本地新版 |
 | coin-forge | 2 | 2026-10-15 current-preview 游戏区；2026-10-13 screenshot-level 早期配对玩法 |
-| food-car | 4 | 2026-10-15 竖屏引擎实录导出的订单餐桌、成长、菜谱、旅行；原 688×1224 帧已由项目导出为 720×1280 |
+| food-car | 7 张图、1 段视频 | 2026-11-18 精选横版宣传插画、4 张 15c288b 的 Windows 引擎截图、2 张游戏美术资产与约 30 秒真实操作。竖屏运行画面由 688×1224 导出为 720×1280。尺寸、来源与哈希见 `assets/taptap/food-car/media.json`。 |
 | icecream-master | 3 | 2026-10-12 making / handoff 基础玩法；2026-10-14 customer-animation-preview 实际等待界面游戏区 |
 | tiankeng | 4 | 2026-10-15 Android 模拟器首页、技能和装备；2026-10-14 探索地图，保留测试标记 |
 | lunar-freight | 2 | 2026-10-13 场景资源版驾驶与人物章节对话，早于新导航 UI |

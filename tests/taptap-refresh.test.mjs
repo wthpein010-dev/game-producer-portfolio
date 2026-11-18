@@ -14,6 +14,7 @@ test('TapTap catalog matches verified studio entries and current project names',
   const capturePattern = {
    'fengshen-duel': /0\.36.*竖屏运行画面/u,
    'daynight-fate': /TapTap Maker.*运行采集/u,
+   'food-car': /竖屏开发版.*Windows 引擎采集/u,
   }[game.slug] ?? /TapTap.*展示图/u;
   assert.match(game.captureNote,capturePattern);
   const html=await readFile(new URL(`../projects/taptap-${game.slug}/index.html`,import.meta.url),'utf8');
@@ -45,9 +46,10 @@ test('refreshed TapTap images retain original bytes and public provenance',async
  for(const entry of provenance){
   const game=published.find(item=>item.tapUrl===entry.appUrl);
   assert.ok(game,entry.appUrl);
-  assert.equal(entry.verifiedOn,game.slug==='fengshen-duel' ? '2026-10-25' : game.updatedAt);
+  const hasNewGallery=['fengshen-duel','food-car'].includes(game.slug);
+  assert.equal(entry.verifiedOn,hasNewGallery ? '2026-10-25' : game.updatedAt);
   assert.equal(entry.developerUrl,'https://www.taptap.cn/developer/486853');
-  if(game.slug!=='fengshen-duel'){
+  if(!hasNewGallery){
    assert.deepEqual(entry.shots.map(({src,width,height})=>({src,width,height})),
     game.shots.map(({src,width,height})=>({src,width,height})));
   }
@@ -153,4 +155,36 @@ test('Daynight Fate publishes reviewed images with accurate dimensions and separ
  assert.match(html,/Windows 0\.41/u);
  assert.match(html,/2026 年 10 月 30 日开放 TapTap 试玩/u);
  assert.match(html,/我用 AI 协助实现这些设计/u);
+});
+
+test('Food Car shows its promotional art, real gameplay and production art on the existing route',async()=>{
+ const game=taptapGames.find(entry=>entry.slug==='food-car');
+ const root=new URL('../',import.meta.url);
+ const home=await readFile(new URL('index.html',root),'utf8');
+ const detail=await readFile(new URL('projects/taptap-food-car/index.html',root),'utf8');
+ const card=home.match(/<article[^>]+id="work-food-car"[\s\S]*?<\/article>/u)?.[0]||'';
+ assert.equal((home.match(/id="work-food-car"/gu)||[]).length,1);
+ assert.match(card,/横版宣传插画/u);
+ assert.match(card,/projects\/taptap-food-car\//u);
+ assert.match(detail,/我用 AI/u);
+ assert.match(detail,/竖屏开发版/u);
+ assert.match(detail,/id="production-art"/u);
+ assert.match(detail,/href="#production-art"/u);
+ assert.doesNotMatch(detail,/file:\/\/|[A-Z]:[\\/]|wxid_/u);
+ const {assets}=JSON.parse(await readFile(new URL('assets/taptap/food-car/media.json',root),'utf8'));
+ assert.deepEqual(assets.map(asset=>asset.kind),[
+  'promotional-art','engine-screenshot','engine-screenshot','engine-screenshot','engine-screenshot',
+  'production-art','production-art','engine-video'
+ ]);
+ const shots=[...game.shots,...game.artwork];
+ assert.deepEqual(assets.map(asset=>asset.src),[...shots.map(shot=>shot.src),game.video.src]);
+ for(const [index,asset] of assets.entries()){
+  const bytes=await readFile(new URL(asset.src,root));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),asset.sha256,asset.src);
+  if(index<shots.length){
+   assert.deepEqual([asset.width,asset.height],[shots[index].width,shots[index].height]);
+   assert.ok(detail.includes(`href="../../${asset.src}"`),asset.src);
+  }
+ }
+ assert.ok(detail.includes(`<source src="../../${game.video.src}" type="video/mp4">`));
 });

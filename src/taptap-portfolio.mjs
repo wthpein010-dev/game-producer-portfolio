@@ -81,6 +81,7 @@ export function renderTapTapBody(game) {
   const remaining=game.shots.slice(1);
   const scrollGallery=game.galleryScroll!==false&&remaining.length>1&&new Set(remaining.map(format)).size===1;
   const sections=[['gameplay','玩法循环'],['screenshots','更多画面'],['design','设计取舍'],['practice','我的实践']];
+  if (game.artwork?.length) sections.splice(2,0,['production-art','游戏美术']);
   if (game.windowsPreview) sections.push(['windows-preview','Windows 开发实录']);
   const videoLabel=game.video?.title?'玩法实录':'战斗录制';
   sections.push(['play',game.video?videoLabel:game.tapUrl?'游戏入口':'体验状态']);
@@ -94,7 +95,10 @@ export function renderTapTapBody(game) {
     <nav class="taptap-section-nav" aria-label="本页内容">${sections.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</nav>
     <section class="taptap-overview" id="gameplay" aria-labelledby="gameplay-title"><div><p class="eyebrow">GAMEPLAY / 核心体验</p><h2 id="gameplay-title">怎么玩</h2><p>${e(game.gameplay)}</p></div><ol class="taptap-loop">${game.loop.map(step=>`<li>${e(step)}</li>`).join('')}</ol></section>
     <section class="taptap-gallery" id="screenshots" aria-labelledby="screenshots-title"><header><p class="eyebrow">TAPTAP GALLERY / 游戏展示图</p><h2 id="screenshots-title">更多游戏画面</h2><p>${e(game.captureNote)}</p><p class="taptap-image-tip">${game.video?'点击任意图片可查看大图。':'点击任意截图可查看原图。'}${scrollGallery?'<span class="gallery-scroll-help"> 多张画面可左右滑动，也可聚焦图库后使用方向键浏览。</span>':''}</p>${game===myLifeGame?'<p><a class="text-link" href="#my-life-pc">查看 Windows 试玩画面 ↓</a></p>':''}</header><div class="taptap-shot-grid${scrollGallery?' taptap-scroll-gallery':''}" data-shot-count="${remaining.length}" ${scrollGallery?'tabindex="0" role="region" aria-label="更多游戏画面"':''}>${remaining.map(shot=>screenshot(shot,base)).join('')}</div></section>
-    ${game===myLifeGame?renderMyLifePcGallery(base)+'\n    ':''}<section class="taptap-design" id="design" aria-labelledby="design-title"><header><p class="eyebrow">DESIGN / 规则与取舍</p><h2 id="design-title">设计与迭代</h2></header><div class="taptap-design-grid">${game.design.map(item=>`<article><h3>${e(item.title)}</h3><p>${e(item.text)}</p></article>`).join('')}</div></section>
+    ${game.artwork?.length ? `<section class="taptap-gallery" id="production-art" aria-labelledby="production-art-title">
+      <header><h2 id="production-art-title">游戏美术资产</h2><p>${e(game.artworkNote)}</p></header>
+      <div class="taptap-shot-grid" data-shot-count="${game.artwork.length}">${game.artwork.map(shot=>screenshot(shot,base)).join('')}</div>
+    </section>\n    ` : ''}${game===myLifeGame?renderMyLifePcGallery(base)+'\n    ':''}<section class="taptap-design" id="design" aria-labelledby="design-title"><header><p class="eyebrow">DESIGN / 规则与取舍</p><h2 id="design-title">设计与迭代</h2></header><div class="taptap-design-grid">${game.design.map(item=>`<article><h3>${e(item.title)}</h3><p>${e(item.text)}</p></article>`).join('')}</div></section>
     <section class="taptap-practice" id="practice" aria-labelledby="practice-title"><div><p class="eyebrow">MY PRACTICE / 项目推进</p><h2 id="practice-title">这款游戏中的实践</h2><p>${e(game.practice)}</p></div><aside class="taptap-version"><h3>当前版本</h3><p>${e(game.status)}</p></aside></section>
     ${game.windowsPreview ? `<section class="taptap-gallery" id="windows-preview" aria-labelledby="windows-preview-title">
       <header><h2 id="windows-preview-title">Windows 3D 开发实录</h2><p>以下画面采自 Windows 试验版 ${e(game.windowsPreview.version)} 的运行验收，展示照护、家装和成长界面。点击可放大查看。</p></header>

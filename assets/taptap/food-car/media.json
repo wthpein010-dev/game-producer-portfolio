@@ -1,0 +1,69 @@
+{
+  "assets": [
+    {
+      "src": "assets/taptap/food-car/campaign-cover.webp",
+      "kind": "promotional-art",
+      "width": 1920,
+      "height": 1080,
+      "source": "2026-10-14 AI 生成与修订的主宣传插画，16:9 标准导出",
+      "sha256": "2786bdf70c4effb469b90838f92f7c20c2ab260f63b3f260cecaa653afa84905"
+    },
+    {
+      "src": "assets/taptap/food-car/order-at-the-table.webp",
+      "kind": "engine-screenshot",
+      "width": 720,
+      "height": 1280,
+      "source": "15c288b Windows 引擎实录 15.000 秒帧，显示第二站真实单品与双料理订单",
+      "sha256": "44e7acd7eb8c192eab0247d5ecf7e3a566207c834d06a1dc82bb62988ae81b1c"
+    },
+    {
+      "src": "assets/taptap/food-car/truck-upgrades.webp",
+      "kind": "engine-screenshot",
+      "width": 720,
+      "height": 1280,
+      "source": "15c288b Windows 引擎运行截图，餐车升级与成就",
+      "sha256": "513acafb38c97642aff20396166c97249a0311c189a376649acc0dd1c96afa40"
+    },
+    {
+      "src": "assets/taptap/food-car/recipe-collection.webp",
+      "kind": "engine-screenshot",
+      "width": 720,
+      "height": 1280,
+      "source": "15c288b Windows 引擎运行截图，菜谱收藏",
+      "sha256": "7b2153ae8e0da67b95f6e9d253b5e961f9409c2868a1c42a58375463462460f3"
+    },
+    {
+      "src": "assets/taptap/food-car/food-truck-route.webp",
+      "kind": "engine-screenshot",
+      "width": 720,
+      "height": 1280,
+      "source": "15c288b Windows 引擎运行截图，旅行站点",
+      "sha256": "9d017915a60791b7f9e51ff631caa9b73836af24951f78f548152200c684fc46"
+    },
+    {
+      "src": "assets/taptap/food-car/guest-portrait.webp",
+      "kind": "production-art",
+      "width": 1254,
+      "height": 1254,
+      "source": "AI 辅助生成的半身透明顾客立绘，在引擎画面中由桌沿遮挡",
+      "sha256": "a9ff22b7b3b94335f2638b879215d9a8382cac5e325c1f4cb806389f0217fd7c"
+    },
+    {
+      "src": "assets/taptap/food-car/illustrated-worktop.webp",
+      "kind": "production-art",
+      "width": 1086,
+      "height": 1448,
+      "source": "2026-10-20 AI 辅助生成的新版木桌面资产，后续开发版使用的背景贴图",
+      "sha256": "c200d0ac28d6a6d75d2cbe6caeb8deeff808aa811d329175af41ac51b0377d45"
+    },
+    {
+      "src": "assets/taptap/food-car/portrait-gameplay.mp4",
+      "kind": "engine-video",
+      "width": 720,
+      "height": 1280,
+      "durationSeconds": 30.033,
+      "source": "15c288b，Windows 引擎操作实录，688×1224 原帧导出为 720×1280",
+      "sha256": "38c84874b5bacacc04995c969d8b161f6ee1d3817b693eca03c9a3e75ef9a5b2"
+    }
+  ]
+}
