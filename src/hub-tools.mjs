@@ -1,15 +1,118 @@
-import {readFileSync} from 'node:fs';
-const snapshot=JSON.parse(readFileSync(new URL('./hub-catalog.json',import.meta.url),'utf8'));
-export const hubProjects=snapshot.projects;
-export const featuredHubIds=snapshot.featured;
-const e=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const featuredCopy={
-  'gamespec-relay':{type:'需求与交付',hook:'从讨论，到可以开工的任务。',brief:'整理群聊与策划文档，核对决定和疑问，拆成六职能任务、验收标准与改动影响。',note:'完整示例可离线体验；模型连接可选。'},
-  planmap:{type:'思考与结构',hook:'说出想法，让结构跟上思路。',brief:'通过对话修改文字、重组内容，在树状、鱼骨和横向结构间切换，自动整理脑图排版。',note:'项目演示展示对话改图与结构切换。'},
-  'codex-multi-thread-workbench':{type:'多任务协作',hook:'多个上下文，同一个工作台。',brief:'并排查看任务与对话，直接输入消息、辨认运行状态，并拖拽调整卡片位置。',note:'网页为安全演示，不读取访问者的 Codex。'},
+import { readFileSync } from 'node:fs';
+import { caseDetails } from './hub-case-details.mjs';
+
+const snapshot = JSON.parse(readFileSync(new URL('./hub-catalog.json', import.meta.url), 'utf8'));
+export const hubProjects = snapshot.projects;
+export const featuredHubIds = snapshot.featured;
+
+export const hubGameEditions = {
+  'icecream-master': 'icecream',
+  'lunar-freight': 'lunar-freight',
 };
-const actions=p=>`<div class="hub-tool-actions"><a href="${e(p.entry)}">打开项目 ↗</a>${p.video?`<a href="${e(p.video)}">演示视频 ↗</a>`:''}${p.downloads.map(d=>`<a href="${e(d.url)}">${e(d.platform==='windows'?'Windows 下载':d.platform==='mac'?'Mac 下载':d.platform+' 下载')} ↗</a>`).join('')}</div>`;
-export function renderHubTools(){
-  const remaining=hubProjects.filter(p=>!featuredHubIds.includes(p.id));
-  return `<section class="hub-tool-collection" id="ai-tools" aria-labelledby="ai-tools-title"><header class="hub-tool-heading"><div><p class="eyebrow">AI &amp; TOOLS / 个人工具实践</p><h3 id="ai-tools-title">AI 工具与交互实践<span class="title-dot">.</span></h3><p>将需求整理、结构表达和多任务协作，做成可以直接体验的工具。</p></div><a class="text-link" href="${e(snapshot.source)}">完整应用集合 ↗</a></header><div class="hub-featured-grid">${featuredHubIds.map(id=>{const p=hubProjects.find(p=>p.id===id),copy=featuredCopy[id],image=p.image;return `<article class="hub-tool-feature" id="hub-${e(id)}"><figure><a href="${e(image.src)}" aria-label="放大${e(p.name)}界面"><img src="${e(image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="${e(image.alt)}"></a><figcaption>公开演示界面 · <a href="${e(image.src)}">查看大图 ↗</a></figcaption></figure><div class="hub-tool-copy"><p class="eyebrow">${e(copy.type)}</p><h4>${e(p.name)}</h4><p class="hub-tool-hook">${e(copy.hook)}</p><p>${e(copy.brief)}</p><p class="record-source">${e(copy.note)}</p>${actions(p)}</div></article>`;}).join('')}</div><details class="hub-more" id="hub-more"><summary><span>查看其余 ${remaining.length} 个应用与小游戏</span><span class="hub-count">共 ${hubProjects.length} 项</span></summary><div class="hub-catalog-list">${remaining.map(p=>`<article class="hub-catalog-item" id="hub-${e(p.id)}"><p class="eyebrow">${e(p.category)}</p><h4>${e(p.name)}</h4><p>${e(p.brief)}</p><p class="hub-ai-use">${e(p.aiUse)}</p>${actions(p)}</article>`).join('')}</div><p class="record-source">目录核对：${e(snapshot.checkedAt.slice(0,10))} · 根据公开 Hub 整理。各项目的演示、下载及适用范围以项目页说明为准；不将全部工具称为在线模型服务。</p></details></section>`;
+
+// The Hub index already has a navigation link. The remaining entries fall
+// outside the portfolio's publication scope for project data and prototypes.
+export const excludedHubIds = [
+  'hub', 'clickflow', 'brick-character-copy-preview', 'trinket-market',
+  'v-curve-tool', 'holiday-gifts', 'announcement-center',
+];
+
+const standaloneProjects = hubProjects.filter(project =>
+  !featuredHubIds.includes(project.id)
+  && !Object.values(hubGameEditions).includes(project.id)
+  && !excludedHubIds.includes(project.id)
+);
+export const hubApps = standaloneProjects.filter(project => project.status !== 'game');
+export const hubGames = standaloneProjects.filter(project => project.status === 'game');
+
+const byId = new Map(hubProjects.map(project => [project.id, project]));
+export function hubEditionForGame(slug) {
+  return byId.get(hubGameEditions[slug]);
+}
+
+const escape = value => String(value ?? '').replace(/[&<>"']/g, char =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])
+);
+
+const featuredCopy = {
+  'gamespec-relay': {
+    category: '需求与交付', caseId: 'case-gamespec',
+    summary: '整理群聊和策划文档，拆成六职能任务、验收标准与改动影响。',
+    note: '完整示例可离线体验，模型连接可选。',
+  },
+  planmap: {
+    category: '思考与结构',
+    summary: '用对话重组脑图，切换树状、鱼骨或横向结构，自动整理节点。',
+    note: '项目演示展示对话改图和结构切换。',
+  },
+  'codex-multi-thread-workbench': {
+    category: '多任务协作', caseId: 'case-workbench',
+    summary: '并排查看任务和对话，直接输入消息、查看状态并调整卡片位置。',
+    note: '网页演示使用示例任务。',
+  },
+};
+
+function renderCase(caseId) {
+  return caseId ? '\n    '+`<details class="hub-case-detail" id="${caseId}">
+    <summary>查看案例拆解</summary>
+    ${caseDetails[caseId]}
+  </details>` : '';
+}
+
+function renderActions(project) {
+  const video = project.video ? `<a href="${escape(project.video)}">演示视频 ↗</a>` : '';
+  const downloads = project.downloads.map(({ platform, url }) => {
+    const label = { windows: 'Windows', mac: 'Mac' }[platform] ?? platform;
+    return `<a href="${escape(url)}">${escape(label)} 下载 ↗</a>`;
+  });
+  return `<div class="hub-tool-actions"><a href="${escape(project.entry)}">打开项目 ↗</a>${video}${downloads.join('')}</div>`;
+}
+
+function renderFeatured(project) {
+  const { image } = project;
+  const { category, summary, note, caseId } = featuredCopy[project.id];
+  return `<article class="hub-tool-feature" id="hub-${escape(project.id)}">
+    <figure>
+      <a href="${escape(image.src)}" aria-label="放大${escape(project.name)}界面"><img src="${escape(image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="${escape(image.alt)}"></a>
+      <figcaption>公开演示界面 · <a href="${escape(image.src)}">查看大图 ↗</a></figcaption>
+    </figure>
+    <div class="hub-tool-copy">
+      <p class="eyebrow">${escape(category)}</p>
+      <h4>${escape(project.name)}</h4>
+      <p>${escape(summary)}</p>
+      <p class="record-source">${escape(note)}</p>
+      ${renderActions(project)}${renderCase(caseId)}
+    </div>
+  </article>`;
+}
+
+function renderCatalogCard(project) {
+  const caseId = project.id === 'lighthouse-rescue' ? 'case-lighthouse' : '';
+  return `<article class="hub-catalog-item" id="hub-${escape(project.id)}">
+    <p class="eyebrow">${escape(project.category)}</p>
+    <h5><a href="${escape(project.entry)}">${escape(project.name)} <span aria-hidden="true">↗</span></a></h5>
+    <p>${escape(project.brief)}</p>${renderCase(caseId)}
+  </article>`;
+}
+
+export function renderHubGames() {
+  return `<section class="hub-catalog" id="hub-games" aria-labelledby="hub-games-title">
+    <h4 id="hub-games-title">网页试玩与游戏原型</h4>
+    <div class="hub-catalog-list">${hubGames.map(renderCatalogCard).join('\n')}</div>
+  </section>`;
+}
+
+export function renderHubTools(personalApp = '') {
+  return `<section class="hub-tool-collection" id="ai-tools" aria-labelledby="ai-tools-title">
+    <header class="hub-tool-heading">
+      <h3 id="ai-tools-title">AI 应用</h3>
+      <a class="text-link" id="hub-hub" href="${escape(snapshot.source)}">完整 Hub ↗</a>
+    </header>
+    <div class="hub-featured-grid">${featuredHubIds.map(id => renderFeatured(byId.get(id))).join('\n')}</div>
+    ${personalApp}
+    <section class="hub-catalog" aria-labelledby="hub-apps-title">
+      <h4 id="hub-apps-title">更多应用</h4>
+      <div class="hub-catalog-list" id="hub-more">${hubApps.map(renderCatalogCard).join('\n')}</div>
+    </section>
+  </section>`;
 }

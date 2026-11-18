@@ -14,7 +14,7 @@ function figure(key,e,base='../../') {
 }
 
 export function renderAiPocketEntry(e=escaped) {
-  return `<section class="ai-pocket-entry wrap section" id="ai-pocket" aria-labelledby="ai-pocket-title"><div class="section-head"><div><p class="eyebrow">AI PRACTICE / 工具运用与场景实践</p><h2 id="ai-pocket-title">AI 随身舱<span class="title-dot">.</span></h2></div><p>Windows 桌面工具</p></div><div class="ai-pocket-entry-grid"><div><p class="ai-pocket-thesis">围绕实际任务，<br>选择并组合 AI 工具。</p><p>将 AI 工具运用到资料整理、内容构思与视频制作：先明确目标，再选择工具、准备输入、检查产物，并把操作方法整理成新手可复用的步骤。</p><ul class="collaboration-tags"><li>场景拆解</li><li>工具选择与组合</li><li>产物检查</li></ul><p class="record-source">我负责应用场景、工具使用路径与效果判断；通过 Codex 辅助实现和验证，将零散工具整理为面向实际问题的工作流。</p><a class="text-link" href="projects/ai-pocket/">查看 AI 工具应用与真实成果 ↗</a></div>${figure('home',e,'')}</div></section>`;
+  return `<section class="ai-pocket-entry wrap section" id="ai-pocket" aria-labelledby="ai-pocket-title"><div class="section-head"><div><p class="eyebrow">AI PRACTICE / 工具运用与场景实践</p><h4 id="ai-pocket-title">AI 随身舱<span class="title-dot">.</span></h4></div><p>Windows 桌面工具</p></div><div class="ai-pocket-entry-grid"><div><p class="ai-pocket-thesis">围绕实际任务，<br>选择并组合 AI 工具。</p><p>将 AI 工具运用到资料整理、内容构思与视频制作：先明确目标，再选择工具、准备输入、检查产物，并把操作方法整理成新手可复用的步骤。</p><ul class="collaboration-tags"><li>场景拆解</li><li>工具选择与组合</li><li>产物检查</li></ul><p class="record-source">我负责应用场景、工具使用路径与效果判断；通过 Codex 辅助实现和验证，将零散工具整理为面向实际问题的工作流。</p><a class="text-link" href="projects/ai-pocket/">查看 AI 工具应用与真实成果 ↗</a></div>${figure('home',e,'')}</div></section>`;
 }
 
 export function renderAiPocketBody(e=escaped) {

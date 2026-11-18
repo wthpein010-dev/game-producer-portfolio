@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {decorateImageMarkup} from './responsive-images.mjs';
 import {renderCareerCases,renderProjectGallery,renderProducerSkills} from './home-showcase.mjs';
 const imageManifest=JSON.parse(readFileSync(new URL('../assets/optimized/manifest.json',import.meta.url),'utf8'));
-import {renderMyLifeShowcase,renderTapTapBody,renderTapTapCollection} from './taptap-portfolio.mjs';
+import {renderTapTapBody,renderTapTapCollection} from './taptap-portfolio.mjs';
 import {renderZuoyaoDesign,renderZuoyaoCompanyEntry} from './muyou-evidence.mjs';
 import {renderBetaDesign} from './beta-design.mjs';
 import {renderWordExcerpts} from './word-excerpts.mjs';
@@ -16,7 +16,7 @@ import {renderSheepDesign} from './sheep-design.mjs';
 import {renderSheepScreens} from './sheep-visuals.mjs';
 import {renderSheepPlaytest} from './sheep-playtest.mjs';
 import {renderCollaborationEntry,renderCollaborationBody} from './collaboration.mjs';
-import {renderHubTools} from './hub-tools.mjs';
+import {renderHubGames,renderHubTools} from './hub-tools.mjs';
 import {renderAiPocketEntry,renderAiPocketBody} from './ai-pocket.mjs';
 import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
@@ -102,16 +102,24 @@ function renderHomeIntro() {
       <nav class="intro-reading-links" aria-label="作品直达">
         <a class="button primary" href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a>
         <a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a>
-        <a href="#ai-tools">AI 工具 <span aria-hidden="true">↓</span></a>
+        <a href="#ai-tools">AI 应用 <span aria-hidden="true">↓</span></a>
       </nav>
     </div>
     ${renderProducerSkills(e)}
   </section>`;
 }
 export function renderHome(aiHtml='') {
-  aiHtml=aiHtml.replace('<!-- TAPTAP_GAMES -->',renderRingHavenEntry(e)+renderTokenGameEntry()+renderMyLifeShowcase()+renderTapTapCollection()+renderNanjieEntry());
-  aiHtml=aiHtml.replace('<!-- YUJIANG_COFFEE -->',renderYujiangCoffeeEntry(e));
-  aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools());
+  const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
+    <h3 id="ai-games-title">AI 游戏</h3>
+    ${renderHubGames()}
+    ${renderRingHavenEntry(e)}
+    ${renderTokenGameEntry()}
+    ${renderNanjieEntry()}
+    ${renderYujiangCoffeeEntry(e)}
+    ${renderTapTapCollection()}
+  </section>`;
+  aiHtml=aiHtml.replace('<!-- AI_GAMES -->',aiGames);
+  aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools(renderAiPocketEntry(e)));
   return shell({title:'职业时间轴与项目实践',description:profile.description,stylesheet:tokenGameStyles,body:`<main id="main">
     ${renderHomeIntro()}
     ${renderCareerCases(e)}
@@ -126,7 +134,7 @@ export function renderHome(aiHtml='') {
       <header class="section-head"><h2 id="skills-title">项目技能</h2></header>
       <div class="skill-tree">${skills.map(s=>`<article class="skill-card"><h3>${e(s.title)}</h3><p>${e(s.text)}</p><details class="skill-evidence"><summary>查看项目依据 <span>${s.links.length} 项</span></summary><ul>${s.links.map(([t,h])=>`<li><a href="${h}">${e(t)} ↗</a></li>`).join('')}</ul></details></article>`).join('')}</div>
     </section>
-    <div class="home-practice wrap">${renderCollaborationEntry()}${renderAiPocketEntry(e)}</div>
+    <div class="home-practice wrap">${renderCollaborationEntry()}</div>
     ${aiHtml}</main>`});
 }
 export function renderTapTapDetail(game) {

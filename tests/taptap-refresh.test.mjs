@@ -62,17 +62,15 @@ test('refreshed TapTap images retain original bytes and public provenance',async
  }
 });
 
-test('My Life has a featured entry inside Personal Projects and reuses its existing case URL',async()=>{
+test('My Life has one card and retains its former home anchor',async()=>{
  const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
- const selected=html.indexOf('id="selected"');
- const indie=html.indexOf('id="indie-games"',selected);
- const myLife=html.indexOf('id="my-life-showcase"',indie);
- const catalog=html.indexOf('id="taptap-games"',myLife);
- assert.ok(selected>=0&&indie>selected&&myLife>indie&&catalog>myLife);
- const entry=html.slice(myLife,catalog);
+ const homeCard=html.indexOf('id="work-my-life"');
+ assert.ok(homeCard>html.indexOf('id="taptap-games"'));
+ const entry=html.slice(homeCard,html.indexOf('</article>',homeCard));
  assert.match(entry,/我的一生/u);
- assert.match(entry,/href="projects\/taptap-my-life\/"[^>]*>查看玩法与设计/u);
- assert.match(entry,/src="assets\/my-life\/title-screen\.webp"/u);
+ assert.match(entry,/href="projects\/taptap-my-life\/"/u);
+ assert.match(entry,/id="my-life-showcase"/u);
+ assert.equal((html.match(/<h4><a href="projects\/taptap-my-life\/"/gu)||[]).length,1);
 });
 
 test('My Life shows documented Windows gameplay separately from TapTap images',async()=>{

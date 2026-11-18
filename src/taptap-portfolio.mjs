@@ -1,5 +1,6 @@
 import {taptapGames} from './taptap-games.mjs';
 import {myLifeCover,myLifePcShots} from './my-life.mjs';
+import {hubEditionForGame} from './hub-tools.mjs';
 
 const e = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const format = shot => shot.width >= shot.height ? 'landscape' : 'portrait';
@@ -14,25 +15,6 @@ function screenshot(shot, base, className='', eager=false) {
 }
 
 const myLifeGame = taptapGames.find(game => game.slug === 'my-life');
-
-export function renderMyLifeShowcase() {
-  return `<section class="taptap-collection" id="my-life-showcase" aria-labelledby="my-life-showcase-title">
-    <div class="taptap-hero">
-      <header class="detail-hero">
-        <p class="eyebrow">人生模拟 / 个人 AI 游戏实践</p>
-        <h3 id="my-life-showcase-title">我的一生<span class="title-dot">.</span></h3>
-        <p class="detail-lede">从十八岁出发，用一次次月度决定，写下几代家人的故事。</p>
-        <p>我把升学、就业与家庭经营纳入同一套月度循环，并用 AI 辅助迭代事件选项、家谱和长线存档。</p>
-        <div class="taptap-hero-actions">
-          <a class="button primary" href="projects/taptap-my-life/">查看玩法与设计 <span aria-hidden="true">→</span></a>
-          <a class="text-link" href="${e(myLifeGame.tapUrl)}">TapTap 游戏页 <span aria-hidden="true">↗</span></a>
-        </div>
-      </header>
-      ${screenshot(myLifeCover,'','taptap-hero-shot')}
-      <div class="taptap-hero-context">${tags(myLifeGame)}</div>
-    </div>
-  </section>`;
-}
 
 function renderMyLifePcGallery(base) {
   return `<section class="taptap-gallery" id="my-life-pc" aria-labelledby="my-life-pc-title">
@@ -58,9 +40,12 @@ function playSection(game, base) {
 }
 
 function card(game) {
-  return `<article class="taptap-card" id="work-${game.slug}" data-shot-format="${format(game.shots[0])}">
-    <header class="taptap-card-heading"><p class="eyebrow">${e(game.genre)}</p><h4><a href="projects/taptap-${e(game.slug)}/">${e(game.title)}</a></h4></header>
-    <figure class="taptap-cover"><a href="${e(game.shots[0].src)}" aria-label="放大${e(game.title)}：${e(game.shots[0].label)}">${image(game.shots[0])}</a><figcaption>${e(game.shots[0].label)}</figcaption></figure>
+  const edition = hubEditionForGame(game.slug);
+  const cover = game === myLifeGame ? myLifeCover : game.shots[0];
+  const legacyAnchor = edition ? `hub-${edition.id}` : game === myLifeGame ? 'my-life-showcase' : '';
+  return `<article class="taptap-card" id="work-${game.slug}" data-shot-format="${format(cover)}">
+    <header class="taptap-card-heading"${legacyAnchor?` id="${legacyAnchor}"`:''}><p class="eyebrow">${e(game.genre)}</p><h4><a href="projects/taptap-${e(game.slug)}/">${e(game.title)}</a></h4></header>
+    <figure class="taptap-cover"><a href="${e(cover.src)}" aria-label="放大${e(game.title)}：${e(cover.label)}">${image(cover)}</a><figcaption>${e(cover.label)}</figcaption></figure>
     <div class="taptap-card-copy"><p>${e(game.summary)}</p>${tags(game)}<p class="taptap-card-state">${e(game.shortStatus)}</p></div>
     <footer class="taptap-actions"><a class="text-link" href="projects/taptap-${e(game.slug)}/">玩法与设计详情 <span aria-hidden="true">→</span></a>${tapLink(game, 'TapTap 游戏页', 'text-link')}</footer>
   </article>`;
@@ -78,6 +63,8 @@ export function renderTapTapCollection() {
 export function renderTapTapBody(game) {
   const base='../../';
   const index=taptapGames.indexOf(game);
+  const edition=hubEditionForGame(game.slug);
+  const editionLink=edition ? `<p><a class="text-link" href="${e(edition.entry)}">${edition.id==='icecream' ? '《吃了个冰》Unity 试玩' : '网页试玩版'} <span aria-hidden="true">↗</span></a></p>` : '';
   const remaining=game.shots.slice(1);
   const scrollGallery=game.galleryScroll!==false&&remaining.length>1&&new Set(remaining.map(format)).size===1;
   const sections=[['gameplay','玩法循环'],['screenshots','更多画面'],['design','设计取舍'],['practice','我的实践']];
@@ -93,7 +80,7 @@ export function renderTapTapBody(game) {
       <div class="taptap-hero-context">${tags(game)}<p class="taptap-hero-status">${e(game.shortStatus)}</p><time class="taptap-updated" datetime="${e(game.updatedAt)}">${game===myLifeGame||game.windowsPreview?'TapTap 展示图收录于':'项目资料更新于'} ${e(game.updatedAt.replaceAll('-','.'))}</time></div>
     </div>
     <nav class="taptap-section-nav" aria-label="本页内容">${sections.map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</nav>
-    <section class="taptap-overview" id="gameplay" aria-labelledby="gameplay-title"><div><p class="eyebrow">GAMEPLAY / 核心体验</p><h2 id="gameplay-title">怎么玩</h2><p>${e(game.gameplay)}</p></div><ol class="taptap-loop">${game.loop.map(step=>`<li>${e(step)}</li>`).join('')}</ol></section>
+    <section class="taptap-overview" id="gameplay" aria-labelledby="gameplay-title"><div><p class="eyebrow">GAMEPLAY / 核心体验</p><h2 id="gameplay-title">怎么玩</h2><p>${e(game.gameplay)}</p>${editionLink}</div><ol class="taptap-loop">${game.loop.map(step=>`<li>${e(step)}</li>`).join('')}</ol></section>
     <section class="taptap-gallery" id="screenshots" aria-labelledby="screenshots-title"><header><p class="eyebrow">TAPTAP GALLERY / 游戏展示图</p><h2 id="screenshots-title">更多游戏画面</h2><p>${e(game.captureNote)}</p><p class="taptap-image-tip">${game.video?'点击任意图片可查看大图。':'点击任意截图可查看原图。'}${scrollGallery?'<span class="gallery-scroll-help"> 多张画面可左右滑动，也可聚焦图库后使用方向键浏览。</span>':''}</p>${game===myLifeGame?'<p><a class="text-link" href="#my-life-pc">查看 Windows 试玩画面 ↓</a></p>':''}</header><div class="taptap-shot-grid${scrollGallery?' taptap-scroll-gallery':''}" data-shot-count="${remaining.length}" ${scrollGallery?'tabindex="0" role="region" aria-label="更多游戏画面"':''}>${remaining.map(shot=>screenshot(shot,base)).join('')}</div></section>
     ${game.artwork?.length ? `<section class="taptap-gallery" id="production-art" aria-labelledby="production-art-title">
       <header><h2 id="production-art-title">游戏美术资产</h2><p>${e(game.artworkNote)}</p></header>

@@ -170,7 +170,7 @@ body[data-page="home"] {
 
 [data-page="home"] .home-practice {
   display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.65fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--home-gap);
 }
@@ -187,12 +187,12 @@ body[data-page="home"] {
   border: 0;
   margin-bottom: 14px;
 }
-[data-page="home"] .home-practice .ai-pocket-entry-grid {
+[data-page="home"] #ai-tools .ai-pocket-entry-grid {
   grid-template-columns: minmax(0, 1fr) minmax(170px, .9fr);
-  align-items: center;
+  align-items: start;
   gap: 18px;
 }
-[data-page="home"] .home-practice .ai-pocket-entry-grid figure { max-width: 420px; }
+[data-page="home"] #ai-tools .ai-pocket-entry-grid figure { max-width: 420px; }
 [data-page="home"] .home-practice :is(.collaboration-thesis, .ai-pocket-thesis) { margin-bottom: 8px; }
 
 [data-page="home"] #selected {
@@ -203,7 +203,7 @@ body[data-page="home"] {
 }
 [data-page="home"] #selected > * { grid-column: 1 / -1; }
 [data-page="home"] #selected > .section-head { margin-bottom: 0; }
-[data-page="home"] #selected > :is(#ring-haven, #token-game, #nanjie-repair-shop, #yujiang-coffee) {
+[data-page="home"] #ai-games > :is(#ring-haven, #token-game, #nanjie-repair-shop, #yujiang-coffee) {
   grid-column: auto;
 }
 [data-page="home"] #selected :is(.indie-intro, .taptap-intro, .hub-tool-heading) h3 {
@@ -211,12 +211,12 @@ body[data-page="home"] {
   line-height: 1.34;
   margin-block: 0 10px;
 }
-[data-page="home"] #selected :is(#ring-haven-title, #token-game-title, #nanjie-title, #yujiang-coffee-title, #my-life-showcase-title, .indie-project h4, .taptap-card h4, .hub-tool-copy h4, .hub-catalog-item h4) {
+[data-page="home"] #selected :is(#ring-haven-title, #token-game-title, #nanjie-title, #yujiang-coffee-title, .indie-project h4, .taptap-card h4, .hub-tool-copy h4, .hub-catalog-item h4) {
   font-size: var(--home-card-title);
   line-height: 1.4;
   margin-block: 0 10px;
 }
-[data-page="home"] #selected :is(#ring-haven, #token-game, #nanjie-repair-shop, #yujiang-coffee, #my-life-showcase) {
+[data-page="home"] #selected :is(#ring-haven, #token-game, #nanjie-repair-shop, #yujiang-coffee) {
   padding: var(--home-card-padding);
   margin: 0;
   border: 1px solid var(--line);
@@ -232,12 +232,12 @@ body[data-page="home"] {
 [data-page="home"] #selected .ring-haven-entry-grid figure { max-width: min(100%, 150px); }
 [data-page="home"] #selected .token-game-entry-grid figure { max-width: min(100%, 360px); }
 [data-page="home"] #selected #yujiang-coffee figure { max-width: min(100%, 400px); }
-[data-page="home"] #selected :is(#my-life-showcase, #nanjie-repair-shop) .taptap-hero {
+[data-page="home"] #selected #nanjie-repair-shop .taptap-hero {
   grid-template-columns: minmax(0, 1fr) minmax(145px, .7fr);
   gap: 8px 18px;
   padding: 0;
 }
-[data-page="home"] #selected :is(#my-life-showcase, #nanjie-repair-shop) .taptap-hero-shot > a { height: 200px; min-height: 0; }
+[data-page="home"] #selected #nanjie-repair-shop .taptap-hero-shot > a { height: 200px; min-height: 0; }
 [data-page="home"] #selected .indie-games { margin-block: 0 10px; }
 [data-page="home"] #selected .indie-project .secondary-copy { padding: var(--home-card-padding); }
 
@@ -287,14 +287,10 @@ body[data-page="home"] {
   [data-page="home"] #main .section-head { align-items: start; }
   [data-page="home"] .chapter-rail ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   [data-page="home"] .chapter-rail a { flex-direction: column; gap: 3px; min-height: 48px; }
-  [data-page="home"] .home-practice .ai-pocket-entry-grid,
+  [data-page="home"] #ai-tools .ai-pocket-entry-grid,
   [data-page="home"] #selected,
   [data-page="home"] #selected .taptap-grid,
   [data-page="home"] #selected .hub-featured-grid { grid-template-columns: minmax(0, 1fr); }
-  [data-page="home"] #selected #my-life-showcase .taptap-hero {
-    grid-template-columns: 1fr;
-    grid-template-areas: "copy" "shot" "context";
-  }
 }
 
 @media print {
@@ -529,4 +525,74 @@ body[data-page="home"] {
   [data-page="home"] .producer-skill-links a::after { display: none; }
   [data-page="home"] .producer-skill-links strong { font-size: .8125rem; }
   [data-page="home"] .producer-skill-links span { font-size: .6875rem; }
+}
+
+[data-page="home"] .personal-work-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+[data-page="home"] .personal-work-nav a {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  color: var(--plum);
+  font-size: .875rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+[data-page="home"] .personal-work-nav a:hover { border-color: var(--plum); }
+[data-page="home"] .ai-game-works {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--home-gap);
+  align-items: start;
+}
+
+[data-page="home"] .ai-game-works > * { grid-column: 1 / -1; }
+[data-page="home"] #ai-games-title { margin: 0; font-size: var(--home-group-title); line-height: 1.34; }
+[data-page="home"] #selected #taptap-games { margin-block: 0; }
+[data-page="home"] #ai-tools .hub-tool-heading { margin-bottom: var(--home-gap); align-items: baseline; }
+[data-page="home"] #ai-tools .hub-tool-heading h3 { margin: 0; }
+[data-page="home"] #ai-tools #ai-pocket {
+  width: 100%;
+  margin: var(--home-gap) 0 24px;
+  padding: var(--home-card-padding);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+[data-page="home"] #main #ai-tools #ai-pocket .section-head { border: 0; padding: 0; margin-bottom: 14px; }
+[data-page="home"] #ai-pocket-title { font-size: var(--home-card-title); line-height: 1.4; }
+[data-page="home"] .hub-catalog > h4 { font-size: var(--home-card-title); line-height: 1.4; margin: 0 0 12px; }
+[data-page="home"] .hub-catalog-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+[data-page="home"] .hub-catalog-item {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+}
+
+[data-page="home"] .hub-catalog-item h5 { margin: 0 0 5px; font-size: 1rem; line-height: 1.45; }
+[data-page="home"] .hub-catalog-item h5 a { color: var(--plum); text-decoration: none; }
+[data-page="home"] .hub-catalog-item h5 a:hover { text-decoration: underline; }
+[data-page="home"] .hub-catalog-item h5 span { color: var(--accent); font-size: .78em; }
+[data-page="home"] .hub-catalog-item > p { margin-bottom: 0; }
+[data-page="home"] .hub-case-detail { border-top: 1px solid var(--line); margin-top: 12px; }
+[data-page="home"] .hub-case-detail > summary { padding-block: 8px 0; }
+[data-page="home"] .hub-case-detail .case-body { padding: 12px 0 0; border: 0; }
+[data-page="home"] .hub-case-detail .case-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+
+@media screen and (max-width: 1000px) {
+  [data-page="home"] .hub-catalog-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 620px) {
+  [data-page="home"] :is(.ai-game-works, .hub-catalog-list) { grid-template-columns: minmax(0, 1fr); }
 }

@@ -1,5 +1,10 @@
     <section class="section wrap" id="selected" aria-labelledby="selected-title">
-      <header class="section-head"><h2 id="selected-title">个人作品</h2><p>独立游戏、TapTap 游戏与 AI 工具。</p></header>
+      <header class="section-head"><h2 id="selected-title">个人作品</h2><p>独立游戏、AI 游戏与 AI 应用。</p></header>
+      <nav class="personal-work-nav" id="cases" aria-label="作品分类">
+        <a href="#indie-games">独立游戏</a>
+        <a href="#ai-games">AI 游戏</a>
+        <a href="#ai-tools">AI 应用</a>
+      </nav>
       <div class="indie-games" id="indie-games" aria-labelledby="indie-games-title">
         <div class="indie-intro"><p class="eyebrow">INDEPENDENT GAMES / 两人合作</p><h3 id="indie-games-title">独立游戏</h3><p>在参与《中国式相亲》期间，我利用闲暇时间与一位程序员合作，以两人团队开发了以下独立游戏。</p></div>
         <div class="project-pair">
@@ -42,12 +47,11 @@
           </article>
         </div>
       </div>
-      <!-- TAPTAP_GAMES -->
-      <!-- YUJIANG_COFFEE -->
+      <!-- AI_GAMES -->
       <!-- HUB_TOOLS -->
     </section>
 
-    <details class="ai-supporting" id="ai-supporting"><summary class="wrap">查看 AI 协作流程与案例拆解</summary>
+    <details class="ai-supporting" id="ai-supporting"><summary class="wrap">查看 AI 协作流程</summary>
     <section class="workflow-section" id="workflow" aria-labelledby="workflow-title"><div class="wrap section">
       <div class="section-head"><div><p class="eyebrow">04 / PERSONAL AGENT PRACTICE</p><h2 id="workflow-title">AI 协作流程<span class="title-dot">.</span></h2></div><p>以游戏需求开工台为例。<br>这里展示已有能力的阅读流程。</p></div>
       <div class="workflow-layout"><div class="workflow-intro"><span class="tag tag-purple">人 × Agent</span><h3>需求拆解与交付</h3><p>Agent 整理材料、拆分任务和检查一致性。人核对范围、确认疑问与验收口径，形成可继续工作的交付包。</p><a class="text-link" href="https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/index.html">在原项目中体验 <span aria-hidden="true">↗</span></a></div>
@@ -60,13 +64,5 @@
         <div id="panel-deliver" class="step-panel" role="tabpanel" aria-labelledby="step-deliver" tabindex="0"><p class="panel-kicker">HANDOFF / 可检查产物</p><h4>交付结果</h4><p>导出 Markdown、JSON、CSV 或 Codex 上下文包；比较前后版本，查看需求改变影响哪些任务和验收项。</p><div class="checkpoint"><span>人工检查点</span><p>确认导出内容与当前版本一致，再交给团队或实现 Agent；公开示例不等于生产效率数据。</p></div><a class="panel-source" href="https://github.com/wthpein010-dev/ai-application-hub/blob/3ad59bf1f24dcd99dcbb660e4a9186a8353cdb06/projects/gamespec-relay/app/core/exporters.js">查看公开导出逻辑 <span aria-hidden="true">↗</span></a></div>
         </div></div>
     </div></section>
-
-    <section class="section wrap" id="cases" aria-labelledby="cases-title"><div class="section-head"><div><p class="eyebrow">05 / CASE FILES</p><h2 id="cases-title">作品说明<span class="title-dot">.</span></h2></div><p>问题、设计取舍、产物与边界。<br>案例依据公开资料，AI 参与方式逐项说明。</p></div>
-      <div class="case-list">
-        <details class="case-file" id="case-gamespec"><summary><span class="case-number">01</span><div><span class="case-type">AGENT / 需求到交付</span><h3>游戏需求开工台</h3><p>如何让讨论变成能开工、能验收的任务？</p></div><span class="case-expand" aria-hidden="true">+</span></summary><div class="case-body"><div class="case-grid"><div><span class="field-label">问题</span><p>讨论散落在群聊与文档，任务、依赖和验收口径需要重新整理。关键上下文遗漏容易造成后续返工。</p></div><div><span class="field-label">设计取舍</span><p>围绕“可交付任务”组织信息，保留原文证据和待确认问题；以本地分析保证示例可离线运行。</p></div><div><span class="field-label">Agent / 人工协作</span><p>分析器整理材料并拆任务，质量检查器识别一致性问题。校对、范围确认和是否交付仍需要人判断。</p></div><div><span class="field-label">产物与边界</span><p>可查看职能任务、验收项、版本影响并导出交付包。离线示例的结果不代表远程模型执行或实际团队效率提升。</p></div></div><div class="evidence-links"><span>查看证据</span><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/index.html">项目与演示 ↗</a><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/gamespec-relay/video/index.html">操作视频 ↗</a><a href="https://github.com/wthpein010-dev/ai-application-hub/tree/3ad59bf1f24dcd99dcbb660e4a9186a8353cdb06/projects/gamespec-relay/app/core">公开核心逻辑 ↗</a></div></div></details>
-        <details class="case-file" id="case-workbench"><summary><span class="case-number">02</span><div><span class="case-type">TOOL / 多任务交互</span><h3>Codex 多线程工作台</h3><p>如何同时看见上下文，又能直接继续对话？</p></div><span class="case-expand" aria-hidden="true">+</span></summary><div class="case-body"><div class="case-grid"><div><span class="field-label">问题</span><p>多个任务并行时，反复进入单个对话查看状态和回复会打断操作节奏。</p></div><div><span class="field-label">设计取舍</span><p>在一级界面并排保留对话、输入和状态，支持整理卡片位置；完整工作台默认打开，悬浮模式为可选功能。</p></div><div><span class="field-label">Agent / 人工协作</span><p>桌面端连接本机 Codex 任务。人查看上下文、决定优先级并补充指令，任务执行状态提供反馈。</p></div><div><span class="field-label">产物与边界</span><p>已有桌面产品介绍与网页交互演示。网页使用示例任务，不读取访问者的 Codex，也不会发送真实任务消息。</p></div></div><div class="evidence-links"><span>查看证据</span><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/index.html">安全演示 ↗</a><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/codex-multi-thread-workbench/video/index.html">操作视频 ↗</a><a href="https://github.com/wthpein010-dev/ai-application-hub/blob/3ad59bf1f24dcd99dcbb660e4a9186a8353cdb06/docs/superpowers/specs/2026-09-02-codex-product-separation.md">公开产品设计 ↗</a></div></div></details>
-        <details class="case-file" id="case-lighthouse"><summary><span class="case-number">03</span><div><span class="case-type">GAME / 合作救援</span><h3>灯塔救援队</h3><p>如何用短局玩法验证观众行动与救援反馈？</p></div><span class="case-expand" aria-hidden="true">+</span></summary><div class="case-body"><div class="case-grid"><div><span class="field-label">问题</span><p>在竖屏场景中，让观众快速理解上船、选路、修理和照明，并看到操作对短局救援的影响。</p></div><div><span class="field-label">设计取舍</span><p>用本地模拟观众事件验证规则，保留免费行动的有效反馈。规则事件与直播接入边界分开处理。</p></div><div><span class="field-label">AI 参与 / 可检查逻辑</span><p>公开资料记录了规则状态机、模拟事件与可恢复客户端的协作构建；消息转换与有界队列的代码可检查。</p></div><div><span class="field-label">产物与边界</span><p>1.4.13 的 Windows / WebGL 仍为本地模拟。SDK 无关的消息转换、队列与主线程处理已接入控制器；官方 LiveOpenSDK、真实直播间与官方 ACK 未完成验证。</p></div></div><div class="evidence-links"><span>查看证据</span><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/index.html">模拟试玩 ↗</a><a href="https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/video/index.html">玩法视频 ↗</a><a href="https://github.com/wthpein010-dev/ai-application-hub/blob/3ad59bf1f24dcd99dcbb660e4a9186a8353cdb06/docs/lighthouse-rescue-live-sdk-readiness.md">接入与验证记录 ↗</a></div></div></details>
-      </div>
-    </section>
 
     </details>

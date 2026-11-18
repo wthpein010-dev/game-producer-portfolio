@@ -17,7 +17,7 @@ test('Yujiang Coffee is listed once under Personal Works, after the two original
   assert.ok(content.indexOf('除灵事务所')<content.indexOf('id="yujiang-coffee"'));
   assert.ok(content.indexOf('id="yujiang-coffee"')<content.indexOf('id="ai-tools"'));
   assert.equal(matches(home,/class="hub-tool-feature"/gu).length,3);
-  assert.match(home,/<details class="hub-more" id="hub-more">/u);
+  assert.match(home,/<div class="hub-catalog-list" id="hub-more">/u);
 });
 
 test('Yujiang Coffee case explains a concrete design loop and offers truthful, accessible media',async()=>{
