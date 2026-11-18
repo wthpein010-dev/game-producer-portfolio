@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 const title = '又没Token了！';
 const media = JSON.parse(readFileSync(new URL('../assets/token-game/media.json', import.meta.url), 'utf8'));
 const illustrations = {
+  'main-menu': ['《又没Token了！》主菜单，重置之神按住按钮，右侧显示开始游戏等入口', 'Windows 原型主菜单。'],
   workbench: ['工作台显示存款、欠款、Token 与三镜头漫剧预览', '工作台把手头的额度、今天能接的工作和预计消耗放在同一屏。'],
   threads: ['工作台同时运行三个制作线程，各自显示剩余时间和已扣额度', '三个线程可以同时开工，正在做什么、还要等多久一眼可见。'],
   revision: ['漫剧返工回执显示已花额度、三格分镜和处理选项', '失败回执保留三格分镜和实际支出，方便判断要不要继续修。'],
@@ -13,7 +14,7 @@ const illustrations = {
 };
 
 function figure(id, base) {
-  const {width, height} = media.images.find(image => image.id === id);
+  const {width, height} = id === media.cover.id ? media.cover : media.images.find(image => image.id === id);
   const [alt, caption] = illustrations[id];
   const src = `${base}assets/token-game/${id}.webp`;
   return `<figure class="token-game-figure"><a href="${src}" aria-label="放大查看${alt}"><img src="${src}" width="${width}" height="${height}" alt="${alt}" loading="lazy" decoding="async"></a><figcaption>${caption} <a href="${src}">查看原图 ↗</a></figcaption></figure>`;
@@ -28,7 +29,7 @@ export function renderTokenGameEntry() {
         <p>我把 AI 制作中常见的超耗与返工做成经营选择。玩家每天接单、分配 Token、判断该修还是该停，晚上才知道赚了多少。</p>
         <a class="text-link" href="projects/token-game/">查看玩法设计与游戏画面 ↗</a>
       </div>
-      ${figure('workbench', '')}
+      ${figure(media.cover.id, '')}
     </div>
   </section>`;
 }
