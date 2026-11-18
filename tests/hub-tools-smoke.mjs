@@ -19,6 +19,17 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-tools',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
+    const appCards=page.locator('#hub-more .hub-catalog-item');
+    const banners=await appCards.locator('img').evaluateAll(async images=>{
+      images.forEach(image=>image.loading='eager');
+      return Promise.all(images.map(async image=>{await image.decode();return [image.naturalWidth,image.naturalHeight];}));
+    });
+    assert.equal(banners.length,hubApps.length);
+    assert.ok(banners.every(([w,h])=>w*9===h*16));
+    const appRows=await appCards.evaluateAll(cards=>cards.map(card=>[card,...[
+      '.hub-app-heading','.hub-app-banner','.hub-app-description','.hub-app-category','.hub-app-links'
+    ].map(selector=>card.querySelector(selector))].map(element=>element.getBoundingClientRect().top)));
+    for(const row of appRows)for(const sibling of appRows.filter(card=>card[0]===row[0]))assert.deepEqual(sibling,row);
     assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
     assert.equal(await page.locator('#ai-pocket').locator('xpath=ancestor::section[@id="ai-tools"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-lunar-freight"]').count(),1);

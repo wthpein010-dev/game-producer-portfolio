@@ -1,0 +1,182 @@
+{
+  "gamepulse-mini-radar": {
+    "src": "assets/hub-app-banners/gamepulse-mini-radar.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "小游戏每日排行 · 小游戏榜单，快速对照",
+    "description": "对照国内外小游戏榜单，查看玩法拆解和行业资料。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/gamepulse-mini-radar/video/index.html",
+    "format": "public-demo",
+    "sha256": "72a63ebc5e2da73a6972b178c51f1cc8b79e664b00bba374d9663f843d4449bc"
+  },
+  "codex-quota-bar": {
+    "src": "assets/hub-app-banners/codex-quota-bar.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "Codex 用量悬浮条 · 桌面额度，一眼看清",
+    "description": "把额度数字和进度条贴在桌宠上方，随时查看剩余额度。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-quota-bar/video/index.html",
+    "format": "public-demo",
+    "sha256": "ca80576ba0bc57be3b82837bafe13052f85c1c26821497751ce89b737ad5bae4"
+  },
+  "codex-thread-workbench": {
+    "src": "assets/hub-app-banners/codex-thread-workbench.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "Codex 待确认悬浮助手 · 待确认任务，集中查看",
+    "description": "收拢需要回复的 Codex 任务，在悬浮面板中查看并回到原任务。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/codex-thread-workbench/video/index.html",
+    "format": "public-demo",
+    "sha256": "dca79077e1fd510540694dfc5efe67a1f59c480a545502b4f72d9446f11e4faf"
+  },
+  "web-media-collector": {
+    "src": "assets/hub-app-banners/web-media-collector.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "网页素材一键收桌面版 · 网页素材，批量收集",
+    "description": "输入公开网页链接，扫描、筛选和预览素材后批量保存。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/01_%E4%BD%9C%E5%93%81%E4%BD%93%E9%AA%8C%E5%85%A5%E5%8F%A3/%E7%BD%91%E9%A1%B5%E7%B4%A0%E6%9D%90%E4%B8%80%E9%94%AE%E6%94%B6%E6%A1%8C%E9%9D%A2%E7%89%88/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+    "format": "public-demo",
+    "sha256": "12c3fc8179e46f256c30e43f6edd19822b938e5f00be00f14b5ea39fd16505b4"
+  },
+  "minigame-project-simulator": {
+    "src": "assets/hub-app-banners/minigame-project-simulator.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "小游戏立项工具 · 游戏点子，写成立项案",
+    "description": "通过快速选项和问卷梳理小游戏概念，生成需求与开发交接材料。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/minigame-project-tool/video/index.html",
+    "format": "public-demo",
+    "sha256": "5c2afa7853ed17b18fed2d559f7756b27024233e324b04b311c24855611dca16"
+  },
+  "ai-game-requirements-workshop": {
+    "src": "assets/hub-app-banners/ai-game-requirements-workshop.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "AI游戏需求工坊 · 把玩法灵感和开发配置整理成可以执行的任务书",
+    "description": "把玩法灵感、平台和开发配置组合成可交给 AI 工具执行的任务书。",
+    "source": "https://gamepop-studio-20260713.polite-chord-7994.chatgpt.site/",
+    "format": "official-promotion",
+    "sha256": "42586df6b35cd9c555827c6c2acac17599b260d435c3403de457e9543e0dffe1"
+  },
+  "planner-daily-quiz": {
+    "src": "assets/hub-app-banners/planner-daily-quiz.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "每日策划知识考核 · 每天十题，答完看解析",
+    "description": "每天抽取十道策划题，提交后查看答案、解析和练习建议。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/planner-daily-quiz/video/index.html",
+    "format": "public-demo",
+    "sha256": "3e588b7208ab2d1e76f822253dbdf968f51bb3f5b77cabe09cfc13842de72bd9"
+  },
+  "travel-generator": {
+    "src": "assets/hub-app-banners/travel-generator.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "朋友圈发图神器 · 旅行照片，九宫格配文",
+    "description": "输入目的地与心情，生成拍照任务、九宫格结构和发图文案。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%8F%91%E5%9B%BE%E7%A5%9E%E5%99%A8/03_%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+    "format": "public-demo",
+    "sha256": "4ef04df01db1b06bd4e7b8f60fb8e0ac7065deaa6ea66a4ad1dd0dd9b503310d"
+  },
+  "feishu-downloader": {
+    "src": "assets/hub-app-banners/feishu-downloader.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "飞书文件批量下载插件 · 文档附件，批量下载（功能示意）",
+    "description": "在飞书页面勾选所需附件，集中保存选中的文件。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E9%A3%9E%E4%B9%A6%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6/index.html",
+    "format": "feature-illustration",
+    "sha256": "3f0f212758b147a004093104216ee7ef3bd1bb8b185e732c20ae10429e744ed2"
+  },
+  "codex-reviewer": {
+    "src": "assets/hub-app-banners/codex-reviewer.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "Codex 对话评分工具 · 导入对话，生成复盘表",
+    "description": "导入 Codex 对话，查看分项评分和改进建议，导出 Excel 复盘表。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/Codex%E5%AF%B9%E8%AF%9D%E8%AF%84%E5%88%86%E5%B7%A5%E5%85%B7/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+    "format": "public-demo",
+    "sha256": "b07cad347c13e8bd2b4e94d229aed48ed92ebbfacb55cd64c18ed1a4830212a8"
+  },
+  "codex-habit-tool": {
+    "src": "assets/hub-app-banners/codex-habit-tool.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "Codex 习惯设置工具 · 常用习惯，一次设置",
+    "description": "集中设置常用模型、语言、快捷键和任务命名。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/videos/codex-habit-tool-demo.html",
+    "format": "public-demo",
+    "sha256": "7eb8e518f9a4e290510e119b36fdd654baa431b897be475055bb17603bb11645"
+  },
+  "wanhuatong": {
+    "src": "assets/hub-app-banners/wanhuatong.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "万话筒 · 同一句话，多种表达",
+    "description": "把同一段话改写为不同语气，也可转换成多语言或古文。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/%E4%B8%87%E8%AF%9D%E7%AD%92/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.html",
+    "format": "public-demo",
+    "sha256": "5a218b6fcad79e421c3bb73e6f387186daa8e13106147b860c93b9366cf3bc1b"
+  },
+  "brick-light-motion-lab": {
+    "src": "assets/hub-app-banners/brick-light-motion-lab.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "砖块点亮动效实验台 · 砖块点亮，对比动效",
+    "description": "并排比较砖块点亮、遮罩显露和回退动效。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/brick-light-motion-lab/video/index.html",
+    "format": "public-demo",
+    "sha256": "ece2f9474ba90516b31f76698a31bff3aba6a5d5e5276f44da8f963ea21becb2"
+  },
+  "pureshrink": {
+    "src": "assets/hub-app-banners/pureshrink.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "无损压缩工坊 · 大批文件，无损压缩",
+    "description": "在本地批量压缩图片、视频和其他文件，并保留原件。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/pureshrink/video/index.html",
+    "format": "public-demo",
+    "sha256": "3525c4598b976bbde9989458b501e9d8a4d8a3a20c2793479768c3c69880f10e"
+  },
+  "simuai": {
+    "src": "assets/hub-app-banners/simuai.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "万象实验室 · 拖动参数，观察曲线",
+    "description": "调整受控实验的参数，用多种图表观察指标和曲线。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/simuai/video/index.html",
+    "format": "public-demo",
+    "sha256": "c627abc5ef315eb49db1bb73af99aa4351605ec627995124428e47d531c6439c"
+  },
+  "x-ai-codex-radar": {
+    "src": "assets/hub-app-banners/x-ai-codex-radar.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "X 情报吧｜AI / Codex 雷达 · AI 资讯，中英对照",
+    "description": "查看 AI 与 Codex 公开动态，在同一视图中对照原帖和中文译文。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/x-ai-codex-radar/video/index.html",
+    "format": "public-demo",
+    "sha256": "5fba5e98f3943be5d657fe86bf531c26255c8c3b2515eb95b2370f0609a2743b"
+  },
+  "loop-bgm-lab": {
+    "src": "assets/hub-app-banners/loop-bgm-lab.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "循环乐工房 · 循环配乐，编排提示词",
+    "description": "分析参考音乐，批量整理循环配乐提示词，并比较候选。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/loop-bgm-lab/video/index.html",
+    "format": "public-demo",
+    "sha256": "6a0e891dcc74be4ae5b6bd757840c535b2cda8d6f5ed66e8f1e71a6cbc438f04"
+  },
+  "game-design-textbook": {
+    "src": "assets/hub-app-banners/game-design-textbook.webp",
+    "width": 1056,
+    "height": 594,
+    "alt": "游戏设计研习册 · 游戏设计，按主题学",
+    "description": "从玩家动机、随机奖励等主题入手，按课程阅读游戏设计知识。",
+    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/video/index.html",
+    "format": "public-demo",
+    "sha256": "e126b908e9bd64d60d4a3cf38d6544addd4d57c6e2f758fffd3b5faf746afc58"
+  }
+}

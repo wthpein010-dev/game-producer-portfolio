@@ -2,6 +2,7 @@ import { renderAiGameCard } from './ai-game-card.mjs';
 import { readFileSync } from 'node:fs';
 import { caseDetails } from './hub-case-details.mjs';
 
+const appBanners = JSON.parse(readFileSync(new URL('../assets/hub-app-banners/manifest.json', import.meta.url), 'utf8'));
 const snapshot = JSON.parse(readFileSync(new URL('./hub-catalog.json', import.meta.url), 'utf8'));
 export const hubProjects = snapshot.projects;
 export const featuredHubIds = snapshot.featured;
@@ -88,11 +89,17 @@ function renderFeatured(project) {
 }
 
 function renderCatalogCard(project) {
-  const caseId = project.id === 'lighthouse-rescue' ? 'case-lighthouse' : '';
+  const banner = appBanners[project.id];
+  if (!banner) throw new Error('Missing homepage app banner for '+project.id);
+  const videoLink = project.video ? `<a class="text-link" href="${escape(project.video)}">演示视频 <span aria-hidden="true">↗</span></a>` : '';
   return `<article class="hub-catalog-item" id="hub-${escape(project.id)}">
-    <p class="eyebrow">${escape(project.category)}</p>
-    <h5><a href="${escape(project.entry)}">${escape(project.name)} <span aria-hidden="true">↗</span></a></h5>
-    <p>${escape(project.brief)}</p>${renderCase(caseId)}
+    <header class="hub-app-heading"><h5>${escape(project.name)}</h5></header>
+    <figure class="hub-app-banner">
+      <a href="${escape(banner.src)}" aria-label="放大${escape(project.name)}的功能图"><img src="${escape(banner.src)}" width="${banner.width}" height="${banner.height}" alt="${escape(banner.alt)}" loading="lazy" decoding="async"></a>
+    </figure>
+    <p class="hub-app-description">${escape(banner.description)}</p>
+    <p class="hub-app-category"><span>${escape(project.category)}</span></p>
+    <footer class="hub-app-links"><a class="text-link" href="${escape(project.entry)}">打开项目 <span aria-hidden="true">↗</span></a>${videoLink}</footer>
   </article>`;
 }
 

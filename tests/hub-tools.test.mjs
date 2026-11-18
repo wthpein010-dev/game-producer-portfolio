@@ -40,3 +40,19 @@ test('Home groups AI works and preserves case and prototype links',async()=>{
   assert.equal((html.match(/id="ai-tools"/gu)||[]).length,1);
   for(const id of ['workflow','case-gamespec','case-workbench','case-lighthouse'])assert.ok(html.includes(`id="${id}"`));
 });
+
+test('Additional apps have reviewed landscape banners with their primary entry links',async()=>{
+  const {hubApps,renderHubTools}=await import('../src/hub-tools.mjs');
+  const banners=JSON.parse(await readFile(new URL('../assets/hub-app-banners/manifest.json',import.meta.url),'utf8'));
+  const page=renderHubTools();
+  assert.deepEqual(Object.keys(banners).sort(),hubApps.map(app=>app.id).sort());
+  for(const app of hubApps){
+    const banner=banners[app.id];
+    assert.equal(banner.width*9,banner.height*16);
+    assert.ok(banner.alt&&banner.description);
+    assert.ok([app.entry,app.video].includes(banner.source));
+    const bytes=await readFile(new URL('../'+banner.src,import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),banner.sha256);
+    assert.ok(page.includes('src="'+banner.src+'"'));
+  }
+});
