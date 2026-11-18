@@ -179,14 +179,14 @@
       "sha256": "e9981a68a82534688e0f7ebd24cd8ed04c886e3a0c25b81065b015f7f6070714"
     },
     "token-game": {
-      "src": "assets/ai-game-covers/token-game.webp",
-      "width": 960,
-      "height": 540,
-      "alt": "工作室接单、Token 预算与制作线程界面",
+      "src": "assets/token-game/main-menu.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "重置之神按住按钮的 Windows 原型主菜单画面",
       "sources": [
-        "assets/token-game/workbench.webp"
+        "assets/token-game/main-menu.webp"
       ],
-      "sha256": "21d3fa9cc8c02c4c41b258ecc16207771f0b672d638b7a2d69349494d5c2df50"
+      "sha256": "b187809bc7a94977c0c7e4cdc368f71ae97f74fad30569ab589e87f666528c62"
     },
     "nanjie-repair-shop": {
       "src": "assets/nanjie-repair-shop/cover.webp",

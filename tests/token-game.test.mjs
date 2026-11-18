@@ -11,6 +11,11 @@ test('Token game links from Personal Projects and returns to the same entry', as
   const section = home.slice(home.indexOf('id="selected"'), home.indexOf('id="ai-tools"'));
   assert.match(section, /id="indie-games"[\s\S]*id="token-game"[\s\S]*id="taptap-games"/u);
   assert.match(section, /href="projects\/token-game\/"/u);
+  const entry = /<article[^>]+id="token-game"[\s\S]*?<\/article>/u.exec(home)?.[0];
+  assert.ok(entry);
+  assert.match(entry, /src="assets\/token-game\/main-menu\.webp" width="1600" height="900"/u);
+  assert.match(entry, /href="assets\/token-game\/main-menu\.webp"/u);
+  assert.match(detail, /src="\.\.\/\.\.\/assets\/token-game\/workbench\.webp"/u);
   assert.match(detail, /href="\.\.\/\.\.\/index\.html#token-game"/u);
   assert.match(detail, /Windows 可玩原型 0\.11\.8 · 画面取自同版本导出包的测试场景/u);
   assert.match(detail, /用 Codex 协助/u);
