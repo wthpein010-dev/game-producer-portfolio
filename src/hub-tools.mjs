@@ -1,3 +1,4 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
 import { readFileSync } from 'node:fs';
 import { caseDetails } from './hub-case-details.mjs';
 
@@ -95,11 +96,22 @@ function renderCatalogCard(project) {
   </article>`;
 }
 
+const gameLabels = {
+  'zhuanglege-sha': { tags: ['行李安检', 'X 光视图', '闯关判断'], status: 'Unity 网页试玩' },
+  'fill-what': { tags: ['成语填字', '诗意来信', '过关结算'], status: 'Unity 小游戏原型' },
+  'xiang-le-ge-xiang': { tags: ['推箱解谜', '地图探索', '两关挑战'], status: '网页试玩原型' },
+  'nang-keng-pai-pai-xiang': { tags: ['火候与温区', '订单顺序', '十关解谜'], status: 'Unity 网页试玩' },
+  'lighthouse-rescue': { tags: ['合作救援', '风暴航行', '修船照明'], status: 'WebGL 本地模拟' },
+};
+
 export function renderHubGames() {
-  return `<section class="hub-catalog" id="hub-games" aria-labelledby="hub-games-title">
-    <h4 id="hub-games-title">网页试玩与游戏原型</h4>
-    <div class="hub-catalog-list">${hubGames.map(renderCatalogCard).join('\n')}</div>
-  </section>`;
+  return hubGames.map(game => renderAiGameCard({
+    id: 'hub-'+game.id, coverKey: game.id, title: game.name, description: game.brief,
+    tags: gameLabels[game.id].tags, status: gameLabels[game.id].status,
+    href: game.entry, detailLabel: '项目与试玩',
+    secondaryLink: {href: game.video, label: '玩法视频'},
+    supplement: game.id === 'lighthouse-rescue' ? renderCase('case-lighthouse') : '',
+  })).join('\n');
 }
 
 export function renderHubTools(personalApp = '') {

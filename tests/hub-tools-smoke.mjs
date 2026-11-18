@@ -19,7 +19,7 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-tools',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
-    assert.equal(await page.locator('#ai-games .hub-catalog-item:visible').count(),hubGames.length);
+    assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
     assert.equal(await page.locator('#ai-pocket').locator('xpath=ancestor::section[@id="ai-tools"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-lunar-freight"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-my-life"]').count(),1);
@@ -48,7 +48,7 @@ try{
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage();
   await page.goto(base+'index.html#ai-tools');
   assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
-  assert.equal(await page.locator('#ai-games .hub-catalog-item:visible').count(),hubGames.length);
+  assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
   const caseDetails=page.locator('#case-gamespec');
   assert.equal(await caseDetails.getAttribute('open'),null);
   await caseDetails.locator('summary').press('Enter');

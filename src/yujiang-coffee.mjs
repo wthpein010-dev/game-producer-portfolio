@@ -1,3 +1,5 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
+
 import {readFileSync} from 'node:fs';
 
 const media=JSON.parse(readFileSync(new URL('../assets/yujiang-coffee/media.json',import.meta.url),'utf8'));
@@ -11,16 +13,11 @@ function screenshot(id, e, {prefix=base, className='', eager=false}={}) {
   return `<figure class="${className}" data-shot-format="landscape"><a class="taptap-image-link" href="${src}" aria-label="放大：${e(shot.alt)}"><img class="taptap-screenshot" src="${src}" width="${shot.width}" height="${shot.height}" loading="${eager?'eager':'lazy'}" decoding="async" alt="${e(shot.alt)}"></a><figcaption>${e(shot.caption)}</figcaption></figure>`;
 }
 
-export function renderYujiangCoffeeEntry(e) {
-  return `<article class="collaboration-entry" id="yujiang-coffee" aria-labelledby="yujiang-coffee-title">
-    <header class="section-head"><div><p class="eyebrow">个人游戏作品 · Unity</p><h3 id="yujiang-coffee-title">渔江咖啡<span class="title-dot">.</span></h3></div><p>Windows 可玩开发版</p></header>
-    <div class="collaboration-entry-grid">
-      <div><p class="detail-lede">开一间在海上漂流的咖啡馆。</p><p>${e(summary)}</p><p>我定下甲板和船舱的玩法分工，设计打捞、冲泡、来客和改船的经营循环，并用 AI 辅助把这些交互做进 Unity。</p>
-        <a class="text-link" href="projects/yujiang-coffee/">查看玩法设计与实机画面 <span aria-hidden="true">↗</span></a>
-      </div>
-      ${screenshot('deck',e,{prefix:''})}
-    </div>
-  </article>`;
+export function renderYujiangCoffeeEntry() {
+  return renderAiGameCard({id: 'yujiang-coffee', title: '渔江咖啡', description: summary,
+    tags: ['海上打捞', '冲泡咖啡', '渔船改造'], status: 'Unity · Windows 开发版',
+    href: 'projects/yujiang-coffee/', detailLabel: '查看玩法与实机画面',
+  });
 }
 
 export function renderYujiangCoffeeBody(e) {

@@ -1,0 +1,262 @@
+{
+  "covers": {
+    "daynight-fate": {
+      "src": "assets/taptap/daynight-fate/day.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "城镇白昼经营与手牌操作",
+      "sources": [
+        "assets/taptap/daynight-fate/day.webp"
+      ],
+      "sha256": "10b46dc19b2026f1bd1ee07a12ab42c2f31f42470c5038366e5258bc4b69a587"
+    },
+    "jigmeme": {
+      "src": "assets/ai-game-covers/jigmeme.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "Android 中文试玩的首页、拖拽拼图和原图回看",
+      "sources": [
+        "assets/taptap/jigmeme/android-060/zh-home.webp",
+        "assets/taptap/jigmeme/android-060/zh-board.webp",
+        "assets/taptap/jigmeme/android-060/zh-artwork.webp"
+      ],
+      "sha256": "024cafa7b4243f6719fecfcbb3fa097c03fca588ec652d98bd116d94900c322f"
+    },
+    "your-child": {
+      "src": "assets/ai-game-covers/your-child.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "照护宝宝、家装与家庭场景",
+      "sources": [
+        "assets/taptap/your-child/public-01.png",
+        "assets/taptap/your-child/public-02.png",
+        "assets/taptap/your-child/public-03.png"
+      ],
+      "sha256": "68a61923803917f95ecb7fc36a5b3664cd6812546d46b867d30bf51df89628ec"
+    },
+    "fengshen-duel": {
+      "src": "assets/taptap/fengshen-duel/maker-cover.jpg",
+      "width": 1920,
+      "height": 1080,
+      "alt": "阐教与截教对阵的横版宣传图",
+      "sources": [
+        "assets/taptap/fengshen-duel/maker-cover.jpg"
+      ],
+      "sha256": "e0b3dfadb782f17fae986113e40db349e768ff748d6a090420f702a3e3584193"
+    },
+    "my-life": {
+      "src": "assets/my-life/title-screen.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Windows 试玩版的横版家庭聚餐标题画面",
+      "sources": [
+        "assets/my-life/title-screen.webp"
+      ],
+      "sha256": "bef7d39825898b0abfbd093550020bd3e46842a350f31b17e61df2e2fb35e336"
+    },
+    "after-hours-stall": {
+      "src": "assets/ai-game-covers/after-hours-stall.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "同色归摊、滑动落点与路线预览",
+      "sources": [
+        "assets/taptap/after-hours-stall/public-01.png",
+        "assets/taptap/after-hours-stall/public-02.png",
+        "assets/taptap/after-hours-stall/public-03.png"
+      ],
+      "sha256": "e769ef8ae3ca36c32ddb2500cafaae00880245a6751500617904795d2b29b361"
+    },
+    "coin-forge": {
+      "src": "assets/ai-game-covers/coin-forge.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "钱币配对、兵器锻造与收藏画面",
+      "sources": [
+        "assets/taptap/coin-forge/public-01.png",
+        "assets/taptap/coin-forge/public-02.png",
+        "assets/taptap/coin-forge/public-03.png"
+      ],
+      "sha256": "043149378953e245d3a8c848161003818fea9cec11aa904410d5388ef8fe8893"
+    },
+    "food-car": {
+      "src": "assets/taptap/food-car/campaign-cover.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "餐车开业与站点旅行的横版宣传插画",
+      "sources": [
+        "assets/taptap/food-car/campaign-cover.webp"
+      ],
+      "sha256": "2786bdf70c4effb469b90838f92f7c20c2ab260f63b3f260cecaa653afa84905"
+    },
+    "icecream-master": {
+      "src": "assets/ai-game-covers/icecream-master.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "顾客点单、叠球与甜筒交付",
+      "sources": [
+        "assets/taptap/icecream-master/public-02.png",
+        "assets/taptap/icecream-master/public-01.png",
+        "assets/taptap/icecream-master/public-03.png"
+      ],
+      "sha256": "4e5ced9f7c0337a7fe86324f6934fdde3a44834fdd18bc3e29c38bdd2ae5ef8e"
+    },
+    "tiankeng": {
+      "src": "assets/ai-game-covers/tiankeng.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "探索地图、战斗选择和炼药界面",
+      "sources": [
+        "assets/taptap/tiankeng/public-02.jpg",
+        "assets/taptap/tiankeng/public-01.jpg",
+        "assets/taptap/tiankeng/public-03.jpg"
+      ],
+      "sha256": "e8c78c2e51bf8a76eec77ecafa93e76cf5538523d66f8b3a5880cb4f647a560a"
+    },
+    "lunar-freight": {
+      "src": "assets/ai-game-covers/lunar-freight.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "载具驶过低重力月面和据点",
+      "sources": [
+        "assets/taptap/lunar-freight/public-01.jpg"
+      ],
+      "sha256": "bdc5880ab5255c4b6189a3e3dbd2869be35ab6ec9f5e18fc0719b62f7279229c"
+    },
+    "repair-day": {
+      "src": "assets/ai-game-covers/repair-day.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "街坊故事和旧物修理委托",
+      "sources": [
+        "assets/taptap/repair-day/public-01.png",
+        "assets/taptap/repair-day/public-02.png",
+        "assets/taptap/repair-day/public-03.png"
+      ],
+      "sha256": "68f3a2291b75d72a89e6e89d38d3f2d59389d72dfc3174b61147b118d53cf2ac"
+    },
+    "sticker-scenery": {
+      "src": "assets/ai-game-covers/sticker-scenery.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "窗边书角、庭院和温室的贴纸布置",
+      "sources": [
+        "assets/taptap/sticker-scenery/public-03.jpg",
+        "assets/taptap/sticker-scenery/public-05.jpg",
+        "assets/taptap/sticker-scenery/public-06.jpg"
+      ],
+      "sha256": "8cfad176d99284e71719be8a825366a6290377c8422c9b9298f23b369d6d5e4c"
+    },
+    "throne-war": {
+      "src": "assets/taptap/throne-war/cover.webp",
+      "width": 2048,
+      "height": 1152,
+      "alt": "屋顶之旅横版宣传插画",
+      "sources": [
+        "assets/taptap/throne-war/cover.webp"
+      ],
+      "sha256": "a1c181c63792e60fbc3f52ccf7572867dc47a6315addbd0c636d13176e405f72"
+    },
+    "wangwang-stack": {
+      "src": "assets/taptap/wangwang-stack/cover.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "小狗与寻宝道具的横版宣传图",
+      "sources": [
+        "assets/taptap/wangwang-stack/cover.webp"
+      ],
+      "sha256": "dc31560e5ecf6bee95b1a10cf152394241e39facba70b0d8326bcc0e497786ed"
+    },
+    "ring-haven": {
+      "src": "assets/ai-game-covers/ring-haven.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "圆环拆解棋盘、日常挑战与炸弹关",
+      "sources": [
+        "assets/ring-haven/normal.webp",
+        "assets/ring-haven/daily.webp",
+        "assets/ring-haven/bomb.webp"
+      ],
+      "sha256": "e9981a68a82534688e0f7ebd24cd8ed04c886e3a0c25b81065b015f7f6070714"
+    },
+    "token-game": {
+      "src": "assets/ai-game-covers/token-game.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "工作室接单、Token 预算与制作线程界面",
+      "sources": [
+        "assets/token-game/workbench.webp"
+      ],
+      "sha256": "21d3fa9cc8c02c4c41b258ecc16207771f0b672d638b7a2d69349494d5c2df50"
+    },
+    "nanjie-repair-shop": {
+      "src": "assets/nanjie-repair-shop/cover.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "临街工作台上修灯的横版宣传图",
+      "sources": [
+        "assets/nanjie-repair-shop/cover.webp"
+      ],
+      "sha256": "0d62cbff980f97cba27861e2beb3380f63e517c58b49da2d73c50ef644023be3"
+    },
+    "yujiang-coffee": {
+      "src": "assets/yujiang-coffee/pour.webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "船舱内的咖啡制作与冲泡交互",
+      "sources": [
+        "assets/yujiang-coffee/pour.webp"
+      ],
+      "sha256": "c870f52da4b7097217343f1ffbce456203e30cd9d4d8646890b009776db8321b"
+    },
+    "zhuanglege-sha": {
+      "src": "assets/ai-game-covers/zhuanglege-sha.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "网页试玩中的行李安检界面",
+      "sources": [
+        "https://wthpein010-dev.github.io/ai-application-hub/projects/zhuanglege-sha/index.html"
+      ],
+      "sha256": "173ca05932964a9ae96e156a0544db0a90418dfa45c5b1158c031473a1305574"
+    },
+    "fill-what": {
+      "src": "assets/ai-game-covers/fill-what.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "公开视频中的成语填字与诗意来信界面",
+      "sources": [
+        "https://wthpein010-dev.github.io/ai-application-hub/projects/fill-what/%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90/index.html"
+      ],
+      "sha256": "a629a413491e8f31a32e79fa0d2bfafb95176fef2ccb3e1e58f9897f6265bfd2"
+    },
+    "xiang-le-ge-xiang": {
+      "src": "assets/ai-game-covers/xiang-le-ge-xiang.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "网页试玩中的推箱子棋盘",
+      "sources": [
+        "https://wthpein010-dev.github.io/ai-application-hub/projects/xiang-le-ge-xiang/index.html"
+      ],
+      "sha256": "8c329057aeb356ec2f304431964ae9a55f9415f5c11779d5c0405a565e3cee67"
+    },
+    "nang-keng-pai-pai-xiang": {
+      "src": "assets/ai-game-covers/nang-keng-pai-pai-xiang.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "公开视频中的烤位、馕饼与订单操作",
+      "sources": [
+        "https://wthpein010-dev.github.io/ai-application-hub/projects/nang-keng-pai-pai-xiang/video/index.html"
+      ],
+      "sha256": "aa7a6716d116849cde505656d09db77c3f5f2557d502c327d46ee4a893efc40d"
+    },
+    "lighthouse-rescue": {
+      "src": "assets/ai-game-covers/lighthouse-rescue.webp",
+      "width": 960,
+      "height": 540,
+      "alt": "风暴、灯塔与救援船的横版宣传图",
+      "sources": [
+        "https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/assets/key-art-wide.png"
+      ],
+      "sha256": "f5d6b113f0fe5c93aab6a91205a676c463c4bbdc519f88c66ea3a906d0656e61"
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
+
 const title = '南街修物志';
 const summary = '在南街开一家修复小店。跟着街坊的委托清理、装配和调试旧物，靠修复收入经营店铺，也慢慢拼起街坊们的故事。';
 
@@ -25,18 +27,10 @@ function figure(key, base, className = 'ring-haven-figure') {
 }
 
 export function renderNanjieEntry() {
-  return `<section class="taptap-collection" id="nanjie-repair-shop" aria-labelledby="nanjie-title">
-    <div class="taptap-hero">
-      <header class="detail-hero">
-        <p class="taptap-genre">竖屏模拟经营 · TapTap 制造</p>
-        <h3 id="nanjie-title" class="ring-haven-thesis">${title}<span class="title-dot">.</span></h3>
-        <p>${summary}</p>
-        <p>我用 AI 辅助完成手机版适配，把修复动作、经营收支和故事解锁做进同一条流程。</p>
-      </header>
-      ${figure('cover', '', 'taptap-hero-shot')}
-      <div class="taptap-hero-context"><a class="text-link" href="projects/nanjie-repair-shop/">查看玩法设计与实录 ↗</a></div>
-    </div>
-  </section>`;
+  return renderAiGameCard({id: 'nanjie-repair-shop', title, description: summary,
+    tags: ['旧物修复', '小店经营', '街坊叙事'], status: 'TapTap 制造 · 手机实录',
+    href: 'projects/nanjie-repair-shop/', detailLabel: '查看玩法与实录',
+  });
 }
 
 export function renderNanjieBody() {

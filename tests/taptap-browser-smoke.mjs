@@ -39,13 +39,22 @@ try {
     assert.equal(columns,width<=620?1:width<=1000?2:3);
     assert.equal(await page.locator('#taptap-games article').count(),taptapGames.length);
     assert.equal(await page.locator('.taptap-project-index a').count(),taptapGames.length);
-    const cardLayout=await page.locator('.taptap-card').evaluateAll(cards=>cards.map(card=>{
-      const title=card.querySelector('h4').getBoundingClientRect(),image=card.querySelector('img').getBoundingClientRect();
-      const copy=card.querySelector('.taptap-card-copy').getBoundingClientRect(),actions=card.querySelector('.taptap-actions').getBoundingClientRect();
-      return {titleTop:title.top,imageTop:image.top,copyBottom:copy.bottom,actionsTop:actions.top};
+    const rows=await page.locator('#ai-games .ai-game-card').evaluateAll(cards=>cards.map(card=>{
+      const rect=selector=>card.querySelector(selector).getBoundingClientRect();
+      return {top:card.getBoundingClientRect().top, heading:rect('h4').top,
+        image:rect('.ai-game-cover').top, aspect:rect('.ai-game-cover').width/rect('.ai-game-cover').height,
+        description:rect('.ai-game-description').top,tags:rect('.ai-game-tags').top,
+        status:rect('.ai-game-status').top,actions:rect('.ai-game-actions').top};
     }));
-    assert.ok(cardLayout.every(card=>card.copyBottom<=card.actionsTop+1),'Card content does not overlap its actions');
-    if(width<=620)assert.ok(cardLayout.every(card=>card.titleTop<card.imageTop),'Mobile project names precede screenshots');
+    assert.equal(rows.length,taptapGames.length+9);
+    for(const row of rows){
+      assert.ok(Math.abs(row.aspect-16/9)<.02,'Landscape cover must use a 16:9 frame');
+      assert.ok(row.heading<row.image&&row.image<row.description&&row.description<row.tags&&row.tags<row.actions);
+      for(const sibling of rows.filter(other=>other.top===row.top)){
+        for(const key of ['heading','image','description','tags','status','actions'])
+          assert.ok(Math.abs(sibling[key]-row[key])<1,'Same-row '+key+' must align');
+      }
+    }
     await page.locator('#taptap-games').scrollIntoViewIfNeeded();
     if(width===390||width===1440) await page.screenshot({path:path.join(artifacts,`collection-${width}.png`)});
     checks.push(`home ${width}: all current projects, images decoded, no horizontal overflow`);

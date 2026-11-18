@@ -111,11 +111,16 @@ function renderHomeIntro() {
 export function renderHome(aiHtml='') {
   const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
     <h3 id="ai-games-title">AI 游戏</h3>
-    ${renderHubGames()}
-    ${renderRingHavenEntry(e)}
-    ${renderTokenGameEntry()}
-    ${renderNanjieEntry()}
-    ${renderYujiangCoffeeEntry(e)}
+    <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
+      <h4 id="hub-games-title">个人开发与网页试玩</h4>
+      <div class="ai-game-grid">
+        ${renderHubGames()}
+        ${renderRingHavenEntry()}
+        ${renderTokenGameEntry()}
+        ${renderNanjieEntry()}
+        ${renderYujiangCoffeeEntry()}
+      </div>
+    </section>
     ${renderTapTapCollection()}
   </section>`;
   aiHtml=aiHtml.replace('<!-- AI_GAMES -->',aiGames);

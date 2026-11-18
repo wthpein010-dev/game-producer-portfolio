@@ -16,7 +16,7 @@ test('Hub snapshot partitions into visible apps, games, merged editions and entr
   const apps=renderHubTools(),games=renderHubGames();
   assert.equal((apps.match(/class="hub-tool-feature"/gu)||[]).length,3);
   assert.equal((apps.match(/class="hub-catalog-item"/gu)||[]).length,18);
-  assert.equal((games.match(/class="hub-catalog-item"/gu)||[]).length,5);
+  assert.equal((games.match(/class="ai-game-card"/gu)||[]).length,5);
   for(const id of excludedHubIds.filter(id=>id!=='hub'))assert.ok(!apps.includes('id="hub-'+id+'"')&&!games.includes('id="hub-'+id+'"'),id);
 });
 

@@ -434,7 +434,7 @@ test('汪汪叠宝 shows attributed preview captures and availability in persona
   const {home,taptapPages}=await site();
   const card=one(home.document,n=>n.attrs.id==='work-wangwang-stack','汪汪叠宝 card');
   assert.match(textOf(card),/测试版本/u);
-  assert.equal(nodes(card,n=>n.tag==='a'&&n.attrs.href==='projects/taptap-wangwang-stack/').length,2);
+  assert.equal(nodes(card,n=>n.tag==='a'&&n.attrs.href==='projects/taptap-wangwang-stack/').length,1);
   assert.equal(nodes(card,n=>n.tag==='a'&&/^https?:/u.test(n.attrs.href||'')).length,0);
   const detail=taptapPages.find(page=>page.path==='projects/taptap-wangwang-stack/index.html');
   assert.ok(detail);
@@ -473,6 +473,25 @@ test('Throne War appears in personal works with reviewed captures and a playable
   assert.ok((await stat(join(root,game.video.src))).size>1000);
   for (const surface of [card,detail]) {
     assert.equal(nodes(surface,n=>n.tag==='a'&&/taptap\.cn\/app\//u.test(n.attrs.href||'')).length,0);
+  }
+});
+
+test('AI game cards use one attributable landscape cover and aligned content rows',async()=>{
+  const {home}=await site();
+  const section=one(home.document,n=>n.attrs.id==='ai-games','AI games');
+  const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
+  const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
+  const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
+  assert.equal(cards.length,24);
+  for(const card of cards){
+    const children=card.children.filter(child=>typeof child!=='string');
+    assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);
+    const img=one(children[1],n=>n.tag==='img','Game cover');
+    const cover=coversBySource.get(originalSource(img));
+    assert.ok(cover&&cover.sources.length>0);
+    assert.equal(Number(img.attrs.width)*9,Number(img.attrs.height)*16);
+    assert.match(img.attrs.alt,/\S/u);
+    assert.equal(createHash('sha256').update(await readFile(join(root,cover.src))).digest('hex'),cover.sha256);
   }
 });
 

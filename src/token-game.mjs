@@ -1,3 +1,5 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
+
 import {readFileSync} from 'node:fs';
 
 const title = '又没Token了！';
@@ -20,17 +22,11 @@ function figure(id, base) {
 }
 
 export function renderTokenGameEntry() {
-  return `<section class="token-game-entry" id="token-game" aria-labelledby="token-game-title">
-    <div class="section-head"><div><h3 id="token-game-title">${title}</h3></div><p>模拟经营 · Windows 可玩原型</p></div>
-    <div class="token-game-entry-grid">
-      <div>
-        <p class="token-game-thesis">开局先欠 200 美元，靠 AI 接活养活工作室。</p>
-        <p>我把 AI 制作中常见的超耗与返工做成经营选择。玩家每天接单、分配 Token、判断该修还是该停，晚上才知道赚了多少。</p>
-        <a class="text-link" href="projects/token-game/">查看玩法设计与游戏画面 ↗</a>
-      </div>
-      ${figure('workbench', '')}
-    </div>
-  </section>`;
+  return renderAiGameCard({id: 'token-game', title,
+    description: '靠 AI 接活养活工作室。玩家接单、分配 Token，决定遇到返工时继续修还是及时止损。',
+    tags: ['接单经营', 'Token 预算', '返工取舍'], status: 'Windows 可玩原型',
+    href: 'projects/token-game/', detailLabel: '查看玩法设计',
+  });
 }
 
 export function renderTokenGameBody() {

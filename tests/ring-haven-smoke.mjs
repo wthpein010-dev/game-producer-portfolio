@@ -19,7 +19,7 @@ try{
   assert.equal(await entry.count(),1);assert.equal(await page.locator('.hub-tool-feature').count(),3);assert.equal(await page.locator('#hub-more').getAttribute('open'),null);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   await entry.screenshot({path:`${folder}/home-${width}.png`});
-  const caseLink=entry.getByRole('link',{name:'查看游戏与 AI 创作过程 ↗'});
+  const caseLink=entry.getByRole('link',{name:'查看游戏与 AI 创作过程',exact:true});
   await caseLink.focus();await page.keyboard.press('Enter');await page.waitForURL('**/projects/ring-haven/');
   assert.match(await page.title(),/环环小憩/u);
   const images=page.locator('main figure img');assert.equal(await images.count(),8);

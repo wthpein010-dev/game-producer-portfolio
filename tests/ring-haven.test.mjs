@@ -5,16 +5,16 @@ import {ringHavenMedia,renderRingHavenEntry,renderRingHavenBody} from '../src/ri
 
 test('The homepage offers a short game design entry with three planning themes and a detail link',()=>{
   const html=renderRingHavenEntry();
-  assert.match(html,/<section[^>]+id="ring-haven"/u);
+  assert.match(html,/<article[^>]+id="ring-haven"/u);
   assert.match(html,/环环小憩/u);
   assert.match(html,/href="projects\/ring-haven\/"/u);
-  const tags=html.match(/<ul class="collaboration-tags">([\s\S]*?)<\/ul>/u)?.[1];
+  const tags=html.match(/<ul class="ai-game-tags"[^>]*>([\s\S]*?)<\/ul>/u)?.[1];
   assert.ok(tags,'planning themes remain visible on the homepage');
   assert.equal((tags.match(/<li>/gu)||[]).length,3);
   assert.match(html,/用 AI 做出了一款圆环解谜游戏/u);
   assert.doesNotMatch(html,/试玩包|安卓未实测|code14/u);
   assert.equal((html.match(/<figure\b/gu)||[]).length,1);
-  assert.match(html,/src="assets\/ring-haven\/home.webp"/u);
+  assert.match(html,/src="assets\/ai-game-covers\/ring-haven.webp"/u);
 });
 
 test('The case explains the core loop, feedback, mode rhythm and bounded daily challenge',()=>{

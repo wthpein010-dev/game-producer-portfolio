@@ -22,7 +22,11 @@ test('拼拼不烧心 uses only its Chinese Android 0.60.0 captures', async () =
  assert.equal(manifest.locale,'zh-CN');
  assert.deepEqual(manifest.shots,game.shots);
  assert.equal(manifest.shots.length,8);
- assert.ok(card.includes(manifest.shots[0].src));
+ const covers=JSON.parse(await readFile(new URL('../assets/ai-game-covers/manifest.json',import.meta.url),'utf8'));
+ const cover=covers.covers.jigmeme;
+ assert.ok(card.includes(cover.src));
+ assert.ok(cover.sources.length>=2&&cover.sources.every(src=>manifest.shots.some(shot=>shot.src===src)));
+ assert.equal(cover.width*9,cover.height*16);
  assert.equal([...detail.matchAll(/<img[^>]+src="\.\.\/\.\.\/assets\/taptap\/jigmeme\//gu)].length,8);
  for(const shot of manifest.shots){
   const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
@@ -100,7 +104,7 @@ test('My Life has one card and retains its former home anchor',async()=>{
  assert.match(entry,/我的一生/u);
  assert.match(entry,/href="projects\/taptap-my-life\/"/u);
  assert.match(entry,/id="my-life-showcase"/u);
- assert.equal((html.match(/<h4><a href="projects\/taptap-my-life\/"/gu)||[]).length,1);
+ assert.equal((html.match(/href="projects\/taptap-my-life\/"/gu)||[]).length,1);
 });
 
 test('My Life shows documented Windows gameplay separately from TapTap images',async()=>{

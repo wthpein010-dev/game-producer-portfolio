@@ -1,5 +1,6 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
 import {taptapGames} from './taptap-games.mjs';
-import {myLifeCover,myLifePcShots} from './my-life.mjs';
+import {myLifePcShots} from './my-life.mjs';
 import {hubEditionForGame} from './hub-tools.mjs';
 
 const e = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -41,14 +42,14 @@ function playSection(game, base) {
 
 function card(game) {
   const edition = hubEditionForGame(game.slug);
-  const cover = game === myLifeGame ? myLifeCover : game.shots[0];
-  const legacyAnchor = edition ? `hub-${edition.id}` : game === myLifeGame ? 'my-life-showcase' : '';
-  return `<article class="taptap-card" id="work-${game.slug}" data-shot-format="${format(cover)}">
-    <header class="taptap-card-heading"${legacyAnchor?` id="${legacyAnchor}"`:''}><p class="eyebrow">${e(game.genre)}</p><h4><a href="projects/taptap-${e(game.slug)}/">${e(game.title)}</a></h4></header>
-    <figure class="taptap-cover"><a href="${e(cover.src)}" aria-label="放大${e(game.title)}：${e(cover.label)}">${image(cover)}</a><figcaption>${e(cover.label)}</figcaption></figure>
-    <div class="taptap-card-copy"><p>${e(game.summary)}</p>${tags(game)}<p class="taptap-card-state">${e(game.shortStatus)}</p></div>
-    <footer class="taptap-actions"><a class="text-link" href="projects/taptap-${e(game.slug)}/">玩法与设计详情 <span aria-hidden="true">→</span></a>${game.previewVersion ? `<a class="text-link" href="projects/taptap-${e(game.slug)}/#android-preview">Android 试玩界面 <span aria-hidden="true">→</span></a>` : ''}${tapLink(game, 'TapTap 游戏页', 'text-link')}</footer>
-  </article>`;
+  const legacyAnchor = edition ? 'hub-'+edition.id : game === myLifeGame ? 'my-life-showcase' : '';
+  const detail = 'projects/taptap-'+game.slug+'/'+(game.slug === 'jigmeme' ? '#android-preview' : '');
+  return renderAiGameCard({
+    id: 'work-'+game.slug, coverKey: game.slug, title: game.title,
+    description: game.summary, tags: game.tags, status: game.shortStatus,
+    href: detail, detailLabel: '玩法与设计详情', taptap: true, legacyAnchor,
+    secondaryLink: game.tapUrl ? {href: game.tapUrl, label: game.tapLabel || 'TapTap 游戏页'} : undefined,
+  });
 }
 
 export function renderTapTapCollection() {
@@ -56,7 +57,7 @@ export function renderTapTapCollection() {
   return `<section class="taptap-collection" id="taptap-games" aria-labelledby="taptap-title">
     <header class="taptap-intro"><div><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h3 id="taptap-title">TapTap 游戏实践<span class="title-dot">.</span></h3><p>从玩法策划、关卡与数值设计，到界面、美术整合和版本迭代。每款作品附展示图与玩法说明。已开放的作品提供 TapTap 入口。</p></div><p class="taptap-collection-meta">${taptapGames.length} 款游戏<span aria-hidden="true"> / </span>${count} 张公开展示图</p></header>
     <nav class="taptap-project-index" aria-label="快速查看游戏"><span>快速查看</span><ul>${taptapGames.map(game=>`<li><a href="#work-${e(game.slug)}">${e(game.title)}</a></li>`).join('')}</ul></nav>
-    <div class="taptap-grid">${taptapGames.map(card).join('')}</div>
+    <div class="taptap-grid ai-game-grid">${taptapGames.map(card).join('')}</div>
   </section>`;
 }
 

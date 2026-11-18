@@ -1,3 +1,5 @@
+import { renderAiGameCard } from './ai-game-card.mjs';
+
 export const ringHavenMedia = [
   {key:'home',file:'home.webp',width:640,height:1138,alt:'环环小憩完整竖屏主页，海狸角色与普通关、挑战和换装入口',caption:'Unity Editor 演示画面 · 主页上的挑战与换装入口。'},
   {key:'normal',file:'normal.webp',width:640,height:1138,alt:'环环小憩普通关完整棋盘，多枚彩色圆环通过开口与连接关系形成解谜目标',caption:'Unity Editor 原生渲染 · 普通棋盘演示，观察开口与连接关系。'},
@@ -16,22 +18,12 @@ function figure(key,e,base='../../') {
   return `<figure class="ring-haven-figure" data-ring-haven-image="${key}"><a href="${href}" aria-label="放大${e(image.alt)}"><img src="${href}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="${e(image.alt)}"></a><figcaption>${e(image.caption)} <a href="${href}">查看原图 ↗</a></figcaption></figure>`;
 }
 
-export function renderRingHavenEntry(e=escaped) {
-  return `<section class="ring-haven-entry" id="ring-haven" aria-labelledby="ring-haven-title">
-    <div class="section-head">
-      <div><p class="eyebrow">AI GAME DEVELOPMENT / 个人作品</p><h3 id="ring-haven-title">环环小憩<span class="title-dot">.</span></h3></div>
-      <p>Ring Haven · 休闲解谜</p>
-    </div>
-    <div class="ring-haven-entry-grid">
-      <div>
-        <p class="ring-haven-thesis">我用 AI 做出了一款圆环解谜游戏。</p>
-        <p>从旋转解扣的操作反馈，到 30 个炸弹关、30 个奖励关，我把玩法想法逐步做成了有闯关节奏的游戏。每日挑战的胜利奖励还能带回主页，为海狸换装。</p>
-        <ul class="collaboration-tags"><li>玩法设计</li><li>关卡迭代</li><li>AI 辅助开发</li></ul>
-        <a class="text-link" href="projects/ring-haven/">查看游戏与 AI 创作过程 ↗</a>
-      </div>
-      ${figure('home',e,'')}
-    </div>
-  </section>`;
+export function renderRingHavenEntry() {
+  return renderAiGameCard({id: 'ring-haven', title: '环环小憩',
+    description: '我用 AI 做出了一款圆环解谜游戏。转动圆环对齐开口，解开连接，挑战特别关并为海狸换装。',
+    tags: ['旋转解扣', '两类特别关', '每日挑战'], status: 'Unity 原型 · Editor 演示',
+    href: 'projects/ring-haven/', detailLabel: '查看游戏与 AI 创作过程',
+  });
 }
 
 export function renderRingHavenBody(e=escaped) {
