@@ -49,7 +49,7 @@ function cover(project, escape) {
 
 export function renderProducerSkills(escape) {
   return '<section class="producer-skills" id="producer-skills" aria-labelledby="producer-skills-title">\n'+
-    '  <h2 id="producer-skills-title">制作人技能树</h2>\n'+
+    '  <h2 id="producer-skills-title">策划技能点</h2>\n'+
     '  <ul class="producer-branches" role="list">'+skillBranches.map(branch=>
       '\n    <li class="producer-branch"><h3>'+escape(branch.title)+'</h3><ul class="producer-skill-links" role="list">'+
       branch.skills.map(skill=>'\n      <li><a href="'+escape(skill.href)+'"><strong>'+escape(skill.title)+'</strong><span>'+escape(skill.summary)+'</span></a></li>').join('')+
