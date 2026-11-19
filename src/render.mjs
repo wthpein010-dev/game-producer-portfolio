@@ -17,7 +17,8 @@ import {renderSheepDesign} from './sheep-design.mjs';
 import {renderSheepScreens} from './sheep-visuals.mjs';
 import {renderSheepPlaytest} from './sheep-playtest.mjs';
 import {renderCollaborationEntry,renderCollaborationBody} from './collaboration.mjs';
-import {renderHubGames,renderHubTools} from './hub-tools.mjs';
+import {hubGames,renderHubGames,renderHubTools} from './hub-tools.mjs';
+import {renderCrisisGallery} from './hero-design.mjs';
 import {renderAiPocketEntry,renderAiPocketBody} from './ai-pocket.mjs';
 import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
@@ -81,7 +82,7 @@ export function renderPublicNote(note) {
     body:renderSheepNoteBody(note,jobs.find(job=>job.slug==='jianyou'),e),
     base:'../../../',page:'document',attrs:'data-company="jianyou"'});
 }
-function header(base, page) {return `<a class="skip-link" href="#main">跳到主要内容</a><header class="site-header wrap"><a class="brand" href="${base}index.html"><span class="brand-symbol" aria-hidden="true">↗</span><span>${profile.name}<small>GAME PRODUCER / PROJECT JOURNAL</small></span></a><nav aria-label="主要导航"><a href="${base}index.html#experience">职业时间轴</a><a href="${base}index.html#${page==='home'?'producer-skills':'skills'}">${page==='home'?'策划技能点':'技能树'}</a><a href="${base}index.html#selected">个人作品</a>${page==='home'?'':`<a href="${base}index.html#taptap-games">TapTap</a>`}</nav><a class="hub-link" href="${hubBase}">公开 Hub ↗</a></header>`;}
+function header(base, page) {return `<a class="skip-link" href="#main">跳到主要内容</a><header class="site-header wrap"><a class="brand" href="${base}index.html"><span class="brand-symbol" aria-hidden="true">↗</span><span>${profile.name}<small>GAME PRODUCER / PROJECT JOURNAL</small></span></a><nav aria-label="主要导航"><a href="${base}index.html#experience">职业时间轴</a><a href="${base}index.html#producer-skills">策划技能点</a><a href="${base}index.html#selected">个人作品</a>${page==='home'?'':`<a href="${base}index.html#taptap-games">TapTap</a>`}</nav><a class="hub-link" href="${hubBase}">公开 Hub ↗</a></header>`;}
 function footer(base='') {return `<footer class="site-footer wrap"><div><span class="footer-mark" aria-hidden="true">↗</span><p>工作经历<br><strong>与个人作品</strong></p></div><div class="footer-evidence"><span>职业信息来自本人履历与确认；项目介绍另附公开来源。</span><a href="https://github.com/wthpein010-dev/ai-application-hub/tree/${sourceSha}">个人实践公开证据 ↗</a><span>不展示电话、邮箱或原始简历附件。</span></div><a class="back-top" href="${base}index.html#top">回到首页 ↑</a></footer>`;}
 function shell({title,description,body,base='',page='home',attrs='',stylesheet}) {
   const extraStyle = (stylesheet ? `<link rel="stylesheet" href="${base}${e(stylesheet)}">` : '')
@@ -91,7 +92,7 @@ function shell({title,description,body,base='',page='home',attrs='',stylesheet})
 function timeline(job,i) {const companyHref=`experience/${job.slug}/`;return `<article class="company-entry" id="company-${job.slug}" data-company="${job.slug}"><div class="timeline-date"><time datetime="${job.start}">${e(job.period)}</time><span class="entry-count">${counter(i+1)} / ${i===0?'CURRENT CHAPTER':'CAREER CHAPTER'}</span></div><div class="company-map"><div class="company-root"><span class="role-label">${e(job.role)}</span><h3><a class="company-title" href="${companyHref}">${e(job.employer)} <span aria-hidden="true">↗</span></a></h3><p class="company-projects">${job.projects.map(p=>e(p.title)).join(' · ')}</p><p class="entry-lede">${e(job.lead)}</p><a class="role-node" href="${companyHref}?section=role">查看我的角色 ↗</a>${job.teamSize?`<p class="team-note">项目团队共 ${job.teamSize} 人</p>`:''}</div><div class="map-branches"><details class="branch-group" id="branch-${job.slug}-projects" open ${i===0?'data-priority="true"':''}><summary>项目节点 <span>${counter(job.projects.length)}</span></summary><ul class="branch-nodes">${job.projects.map(p=>`<li><a class="mindmap-node" data-kind="project" href="projects/${p.slug}/"><span>PROJECT</span>${e(p.title)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details><details class="branch-group" id="branch-${job.slug}-scope" open><summary>${job.scope.length?'职责节点':'经历节点'} <span>${counter(job.scope.length||1)}</span></summary><ul class="branch-nodes">${(job.scope.length?job.scope:['项目与任职记录']).map(s=>`<li><a class="mindmap-node" data-kind="scope" href="${companyHref}?section=scope"><span>${job.scope.length?'SCOPE':'RECORD'}</span>${e(s)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details></div></div></article>`;}
 function renderHomeIntro() {
   const currentProject = jobs[0].projects[0];
-  return `<section class="home-intro wrap" id="top" aria-labelledby="intro-title">
+  return `<section class="home-intro" id="top" aria-labelledby="intro-title">
     <div class="intro-main">
       <p class="eyebrow">游戏研发 · 职业简历</p>
       <h1 id="intro-title">${e(profile.name)}<span>${e(profile.role)}</span></h1>
@@ -106,34 +107,47 @@ function renderHomeIntro() {
       </div>
       <nav class="intro-reading-links" aria-label="作品直达">
         <a class="button primary" href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a>
-        <a href="#indie-games">独立游戏 <span aria-hidden="true">↓</span></a>
+        <a href="#ai-games">AI 游戏 <span aria-hidden="true">↓</span></a>
         <a href="#ai-tools">AI 应用 <span aria-hidden="true">↓</span></a>
       </nav>
     </div>
-    ${renderProducerSkills(e)}
   </section>`;
 }
 export function renderHome(aiHtml='') {
+  const featuredWebGame = hubGames.find(game => game.id === 'lighthouse-rescue');
+  const personalGames = [
+    renderRingHavenEntry(),
+    renderTokenGameEntry(),
+    renderNanjieEntry(),
+    renderZhuyinEntry(),
+    renderYujiangCoffeeEntry(),
+  ];
   const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
     <h3 id="ai-games-title">AI 游戏</h3>
     <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
       <h4 id="hub-games-title">个人开发与网页试玩</h4>
       <div class="ai-game-grid">
-        ${renderHubGames()}
-        ${renderRingHavenEntry()}
-        ${renderTokenGameEntry()}
-        ${renderNanjieEntry()}
-        ${renderZhuyinEntry()}
-        ${renderYujiangCoffeeEntry()}
+        ${personalGames.slice(0,2).join('')}
+        ${renderHubGames([featuredWebGame])}
       </div>
+      <details class="work-catalog-toggle">
+        <summary><span>查看全部 ${hubGames.length+personalGames.length} 款个人开发游戏</span><span>收起个人开发游戏列表</span></summary>
+        <div class="ai-game-grid">
+          ${renderHubGames(hubGames.filter(game => game !== featuredWebGame))}
+          ${personalGames.slice(2).join('')}
+        </div>
+      </details>
     </section>
     ${renderTapTapCollection()}
   </section>`;
   aiHtml=aiHtml.replace('<!-- AI_GAMES -->',aiGames);
   aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools(renderAiPocketEntry(e)));
   return shell({title:'职业时间轴与项目实践',description:profile.description,stylesheet:tokenGameStyles,body:`<main id="main">
-    ${renderHomeIntro()}
-    ${renderCareerCases(e)}
+    <div class="home-front wrap">
+      ${renderHomeIntro()}
+      ${renderCareerCases(e)}
+      ${renderProducerSkills(e)}
+    </div>
     ${renderProjectGallery(e)}
     <section class="timeline-section wrap" id="experience" aria-labelledby="timeline-title">
       <header class="section-head"><h2 id="timeline-title">工作经历</h2></header>
@@ -162,6 +176,14 @@ function renderWorkValue(job,project){
   const note=shared?`本项目参与记录已确认，以下是公司任职共同职责，未逐项确认本项目专属分工。${work.note}`:work.note;
   return `<section class="work-value" id="work-value" data-work-basis="${basis}" aria-labelledby="work-value-title"><header><p class="eyebrow">MY WORK / DESIGN VALUE</p><h2 id="work-value-title">${shared?'这段任职的工作与价值':'我的工作与价值'}</h2><p class="work-value-basis">${e(note)}</p></header><ol class="work-value-list">${work.items.map((item,n)=>`<li class="work-value-item"><div class="work-value-label"><span>${counter(n+1)}</span><h3>${e(item.title)}</h3></div><dl><div><dt>具体工作</dt><dd>${e(item.action)}</dd></div><div><dt>工作价值</dt><dd>${e(item.value)}</dd></div></dl><a class="text-link" href="../../${item.link[1]}">${e(item.link[0])} ↗</a></li>`).join('')}</ol><p class="work-value-boundary">职责依据本人履历与确认；原图补充设计证据，经营结果另行说明来源与口径。</p>${shared?`<a class="text-link" href="../../experience/${job.slug}/#work-value">查看完整公司经历 ↗</a>`:''}</section>${project?.slug==='word-villas'?renderWordExcerpts(e):''}`;
 }
+function renderSheepContributionBrief() {
+  const entries = projectWork['sheep-match'].items;
+  return `<section class="project-contributions" id="project-contributions" aria-labelledby="project-contributions-title">
+    <h2 id="project-contributions-title">我的分工</h2>
+    <ul>${entries.map(({title,action})=>`<li><strong>${e(title)}</strong><span>${e(action)}</span></li>`).join('')}</ul>
+    <a class="text-link" href="#work-value">查看完整职责 <span aria-hidden="true">↓</span></a>
+  </section>`;
+}
 function renderProjectCover(project) {
   if(project?.slug==='sheep-match')return renderSheepPlaytest(e);
   const covers={
@@ -172,7 +194,7 @@ function renderProjectCover(project) {
   const cover=covers[project?.slug];
   return cover?`<figure class="project-visual-overview"><img src="../../assets/project-design/${cover[0]}" width="${cover[1]}" height="${cover[2]}" loading="eager" decoding="async" alt="${e(cover[3])}"><figcaption>${e(cover[3])}</figcaption></figure>`:'';
 }
-export function renderDetail(job,project=null){const i=jobs.indexOf(job),pIndex=project?job.projects.indexOf(project):0;const title=project?project.title:job.employer;const description=project?project.description:job.lead;const body=`<main id="main" class="detail-main wrap"><nav class="breadcrumbs" aria-label="面包屑"><a href="../../index.html#company-${job.slug}" data-return-home>职业时间轴</a><span aria-hidden="true">/</span>${project?`<a href="../../experience/${job.slug}/">${e(job.employer)}</a><span aria-hidden="true">/</span>`:''}<span>${e(title)}</span></nav><header class="detail-hero"><p class="eyebrow">${counter(i+1)} / ${layoutNames[job.layout]} ${project?`· PROJECT ${counter(pIndex+1)}`:''}</p><h1>${e(title)}<span class="title-dot">.</span></h1><div class="detail-meta"><span>${e(job.role)}</span><time datetime="${job.start}">${e(job.period)}</time>${job.teamSize?`<span>项目团队共 ${job.teamSize} 人</span>`:''}</div><p class="detail-lede ${project?'project-context':''}">${e(description)}</p>${project?`<p class="company-level-note">任职角色沿用履历记录；具体贡献按项目资料区分，共同职责不逐项归为单个项目的独立成果。</p>`:''}</header>${renderProjectCover(project)}${renderWorkValue(job,project)}${project?.slug==='idiom-scholar'?renderIdiomOverview(e):''}${project?.slug==='my-town'?renderTownDesign(e):''}${project?.slug==='word-villas'||(!project&&job.slug==='beta')?renderBetaDesign(e):''}${project?.slug==='zuoyaoji-x'?renderZuoyaoDesign(e):''}<div class="detail-grid"><figure class="illustration"><img src="../../assets/diagrams/${project?project.slug:job.slug}.svg" width="960" height="600" alt="${e(title)}的原创职责结构示意，包含${e((job.scope.length?job.scope:job.projects.map(p=>p.title)).join('、'))}"><figcaption>原创职责结构示意 · 非游戏实机画面</figcaption></figure><section id="role" class="role-panel"><span class="panel-label">ROLE / 我的角色</span><h2>${e(job.role)}</h2><p>${e(project?project.description:job.lead)}</p>${job.note?`<p class="team-boundary">${e(job.note)}</p>`:''}</section><section id="scope" class="scope-panel"><span class="panel-label">${job.scope.length?'SCOPE / 工作范围':'CAREER / 项目记录'}</span><h2>${job.scope.length?'工作职责':'任职记录'}</h2>${scopeMarkup(job)}</section><section id="projects" class="project-panel"><span class="panel-label">PROJECTS / 项目入口</span><h2>${job.projects.length>1?'参与项目':'项目详情'}</h2><div class="project-links">${job.projects.map((p,n)=>`<a href="../../projects/${p.slug}/" ${p===project?'aria-current="page"':''}><span>${counter(n+1)} / PROJECT</span><strong>${e(p.title)}</strong><p>${e(p.description)}</p><b aria-hidden="true">↗</b></a>`).join('')}</div></section><section class="record-panel">${recordMarkup(job,project)}</section></div>${materialCases.some(c=>project?c.project===project.slug:c.company===job.slug)?renderMaterialCases(materialCases.filter(c=>project?c.project===project.slug:c.company===job.slug),e):''}${project?.slug==='idiom-scholar'?renderIdiomDesign(e):(!project&&job.slug==='haoteng'?renderIdiomCompanyEntry():'')}${!project&&job.slug==='muyou'?renderTownCompanyEntry()+renderZuoyaoCompanyEntry():''}${project?.slug==='sheep-match'?renderSheepDesign(e)+renderSheepReading(e):''}<nav class="detail-footer" aria-label="继续浏览"><a class="button primary" data-return-home href="../../index.html#company-${job.slug}">返回这一段时间轴 ↑</a>${i>0?`<a href="../../experience/${jobs[i-1].slug}/">← 更近一章</a>`:''}${i<jobs.length-1?`<a href="../../experience/${jobs[i+1].slug}/">更早一章 →</a>`:''}</nav></main>`;return shell({title,description,body,base:'../../',page:project?'project':'company',attrs:`data-layout="${job.layout}" data-company="${job.slug}" class="${project?'project-variant-'+(pIndex%3):'company-detail'}"`});}
+export function renderDetail(job,project=null){const i=jobs.indexOf(job),pIndex=project?job.projects.indexOf(project):0;const title=project?project.title:job.employer;const description=project?project.description:job.lead;const body=`<main id="main" class="detail-main wrap"><nav class="breadcrumbs" aria-label="面包屑"><a href="../../index.html#company-${job.slug}" data-return-home>职业时间轴</a><span aria-hidden="true">/</span>${project?`<a href="../../experience/${job.slug}/">${e(job.employer)}</a><span aria-hidden="true">/</span>`:''}<span>${e(title)}</span></nav><header class="detail-hero"><p class="eyebrow">${counter(i+1)} / ${layoutNames[job.layout]} ${project?`· PROJECT ${counter(pIndex+1)}`:''}</p><h1>${e(title)}<span class="title-dot">.</span></h1><div class="detail-meta"><span>${e(job.role)}</span><time datetime="${job.start}">${e(job.period)}</time>${job.teamSize?`<span>项目团队共 ${job.teamSize} 人</span>`:''}</div><p class="detail-lede ${project?'project-context':''}">${e(description)}</p>${project?.slug==='sheep-match'?renderSheepContributionBrief():''}${project?.slug==='crisis-dawn'?`<a class="text-link" href="#crisis-gallery">查看游戏截图 <span aria-hidden="true">↓</span></a>`:''}${project?`<p class="company-level-note">任职角色沿用履历记录；具体贡献按项目资料区分，共同职责不逐项归为单个项目的独立成果。</p>`:''}</header>${renderProjectCover(project)}${renderWorkValue(job,project)}${project?.slug==='crisis-dawn'?renderCrisisGallery(e):''}${project?.slug==='idiom-scholar'?renderIdiomOverview(e):''}${project?.slug==='my-town'?renderTownDesign(e):''}${project?.slug==='word-villas'||(!project&&job.slug==='beta')?renderBetaDesign(e):''}${project?.slug==='zuoyaoji-x'?renderZuoyaoDesign(e):''}<div class="detail-grid"><figure class="illustration"><img src="../../assets/diagrams/${project?project.slug:job.slug}.svg" width="960" height="600" alt="${e(title)}的原创职责结构示意，包含${e((job.scope.length?job.scope:job.projects.map(p=>p.title)).join('、'))}"><figcaption>原创职责结构示意 · 非游戏实机画面</figcaption></figure><section id="role" class="role-panel"><span class="panel-label">ROLE / 我的角色</span><h2>${e(job.role)}</h2><p>${e(project?project.description:job.lead)}</p>${job.note?`<p class="team-boundary">${e(job.note)}</p>`:''}</section><section id="scope" class="scope-panel"><span class="panel-label">${job.scope.length?'SCOPE / 工作范围':'CAREER / 项目记录'}</span><h2>${job.scope.length?'工作职责':'任职记录'}</h2>${scopeMarkup(job)}</section><section id="projects" class="project-panel"><span class="panel-label">PROJECTS / 项目入口</span><h2>${job.projects.length>1?'参与项目':'项目详情'}</h2><div class="project-links">${job.projects.map((p,n)=>`<a href="../../projects/${p.slug}/" ${p===project?'aria-current="page"':''}><span>${counter(n+1)} / PROJECT</span><strong>${e(p.title)}</strong><p>${e(p.description)}</p><b aria-hidden="true">↗</b></a>`).join('')}</div></section><section class="record-panel">${recordMarkup(job,project)}</section></div>${materialCases.some(c=>project?c.project===project.slug:c.company===job.slug)?renderMaterialCases(materialCases.filter(c=>project?c.project===project.slug:c.company===job.slug),e):''}${project?.slug==='idiom-scholar'?renderIdiomDesign(e):(!project&&job.slug==='haoteng'?renderIdiomCompanyEntry():'')}${!project&&job.slug==='muyou'?renderTownCompanyEntry()+renderZuoyaoCompanyEntry():''}${project?.slug==='sheep-match'?renderSheepDesign(e)+renderSheepReading(e):''}<nav class="detail-footer" aria-label="继续浏览"><a class="button primary" data-return-home href="../../index.html#company-${job.slug}">返回这一段时间轴 ↑</a>${i>0?`<a href="../../experience/${jobs[i-1].slug}/">← 更近一章</a>`:''}${i<jobs.length-1?`<a href="../../experience/${jobs[i+1].slug}/">更早一章 →</a>`:''}</nav></main>`;return shell({title,description,body,base:'../../',page:project?'project':'company',attrs:`data-layout="${job.layout}" data-company="${job.slug}" class="${project?'project-variant-'+(pIndex%3):'company-detail'}"`});}
 export function renderMaterialNote(c){return shell({title:c.title+' · 文档摘要',description:c.background,base:'../../../',page:'document',body:'<main id="main" class="detail-main wrap"><nav class="breadcrumbs" aria-label="面包屑"><a href="../">返回项目</a></nav><header class="detail-hero"><h1>'+e(c.title)+'</h1></header>'+renderMaterialCases([c],e,'../../../',true)+'</main>'});}
 function textLines(text,max=19){if(text.length<=max)return[text];const out=[];for(let i=0;i<text.length;i+=max)out.push(text.slice(i,i+max));return out;}
 function svgText(text,x,y,cls,max=19){return `<text x="${x}" y="${y}" class="${cls}">${textLines(text,max).map((line,i)=>`<tspan x="${x}" dy="${i?28:0}">${e(line)}</tspan>`).join('')}</text>`;}

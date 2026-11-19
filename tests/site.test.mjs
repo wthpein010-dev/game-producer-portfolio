@@ -839,6 +839,7 @@ test('home prioritizes three confirmed career cases before the full timeline', a
   const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');
   const cards=nodes(section,n=>n.tag==='article');
   assert.deepEqual(cards.map(c=>one(c,n=>n.tag==='h3','Case heading').children.join('')),['成语小秀才','Wordvillas','中国式相亲']);
+  assert.ok(home.html.indexOf('id="career-cases"')<home.html.indexOf('id="producer-skills"'));
   assert.ok(home.html.indexOf('id="career-cases"')<home.html.indexOf('id="experience"'));
   assert.match(textOf(section),/唯一策划/u);assert.match(textOf(section),/分支剧情.*上线/u);
   assert.match(textOf(section),/系统框架.*剧情大纲/u);
@@ -863,6 +864,7 @@ test('home publishes three landscape covers and seven linked gallery images', as
   assert.equal(nodes(gallery,n=>n.tag==='p'||n.tag==='article').length,0);
   for(const link of galleryLinks){
     assert.ok(link.attrs['aria-label']);
+    one(link,n=>hasClass(n,'project-gallery-label')&&textOf(n).length>2,'Visible project title');
     images.push(one(link,n=>n.tag==='img','Project gallery image'));
   }
   for(const img of images){
@@ -873,15 +875,28 @@ test('home publishes three landscape covers and seven linked gallery images', as
   assert.match(one(gallery,n=>n.attrs.src?.endsWith('/my-town.webp'),'Reviewed Town showcase').attrs.alt,/界面效果/u);
 });
 
-test('home skill tree is keyboard reachable and keeps TapTap within the portfolio', async()=>{
-  const {home}=await site();
+test('planning skills links use the same label and destination throughout the site', async()=>{
+  const {home,pages}=await site();
   const tree=one(home.document,n=>n.attrs.id==='producer-skills','Producer skill tree');
+  assert.equal(textOf(one(tree,n=>n.tag==='h2','Skills heading')),'策划技能点');
   assert.deepEqual(nodes(tree,n=>n.tag==='h3').map(textOf),['策划设计','玩家体验','研发交付']);
   assert.equal(nodes(tree,n=>n.tag==='a').length,6);
   const intro=one(home.document,n=>hasClass(n,'home-intro'),'Homepage intro');
   const header=one(home.document,n=>hasClass(n,'site-header'),'Homepage header');
   for(const block of [intro,header])assert.equal(nodes(block,n=>n.attrs.href?.endsWith('#taptap-games')).length,0);
   assert.equal(nodes(home.document,n=>n.attrs.id==='taptap-games').length,1);
+  for(const page of pages) {
+    const navigation=one(page.document,n=>hasClass(n,'site-header'),'Site header');
+    one(navigation,n=>n.tag==='a'&&n.attrs.href?.endsWith('#producer-skills')&&textOf(n)==='策划技能点','Unified skills navigation');
+  }
+});
+
+test('current project presents personal contributions before the gameplay media', async()=>{
+  const {projects}=await site();
+  const sheep=projects.find(p=>p.path==='projects/sheep-match/index.html');
+  const brief=one(sheep.document,n=>n.attrs.id==='project-contributions','Contribution brief');
+  assert.deepEqual(nodes(brief,n=>n.tag==='strong').map(textOf),['玩法与系统设计','团队协作与交付','体验反馈与迭代']);
+  assert.ok(sheep.html.indexOf('id="project-contributions"')<sheep.html.indexOf('id="sheep-playtest"'));
 });
 
 test('visual reading enhancement loads on every page and retains no-script evidence', async()=>{

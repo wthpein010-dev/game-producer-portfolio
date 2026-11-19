@@ -111,8 +111,8 @@ const gameLabels = {
   'lighthouse-rescue': { tags: ['合作救援', '风暴航行', '修船照明'], status: 'WebGL 本地模拟' },
 };
 
-export function renderHubGames() {
-  return hubGames.map(game => renderAiGameCard({
+export function renderHubGames(games = hubGames) {
+  return games.map(game => renderAiGameCard({
     id: 'hub-'+game.id, coverKey: game.id, title: game.name, description: game.brief,
     tags: gameLabels[game.id].tags, status: gameLabels[game.id].status,
     href: game.entry, detailLabel: '项目与试玩',
@@ -129,9 +129,12 @@ export function renderHubTools(personalApp = '') {
     </header>
     <div class="hub-featured-grid">${featuredHubIds.map(id => renderFeatured(byId.get(id))).join('\n')}</div>
     ${personalApp}
-    <section class="hub-catalog" aria-labelledby="hub-apps-title">
-      <h4 id="hub-apps-title">更多应用</h4>
-      <div class="hub-catalog-list" id="hub-more">${hubApps.map(renderCatalogCard).join('\n')}</div>
+    <section class="hub-catalog" aria-labelledby="hub-apps-heading">
+      <h4 id="hub-apps-heading">更多应用</h4>
+      <details class="work-catalog-toggle" id="hub-apps-title">
+        <summary><span>查看全部 ${hubApps.length} 个应用</span><span>收起应用列表</span></summary>
+        <div class="hub-catalog-list" id="hub-more">${hubApps.map(renderCatalogCard).join('\n')}</div>
+      </details>
     </section>
   </section>`;
 }

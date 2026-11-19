@@ -34,3 +34,15 @@
 | 舌尖上的魔术师 | [Steam 商店](https://store.steampowered.com/app/2904420/) 的公开战斗截图 | assets/project-design/home-showcase/magicar.webp | 6120b6d780f614914297336da190f6891ef6c5c7a12816f20db870f07b267504 |
 | 除灵事务所 | [Steam 商店](https://store.steampowered.com/app/3408380/) 的公开图鉴与养成截图 | assets/project-design/home-showcase/exorcism.webp | 163d9b8f2f362cc58b881277b8bd08ed718f969f8fd1344e5aca67de41fa42ee |
 | 危机曙光 | [Steam 商店](https://store.steampowered.com/app/2512880/) 的公开建造截图 | assets/project-design/home-showcase/crisis.webp | b6e1ff20166052c2f14f647c14f21ad2752b83479d4d9da855cd72c00ef61031 |
+
+## 危机曙光详情页截图
+
+画廊复用首页的建造截图（Steam 截图 ID 0），并收录同一 [CrisisX 官方商店的截图](https://store.steampowered.com/api/appdetails?appids=2512880&l=schinese)。新增图从商店横版原图等比缩至 1280 × 720 后转为 WebP。页面用文字说明截图的公开来源。
+
+| 商店截图 ID | 画面 | `assets/project-design/crisis-dawn/` 文件 | SHA-256 |
+| --- | --- | --- | --- |
+| 1 | 车辆探索 | `public-off-road.webp` | `89bd032db30bc1e4617a2d860a64d9a4aeeb6ab4d1805fb4add1743f3864d450` |
+| 2 | 野外采集 | `public-gathering.webp` | `a6089267534d6227d8cd91aacdc5ffb8ec9f776fa9a4e8796471f547b514807e` |
+| 5 | 基地外观 | `public-fortified-base.webp` | `ff5e68289fd78f25c4111b8fbd0af590c765a8894e0897e4041f2ff770c41276` |
+| 9 | 室内场景 | `public-indoor-facility.webp` | `186332bb67bc5039b3be643abf12f92f8e8584c5cd968877720fd1d60864ac9f` |
+| 10 | 家园与农田 | `public-homestead.webp` | `d8c3f6c4b33fdf78d481e14c62c1d6a169b846b80788b8637c605be9c51109e6` |

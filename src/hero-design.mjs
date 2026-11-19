@@ -24,3 +24,21 @@ function figure(file,e,base){
 export function renderHeroDesign(e,base='../../'){
   return `<section class="matchmaking-design" id="hero-design" aria-labelledby="hero-design-title"><header><p class="eyebrow">SYSTEM RULES / UI·UE / DELIVERY</p><h2 id="hero-design-title">危机曙光：规则、交互与交付</h2><p class="matchmaking-intro">先阅读有本人创建或修订记录的规范与活动方案，再用团队资料了解家园、公会和操作反馈中的设计问题。</p></header><p class="matchmaking-boundary">个人贡献以正文更新表和已确认职责为依据，团队文档与界面资源分别标注。活动日志日期早于已确认任期，具体完成时间待核对，不据此修改任职事实。历史方案不代表全部已上线，设计目标不等同于经营成果。</p><nav class="idiom-jumps" aria-label="危机曙光设计资料">${heroCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="#hero-delivery">交付结构参考 ↓</a></nav>${heroCases.map(c=>`<article class="matchmaking-map" id="${c.id}" data-evidence-basis="${c.basis}" aria-labelledby="${c.id}-title"><p class="eyebrow">${e(c.label)}</p><h3 id="${c.id}-title">${e(c.title)}</h3><div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(c.question)}</p><h4>产出与贡献依据</h4><p>${e(c.output)}</p></div><div><h4>关键方案与工作价值</h4><ul>${c.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div>${c.files.map(file=>figure(file,e,base)).join('')}</article>`).join('')}<section class="hero-delivery" id="hero-delivery" aria-labelledby="hero-delivery-title"><h3 id="hero-delivery-title">交付结构：规则之外还需要说明什么</h3><p>三个《文档规范模版（流程1）》版本保留了占位署名，不能认定为本人创建的规范。这里仅摘录其团队交付结构，作为理解上述方案的参考。</p><ul><li>从设计目的、模块关系与系统流程，进入具体界面、条件和异常分支。</li><li>将配置、红点、行为记录、跨系统依赖、跨区域与 PC 交互差异一起纳入说明。</li><li>补充服务器重启后的恢复、暂停或清理规则，最后关联美术音效需求与文档版本。</li></ul><p class="design-source">筛选说明：排行榜文档关键设计章节尚未展开，不作为完整系统案例；装备架空白版本不重复展示。排除第三方游戏临时参考、带身份水印或调试信息的截图、完整内部原件和敏感经济配置。</p></section></section>`;
 }
+const crisisPublicShots = [
+  { file: 'home-showcase/crisis.webp', width: 960, height: 540, label: '建造预览', alt: '角色在木质基地外预览待放置的建筑件，画面中显示红色轮廓' },
+  { file: 'crisis-dawn/public-gathering.webp', width: 1280, height: 720, label: '野外采集', alt: '角色手持镐，在野外敲击岩石' },
+  { file: 'crisis-dawn/public-off-road.webp', width: 1280, height: 720, label: '车辆探索', alt: '红色越野车驶过开阔草地' },
+  { file: 'crisis-dawn/public-fortified-base.webp', width: 1280, height: 720, label: '基地外观', alt: '户外多层木质基地和一旁的风车' },
+  { file: 'crisis-dawn/public-homestead.webp', width: 1280, height: 720, label: '家园与农田', alt: '围栏内的房屋、风车和种植区域' },
+  { file: 'crisis-dawn/public-indoor-facility.webp', width: 1280, height: 720, label: '室内场景', alt: '通道、围栏和集装箱组成的设施内部' },
+];
+
+export function renderCrisisGallery(e) {
+  return `<section class="taptap-gallery crisis-gallery" id="crisis-gallery" aria-labelledby="crisis-gallery-title">
+    <header><h2 id="crisis-gallery-title">游戏截图</h2><p>画面来自 <a href="https://store.steampowered.com/app/2512880/">Steam 官方商店</a>，展示《危机曙光》（CrisisX）的建造、采集和探索场景。</p></header>
+    <div class="taptap-shot-grid">${crisisPublicShots.map(({file,width,height,label,alt})=>{
+      const src = '../../assets/project-design/'+file;
+      return `<figure><a class="taptap-image-link" href="${src}" aria-label="放大${e(label)}截图"><img src="${src}" width="${width}" height="${height}" loading="lazy" decoding="async" alt="${e(alt)}"></a><figcaption><strong>${e(label)}</strong></figcaption></figure>`;
+    }).join('')}</div>
+  </section>`;
+}

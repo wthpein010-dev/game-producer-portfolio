@@ -58,7 +58,7 @@ export function renderProducerSkills(escape) {
 }
 
 export function renderCareerCases(escape) {
-  return '<section class="career-cases wrap" id="career-cases" aria-labelledby="career-cases-title">\n'+
+  return '<section class="career-cases" id="career-cases" aria-labelledby="career-cases-title">\n'+
     '  <header class="section-head"><h2 id="career-cases-title">代表项目</h2></header>\n'+
     '  <div class="career-case-grid">'+featuredCases.map(project=>
       '\n    <article class="career-case"><a class="career-case-link" href="'+escape(project.href)+'" aria-label="查看《'+escape(project.title)+'》项目详情">'+
@@ -73,6 +73,6 @@ export function renderProjectGallery(escape) {
     '  <h2 id="project-gallery-title">更多项目</h2>\n'+
     '  <ul class="project-gallery-grid" role="list">'+galleryProjects.map(project=>
       '\n    <li><a href="'+escape(project.href)+'" aria-label="查看《'+escape(project.title)+'》项目">'+cover(project,escape)+
-      '<span class="project-gallery-label" aria-hidden="true">'+escape(project.title)+' <span>↗</span></span></a></li>'
+      '<span class="project-gallery-label">'+escape(project.title)+' <span aria-hidden="true">↗</span></span></a></li>'
     ).join('')+'\n  </ul>\n</section>';
 }

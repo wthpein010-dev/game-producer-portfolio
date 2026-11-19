@@ -54,10 +54,16 @@ function card(game) {
 
 export function renderTapTapCollection() {
   const count = taptapGames.reduce((sum,game)=>sum+game.shots.length,0);
+  const featured = taptapGames.slice(0,3);
+  const more = taptapGames.slice(featured.length);
   return `<section class="taptap-collection" id="taptap-games" aria-labelledby="taptap-title">
     <header class="taptap-intro"><div><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h3 id="taptap-title">TapTap 游戏实践<span class="title-dot">.</span></h3><p>从玩法策划、关卡与数值设计，到界面、美术整合和版本迭代。每款作品附展示图与玩法说明。已开放的作品提供 TapTap 入口。</p></div><p class="taptap-collection-meta">${taptapGames.length} 款游戏<span aria-hidden="true"> / </span>${count} 张公开展示图</p></header>
-    <nav class="taptap-project-index" aria-label="快速查看游戏"><span>快速查看</span><ul>${taptapGames.map(game=>`<li><a href="#work-${e(game.slug)}">${e(game.title)}</a></li>`).join('')}</ul></nav>
-    <div class="taptap-grid ai-game-grid">${taptapGames.map(card).join('')}</div>
+    <div class="taptap-grid ai-game-grid">${featured.map(card).join('')}</div>
+    <details class="work-catalog-toggle">
+      <summary><span>查看全部 ${taptapGames.length} 款 TapTap 游戏</span><span>收起 TapTap 游戏列表</span></summary>
+      <nav class="taptap-project-index" aria-label="快速查看游戏"><span>快速查看</span><ul>${taptapGames.map(game=>`<li><a href="#work-${e(game.slug)}">${e(game.title)}</a></li>`).join('')}</ul></nav>
+      <div class="taptap-grid ai-game-grid">${more.map(card).join('')}</div>
+    </details>
   </section>`;
 }
 
