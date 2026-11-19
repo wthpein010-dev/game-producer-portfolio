@@ -1,0 +1,84 @@
+{
+  "images": [
+    {
+      "id": "title",
+      "file": "title.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "开发版标题界面与初入江湖入口",
+      "caption": "开发版主菜单，区分初次进入与再次进入。",
+      "source": "2026-11-19 Windows 0.23.0 受控运行",
+      "sha256": "18df579a5002e912a62ab5ba9eba33ac0d6f64e0bb41e3f2ff3dda0269ac9573"
+    },
+    {
+      "id": "melee",
+      "file": "melee.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "两位侠客在地面同纵深位置近身交手",
+      "caption": "本地对战。贴身时仍需对齐纵深，出招与防守都要读距离。",
+      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
+      "sha256": "fd334b765bbfa6b051b3d68da247f93147c87d9b0ed02380df68191c41a72511"
+    },
+    {
+      "id": "ranged",
+      "file": "ranged.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "雪地场景里两名侠客拉开距离施放远程招式",
+      "caption": "远程攻防。直线招式给了玩家拉开距离与换线的机会。",
+      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
+      "sha256": "be8b4d1ff2814e6411892b1bd2b77c02d30069cf548211fc2d00238c8f540a66"
+    },
+    {
+      "id": "throw",
+      "file": "throw.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "熔炉场景里玩家拾起并使用可投掷的箱子",
+      "caption": "场景物件可拾取和投掷，箱子与落地的兵器能改变接战方式。",
+      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
+      "sha256": "5868668e11f84ea1a774c9d57ca849cdf15df357278a9fcdef33d07dd5161ed1"
+    },
+    {
+      "id": "campaign",
+      "file": "campaign.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "主线江湖的章节选择、预览与出战阵容",
+      "caption": "章节选择页把关卡预览、同行阵容和解锁进度放在同一屏。",
+      "source": "2026-11-19 Windows 0.23.0 受控运行",
+      "sha256": "15811aab68efbc9e8f69414cc3e2a15f284e7e9a61ebd817653f8ae6dc61af16"
+    },
+    {
+      "id": "boss",
+      "file": "boss.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "关卡验收中三名侠客与精英敌人在夜间街市交手",
+      "caption": "首领战检查点。用不同敌人与同伴组合验证战斗空间和画面辨识度。",
+      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
+      "sha256": "1563ebb49ed0c40863712ab247c9c00e44b9afdd83ac1e2e2cfb747b3c8f2862"
+    },
+    {
+      "id": "rivalries",
+      "file": "rivalries.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "江湖恩怨页面的入局阵容、胜负规则与实时预演",
+      "caption": "江湖恩怨。可选阵容和胜负规则，也能快速对战或进入练习。",
+      "source": "2026-11-19 Windows 0.23.0 受控运行",
+      "sha256": "21a63bfee60d6821c27a4405f5fb8190938c775fa3b84dba4ea512f96c855f82"
+    },
+    {
+      "id": "training",
+      "file": "training.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "招式练习中的对手、招式提示及步骤进度",
+      "caption": "在招式练习中按步骤验证普攻、连击、防守和侧闪。",
+      "source": "2026-11-19 Windows 0.23.0 受控运行",
+      "sha256": "465f432587d59f1436cbaa58048f49a4f8a97b204e0539210eff0847b0985ca1"
+    }
+  ]
+}

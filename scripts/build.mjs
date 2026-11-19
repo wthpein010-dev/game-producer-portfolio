@@ -10,7 +10,7 @@ import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSumma
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
 import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage,renderZhuyinPage} from '../src/render.mjs';
-import {renderYujiangCoffeePage} from '../src/render.mjs';
+import {renderYujiangCoffeePage,renderFadingShadowsPage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -55,6 +55,9 @@ export async function build() {
   const nanjieDir=path.join(siteRoot,'projects','nanjie-repair-shop');
   await mkdir(nanjieDir,{recursive:true});
   await writeFile(path.join(nanjieDir,'index.html'),renderNanjiePage());
+  const fadingShadowsDir=path.join(siteRoot,'projects','fading-shadows');
+  await mkdir(fadingShadowsDir,{recursive:true});
+  await writeFile(path.join(fadingShadowsDir,'index.html'),renderFadingShadowsPage());
   for(const game of taptapGames) {
     const dir=path.join(siteRoot,'projects','taptap-'+game.slug);
     await mkdir(dir,{recursive:true});

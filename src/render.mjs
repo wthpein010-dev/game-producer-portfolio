@@ -24,6 +24,7 @@ import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
+import {renderFadingShadowsEntry,renderFadingShadowsBody} from './fading-shadows.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -68,6 +69,9 @@ export function renderNanjiePage() {
 }
 export function renderYujiangCoffeePage() {
   return shell({title:'渔江咖啡 · 个人游戏作品',description:'在海上打捞、冲泡咖啡、听来客讲故事。查看经营循环、策划取舍和 Windows 实机画面。',body:renderYujiangCoffeeBody(e),base:'../../',page:'document'});
+}
+export function renderFadingShadowsPage() {
+  return shell({title:'影逝之境 · 个人游戏作品',description:'横版武侠动作游戏的同屏对战、合作闯关和战斗手感设计，附 Windows 实机画面。',body:renderFadingShadowsBody(e),base:'../../',page:'document'});
 }
 function chapterRail() {
   const labels = {
@@ -121,6 +125,7 @@ export function renderHome(aiHtml='') {
     renderNanjieEntry(),
     renderZhuyinEntry(),
     renderYujiangCoffeeEntry(),
+    renderFadingShadowsEntry(),
   ];
   const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
     <h3 id="ai-games-title">AI 游戏</h3>

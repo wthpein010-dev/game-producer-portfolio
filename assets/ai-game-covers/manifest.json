@@ -1,5 +1,15 @@
 {
   "covers": {
+    "fading-shadows": {
+      "src": "assets/fading-shadows/melee.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "两位侠客在地面同纵深位置近身交手",
+      "sources": [
+        "assets/fading-shadows/melee.webp"
+      ],
+      "sha256": "fd334b765bbfa6b051b3d68da247f93147c87d9b0ed02380df68191c41a72511"
+    },
     "daynight-fate": {
       "src": "assets/taptap/daynight-fate/day.webp",
       "width": 1920,

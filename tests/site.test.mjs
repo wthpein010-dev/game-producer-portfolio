@@ -482,7 +482,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
   const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
   const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
   const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
-  assert.equal(cards.length,25);
+  assert.equal(cards.length,26);
   for(const card of cards){
     const children=card.children.filter(child=>typeof child!=='string');
     assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);
@@ -492,6 +492,33 @@ test('AI game cards use one attributable landscape cover and aligned content row
     assert.equal(Number(img.attrs.width)*9,Number(img.attrs.height)*16);
     assert.match(img.attrs.alt,/\S/u);
     assert.equal(createHash('sha256').update(await readFile(join(root,cover.src))).digest('hex'),cover.sha256);
+  }
+});
+
+test('Fading Shadows links the personal-works card to the verified game design case',async()=>{
+  const {home}=await site();
+  const works=one(home.document,n=>n.attrs.id==='hub-games','Personal game projects');
+  const card=one(works,n=>n.attrs.id==='fading-shadows','Fading Shadows card');
+  one(card,n=>n.tag==='a'&&n.attrs.href==='projects/fading-shadows/','Project link');
+  const detail=await page('projects/fading-shadows/index.html');
+  one(detail.document,n=>n.tag==='h1'&&textOf(n).includes('影逝之境'),'Project title');
+  assert.match(textOf(detail.document),/起势.*收招.*路牌.*Windows 0\.23\.0/u);
+  assert.doesNotMatch(detail.html,/file:\/\/|[\w-]+\.ug\.link|已上线|已发行|[A-Z]:[\\/]/u);
+  one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
+  const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
+  const figures=nodes(detail.document,n=>n.tag==='figure');
+  assert.equal(figures.length,8);
+  assert.equal(images.length,figures.length);
+  for(const image of images){
+    const src='../../assets/fading-shadows/'+image.file;
+    const figure=one(detail.document,n=>n.tag==='figure'&&nodes(n,el=>el.tag==='img'&&el.attrs.src===src).length===1,image.file);
+    const view=one(figure,n=>n.tag==='img','Game screenshot');
+    assert.equal(Number(view.attrs.width),image.width);
+    assert.equal(Number(view.attrs.height),image.height);
+    assert.equal(view.attrs.alt,image.alt);
+    one(figure,n=>n.tag==='a'&&n.attrs.href===src,'Same public full image');
+    const bytes=await readFile(join(root,'assets/fading-shadows',image.file));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);
   }
 });
 
