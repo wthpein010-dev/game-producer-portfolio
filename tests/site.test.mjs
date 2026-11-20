@@ -804,14 +804,15 @@ test('PC responsibility diagrams never reuse overlapping node positions', async(
   }
 });
 
-test('Hero evidence separates authored design, chronology gaps and team background across all three entries', async()=>{
+test('Hero evidence separates documented contributions from team context across all three entries', async()=>{
   const {projects,companies}=await site();
   const targets=[projects.find(p=>p.path==='projects/crisis-dawn/index.html'),companies.find(c=>c.path==='experience/hero-games/index.html'),await page('projects/crisis-dawn/design-summary/index.html')];
   for(const target of targets){
     const section=one(target.document,n=>n.attrs.id==='hero-design','Hero selected design evidence');
-    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,6);
+    assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,9);
     assert.match(textOf(section),/数值显示/u);assert.match(textOf(section),/吴天昊/u);
-    assert.match(textOf(section),/日期.*早于.*任期/u);assert.match(textOf(section),/待核对/u);
+    for(const id of ['hero-red-dots','hero-map-ue','hero-ranking'])one(section,n=>n.attrs.id===id&&n.attrs['data-evidence-basis']==='authored',id);
+    assert.match(textOf(section),/2026 年 3 月创建/u);assert.doesNotMatch(textOf(section),/早于已确认任期/u);
     assert.match(textOf(section),/其他成员|团队/u);assert.match(textOf(section),/不.*全部.*上线/u);
     assert.equal(nodes(section,n=>n.attrs.id==='hero-delivery').length,1);
     assert.doesNotMatch(section.raw||textOf(section),/留存提升\d|全部由我|独立完成所有/u);
