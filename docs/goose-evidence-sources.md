@@ -53,14 +53,14 @@
 
 对照 `MainUI.png` 和 `test/MainUI*.png` 的成图。前者是另一套完整主界面构图。采用场景、收取容器和底部入口齐全的 `test/MainUI2.png`，它与狗狗信息、狗舍和图鉴稿共享主要美术元素。`test/MainUI4.png` 只有浮层按钮，`test/MainUI3.png` 和 `test/MainUI5.png` 主要表现场景构图。
 
-以下源 PNG 均为 1080×1920。公开衍生图裁去顶部，按需覆盖示例姓名和数值，然后缩放并编码为 WebP。逐张查看了编码后的成图。局部保留了用于说明界面状态的示例等级、容量、倒计时或套组进度。
+以下源 PNG 均为 1080×1920。公开图保留原始尺寸与全幅构图，局部遮盖示例姓名和数值后编码为无损 WebP。逐张查看了编码后的成图。局部保留了用于说明界面状态的示例等级、容量、倒计时或套组进度。
 
 | 公开文件 | 原文件 | 公开尺寸 | 裁切和遮盖 | 原文件 SHA256 | 公开图 SHA256 |
 | --- | --- | --- | --- | --- | --- |
-| historical-main-ui.webp | test/MainUI2.png | 864×1255 | 顶部裁去 351 px | 1653b3296f2ebaaef80daa1e3540258d5559f93b1a0fcfde0debeb9b40e8ffa9 | c7959c7f56724c2858f3b5a2a5037964838608fbd941fcf4f37980cd4e7799e7 |
-| historical-dog-info.webp | test/MainUI_dogInfo.png | 864×1357 | 顶部裁去 224 px，遮盖产量、价格和升级金额 | 9157ed4c8287cd880a2eb5aa480aefffe8c41d90c5d59b33a8f43f898109075b | 7269272f40da7627a11be866dc85c939a3a72f2306f222f8e4ec982a20b1f5f1 |
-| historical-kennel.webp | test/MainUI_inventory.png | 864×1347 | 顶部裁去 236 px，遮盖派遣位置里的示例姓名和卡片部分数值 | 606980042e9c85673d4f6a4ed8d0f6a2fbf011e15509d4aff25a67ca429e9247 | 4532621e5943f537be79e051879dc00d0a7353b1b5057ffcc2400e62bc3f2038 |
-| historical-handbook.webp | test/MainUI_handbook.png | 864×1355 | 顶部裁去 226 px，遮盖套组奖励数量 | a7d0d42cd2a5e584dc25506aaf190d6ca987ee80638d9a49f958bcd325b56be9 | 1680a0ac7471efcf439c3f30c4ce4c07a0698a68ebc0d81cb0aa9d8b77e0b7a5 |
+| historical-main-ui.webp | test/MainUI2.png | 1080×1920 | 局部遮盖示例资料或数值 | 1653b3296f2ebaaef80daa1e3540258d5559f93b1a0fcfde0debeb9b40e8ffa9 | b5043ec15c314234e06efc073cf964ffc559a18940a8e0f10ce7b48e6f726cfb |
+| historical-dog-info.webp | test/MainUI_dogInfo.png | 1080×1920 | 局部遮盖示例资料或数值 | 9157ed4c8287cd880a2eb5aa480aefffe8c41d90c5d59b33a8f43f898109075b | 998580f8abc42543f5a098405a4db7f7c433a32de970a38b162bf7bec4578a67 |
+| historical-kennel.webp | test/MainUI_inventory.png | 1080×1920 | 局部遮盖示例资料或数值 | 606980042e9c85673d4f6a4ed8d0f6a2fbf011e15509d4aff25a67ca429e9247 | a825d0ba62cf93ffdb76ffc046fa761519e71e071ea59363cd612f7e62079a78 |
+| historical-handbook.webp | test/MainUI_handbook.png | 1080×1920 | 局部遮盖示例资料或数值 | a7d0d42cd2a5e584dc25506aaf190d6ca987ee80638d9a49f958bcd325b56be9 | e45a8fb72c0458a901031ab8a7895bb2c4ca67574cdbe33af1aa8a32152c4139 |
 
 四组案例继续对应百变汪星人项目、豪腾公司页及独立设计摘要。本站整理的材料结构图标为本站整理。
 

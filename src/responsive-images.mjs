@@ -19,6 +19,7 @@ function imageSizes(nodes,entry) {
     return '(max-width: 620px) calc(100vw - 85px), 480px';
   }
   if(hasClass(nodes,'career-case-image'))return '(max-width: 620px) calc(100vw - 57px), 382px';
+  if(hasClass(nodes,'career-ui-grid'))return '(max-width: 620px) calc(50vw - 30px), 325px';
   if(hasClass(nodes,'project-visual-overview'))return '(max-width: 700px) calc(100vw - 57px), 550px';
   if(hasClass(nodes,'indie-project'))return '(max-width: 700px) calc(100vw - 57px), (max-width: 1200px) calc(50vw - 40px), 562px';
   return '(max-width: 700px) calc(100vw - 55px), (max-width: 1240px) calc(100vw - 48px), 1200px';

@@ -1,8 +1,8 @@
 export const trainUiViews=[
-  {file:'ui-main.webp',width:640,height:1102,title:'主界面与车站',alt:'火车槽位、双环轨道、车站与商店的主界面效果稿',caption:'空槽与同级车辆相邻，便于拖拽合成。车站和轨道分别提示上轨操作和工作状态。',source:'主界面效果图.png',sha256:'32be07c0ef1ea3cd8b99c800bada02066f5dab5802a5d46630994455242932d7'},
-  {file:'ui-onboarding.webp',width:640,height:605,title:'新手操作引导',alt:'老列车长的购买教学对话与空闲火车槽位',caption:'用列车长的对话给出当前任务，再让玩家在场景里完成购买、合并或上轨。',source:'新手引导.png',sha256:'e77f04cbfa4a3a93035496ac341ff68e6a5205cf3248ad40d6efb140d01ad1e8'},
-  {file:'ui-map.webp',width:611,height:1038,title:'地点推进地图',alt:'显示地标、虚线线路和地点锁定状态的地图界面',caption:'地标与虚线标出经营路线，地点用亮点和锁形区分可进入与待解锁状态。',source:'map.png',sha256:'6d5b71908cd4fd098dbc19b9131175e8896c204d7ff46211d0e9a228ec1f018c'},
-  {file:'ui-puzzle.webp',width:598,height:575,title:'铁轨拼图棋盘',alt:'由弯轨和直轨构成的拼图棋盘及下方零件、宝箱和求助入口',caption:'棋盘上方接轨，下方管理弯轨和直轨。宝箱和求助入口放在手边，方便补齐所需零件。',source:'活动UI.png',sha256:'533451dc81458fde39a7d74c8cab1115c2a5e704e050f57542d7f21a28c8e4bb'},
+  {file:'ui-main.webp',width:640,height:1332,title:'主界面与车站',alt:'火车槽位、双环轨道、车站与商店的主界面效果稿',caption:'空槽与同级车辆相邻，便于拖拽合成。车站和轨道分别提示上轨操作和工作状态。',source:'主界面效果图.png',sha256:'fb74314af26c6e34268415a76fd3808eb89b700c7bfffeb3a3f754c9a6ed66a3'},
+  {file:'ui-onboarding.webp',width:640,height:1332,title:'新手操作引导',alt:'老列车长的购买教学对话与空闲火车槽位',caption:'用列车长的对话给出当前任务，再让玩家在场景里完成购买、合并或上轨。',source:'新手引导.png',sha256:'acb51e2ea7894ef6877a1c169479ad3c05d90e8dba15896320db1cf89b69409b'},
+  {file:'ui-map.webp',width:640,height:1138,title:'地点推进地图',alt:'显示地标、虚线线路和地点锁定状态的地图界面',caption:'地标与虚线标出经营路线，地点用亮点和锁形区分可进入与待解锁状态。',source:'map.png',sha256:'38c2f1a57713d44b9dcb312e1bd736ccf3090cd718a3fe069734c7a357dbb068'},
+  {file:'ui-puzzle.webp',width:640,height:1385,title:'铁轨拼图棋盘',alt:'由弯轨和直轨构成的拼图棋盘及下方零件、宝箱和求助入口',caption:'棋盘上方接轨，下方管理弯轨和直轨。宝箱和求助入口放在手边，方便补齐所需零件。',source:'活动UI.png',sha256:'04e80c75174d56423bd3ce2aeb3e7a0b0f49f46fc811cfc1e21f0330b904bc3c'},
 ];
 
 export const trainCases=[

@@ -791,7 +791,10 @@ test('Bolang supplements connect both projects without replacing existing eviden
   for(const a of bolangAssets){
     const b=await readFile(join(root,'assets/project-design',a.project,a.file));
     assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);
-    const dimensions=a.file.endsWith('.webp')
+    const losslessSize=b.toString('ascii',12,16)==='VP8L' ? b.readUInt32LE(21) : null;
+    const dimensions=losslessSize!==null
+      ? [(losslessSize&0x3fff)+1,((losslessSize>>>14)&0x3fff)+1]
+      : a.file.endsWith('.webp')
       ? [b.readUInt16LE(26)&0x3fff,b.readUInt16LE(28)&0x3fff]
       : [b.readUInt32BE(16),b.readUInt32BE(20)];
     assert.deepEqual(dimensions,[a.width,a.height]);

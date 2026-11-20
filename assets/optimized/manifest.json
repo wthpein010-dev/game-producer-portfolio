@@ -1079,6 +1079,86 @@
         }
       ]
     },
+    "assets/project-design/train-king/ui-main.webp": {
+      "sourceSha256": "fb74314af26c6e34268415a76fd3808eb89b700c7bfffeb3a3f754c9a6ed66a3",
+      "width": 640,
+      "height": 1332,
+      "bytes": 498744,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/ui-main.webp-fb74314af26c6e34-480.webp",
+          "width": 480,
+          "height": 999,
+          "bytes": 104502
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/ui-main.webp-fb74314af26c6e34-640.webp",
+          "width": 640,
+          "height": 1332,
+          "bytes": 151650
+        }
+      ]
+    },
+    "assets/project-design/train-king/ui-map.webp": {
+      "sourceSha256": "38c2f1a57713d44b9dcb312e1bd736ccf3090cd718a3fe069734c7a357dbb068",
+      "width": 640,
+      "height": 1138,
+      "bytes": 291062,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/ui-map.webp-38c2f1a57713d44b-480.webp",
+          "width": 480,
+          "height": 854,
+          "bytes": 38370
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/ui-map.webp-38c2f1a57713d44b-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 54798
+        }
+      ]
+    },
+    "assets/project-design/train-king/ui-onboarding.webp": {
+      "sourceSha256": "acb51e2ea7894ef6877a1c169479ad3c05d90e8dba15896320db1cf89b69409b",
+      "width": 640,
+      "height": 1332,
+      "bytes": 366528,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/ui-onboarding.webp-acb51e2ea7894ef6-480.webp",
+          "width": 480,
+          "height": 999,
+          "bytes": 83930
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/ui-onboarding.webp-acb51e2ea7894ef6-640.webp",
+          "width": 640,
+          "height": 1332,
+          "bytes": 121080
+        }
+      ]
+    },
+    "assets/project-design/train-king/ui-puzzle.webp": {
+      "sourceSha256": "04e80c75174d56423bd3ce2aeb3e7a0b0f49f46fc811cfc1e21f0330b904bc3c",
+      "width": 640,
+      "height": 1385,
+      "bytes": 354464,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/train-king/ui-puzzle.webp-04e80c75174d5642-480.webp",
+          "width": 480,
+          "height": 1039,
+          "bytes": 69298
+        },
+        {
+          "src": "assets/optimized/project-design/train-king/ui-puzzle.webp-04e80c75174d5642-640.webp",
+          "width": 640,
+          "height": 1385,
+          "bytes": 95636
+        }
+      ]
+    },
     "assets/project-design/train-king/unlock-reference.png": {
       "sourceSha256": "0daafd3f140073e95c69c2d71a3450125bb082419085880ae5fa93234f03c7bd",
       "width": 469,
@@ -1090,6 +1170,26 @@
           "width": 469,
           "height": 834,
           "bytes": 174782
+        }
+      ]
+    },
+    "assets/project-design/vanity-fair/chapter-layout-reviewed.webp": {
+      "sourceSha256": "1b348224904daba6d63e9cce4a35e222ea4bafba4edef760cc712c3d7c6383b6",
+      "width": 2848,
+      "height": 1022,
+      "bytes": 46518,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/vanity-fair/chapter-layout-reviewed.webp-1b348224904daba6-480.webp",
+          "width": 480,
+          "height": 172,
+          "bytes": 19910
+        },
+        {
+          "src": "assets/optimized/project-design/vanity-fair/chapter-layout-reviewed.webp-1b348224904daba6-960.webp",
+          "width": 960,
+          "height": 344,
+          "bytes": 46352
         }
       ]
     },
@@ -1232,6 +1332,110 @@
           "width": 1179,
           "height": 717,
           "bytes": 99642
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/historical-dog-info.webp": {
+      "sourceSha256": "998580f8abc42543f5a098405a4db7f7c433a32de970a38b162bf7bec4578a67",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 594204,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-dog-info.webp-998580f8abc42543-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 68976
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-dog-info.webp-998580f8abc42543-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 163888
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-dog-info.webp-998580f8abc42543-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 186204
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/historical-handbook.webp": {
+      "sourceSha256": "e45a8fb72c0458a901031ab8a7895bb2c4ca67574cdbe33af1aa8a32152c4139",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 544666,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-handbook.webp-e45a8fb72c0458a9-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 95116
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-handbook.webp-e45a8fb72c0458a9-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 235500
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-handbook.webp-e45a8fb72c0458a9-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 270970
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/historical-kennel.webp": {
+      "sourceSha256": "a825d0ba62cf93ffdb76ffc046fa761519e71e071ea59363cd612f7e62079a78",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 360268,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-kennel.webp-a825d0ba62cf93ff-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 60934
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-kennel.webp-a825d0ba62cf93ff-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 146804
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-kennel.webp-a825d0ba62cf93ff-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 164958
+        }
+      ]
+    },
+    "assets/project-design/versatile-dog/historical-main-ui.webp": {
+      "sourceSha256": "b5043ec15c314234e06efc073cf964ffc559a18940a8e0f10ce7b48e6f726cfb",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 762328,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-main-ui.webp-b5043ec15c314234-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 82768
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-main-ui.webp-b5043ec15c314234-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 204334
+        },
+        {
+          "src": "assets/optimized/project-design/versatile-dog/historical-main-ui.webp-b5043ec15c314234-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 235692
         }
       ]
     },

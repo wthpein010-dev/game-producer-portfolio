@@ -212,7 +212,7 @@ const careerUiGalleries = {
 
 function renderCareerUiGallery(slug, {id,views,description}) {
   return `<section class="career-ui-gallery" id="${id}" aria-labelledby="${id}-title">
-    <header><h2 id="${id}-title">项目界面设计</h2><p>${description} 图为团队历史界面设计稿的局部摘录，部分示例信息已裁去或遮盖。</p></header>
+    <header><h2 id="${id}-title">项目界面设计</h2><p>${description} 历史界面设计稿保留全幅画面，头像、部分示例数值与参考小图已遮盖。点击画面可放大。</p></header>
     <div class="career-ui-grid">${views.map(view=>{
       const src = '../../assets/project-design/'+slug+'/'+e(view.file);
       return `<figure>

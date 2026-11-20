@@ -39,11 +39,11 @@
 
 ## 2026-11-20 界面摘录
 
-从 Train 的 `美术/UI` 中核对四张效果稿，仅导出保留操作场景的 WebP 局部。去除头像及拼图原稿中的附加参考块，遮挡主界面的样例余额、产率和车站读数以及拼图计时。新手引导分镜用来核对拆盒、购买、合成和上轨的顺序，改版的材料阶段单独说明。
+从 Train 的 `美术/UI` 中核对四张效果稿，以原始画布尺寸输出全幅 WebP。局部遮盖头像、拼图附加参考、样例余额、产率和计时。新手引导分镜用来核对拆盒、购买、合成和上轨的顺序，改版的材料阶段单独说明。
 
 | 公开资源 | 素材 | 大小 | SHA256 |
 | --- | --- | --- | --- |
-| ui-main.webp | 主界面效果图.png | 640 × 1102 | 32be07c0ef1ea3cd8b99c800bada02066f5dab5802a5d46630994455242932d7 |
-| ui-onboarding.webp | 新手引导.png | 640 × 605 | e77f04cbfa4a3a93035496ac341ff68e6a5205cf3248ad40d6efb140d01ad1e8 |
-| ui-map.webp | map.png | 611 × 1038 | 6d5b71908cd4fd098dbc19b9131175e8896c204d7ff46211d0e9a228ec1f018c |
-| ui-puzzle.webp | 活动UI.png | 598 × 575 | 533451dc81458fde39a7d74c8cab1115c2a5e704e050f57542d7f21a28c8e4bb |
+| ui-main.webp | 主界面效果图.png | 640×1332 | fb74314af26c6e34268415a76fd3808eb89b700c7bfffeb3a3f754c9a6ed66a3 |
+| ui-onboarding.webp | 新手引导.png | 640×1332 | acb51e2ea7894ef6877a1c169479ad3c05d90e8dba15896320db1cf89b69409b |
+| ui-map.webp | map.png | 640×1138 | 38c2f1a57713d44b9dcb312e1bd736ccf3090cd718a3fe069734c7a357dbb068 |
+| ui-puzzle.webp | 活动UI.png | 640×1385 | 04e80c75174d56423bd3ce2aeb3e7a0b0f49f46fc811cfc1e21f0330b904bc3c |
