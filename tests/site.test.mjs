@@ -713,7 +713,7 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   const {projects,companies}=await site();
   const project=projects.find(p=>p.path==='projects/my-town/index.html');
   const gallery=one(project.document,n=>n.attrs.id==='town-design','Town design evidence');
-  assert.equal(nodes(gallery,n=>n.tag==='article').length,6);
+  assert.equal(nodes(gallery,n=>n.tag==='article').length,7);
   assert.match(textOf(gallery),/中断/u);
   assert.match(textOf(gallery),/不代表[^。]*上线/u);
   assert.match(textOf(gallery),/团队/u);
@@ -725,7 +725,8 @@ test('My Town has curated evidence, summary and company entry without leaking sh
   one(companyEntry,n=>n.tag==='a'&&n.attrs.href==='../../projects/my-town/#town-design','Town company entry');
   for(const other of projects.filter(p=>p!==project))assert.equal(nodes(other.document,n=>n.attrs.id==='town-design').length,0);
   const {townMaps}=await import('../src/town-design.mjs');
-  assert.equal(townMaps.length,3);
+  assert.equal(townMaps.length,4);
+  assert.ok(townMaps.some(item=>item.id==='town-shop-supply'));
   for(const item of townMaps){
     const bytes=await readFile(join(root,'assets/project-design/my-town',item.file));
     assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);

@@ -747,32 +747,6 @@
         }
       ]
     },
-    "assets/project-design/my-town/navigation.jpg": {
-      "sourceSha256": "180bcc3d8376681ea1c3ab6a0142f0ab0afdef837a5c7c2abefcfb51f99f216e",
-      "width": 1308,
-      "height": 1129,
-      "bytes": 269974,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-480.webp",
-          "width": 480,
-          "height": 414,
-          "bytes": 57734
-        },
-        {
-          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-960.webp",
-          "width": 960,
-          "height": 829,
-          "bytes": 168704
-        },
-        {
-          "src": "assets/optimized/project-design/my-town/navigation.jpg-180bcc3d8376681e-1308.webp",
-          "width": 1308,
-          "height": 1129,
-          "bytes": 268470
-        }
-      ]
-    },
     "assets/project-design/my-town/onboarding.jpg": {
       "sourceSha256": "ce9929c29be6491f2a68d3a8ecb4b065ae9c5735306a4fb9dbde4b52244b8ecf",
       "width": 1492,
@@ -837,35 +811,57 @@
         }
       ]
     },
-    "assets/project-design/my-town/task-states.jpg": {
-      "sourceSha256": "6902792e5e39b648e81f3120f0232e202c94d6131bae00463c85a97f628c6872",
-      "width": 1892,
-      "height": 1076,
-      "bytes": 249134,
+    "assets/project-design/my-town/town-chests-and-reset.png": {
+      "sourceSha256": "e01f1585cfc72b97dbd34b439380bf1803aeba179356533a403687c50e5921b6",
+      "width": 627,
+      "height": 185,
+      "bytes": 25428,
       "variants": [
         {
-          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-480.webp",
+          "src": "assets/optimized/project-design/my-town/town-chests-and-reset.png-e01f1585cfc72b97-627.webp",
+          "width": 627,
+          "height": 185,
+          "bytes": 15970
+        }
+      ]
+    },
+    "assets/project-design/my-town/town-map-and-recruitment.png": {
+      "sourceSha256": "cac9924eb4fcf882baec09ac902c8ddaf587872867dbfcfa29033ef60d0419c6",
+      "width": 821,
+      "height": 403,
+      "bytes": 215986,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/town-map-and-recruitment.png-cac9924eb4fcf882-480.webp",
           "width": 480,
-          "height": 273,
-          "bytes": 22104
+          "height": 236,
+          "bytes": 79816
         },
         {
-          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-960.webp",
-          "width": 960,
-          "height": 546,
-          "bytes": 66808
+          "src": "assets/optimized/project-design/my-town/town-map-and-recruitment.png-cac9924eb4fcf882-821.webp",
+          "width": 821,
+          "height": 403,
+          "bytes": 167872
+        }
+      ]
+    },
+    "assets/project-design/my-town/town-stock-and-upgrade.png": {
+      "sourceSha256": "3519cda09cac2d9cb40ff234e8c311abb19a71a5332cac527fcfa04c13baa3f7",
+      "width": 522,
+      "height": 182,
+      "bytes": 31507,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/my-town/town-stock-and-upgrade.png-3519cda09cac2d9c-480.webp",
+          "width": 480,
+          "height": 167,
+          "bytes": 29050
         },
         {
-          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-1440.webp",
-          "width": 1440,
-          "height": 819,
-          "bytes": 127338
-        },
-        {
-          "src": "assets/optimized/project-design/my-town/task-states.jpg-6902792e5e39b648-1892.webp",
-          "width": 1892,
-          "height": 1076,
-          "bytes": 199298
+          "src": "assets/optimized/project-design/my-town/town-stock-and-upgrade.png-3519cda09cac2d9c-522.webp",
+          "width": 522,
+          "height": 182,
+          "bytes": 26714
         }
       ]
     },

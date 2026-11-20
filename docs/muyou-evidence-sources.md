@@ -29,6 +29,9 @@
 | 网站资源 | 来源 | 尺寸 | SHA256 |
 | --- | --- | --- | --- |
 | my-town/system-framework.png | 系统框架 PDF 第 1 页忠实栅格渲染，非原文件内嵌 PNG | 1710×1467 | a81484b36b803923a54ed028beea82801287e607e3a5cb55387f037fc3f9df1a |
+| my-town/town-map-and-recruitment.png | 用户提供的图 4，裁切地图、店铺选择及顾客卡片 | 821×403 | cac9924eb4fcf882baec09ac902c8ddaf587872867dbfcfa29033ef60d0419c6 |
+| my-town/town-stock-and-upgrade.png | 用户提供的图 1，裁切在售、产出与升级界面 | 522×182 | 3519cda09cac2d9cb40ff234e8c311abb19a71a5332cac527fcfa04c13baa3f7 |
+| my-town/town-chests-and-reset.png | 用户提供的图 2 和图 3，裁切宝箱状态与重置确认 | 627×185 | e01f1585cfc72b97dbd34b439380bf1803aeba179356533a403687c50e5921b6 |
 | zuoyaoji-x/shield-preview.png | 用户追加的图 5，截取阵位与护盾预览 | 434×370 | 53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd |
 | zuoyaoji-x/pet-growth-preview.png | 用户追加的图 1，裁切并遮盖等级和对比数值 | 436×338 | d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d |
 | zuoyaoji-x/formation-preview.png | 用户追加的图 3，截取上阵弹窗并遮盖数量文本 | 353×299 | 8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054 |
