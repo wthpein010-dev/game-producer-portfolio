@@ -811,57 +811,87 @@
         }
       ]
     },
-    "assets/project-design/my-town/town-chests-and-reset.png": {
-      "sourceSha256": "e01f1585cfc72b97dbd34b439380bf1803aeba179356533a403687c50e5921b6",
-      "width": 627,
-      "height": 185,
-      "bytes": 25428,
+    "assets/project-design/my-town/town-navigation-annotated.png": {
+      "sourceSha256": "43156a576de93f318a9aa05108d8c4be66ab88fd6cacdbfb0fdbc949fadb4d4c",
+      "width": 1307,
+      "height": 1085,
+      "bytes": 735730,
       "variants": [
         {
-          "src": "assets/optimized/project-design/my-town/town-chests-and-reset.png-e01f1585cfc72b97-627.webp",
-          "width": 627,
-          "height": 185,
-          "bytes": 15970
+          "src": "assets/optimized/project-design/my-town/town-navigation-annotated.png-43156a576de93f31-480.webp",
+          "width": 480,
+          "height": 398,
+          "bytes": 138888
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/town-navigation-annotated.png-43156a576de93f31-960.webp",
+          "width": 960,
+          "height": 797,
+          "bytes": 410528
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/town-navigation-annotated.png-43156a576de93f31-1307.webp",
+          "width": 1307,
+          "height": 1085,
+          "bytes": 545296
         }
       ]
     },
-    "assets/project-design/my-town/town-map-and-recruitment.png": {
-      "sourceSha256": "cac9924eb4fcf882baec09ac902c8ddaf587872867dbfcfa29033ef60d0419c6",
-      "width": 821,
-      "height": 403,
-      "bytes": 215986,
+    "assets/project-design/my-town/town-supply-annotated.png": {
+      "sourceSha256": "fb19b0c7728aca22c7780fa12fbe46fb4654f444f7940075b9a6644ea3ac34b7",
+      "width": 2459,
+      "height": 615,
+      "bytes": 348090,
       "variants": [
         {
-          "src": "assets/optimized/project-design/my-town/town-map-and-recruitment.png-cac9924eb4fcf882-480.webp",
+          "src": "assets/optimized/project-design/my-town/town-supply-annotated.png-fb19b0c7728aca22-480.webp",
           "width": 480,
-          "height": 236,
-          "bytes": 79816
+          "height": 120,
+          "bytes": 36788
         },
         {
-          "src": "assets/optimized/project-design/my-town/town-map-and-recruitment.png-cac9924eb4fcf882-821.webp",
-          "width": 821,
-          "height": 403,
-          "bytes": 167872
+          "src": "assets/optimized/project-design/my-town/town-supply-annotated.png-fb19b0c7728aca22-960.webp",
+          "width": 960,
+          "height": 240,
+          "bytes": 107798
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/town-supply-annotated.png-fb19b0c7728aca22-1440.webp",
+          "width": 1440,
+          "height": 360,
+          "bytes": 204050
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/town-supply-annotated.png-fb19b0c7728aca22-1920.webp",
+          "width": 1920,
+          "height": 480,
+          "bytes": 324982
         }
       ]
     },
-    "assets/project-design/my-town/town-stock-and-upgrade.png": {
-      "sourceSha256": "3519cda09cac2d9cb40ff234e8c311abb19a71a5332cac527fcfa04c13baa3f7",
-      "width": 522,
-      "height": 182,
-      "bytes": 31507,
+    "assets/project-design/my-town/town-tasks-annotated.png": {
+      "sourceSha256": "178f92a2b55114569c90a41e9945d9c882eccf674613bd0ca5b274e8b22144d9",
+      "width": 1550,
+      "height": 1505,
+      "bytes": 363650,
       "variants": [
         {
-          "src": "assets/optimized/project-design/my-town/town-stock-and-upgrade.png-3519cda09cac2d9c-480.webp",
+          "src": "assets/optimized/project-design/my-town/town-tasks-annotated.png-178f92a2b5511456-480.webp",
           "width": 480,
-          "height": 167,
-          "bytes": 29050
+          "height": 466,
+          "bytes": 80850
         },
         {
-          "src": "assets/optimized/project-design/my-town/town-stock-and-upgrade.png-3519cda09cac2d9c-522.webp",
-          "width": 522,
-          "height": 182,
-          "bytes": 26714
+          "src": "assets/optimized/project-design/my-town/town-tasks-annotated.png-178f92a2b5511456-960.webp",
+          "width": 960,
+          "height": 932,
+          "bytes": 238302
+        },
+        {
+          "src": "assets/optimized/project-design/my-town/town-tasks-annotated.png-178f92a2b5511456-1550.webp",
+          "width": 1550,
+          "height": 1505,
+          "bytes": 170690
         }
       ]
     },
@@ -1231,23 +1261,35 @@
         }
       ]
     },
-    "assets/project-design/word-villas/championship-play-and-results.png": {
-      "sourceSha256": "d65a76d7ba6bfe6b5eb67c0e0492c7807bcd838ace7dc0c1f5857cde8d96b5b3",
-      "width": 514,
-      "height": 265,
-      "bytes": 104992,
+    "assets/project-design/word-villas/championship-annotated.png": {
+      "sourceSha256": "519bfebb074f430254bb281845e93d1267e353d2727a02ccf99aa3b21c335b24",
+      "width": 1908,
+      "height": 1120,
+      "bytes": 692487,
       "variants": [
         {
-          "src": "assets/optimized/project-design/word-villas/championship-play-and-results.png-d65a76d7ba6bfe6b-480.webp",
+          "src": "assets/optimized/project-design/word-villas/championship-annotated.png-519bfebb074f4302-480.webp",
           "width": 480,
-          "height": 247,
-          "bytes": 78294
+          "height": 282,
+          "bytes": 76716
         },
         {
-          "src": "assets/optimized/project-design/word-villas/championship-play-and-results.png-d65a76d7ba6bfe6b-514.webp",
-          "width": 514,
-          "height": 265,
-          "bytes": 82102
+          "src": "assets/optimized/project-design/word-villas/championship-annotated.png-519bfebb074f4302-960.webp",
+          "width": 960,
+          "height": 564,
+          "bytes": 230990
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/championship-annotated.png-519bfebb074f4302-1440.webp",
+          "width": 1440,
+          "height": 845,
+          "bytes": 438458
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/championship-annotated.png-519bfebb074f4302-1908.webp",
+          "width": 1908,
+          "height": 1120,
+          "bytes": 543402
         }
       ]
     },
@@ -1265,20 +1307,6 @@
         }
       ]
     },
-    "assets/project-design/word-villas/event-milestone-preview.png": {
-      "sourceSha256": "eee7970d699950aade3849664af07748ebef1caf252a0c347b64fac8ebf1eb3c",
-      "width": 488,
-      "height": 418,
-      "bytes": 15623,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/word-villas/event-milestone-preview.png-eee7970d699950aa-488.webp",
-          "width": 488,
-          "height": 418,
-          "bytes": 6434
-        }
-      ]
-    },
     "assets/project-design/word-villas/event-ranking-reference.png": {
       "sourceSha256": "bb71798a12b2f99bc4308abafe7836b49a5a716d31929b47723fafff4147f3b9",
       "width": 394,
@@ -1290,6 +1318,26 @@
           "width": 394,
           "height": 655,
           "bytes": 83230
+        }
+      ]
+    },
+    "assets/project-design/word-villas/event-wireframes-annotated.png": {
+      "sourceSha256": "bc6a877b4921773fe7f63f12d9330f888a187c9aceb3b752583baea44987272a",
+      "width": 908,
+      "height": 1048,
+      "bytes": 83162,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/event-wireframes-annotated.png-bc6a877b4921773f-480.webp",
+          "width": 480,
+          "height": 554,
+          "bytes": 65958
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/event-wireframes-annotated.png-bc6a877b4921773f-908.webp",
+          "width": 908,
+          "height": 1048,
+          "bytes": 36648
         }
       ]
     },
@@ -1313,23 +1361,23 @@
         }
       ]
     },
-    "assets/project-design/word-villas/story-chapters-and-choices.png": {
-      "sourceSha256": "48cdf5b351e8b4bf5046618e2184d07e34fe204e6fad053eb4d5f84864978d74",
-      "width": 748,
-      "height": 503,
-      "bytes": 384707,
+    "assets/project-design/word-villas/story-detail-annotated.png": {
+      "sourceSha256": "2cf5bda0c6c5a3533b5f28ef939710dd0e54daedb1d87e4254ecaa936a7c5d0c",
+      "width": 822,
+      "height": 717,
+      "bytes": 243875,
       "variants": [
         {
-          "src": "assets/optimized/project-design/word-villas/story-chapters-and-choices.png-48cdf5b351e8b4bf-480.webp",
+          "src": "assets/optimized/project-design/word-villas/story-detail-annotated.png-2cf5bda0c6c5a353-480.webp",
           "width": 480,
-          "height": 323,
-          "bytes": 154216
+          "height": 419,
+          "bytes": 93192
         },
         {
-          "src": "assets/optimized/project-design/word-villas/story-chapters-and-choices.png-48cdf5b351e8b4bf-748.webp",
-          "width": 748,
-          "height": 503,
-          "bytes": 309898
+          "src": "assets/optimized/project-design/word-villas/story-detail-annotated.png-2cf5bda0c6c5a353-822.webp",
+          "width": 822,
+          "height": 717,
+          "bytes": 190876
         }
       ]
     },
@@ -1433,17 +1481,29 @@
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/formation-preview.png": {
-      "sourceSha256": "8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054",
-      "width": 353,
-      "height": 299,
-      "bytes": 24873,
+    "assets/project-design/zuoyaoji-x/formation-annotated.png": {
+      "sourceSha256": "77df22a311ac261fe513cf2af61bc9d1b46edcb15055acb3d94e6227ab83240a",
+      "width": 1947,
+      "height": 722,
+      "bytes": 620820,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/formation-preview.png-8dcc1c10d9e83cae-353.webp",
-          "width": 353,
-          "height": 299,
-          "bytes": 18562
+          "src": "assets/optimized/project-design/zuoyaoji-x/formation-annotated.png-77df22a311ac261f-480.webp",
+          "width": 480,
+          "height": 178,
+          "bytes": 65206
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/formation-annotated.png-77df22a311ac261f-960.webp",
+          "width": 960,
+          "height": 356,
+          "bytes": 203130
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/formation-annotated.png-77df22a311ac261f-1440.webp",
+          "width": 1440,
+          "height": 534,
+          "bytes": 395388
         }
       ]
     },
@@ -1467,31 +1527,55 @@
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/pet-growth-preview.png": {
-      "sourceSha256": "d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d",
-      "width": 436,
-      "height": 338,
-      "bytes": 116058,
+    "assets/project-design/zuoyaoji-x/pet-growth-annotated.png": {
+      "sourceSha256": "6183974180566c8805b17d13259789c6a447033436dbb53f0c4d7847a3dcf57e",
+      "width": 1183,
+      "height": 1110,
+      "bytes": 435765,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth-preview.png-d5f9c1ef66a5b050-436.webp",
-          "width": 436,
-          "height": 338,
-          "bytes": 92540
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth-annotated.png-6183974180566c88-480.webp",
+          "width": 480,
+          "height": 450,
+          "bytes": 117114
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth-annotated.png-6183974180566c88-960.webp",
+          "width": 960,
+          "height": 901,
+          "bytes": 375710
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth-annotated.png-6183974180566c88-1183.webp",
+          "width": 1183,
+          "height": 1110,
+          "bytes": 341172
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/shield-preview.png": {
-      "sourceSha256": "53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd",
-      "width": 434,
-      "height": 370,
-      "bytes": 194975,
+    "assets/project-design/zuoyaoji-x/shield-annotated.png": {
+      "sourceSha256": "bf3daaca7fdd329172064a426a5dc12d4c7c8a5c9b487834a0a35fa947ec7133",
+      "width": 1198,
+      "height": 1005,
+      "bytes": 495243,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/shield-preview.png-53eae7fe8a4a85b0-434.webp",
-          "width": 434,
-          "height": 370,
-          "bytes": 158610
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-annotated.png-bf3daaca7fdd3291-480.webp",
+          "width": 480,
+          "height": 403,
+          "bytes": 110212
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-annotated.png-bf3daaca7fdd3291-960.webp",
+          "width": 960,
+          "height": 805,
+          "bytes": 345822
+        },
+        {
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-annotated.png-bf3daaca7fdd3291-1198.webp",
+          "width": 1198,
+          "height": 1005,
+          "bytes": 394326
         }
       ]
     },

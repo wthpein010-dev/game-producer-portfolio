@@ -29,12 +29,12 @@
 | 网站资源 | 来源 | 尺寸 | SHA256 |
 | --- | --- | --- | --- |
 | my-town/system-framework.png | 系统框架 PDF 第 1 页忠实栅格渲染，非原文件内嵌 PNG | 1710×1467 | a81484b36b803923a54ed028beea82801287e607e3a5cb55387f037fc3f9df1a |
-| my-town/town-map-and-recruitment.png | 用户提供的图 4，裁切地图、店铺选择及顾客卡片 | 821×403 | cac9924eb4fcf882baec09ac902c8ddaf587872867dbfcfa29033ef60d0419c6 |
-| my-town/town-stock-and-upgrade.png | 用户提供的图 1，裁切在售、产出与升级界面 | 522×182 | 3519cda09cac2d9cb40ff234e8c311abb19a71a5332cac527fcfa04c13baa3f7 |
-| my-town/town-chests-and-reset.png | 用户提供的图 2 和图 3，裁切宝箱状态与重置确认 | 627×185 | e01f1585cfc72b97dbd34b439380bf1803aeba179356533a403687c50e5921b6 |
-| zuoyaoji-x/shield-preview.png | 用户追加的图 5，截取阵位与护盾预览 | 434×370 | 53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd |
-| zuoyaoji-x/pet-growth-preview.png | 用户追加的图 1，裁切并遮盖等级和对比数值 | 436×338 | d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d |
-| zuoyaoji-x/formation-preview.png | 用户追加的图 3，截取上阵弹窗并遮盖数量文本 | 353×299 | 8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054 |
+| my-town/town-navigation-annotated.png | 用户提供的图 4，保留界面总览与跳转标注 | 1307×1085 | 43156a576de93f318a9aa05108d8c4be66ab88fd6cacdbfb0fdbc949fadb4d4c |
+| my-town/town-supply-annotated.png | 用户提供的图 1，保留店铺、工厂和货物升级标注 | 2459×615 | fb19b0c7728aca22c7780fa12fbe46fb4654f444f7940075b9a6644ea3ac34b7 |
+| my-town/town-tasks-annotated.png | 用户提供的图 2 和图 3，保留任务状态与弹窗说明 | 1550×1505 | 178f92a2b55114569c90a41e9945d9c882eccf674613bd0ca5b274e8b22144d9 |
+| zuoyaoji-x/shield-annotated.png | 用户本次提供的图 2，保留完整魔罩界面标注 | 1198×1005 | bf3daaca7fdd329172064a426a5dc12d4c7c8a5c9b487834a0a35fa947ec7133 |
+| zuoyaoji-x/pet-growth-annotated.png | 用户此前提供的图 1，保留魔宠培养和等级限制标注 | 1183×1110 | 6183974180566c8805b17d13259789c6a447033436dbb53f0c4d7847a3dcf57e |
+| zuoyaoji-x/formation-annotated.png | 用户此前提供的图 3，保留四屏布局和上阵调整标注 | 1947×722 | 77df22a311ac261fe513cf2af61bc9d1b46edcb15055acb3d94e6227ab83240a |
 | zuoyaoji-x/inn-entry-flow.png | 用户追加的图 8，截取客栈双入口流程 | 878×513 | 78562f163e9c3f4c1015b1b79c3f314c33372cec644a22a8ad6a0821e63066a7 |
 
 图片已逐张目视审核。商业化分层和内部发版流程只用于素材筛选。团队 UI、美术和程序为项目历史参考。

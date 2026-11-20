@@ -1,8 +1,8 @@
 export const muyouAssets = [
  {path:'my-town/system-framework.png',width:1710,height:1467,sha256:'a81484b36b803923a54ed028beea82801287e607e3a5cb55387f037fc3f9df1a',source:'《系统框架》PDF 第 1 页忠实渲染',alt:'我的小镇系统导图：店铺、顾客、玩家、货币、宣传单和宝箱任务之间的关系'},
- {path:'zuoyaoji-x/shield-preview.png',width:434,height:370,sha256:'53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd',source:'阵位切换与角色护盾预览',alt:'魔罩设计稿局部，顶部为阵位选择，下方展示角色与护盾'},
- {path:'zuoyaoji-x/pet-growth-preview.png',width:436,height:338,sha256:'d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d',source:'魔宠列表、星级与属性对比布局',alt:'魔宠培养设计稿局部，展示魔宠列表、当前与下一级对比位置和上阵按钮'},
- {path:'zuoyaoji-x/formation-preview.png',width:353,height:299,sha256:'8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054',source:'出战槽位与候选魔宠的状态设计',alt:'上阵调整设计稿局部，展示当前出战槽位、空位、已选标记和未获得状态'},
+ {path:'zuoyaoji-x/shield-annotated.png',width:1198,height:1005,sha256:'bf3daaca7fdd329172064a426a5dc12d4c7c8a5c9b487834a0a35fa947ec7133',source:'阵位、魔罩属性对比、材料与进阶按钮的界面标注',alt:'完整魔罩界面说明，含阵位切换、角色动画、属性对比、材料需求、进阶与返回'},
+ {path:'zuoyaoji-x/pet-growth-annotated.png',width:1183,height:1110,sha256:'6183974180566c8805b17d13259789c6a447033436dbb53f0c4d7847a3dcf57e',source:'魔宠培养界面与等级条件标注',alt:'魔宠培养线框与标注，含魔宠列表、上阵、技能说明、升级升星以及等级限制状态'},
+ {path:'zuoyaoji-x/formation-annotated.png',width:1947,height:722,sha256:'77df22a311ac261fe513cf2af61bc9d1b46edcb15055acb3d94e6227ab83240a',source:'魔宠培养、背包、图鉴与上阵调整',alt:'魔宠四屏设计稿及旁注，展示升级、背包、图鉴和上阵状态'},
  {path:'zuoyaoji-x/inn-entry-flow.png',width:878,height:513,sha256:'78562f163e9c3f4c1015b1b79c3f314c33372cec644a22a8ad6a0821e63066a7',source:'图鉴与阵容通往客栈的两条路径',alt:'客栈交互流程，两条入口分别从伙伴图鉴和阵容好感度图标开始'},
 ];
 
@@ -30,7 +30,7 @@ export function renderMuyouCase(item,e,base) {
 export function renderZuoyaoDesign(e,base='../../') {
  return `<section class="matchmaking-design" id="zuoyao-design" aria-labelledby="zuoyao-design-title">
   <header><p class="eyebrow">GROWTH / BATTLE / UI·UE</p><h2 id="zuoyao-design-title">作妖计 · 成长系统与界面交互</h2><p class="matchmaking-intro">从魔罩和魔宠培养，到阵容调整与客栈入口，展示玩家如何查看成长、调整出战组合并进入伙伴互动。</p></header>
-  <p class="matchmaking-boundary">主策划任期为 2021.05—2022.07。《魔罩系统文档》和《魔宠系统文档（第2版）》正文均署名“文档撰写人：吴天昊”。配图取自团队历史设计稿，已裁切或遮盖示例信息。</p>
+  <p class="matchmaking-boundary">主策划任期为 2021.05—2022.07。《魔罩系统文档》和《魔宠系统文档（第2版）》正文均署名“文档撰写人：吴天昊”。配图保留团队历史设计稿中的界面、箭头和说明，部分示例数值已遮盖。</p>
   <nav class="idiom-jumps" aria-label="作妖计资料">${zuoyaoCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="${base}projects/zuoyaoji-x/design-summary/">设计摘要 ↗</a></nav>
   ${zuoyaoCases.map(c=>renderMuyouCase(c,e,base)).join('')}
  </section>`;
