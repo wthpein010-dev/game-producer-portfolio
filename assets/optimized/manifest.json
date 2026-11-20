@@ -1235,6 +1235,26 @@
         }
       ]
     },
+    "assets/project-design/word-villas/championship-play-and-results.png": {
+      "sourceSha256": "d65a76d7ba6bfe6b5eb67c0e0492c7807bcd838ace7dc0c1f5857cde8d96b5b3",
+      "width": 514,
+      "height": 265,
+      "bytes": 104992,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/championship-play-and-results.png-d65a76d7ba6bfe6b-480.webp",
+          "width": 480,
+          "height": 247,
+          "bytes": 78294
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/championship-play-and-results.png-d65a76d7ba6bfe6b-514.webp",
+          "width": 514,
+          "height": 265,
+          "bytes": 82102
+        }
+      ]
+    },
     "assets/project-design/word-villas/event-collection-reference.png": {
       "sourceSha256": "2a80e9de0a25470e4d5278a519db203220ce0d6b18b259de8ab165576dd883ed",
       "width": 474,
@@ -1246,6 +1266,20 @@
           "width": 474,
           "height": 733,
           "bytes": 242542
+        }
+      ]
+    },
+    "assets/project-design/word-villas/event-milestone-preview.png": {
+      "sourceSha256": "eee7970d699950aade3849664af07748ebef1caf252a0c347b64fac8ebf1eb3c",
+      "width": 488,
+      "height": 418,
+      "bytes": 15623,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/event-milestone-preview.png-eee7970d699950aa-488.webp",
+          "width": 488,
+          "height": 418,
+          "bytes": 6434
         }
       ]
     },
@@ -1280,6 +1314,26 @@
           "width": 960,
           "height": 540,
           "bytes": 147906
+        }
+      ]
+    },
+    "assets/project-design/word-villas/story-chapters-and-choices.png": {
+      "sourceSha256": "48cdf5b351e8b4bf5046618e2184d07e34fe204e6fad053eb4d5f84864978d74",
+      "width": 748,
+      "height": 503,
+      "bytes": 384707,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/word-villas/story-chapters-and-choices.png-48cdf5b351e8b4bf-480.webp",
+          "width": 480,
+          "height": 323,
+          "bytes": 154216
+        },
+        {
+          "src": "assets/optimized/project-design/word-villas/story-chapters-and-choices.png-48cdf5b351e8b4bf-748.webp",
+          "width": 748,
+          "height": 503,
+          "bytes": 309898
         }
       ]
     },
@@ -1369,26 +1423,6 @@
         }
       ]
     },
-    "assets/project-design/word-villas/word-activity-wireframes.jpg": {
-      "sourceSha256": "41cb1d212df8451c1d83c23072c0008e3026adf14b0aaf97b980e709350f5167",
-      "width": 925,
-      "height": 780,
-      "bytes": 98162,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/word-villas/word-activity-wireframes.jpg-41cb1d212df8451c-480.webp",
-          "width": 480,
-          "height": 405,
-          "bytes": 27712
-        },
-        {
-          "src": "assets/optimized/project-design/word-villas/word-activity-wireframes.jpg-41cb1d212df8451c-925.webp",
-          "width": 925,
-          "height": 780,
-          "bytes": 78224
-        }
-      ]
-    },
     "assets/project-design/word-villas/word-dice-interaction.jpg": {
       "sourceSha256": "ff54ce5436b6244447ef330e1ce8134e5e87b54325da22f0dd702b4643eef240",
       "width": 545,
@@ -1400,39 +1434,6 @@
           "width": 480,
           "height": 511,
           "bytes": 52746
-        }
-      ]
-    },
-    "assets/project-design/word-villas/word-story-interface-detail.jpg": {
-      "sourceSha256": "1d2ae330d1b70517b7fd28a83857daec53393ed8ff59c54d7713f1191ba10cec",
-      "width": 430,
-      "height": 360,
-      "bytes": 18728,
-      "variants": []
-    },
-    "assets/project-design/word-villas/word-tournament-ui-flow.jpg": {
-      "sourceSha256": "f88f4338e14596abe32ff6887c30f3535b06e9940c5515eb1eb763ec450c9a90",
-      "width": 1204,
-      "height": 530,
-      "bytes": 67403,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-480.webp",
-          "width": 480,
-          "height": 211,
-          "bytes": 16690
-        },
-        {
-          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-960.webp",
-          "width": 960,
-          "height": 423,
-          "bytes": 46054
-        },
-        {
-          "src": "assets/optimized/project-design/word-villas/word-tournament-ui-flow.jpg-f88f4338e14596ab-1204.webp",
-          "width": 1204,
-          "height": 530,
-          "bytes": 65162
         }
       ]
     },
