@@ -50,6 +50,14 @@ export function decorateImageMarkup(html,manifest) {
     const candidates=entry.variants.toSorted((a,b)=>a.width-b.width);
     const fallback=candidates.findLast(candidate=>candidate.width<=960)||candidates[0];
     const prefix=local[1];
+    const largest=candidates.at(-1);
+    // PNG previews use lossless WebP. For lossy sources keep the original at
+    // native width, even when a second encode exists at that same resolution.
+    if(largest.width<entry.width||!/\.png$/i.test(local[2])) {
+      const original={src:local[2],width:entry.width};
+      if(largest.width===entry.width)candidates.pop();
+      candidates.push(original);
+    }
     const srcset=candidates.map(candidate=>`${prefix}${candidate.src} ${candidate.width}w`).join(', ');
     return tag.replace(/\bsrc\s*=\s*(?:"[^"]*"|'[^']*')/i,`src="${escaped(prefix+fallback.src)}"`)
       .replace(/\s*\/?>(?=$)/,` srcset="${escaped(srcset)}" sizes="${escaped(imageSizes(nodes,entry))}" data-original-src="${escaped(attrs.src)}"${attrs.decoding?'':' decoding="async"'}>`);

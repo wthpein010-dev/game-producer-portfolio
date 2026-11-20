@@ -15,7 +15,7 @@ test('preview uses responsive lighter files while preserving original link and g
   const out=decorateImageMarkup('<figure class="taptap-cover"><a href="assets/screens/screenshot.png"><img src="assets/screens/screenshot.png" width="1800" height="900" loading="lazy" alt="原图 &amp; 项目"></a></figure>',manifest);
   assert.match(out,/href="assets\/screens\/screenshot\.png"/);
   assert.match(out,/src="assets\/optimized\/screens\/screenshot-960\.webp"/);
-  assert.match(out,/srcset="assets\/optimized\/screens\/screenshot-480\.webp 480w, assets\/optimized\/screens\/screenshot-960\.webp 960w, assets\/optimized\/screens\/screenshot-1440\.webp 1440w"/);
+  assert.match(out,/srcset="assets\/optimized\/screens\/screenshot-480\.webp 480w, assets\/optimized\/screens\/screenshot-960\.webp 960w, assets\/optimized\/screens\/screenshot-1440\.webp 1440w, assets\/screens\/screenshot\.png 1800w"/);
   assert.match(out,/data-original-src="assets\/screens\/screenshot\.png"/);
   assert.match(out,/width="1800" height="900" loading="lazy" alt="原图 &amp; 项目"/);
   assert.match(out,/sizes="[^"]*240px"/);
@@ -25,6 +25,19 @@ test('deep pages keep relative prefixes on every preview candidate',()=>{
   const out=decorateImageMarkup('<img src="../../../assets/screens/screenshot.png" width="1800" height="900" alt="设计图">',manifest);
   assert.match(out,/src="\.\.\/\.\.\/\.\.\/assets\/optimized\/screens\/screenshot-960.webp"/);
   assert.match(out,/srcset="\.\.\/\.\.\/\.\.\/assets\/optimized\/screens\/screenshot-480.webp 480w/);
+  assert.ok(out.includes('../../../assets/screens/screenshot.png 1800w"'));
+});
+test('native width uses original JPG and WebP bytes or a lossless PNG preview',()=>{
+  for(const extension of ['jpg','webp','png']){
+    const src='assets/screens/screenshot.'+extension;
+    const native={src:'assets/optimized/screens/screenshot-1800.webp',width:1800,height:900,bytes:100000};
+    const entry=manifest.images['assets/screens/screenshot.png'];
+    const fixture={images:{[src]:{...entry,variants:[...entry.variants,native]}}};
+    const html=decorateImageMarkup('<img src="'+src+'" alt="原始画面">',fixture);
+    assert.ok(html.includes('screenshot-1440.webp 1440w'));
+    assert.equal(html.split(' 1800w').length,2);
+    assert.ok(html.includes((extension==='png'?native.src:src)+' 1800w'));
+  }
 });
 test('singleton landscape gallery advertises its wide readable slot instead of a card width',()=>{
   const out=decorateImageMarkup('<div class="taptap-shot-grid" data-shot-count="1"><figure><img src="assets/screens/screenshot.png" width="1800" height="900" alt="对话截图"></figure></div>',manifest);

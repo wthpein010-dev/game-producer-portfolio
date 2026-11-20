@@ -1105,12 +1105,18 @@ test('every responsive preview candidate exists and retains the reviewed origina
     const entry=manifest.images[original];
     assert.ok(entry?.variants.length,original);
     assert.ok(Number(img.attrs.width)>0&&Number(img.attrs.height)>0&&img.attrs.alt);
-    const urls=img.attrs.srcset.split(', ').map(part=>part.split(' ')[0]);
-    assert.equal(urls.length,entry.variants.length);
-    for(let i=0;i<urls.length;i++) {
-      assert.equal(routeFor(urls[i],current.path).path,entry.variants[i].src);
-      assert.equal((await stat(join(root,entry.variants[i].src))).size,entry.variants[i].bytes);
+    let lastWidth=0;
+    for(const candidate of img.attrs.srcset.split(', ')) {
+      const [url,descriptor]=candidate.split(' ');
+      const file=routeFor(url,current.path).path;
+      const width=Number(descriptor.slice(0,-1));
+      assert.ok(width>lastWidth&&width<=entry.width,candidate);
+      lastWidth=width;
+      const source=file===original?entry:entry.variants.find(v=>v.src===file);
+      assert.equal(width,source?.width,candidate);
+      assert.equal((await stat(join(root,file))).size,source.bytes);
     }
+    assert.equal(lastWidth,entry.width,original);
     assert.ok(entry.variants.some(v=>v.src===routeFor(img.attrs.src,current.path).path));
     assert.equal(img.attrs.decoding,'async');
   }
