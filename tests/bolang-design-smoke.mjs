@@ -20,7 +20,7 @@ try {
     const ids=route.includes('matchmaking-inc')?['matchmaking-supplement']:route.includes('vanity-fair')?['vanity-design']:['matchmaking-supplement','vanity-design'];
     for(const id of ids){
       const section=page.locator('#'+id);
-      assert.equal(await section.locator('article').count(),4);
+      assert.equal(await section.locator('article').count(),id==='vanity-design'?6:4);
       for(const img of await section.locator('figure img').all()){
         await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());
         const ratio=await img.evaluate(el=>({rendered:el.clientWidth/el.clientHeight,original:el.naturalWidth/el.naturalHeight}));
@@ -42,7 +42,7 @@ try {
     console.log(`PASS ${width} ${route}`);results.push({width,route});await context.close();
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}}),page=await context.newPage();
-  await page.goto(base+'projects/vanity-fair/');await page.locator('#vanity-design nav a').nth(1).click();assert.equal(new URL(page.url()).hash,'#vanity-flow');await page.locator('#vanity-flow summary').click();assert.notEqual(await page.locator('#vanity-flow details').getAttribute('open'),null);await context.close();
+  await page.goto(base+'projects/vanity-fair/');await page.locator('#vanity-design nav a[href="#vanity-flow"]').press('Enter');assert.equal(new URL(page.url()).hash,'#vanity-flow');await page.locator('#vanity-flow summary').press('Enter');assert.notEqual(await page.locator('#vanity-flow details').getAttribute('open'),null);await context.close();
   results.push({scenario:'no-JavaScript links and disclosure'});assert.deepEqual(errors,[]);
 } finally {await browser.close();await new Promise(resolve=>server.close(resolve));await writeFile(new URL('report.json',artifacts),JSON.stringify({results,errors},null,2));}
 console.log(`Bolang acceptance: ${results.length}/16 passed`);

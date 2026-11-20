@@ -12,7 +12,7 @@ try{
   for(const width of [360,768,1440])for(const route of ['projects/vanity-fair/','projects/vanity-fair/design-summary/','experience/bolang/']){
     const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     assert.equal((await page.goto(`http://127.0.0.1:${server.address().port}/${route}`,{waitUntil:'networkidle'})).status(),200);
-    const section=page.locator('#vanity-design');assert.equal(await section.locator('article').count(),4);
+    const section=page.locator('#vanity-design');assert.equal(await section.locator('article').count(),6);
     assert.match(await section.innerText(),/全部系统界面功能/u);assert.match(await section.innerText(),/不包含剧本撰写或剧情创作/u);
     for(const img of await section.locator('figure img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());assert.ok(await img.evaluate(el=>Math.abs(el.clientWidth/el.clientHeight-el.naturalWidth/el.naturalHeight)<0.02));}
     for(const link of await section.locator('.design-original').all())assert.equal((await page.request.get(new URL(await link.getAttribute('href'),page.url()).href)).status(),200);

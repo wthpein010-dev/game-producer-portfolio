@@ -760,7 +760,7 @@ test('Beta authored evidence connects Wordvillas, company and summary with expli
 test('Bolang supplements connect both projects without replacing existing evidence or claiming team execution', async()=>{
   const {projects,companies}=await site();
   const company=companies.find(p=>p.path==='experience/bolang/index.html');
-  for(const [slug,id,count] of [['matchmaking-inc','matchmaking-supplement',4],['vanity-fair','vanity-design',4]]){
+  for(const [slug,id,count] of [['matchmaking-inc','matchmaking-supplement',4],['vanity-fair','vanity-design',6]]){
     for(const target of [projects.find(p=>p.path===`projects/${slug}/index.html`),company,await page(`projects/${slug}/design-summary/index.html`)]){
       const section=one(target.document,n=>n.attrs.id===id,'Bolang curated evidence');
       assert.equal(nodes(section,n=>n.tag==='article'&&hasClass(n,'matchmaking-map')).length,count);
@@ -786,8 +786,16 @@ test('Bolang supplements connect both projects without replacing existing eviden
   const vanityWork=textOf(one(projects.find(p=>p.path==='projects/vanity-fair/index.html').document,n=>n.attrs.id==='work-value','Confirmed Vanity responsibilities'));
   assert.match(vanityWork,/全部系统界面功能/u);assert.match(vanityWork,/绘制与摆放/u);assert.match(vanityWork,/数值奖励/u);
   assert.doesNotMatch(vanityWork,/只.*需求背景|仅.*项目背景/u);
-  const {bolangAssets}=await import('../src/bolang-design.mjs');assert.equal(bolangAssets.length,8);
-  for(const a of bolangAssets){const b=await readFile(join(root,'assets/project-design',a.project,a.file));assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);assert.equal(b.readUInt32BE(16),a.width);assert.equal(b.readUInt32BE(20),a.height);assert.ok(a.source.length>10);}
+  const {bolangAssets}=await import('../src/bolang-design.mjs');assert.equal(bolangAssets.length,10);
+  for(const a of bolangAssets){
+    const b=await readFile(join(root,'assets/project-design',a.project,a.file));
+    assert.equal(createHash('sha256').update(b).digest('hex'),a.sha256);
+    const dimensions=a.file.endsWith('.webp')
+      ? [b.readUInt16LE(26)&0x3fff,b.readUInt16LE(28)&0x3fff]
+      : [b.readUInt32BE(16),b.readUInt32BE(20)];
+    assert.deepEqual(dimensions,[a.width,a.height]);
+    assert.ok(a.source.length>10);
+  }
 });
 
 test('PC responsibility diagrams never reuse overlapping node positions', async()=>{
