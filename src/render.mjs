@@ -24,7 +24,8 @@ import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
-import {renderFadingShadowsEntry,renderFadingShadowsBody} from './fading-shadows.mjs';
+import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
+import {renderHubGameBody,hubGameSummary} from './hub-game-stories.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -52,26 +53,29 @@ export function renderCollaborationPage() {
   return shell({title:'AI 辅助研发与团队协作',description:'需求收口、任务组织、原型交付与验证复盘：吴天昊的人机协同研发方法。',body:renderCollaborationBody(e),base:'../../',page:'document'});
 }
 export function renderAiPocketPage() {
-  return shell({title:'AI 随身舱 · AI 工具应用实践',description:'从场景拆解到工具选择、提示词组织与产物检查：办公、图片、写作和视频场景中的 AI 工具运用方法。',body:renderAiPocketBody(e),base:'../../',page:'document'});
+  return shell({title:'AI 随身舱 · AI 工具工作台',description:'从办公整理、电商图片、写作到视频生成，按任务选择工具，组织输入并检查产物。',body:renderAiPocketBody(e),base:'../../',page:'document'});
 }
 export function renderRingHavenPage() {
-  return shell({title:'环环小憩 · 我的 AI 游戏作品',description:'我用 AI 做出圆环解谜游戏，加入 60 个特别关、每日挑战和海狸换装。',body:renderRingHavenBody(e),base:'../../',page:'document'});
+  return shell({title:'环环小憩 · 圆环解谜',description:'转动圆环，对准开口，逐个解开连接。挑战炸弹关、奖励关和每日谜题，为海狸解锁新装。',body:renderRingHavenBody(e),base:'../../',page:'document'});
 }
 export function renderTokenGamePage() {
-  return shell({title:'又没Token了！ · 个人作品',description:'用有限 Token 运营一家 AI 工作室。个人游戏策划、经营循环与 Godot 可玩原型。',body:renderTokenGameBody(),base:'../../',page:'document',stylesheet:tokenGameStyles});
+  return shell({title:'又没Token了！ · AI 工作室经营',description:'用有限 Token 经营 AI 工作室。接单、排进制作队列，再判断返工、重跑或保留素材哪条路最划算。',body:renderTokenGameBody(),base:'../../',page:'document',stylesheet:tokenGameStyles});
 }
 export function renderZhuyinPage() {
-  return shell({title:'竹隐江湖2D · 我的 AI 游戏作品',description:'竖屏武侠 RPG 安卓原型，附实机截图和 AI 协作方法。',body:renderZhuyinBody(),base:'../../',page:'document'});
+  return shell({title:'竹隐江湖2D · 竖屏武侠 RPG',description:'穿过竹林与村镇，在竖屏里体验探索、交锋和侠客成长。',body:renderZhuyinBody(),base:'../../',page:'document'});
 }
 
 export function renderNanjiePage() {
-  return shell({title:'南街修物志 · 个人作品',description:'竖屏旧物修复与小店经营游戏，附真实修复流程、设计取舍与手机版开发记录。',body:renderNanjieBody(),base:'../../',page:'document'});
+  return shell({title:'南街修物志 · 旧物修复经营',description:'给街坊修收音机，从诊断到试机，把手上的旧物修好，也把巷口的小店经营起来。',body:renderNanjieBody(),base:'../../',page:'document'});
 }
 export function renderYujiangCoffeePage() {
-  return shell({title:'渔江咖啡 · 个人游戏作品',description:'在海上打捞、冲泡咖啡、听来客讲故事。查看经营循环、策划取舍和 Windows 实机画面。',body:renderYujiangCoffeeBody(e),base:'../../',page:'document'});
+  return shell({title:'渔江咖啡 · 海上经营',description:'白天出海打捞，回船冲一杯咖啡，听来客把故事讲下去。',body:renderYujiangCoffeeBody(e),base:'../../',page:'document'});
 }
 export function renderFadingShadowsPage() {
-  return shell({title:'影逝之境 · 个人游戏作品',description:'横版武侠动作游戏的同屏对战、合作闯关和战斗手感设计，附 Windows 实机画面。',body:renderFadingShadowsBody(e),base:'../../',page:'document'});
+  return shell({title:'影逝之境 · 同屏武侠动作',description:fadingShadowsSummary,body:renderFadingShadowsBody(e),base:'../../',page:'document'});
+}
+export function renderHubGameDetail(game) {
+  return shell({title:game.name+' · 玩法与设计',description:hubGameSummary(game),body:renderHubGameBody(game),base:'../../',page:'document'});
 }
 function chapterRail() {
   const labels = {

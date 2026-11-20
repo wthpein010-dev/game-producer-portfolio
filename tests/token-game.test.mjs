@@ -18,7 +18,8 @@ test('Token game links from Personal Projects and returns to the same entry', as
   assert.match(detail, /src="\.\.\/\.\.\/assets\/token-game\/workbench\.webp"/u);
   assert.match(detail, /href="\.\.\/\.\.\/index\.html#token-game"/u);
   assert.match(detail, /Windows 可玩原型 0\.11\.8 · 画面取自同版本导出包的测试场景/u);
-  assert.match(detail, /用 Codex 协助/u);
+  assert.match(detail, /普通委托还是加急/u);
+  assert.match(detail, /收入要等日结才知道/u);
   assert.doesNotMatch(detail, /已上线 Steam|Steam 商店|<a[^>]+ download|file:\/\/|localhost|[A-F]:[\\/]/u);
 });
 

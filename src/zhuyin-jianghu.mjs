@@ -1,15 +1,16 @@
 import { renderAiGameCard } from './ai-game-card.mjs';
 
 const title = '竹隐江湖2D';
-const summary = '竖屏武侠 RPG 原型。在竹林营地辨认路线与目标，把地图探索、武器装备和武学熟练度串成一套可上手的成长体验。';
-const images = [
-  ['home', '竹林营地', '用虚拟摇杆移动，靠近人物可对话。武器、武学和补给放在主界面，探索时可直接查看。'],
-  ['map', '江湖地图', '地图标出精英、敌人和资源。打开大图可以查看点位和设置导航。'],
-  ['bag', '装备与属性', '背包将已装备的栏位与属性面板放在同一屏，可以对照伤害、气血与恢复。'],
-  ['world', '江湖成长入口', '进化、宝箱、试炼等系统集中在江湖菜单，部分入口显示解锁条件。'],
-];
+const summary = '带着一把木剑从竹林营地出发。标记资源和精英的位置，查看装备属性与武学熟练度，击败拦路的高手，打开新的成长途径。';
+const images = {
+  home: ['竹林营地', '从营地出发，武器和武学槽在画面下方。'],
+  map: ['江湖地图', '竹林营地的全图，标出灵木、敌人与精英。'],
+  bag: ['装备与属性', '背包与属性同屏，底部可滑动查看已装备栏位。'],
+  world: ['江湖成长入口', '江湖菜单列出可进入的系统与解锁条件。'],
+};
 
-function figure([key, label, caption], base) {
+function figure(key, base) {
+  const [label, caption] = images[key];
   const src = base + 'assets/zhuyin-jianghu/' + key + '.webp';
   return `<figure class="ring-haven-figure" data-shot-format="portrait"><a class="taptap-image-link" href="${src}"><img src="${src}" width="810" height="1440" alt="${label}实机截图" loading="lazy" decoding="async"></a><figcaption><strong>${label}</strong>　${caption}</figcaption></figure>`;
 }
@@ -17,22 +18,36 @@ function figure([key, label, caption], base) {
 export function renderZhuyinEntry() {
   return renderAiGameCard({id: 'zhuyin-jianghu', title, description: summary,
     tags: ['竹林探索', '武器装备', '武学熟练度'], status: 'Unity · 安卓实机原型',
-    href: 'projects/zhuyin-jianghu/', detailLabel: '查看实机与 AI 制作方法',
+    href: 'projects/zhuyin-jianghu/', detailLabel: '查看探索、装备与成长',
   });
 }
 
 export function renderZhuyinBody() {
+  const base = '../../';
   return `<main id="main" class="detail-main wrap ring-haven-page">
-    <header class="detail-hero"><p class="taptap-genre">个人 AI 游戏实践 / 安卓原型</p><h1>${title}<span class="title-dot">.</span></h1><p class="detail-lede">${summary}</p></header>
-    <section class="section"><h2>实机截图</h2><div class="ring-haven-pair">${images.map(image => figure(image, '../../')).join('')}</div>
-    <p>截图采自 MuMu 安卓模拟器运行的 Unity APK。包内版本 0.11.13（构建号 15），原文件名标记为 0.2.13。</p></section>
-    <section class="section"><h2>怎样用 AI 推进这类游戏原型</h2>
-    <ol>
-      <li><strong>把玩法拆成可试玩的任务。</strong>从营地出发，先让玩家能移动、辨认地图目标，再接入装备栏与属性反馈。给 AI 的需求写清输入、状态变化和界面反馈，每次交付一段能检查的流程。</li>
-      <li><strong>把内容和规则一起描述。</strong>用点位、装备属性、武学熟练度和解锁条件组织设计，让 AI 辅助梳理配置字段、生成初稿与查找遗漏。由策划确认数值和玩家看到的反馈。</li>
-      <li><strong>用安卓包回验。</strong>在竖屏设备逐个打开地图、背包和成长菜单，检查信息是否可读、入口是否可达，再用实际画面给下一轮修改提供依据。</li>
-    </ol>
-    <p>以上是结合原型说明的 AI 协作方法。现有 APK 可验证交互与界面，历史工具和具体素材的生成过程缺少制作记录。</p></section>
-    <p><a href="../../#ai-games">返回 AI 游戏作品</a></p>
+    <header class="detail-hero">
+      <p class="taptap-genre">AI 游戏作品 / 竖屏武侠 RPG</p>
+      <h1>${title}<span class="title-dot">.</span></h1>
+      <p class="detail-lede">${summary}</p>
+      <p class="record-source">Unity 安卓原型 0.11.13 · MuMu 安卓模拟器运行截图</p>
+      <nav class="collaboration-nav" aria-label="游戏玩法目录">
+        <a href="#zhuyin-exploration">竹林探索 ↓</a><a href="#zhuyin-progression">装备与成长 ↓</a>
+      </nav>
+    </header>
+    <section class="ring-haven-section" id="zhuyin-exploration" aria-labelledby="zhuyin-exploration-title">
+      <h2 id="zhuyin-exploration-title">从竹林营地走出第一条路</h2>
+      <div class="ring-haven-pair">
+        <article><h3>在营地打理行装</h3><p>用摇杆移动，靠近营地人物可以对话。出门前看看药品还剩几瓶，底部的武学栏会显示「吐纳」等已装备武学和熟练度。</p>${figure('home', base)}</article>
+        <article><h3>先寻灵木，还是直奔黑风寨主</h3><p>打开江湖地图，辨认精英、普通敌人和灵木。灵木点标出攻击、气血或身法，选定点位可标记导航，地图也会记录营地遗藏的收集进度。</p>${figure('map', base)}</article>
+      </div>
+    </section>
+    <section class="ring-haven-section" id="zhuyin-progression" aria-labelledby="zhuyin-progression-title">
+      <h2 id="zhuyin-progression-title">看装备养成，也看下一仗打谁</h2>
+      <div class="ring-haven-pair">
+        <article><h3>打开背包，看当前配装</h3><p>装备栏上方同时显示输出、气血、恢复、防御等属性。点击可查看已装备物品，左右滑动切换栏位，看看现在的武器、防具和心法搭配。</p>${figure('bag', base)}</article>
+        <article><h3>打过黑风寨主，再开新入口</h3><p>营地阶段可查看进化和宝箱。江湖菜单上写着，经脉、试炼和铁匠需要击败黑风寨主才会开放，晶石则要等击败铁衣护法。</p>${figure('world', base)}</article>
+      </div>
+    </section>
+    <p><a class="text-link" href="${base}#ai-games">返回 AI 游戏作品 ↑</a></p>
   </main>`;
 }

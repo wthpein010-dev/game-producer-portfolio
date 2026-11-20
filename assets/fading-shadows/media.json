@@ -79,6 +79,66 @@
       "caption": "在招式练习中按步骤验证普攻、连击、防守和侧闪。",
       "source": "2026-11-19 Windows 0.23.0 受控运行",
       "sha256": "465f432587d59f1436cbaa58048f49a4f8a97b204e0539210eff0847b0985ca1"
+    },
+    {
+      "id": "finish",
+      "file": "finish.webp",
+      "width": 238,
+      "height": 183,
+      "alt": "白风以归锋横断结束三连，交手双方的姿态清晰可见",
+      "caption": "归锋横断。顺手结束一套三连。",
+      "source": "2026-11-18 普攻动作运行截帧",
+      "sha256": "fe1db8b3eb1fa68dc777a9428ede0c4cd9847c40b76b96c4691558371eac3ee5"
+    },
+    {
+      "id": "advance",
+      "file": "advance.webp",
+      "width": 238,
+      "height": 183,
+      "alt": "白风用穿步送剑踏步直刺",
+      "caption": "穿步送剑。再向前追一步，挥空后也更容易被反打。",
+      "source": "2026-11-18 普攻动作运行截帧",
+      "sha256": "664f94f900a6469f73ffe9721f204b25340b30d496d8c271f6e7c1f93c0bdfef"
+    },
+    {
+      "id": "withdraw",
+      "file": "withdraw.webp",
+      "width": 238,
+      "height": 183,
+      "alt": "白风用撤步回削在后撤时收剑反削",
+      "caption": "撤步回削。用较低的伤害换出半步空间。",
+      "source": "2026-11-18 普攻动作运行截帧",
+      "sha256": "de2fad88dd49e1a054b7b1dc22f3585a9fa9da680b72525eae4e9a23771faf04"
+    },
+    {
+      "id": "rush",
+      "file": "rush.webp",
+      "width": 238,
+      "height": 183,
+      "alt": "赤砧借奔跑惯性使出横锤撞阵",
+      "caption": "横锤撞阵。赤砧在奔跑中出锤，截住对手的路线。",
+      "source": "2026-11-18 普攻动作运行截帧",
+      "sha256": "1461623ceff9e88db61a4ad2e6ff91831dbbf4bf2a036c060d35f0bceaaa13e9"
+    },
+    {
+      "id": "air",
+      "file": "air.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "白风在旧寺跃起施展燕落斜削",
+      "caption": "燕落斜削。白风在空中斜削，落地后收势。",
+      "source": "2026-11-19 Windows 0.23.0 受控实机验收",
+      "sha256": "5d25e6ada74459613563f6c8fb4396c2a997cf91690e04a4469f7a694c3ca57b"
+    },
+    {
+      "id": "coop",
+      "file": "coop.webp",
+      "width": 1440,
+      "height": 810,
+      "alt": "几名侠客在灯火倒映的码头交锋，场上散落可拾取物件",
+      "caption": "水岸战斗中的同屏站位。近处是可参与攻防的场景物件。",
+      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
+      "sha256": "2b8e190cbcab6191e95b1d2a32a8aeeacf5d227f9defd6c7b4060d572ebb4d29"
     }
   ]
 }

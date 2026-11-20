@@ -10,7 +10,9 @@ import {renderIdiomSummary,renderTownSummary,renderBetaSummary,renderZuoyaoSumma
 import {taptapGames} from '../src/taptap-games.mjs';
 import {renderTapTapDetail} from '../src/render.mjs';
 import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTokenGamePage,renderNanjiePage,renderZhuyinPage} from '../src/render.mjs';
-import {renderYujiangCoffeePage,renderFadingShadowsPage} from '../src/render.mjs';
+import {renderYujiangCoffeePage,renderFadingShadowsPage,renderHubGameDetail} from '../src/render.mjs';
+import {hubGames} from '../src/hub-tools.mjs';
+import {hubGameSlug} from '../src/hub-game-stories.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -58,6 +60,11 @@ export async function build() {
   const fadingShadowsDir=path.join(siteRoot,'projects','fading-shadows');
   await mkdir(fadingShadowsDir,{recursive:true});
   await writeFile(path.join(fadingShadowsDir,'index.html'),renderFadingShadowsPage());
+  for(const game of hubGames) {
+    const dir=path.join(siteRoot,'projects',hubGameSlug(game));
+    await mkdir(dir,{recursive:true});
+    await writeFile(path.join(dir,'index.html'),renderHubGameDetail(game));
+  }
   for(const game of taptapGames) {
     const dir=path.join(siteRoot,'projects','taptap-'+game.slug);
     await mkdir(dir,{recursive:true});

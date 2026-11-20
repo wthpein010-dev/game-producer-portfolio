@@ -1,6 +1,7 @@
 import { renderAiGameCard } from './ai-game-card.mjs';
 import { readFileSync } from 'node:fs';
 import { caseDetails } from './hub-case-details.mjs';
+import { hubGameSlug, hubGameSummary } from './hub-game-stories.mjs';
 
 const appBanners = JSON.parse(readFileSync(new URL('../assets/hub-app-banners/manifest.json', import.meta.url), 'utf8'));
 const snapshot = JSON.parse(readFileSync(new URL('./hub-catalog.json', import.meta.url), 'utf8'));
@@ -113,11 +114,11 @@ const gameLabels = {
 
 export function renderHubGames(games = hubGames) {
   return games.map(game => renderAiGameCard({
-    id: 'hub-'+game.id, coverKey: game.id, title: game.name, description: game.brief,
+    id: hubGameSlug(game), coverKey: game.id, title: game.name, description: hubGameSummary(game),
     tags: gameLabels[game.id].tags, status: gameLabels[game.id].status,
-    href: game.entry, detailLabel: '项目与试玩',
+    href: `projects/${hubGameSlug(game)}/`, detailLabel: '玩法与设计详情',
     secondaryLink: {href: game.video, label: '玩法视频'},
-    supplement: game.id === 'lighthouse-rescue' ? renderCase('case-lighthouse') : '',
+    legacyAnchor: game.id === 'lighthouse-rescue' ? 'case-lighthouse' : '',
   })).join('\n');
 }
 

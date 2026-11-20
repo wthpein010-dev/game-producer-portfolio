@@ -11,7 +11,7 @@ test('The homepage offers a short game design entry with three planning themes a
   const tags=html.match(/<ul class="ai-game-tags"[^>]*>([\s\S]*?)<\/ul>/u)?.[1];
   assert.ok(tags,'planning themes remain visible on the homepage');
   assert.equal((tags.match(/<li>/gu)||[]).length,3);
-  assert.match(html,/用 AI 做出了一款圆环解谜游戏/u);
+  assert.match(html,/转动圆环对齐开口/u);
   assert.doesNotMatch(html,/试玩包|安卓未实测|code14/u);
   assert.equal((html.match(/<figure\b/gu)||[]).length,1);
   assert.match(html,/src="assets\/ai-game-covers\/ring-haven.webp"/u);
@@ -26,9 +26,10 @@ test('The case explains the core loop, feedback, mode rhythm and bounded daily c
   assert.match(html,/退出后可续玩同一局/u);
 });
 
-test('The reward loop and human contribution stay distinct from AI assisted implementation',()=>{
+test('The reward loop shows how challenge progress carries back to the wardrobe',()=>{
   const html=renderRingHavenBody();
-  for(const term of ['Night Keeper','新海狸外观','主页换装','我怎么用 AI 做这个项目','我确定','用 AI 把需求做成'])assert.ok(html.includes(term),term);
+  for(const term of ['Night Keeper','新海狸外观','主页换装'])assert.ok(html.includes(term),term);
+  assert.doesNotMatch(html,/ring-haven-ownership/u);
   assert.doesNotMatch(html,/全部独立手写|独立完成全部|手机 FPS 提升|零 GC|留存提升\s*\d|收入增长\s*\d/u);
 });
 

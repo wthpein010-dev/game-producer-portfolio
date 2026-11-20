@@ -20,9 +20,9 @@ function figure(key,e,base='../../') {
 
 export function renderRingHavenEntry() {
   return renderAiGameCard({id: 'ring-haven', title: '环环小憩',
-    description: '我用 AI 做出了一款圆环解谜游戏。转动圆环对齐开口，解开连接，挑战特别关并为海狸换装。',
+    description: '转动圆环对齐开口，把扣在一起的环一枚枚解开。主线穿插炸弹关和奖励关，赢下每日挑战还能给海狸换装。',
     tags: ['旋转解扣', '两类特别关', '每日挑战'], status: 'Unity 原型 · Editor 演示',
-    href: 'projects/ring-haven/', detailLabel: '查看游戏与 AI 创作过程',
+    href: 'projects/ring-haven/', detailLabel: '查看解扣、特别关与每日挑战',
   });
 }
 
@@ -30,50 +30,43 @@ export function renderRingHavenBody(e=escaped) {
   return `<main id="main" class="detail-main wrap ring-haven-page">
     <nav class="breadcrumbs" aria-label="面包屑"><a href="../../index.html#ring-haven">返回首页个人作品</a><span aria-hidden="true">/</span><span>环环小憩</span></nav>
     <header class="detail-hero">
-      <p class="eyebrow">AI GAME DEVELOPMENT / 个人作品</p>
-      <h1>环环小憩<span class="title-dot">.</span></h1>
-      <p class="detail-lede">我用 AI 把旋转解扣做成了一款休闲解谜游戏。</p>
-      <p>我确定玩法、反馈和关卡节奏，用 AI 将设计做进 Unity。作品包含 30 个炸弹关、30 个奖励关，以及从每日挑战到海狸换装的奖励流程。</p>
-      <nav class="collaboration-nav" aria-label="游戏案例目录">
-        <a href="#ring-haven-ownership">我是怎么做的 ↓</a>
-        <a href="#ring-haven-loop">核心玩法 ↓</a>
-        <a href="#ring-haven-modes">特别关 ↓</a>
-        <a href="#ring-haven-daily">每日挑战 ↓</a>
-        <a href="#ring-haven-goals">换装与结算 ↓</a>
-      </nav>
-    </header>
-
-    <section class="ring-haven-section" id="ring-haven-ownership" aria-labelledby="ring-haven-ownership-title">
       <div class="ring-haven-workflow">
         <div>
-          <h2 id="ring-haven-ownership-title">我怎么用 AI 做这个项目</h2>
-          <p>我先拆解玩家在每一步需要知道什么。拖动时要看清选中的环，解扣时要确认连接已经打开，清场后要知道拿到了什么。</p>
-          <p>我用 AI 把需求做成可操作的棋盘、关卡和界面，再按这些场景逐项检查。比如旋转时，我用绿边指出正在操作的环，保留环的原色来区分周围的连接。</p>
-          <p>在每日挑战里，我把「难度要高」转成 AI 可以落实和检验的规则。我给出解锁门槛、挑战次数、道具要求和皮肤奖励，再用关卡解题回放核对关键步骤，用界面演示检查奖励怎样回到主页。</p>
+          <p class="eyebrow">AI 游戏作品 / 休闲解谜</p>
+          <h1>环环小憩<span class="title-dot">.</span></h1>
+          <p class="detail-lede">转一转，把扣在一起的圆环解开。</p>
+          <p>沿着彩环的开口找解法，清空棋盘。主线穿插 30 个炸弹关和 30 个奖励关，每日挑战还会送出海狸换装奖励。</p>
+          <p class="record-source">Unity 原型 · 编辑器演示</p>
+          <nav class="collaboration-nav" aria-label="游戏玩法目录">
+            <a href="#ring-haven-loop">旋转解扣 ↓</a>
+            <a href="#ring-haven-modes">特别关 ↓</a>
+            <a href="#ring-haven-daily">每日挑战 ↓</a>
+            <a href="#ring-haven-goals">换装与结算 ↓</a>
+          </nav>
         </div>
         ${figure('home',e)}
       </div>
-    </section>
+    </header>
 
     <section class="ring-haven-section" id="ring-haven-loop" aria-labelledby="ring-haven-loop-title">
-      <h2 id="ring-haven-loop-title">能看懂的旋转与解扣反馈</h2>
+      <h2 id="ring-haven-loop-title">找到开口，顺着连接一环一环解</h2>
       <ol class="ring-haven-path">
         <li>观察圆环开口与连接的位置。</li>
         <li>旋转圆环，对齐开口，找到能先解开的连接。</li>
         <li>解开连接、移除圆环，处理剩余结构，直到清场。</li>
       </ol>
       <div class="ring-haven-pair">
-        <article><h3>开口和连接决定解题顺序</h3><p>玩家可以从外围先拆，逐步腾出空间，再处理分叉和闭环。</p>${figure('normal',e)}</article>
-        <article><h3>绿边提示操作，同色碎裂确认解扣</h3><p>接受拖动的圆环显示绿色细描边。解扣时出现同色碎裂，清场庆祝和奖励结算分开呈现。</p>${figure('rotate',e)}</article>
+        <article><h3>先拆外围，再处理中间</h3><p>遇到分叉或闭环时，先从外围找能对齐的开口。拆掉一枚环，再沿着剩下的连接找下一步。</p>${figure('normal',e)}</article>
+        <article><h3>拖动看绿边，解扣看碎片</h3><p>绿色细描边跟着正在拖动的圆环，环体保留原来的颜色。看到同色碎裂，就知道这处连接已经解开。</p>${figure('rotate',e)}</article>
       </div>
     </section>
 
     <section class="ring-haven-section" id="ring-haven-modes" aria-labelledby="ring-haven-modes-title">
       <h2 id="ring-haven-modes-title">60 个特别关改变闯关节奏</h2>
-      <p>我将 30 个炸弹关和 30 个奖励关穿插进普通关卡。玩家沿用已经学会的旋转解扣操作，每种关卡都有清楚的目标。</p>
+      <p>普通关靠清场推进。遇到特别关，旋转解扣的操作一样，目标变成控制回合或尽量多收集。</p>
       <div class="ring-haven-pair">
-        <article><h3>炸弹关考验回合规划</h3><p>炸弹由有效操作回合推进。玩家要先看连接关系，再决定哪一步值得消耗回合。</p>${figure('bomb',e)}</article>
-        <article><h3>奖励关提供轻松收集</h3><p>玩家可以按自己的节奏收集，关卡允许部分结算。</p>${figure('reward',e)}</article>
+        <article><h3>炸弹关要想好再动手</h3><p>炸弹随有效操作回合推进。先看一眼剩下的连接，再决定先解哪一扣，把回合留给能推动局面的操作。</p>${figure('bomb',e)}</article>
+        <article><h3>奖励关能收多少算多少</h3><p>按自己的节奏解环和收集。关卡允许部分结算，没收齐也能带走已经拿到的奖励。</p>${figure('reward',e)}</article>
       </div>
     </section>
 
@@ -81,8 +74,8 @@ export function renderRingHavenBody(e=escaped) {
       <h2 id="ring-haven-daily-title">每天一次的 24 环高难挑战</h2>
       <div class="ring-haven-workflow">
         <div>
-          <p>完成 10 个普通关后解锁，每天一次，退出后可续玩同一局。首题有 24 环、29 扣，用大环保留开口和连接处的辨认空间。</p>
-          <p>我设定了至少用两次木槌才可过关的目标，AI 协助把它落实为两处需要清除的封闭结构。棋盘配有专用木槌，玩家还要判断关键连接的先后顺序。</p>
+          <p>完成 10 个普通关后解锁，每天一次，退出后可续玩同一局。首题有 24 环、29 扣，大环让开口和连接处看得更清楚。</p>
+          <p>棋盘上有两处封闭结构，至少用两次木槌才能解开。关卡配有专用木槌，可以留给靠旋转解不开的地方，再判断关键连接的先后顺序。</p>
         </div>
         ${figure('daily',e)}
       </div>
@@ -91,8 +84,8 @@ export function renderRingHavenBody(e=escaped) {
     <section class="ring-haven-section" id="ring-haven-goals" aria-labelledby="ring-haven-goals-title">
       <h2 id="ring-haven-goals-title">挑战奖励可以带回主页换装</h2>
       <div class="ring-haven-pair">
-        <article><h3>通关获得 Night Keeper</h3><p>赢下每日挑战后，玩家获得新海狸外观 Night Keeper，可以在主页衣柜预览和穿戴。</p>${figure('wardrobe',e)}</article>
-        <article><h3>普通关结算展示下一步</h3><p>清场后展示本局积分与奖励，再提供继续闯关的入口。图中是使用演示存档完成的一局。</p>${figure('result',e)}</article>
+        <article><h3>通关穿上 Night Keeper</h3><p>赢下每日挑战，领取新海狸外观 Night Keeper。回主页打开衣柜，就能预览和换装。</p>${figure('wardrobe',e)}</article>
+        <article><h3>清场后接着闯关</h3><p>最后一枚环移除后先庆祝清场，再看本局积分与奖励。领完奖励，从结算页继续下一关。</p>${figure('result',e)}</article>
       </div>
       <p><a class="text-link" href="../../index.html#ring-haven">返回首页个人作品 ↑</a></p>
     </section>

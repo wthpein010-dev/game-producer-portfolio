@@ -186,7 +186,7 @@ test('Daynight Fate publishes reviewed images with accurate dimensions and separ
  assert.match(html,/TapTap Maker 0\.1\.9/u);
  assert.match(html,/Windows 0\.41/u);
  assert.match(html,/2026 年 10 月 30 日开放 TapTap 试玩/u);
- assert.match(html,/我用 AI 协助实现这些设计/u);
+ assert.match(html,/白天省下来的一张牌，入夜有另一种用法/u);
 });
 
 test('Food Car shows its promotional art, real gameplay and production art on the existing route',async()=>{
@@ -198,7 +198,7 @@ test('Food Car shows its promotional art, real gameplay and production art on th
  assert.equal((home.match(/id="work-food-car"/gu)||[]).length,1);
  assert.match(card,/横版宣传插画/u);
  assert.match(card,/projects\/taptap-food-car\//u);
- assert.match(detail,/我用 AI/u);
+ assert.match(detail,/多一个空位，就多一份腾挪余地/u);
  assert.match(detail,/竖屏开发版/u);
  assert.match(detail,/id="production-art"/u);
  assert.match(detail,/href="#production-art"/u);

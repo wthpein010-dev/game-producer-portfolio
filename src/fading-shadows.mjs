@@ -4,10 +4,10 @@ import {renderAiGameCard} from './ai-game-card.mjs';
 const {images}=JSON.parse(readFileSync(new URL('../assets/fading-shadows/media.json',import.meta.url),'utf8'));
 const title='影逝之境';
 const home='../../index.html#fading-shadows';
-const summary='选一名侠客，在有纵深的场地里换线、交锋和拾取兵器。既能与朋友同屏对战，也能并肩闯过主线章节。';
+export const fadingShadowsSummary='读招、换线，用第三击决定追上去还是退半步。这款横版武侠动作游戏既能与朋友同屏对招，也能结伴闯过主线。';
 
 export function renderFadingShadowsEntry(){
-  return renderAiGameCard({id:'fading-shadows',title,description:summary,
+  return renderAiGameCard({id:'fading-shadows',title,description:fadingShadowsSummary,
     tags:['武侠动作','同屏对战','合作闯关'],status:'Godot · Windows 可玩开发版',
     href:'projects/fading-shadows/',detailLabel:'查看策划与实机画面'});
 }
@@ -23,49 +23,62 @@ function screenshot(id,e,{hero=false}={}){
 
 export function renderFadingShadowsBody(e){
   const shot=id=>screenshot(id,e);
-  return `<main id="main" class="detail-main wrap taptap-detail">
+  return `<main id="main" class="detail-main wrap taptap-detail fading-shadows-detail">
     <nav class="breadcrumbs" aria-label="面包屑"><a href="${home}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><span>${title}</span></nav>
     <div class="taptap-hero">
       <header class="detail-hero">
         <p class="eyebrow">横版武侠动作 · Godot</p>
         <h1>${title}<span class="title-dot">.</span></h1>
-        <p class="detail-lede">同屏对招，也能结伴闯关。</p>
-        <p>${e(summary)}</p>
-        <div class="taptap-hero-actions"><a class="button primary" href="#fading-combat">看战斗设计 <span aria-hidden="true">↓</span></a></div>
+        <p class="detail-lede">${e(fadingShadowsSummary)}</p>
+        <div class="taptap-hero-actions"><a class="button primary" href="#fading-combat">看三种收尾 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-campaign">探索主线 <span aria-hidden="true">↓</span></a></div>
       </header>
-      ${screenshot('title',e,{hero:true})}
+      ${screenshot('coop',e,{hero:true})}
       <div class="taptap-hero-context"><p class="taptap-hero-status">Windows 可玩开发版 · Steam 发行筹备</p></div>
     </div>
-    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-combat">战斗手感</a><a href="#fading-campaign">主线关卡</a><a href="#fading-input">对战与练习</a><a href="#fading-role">我的工作</a></nav>
+    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-combat">普攻与连段</a><a href="#fading-techniques">招式与反制</a><a href="#fading-campaign">主线关卡</a><a href="#fading-input">对战与练习</a></nav>
 
     <section class="taptap-gallery" id="fading-combat" aria-labelledby="fading-combat-title">
-      <header><h2 id="fading-combat-title">让玩家看得清何时出手</h2>
-        <p>场地有纵深，角色要对齐时机、距离和所在位置才能打中。近战靠贴身连击，远程招式沿主要交手方向展开，玩家可以换线找空当。</p>
-        <p>我根据试玩反馈延长普攻的起势和收招，保留提前输入连击，让下一击在当前动作完成后接上。兵器和箱子也能参与攻防，玩家需要在接近对手与拾取道具之间做取舍。</p>
+      <header><h2 id="fading-combat-title">前两刀探路，第三刀决定进退</h2>
+        <p>风格参考《影之刃》系列的暗黑江湖，动作参考聚焦兵器的重量、相邻动作的衔接，以及打完一套后的收势。白风的轻剑强调点刺和回锋，赤砧的重锤先沉肩蓄势，锤落下去后还得收住重心。<a href="https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/?l=schinese">《影之刃零》官方参考</a></p>
+        <p>12 名角色各有 7 种普攻动作，使用同一套操作理解不同兵器。地面两击起手后，第三击可按前追击、按后退击，或直接完成常规收尾。跑中攻击和空中攻击各有独立动作。</p>
       </header>
-      <div class="taptap-shot-grid">${shot('melee')}${shot('ranged')}${shot('throw')}</div>
+      <div class="fading-finish-grid">
+        <article><h3>直接按攻击</h3>${shot('finish')}</article>
+        <article><h3>向前 ＋ 攻击</h3>${shot('advance')}</article>
+        <article><h3>向后 ＋ 攻击</h3>${shot('withdraw')}</article>
+      </div>
+      <p>连击允许提前输入，角色打完当前动作才接下一击。较长的进身收势让对手有机会反打，退身收尾则给双方留出重新站位的空间。</p>
+    </section>
+
+    <section class="taptap-gallery" id="fading-techniques" aria-labelledby="fading-techniques-title">
+      <header><h2 id="fading-techniques-title">贴身、封线、腾空，各有出招时机</h2>
+        <p>进攻前先看距离和场地纵深。玩家可以侧闪换线避开直线压力，再利用对手收招的时机切回近身。</p>
+      </header>
+      <div class="game-design-stories">
+        <article><div class="game-design-copy"><h3>贴身起势，挑灯斩把人挑空</h3><p>白风的挑灯斩是沿面向挑刺，打中后让对手离地。普攻或挑刺都要先站到交手纵深，刀光扫过与命中判定各有范围。</p></div>${shot('melee')}</article>
+        <article><div class="game-design-copy"><h3>跑攻拦路，跳攻看高度</h3><p>赤砧的横锤撞阵借跑动缩短距离，出手后要收势。白风跃起后可接燕落斜削，命中要同时看横向距离和双方高度，跳过对手头顶也可能挥空。</p></div><div class="fading-move-pair">${shot('rush')}${shot('air')}</div></article>
+        <article><div class="game-design-copy"><h3>逐线飞芒封正面，红光逼走位</h3><p>逐线飞芒沿面向送出细窄剑气，适合堵住一条进路。千线寂灭蓄势后绕身重斩，红光提示不可格挡。蓝光可防的提示与红光一起，让防守方判断该接招还是离开攻击范围。</p></div>${shot('ranged')}</article>
+        <article><div class="game-design-copy"><h3>箱子和落地兵器也能抢节奏</h3><p>拾取要花站位和出手的机会。拉开半步捡兵器，能用新攻击方式再进场。场边的箱子也能抛出，逼对手从当前线路让开。</p></div>${shot('throw')}</article>
+      </div>
     </section>
 
     <section class="taptap-gallery" id="fading-campaign" aria-labelledby="fading-campaign-title">
-      <header><h2 id="fading-campaign-title">用路线与敌人组合安排闯关节奏</h2>
-        <p>主线按章节推进。清完当前敌人后，玩家通过场景里的路牌了解支路，再继续前进。小段之间有移镜过场，章节末把剧情、选择增益和角色解锁接到下一轮挑战。</p>
-      </header>
-      <div class="taptap-shot-grid">${shot('campaign')}${shot('boss')}</div>
+      <header><h2 id="fading-campaign-title">跟着路牌走，从街巷一路打到首领</h2></header>
+      <div class="game-design-stories">
+        <article><div class="game-design-copy"><h3>清敌之后，把路线选择交给玩家</h3><p>清完当前敌人后，路牌提示接下来的支路。场景移镜让玩家看清新位置与对手，再开下一波战斗。章节选择页把关卡预览、阵容和解锁进度放在一起，方便朋友选好同一趟行程。</p></div>${shot('campaign')}</article>
+        <article><div class="game-design-copy"><h3>首领战把空间压力交给两个人分担</h3><p>队友可以分走不同纵深，一人牵制正面的威胁，另一人换线找出手机会。章节末把剧情、增益选择和解锁接回下一轮闯关。</p></div>${shot('boss')}</article>
+      </div>
     </section>
 
     <section class="taptap-gallery" id="fading-input" aria-labelledby="fading-input-title">
-      <header><h2 id="fading-input-title">朋友到场就能开打，也能先练一遍</h2>
-        <p>「江湖恩怨」集中快速对战、自定义规则和招式练习。练习让玩家逐步试出普攻、连击、防守与侧闪；设置里可以分别调整多人键盘和手柄按键。</p>
-      </header>
-      <div class="taptap-shot-grid">${shot('rivalries')}${shot('training')}</div>
+      <header><h2 id="fading-input-title">先练一套，朋友到场就能对招</h2></header>
+      <div class="game-design-stories">
+        <article><div class="game-design-copy"><h3>从一局快速对战开始</h3><p>「江湖恩怨」把阵容、胜负规则和快速开局放在一起。多人键盘和手柄可以分别调整按键，同一套招式逻辑适用于不同输入。</p></div>${shot('rivalries')}</article>
+        <article><div class="game-design-copy"><h3>把连段拆成能验证的小目标</h3><p>训练先练命中，再接连击、防守和侧闪。提示紧跟着输入和完成结果，玩家能看出问题出在距离、按键顺序还是时机。</p></div>${shot('training')}</article>
+      </div>
+      <details class="fading-menu-preview"><summary>查看游戏入口画面</summary>${shot('title')}</details>
     </section>
 
-    <section class="taptap-practice" id="fading-role" aria-labelledby="fading-role-title">
-      <div><h2 id="fading-role-title">我的工作</h2>
-        <p>我确定同屏对战与合作闯关的方向，提出打击感、章节节奏和多人操作的验收要求，并根据版本反馈调整优先级。开发中用 AI 协助实现和跑测，再把问题拆成可复测的动作、命中判定和界面流程。</p>
-      </div>
-      <aside class="taptap-version"><h3>画面与版本</h3><p>Windows 0.23.0 开发版通过打包和解压启动验证。图册来自受控实机验收，首领图取自关卡检查点。Steam 版处于发行筹备阶段。</p></aside>
-    </section>
     <nav class="taptap-next" aria-label="继续浏览作品"><a class="text-link" href="${home}" data-return-home>返回个人作品 ↑</a></nav>
   </main>`;
 }

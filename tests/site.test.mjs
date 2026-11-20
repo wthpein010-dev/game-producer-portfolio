@@ -92,6 +92,9 @@ function site() {
     const projects = await Promise.all(projectRecords.map(project => page(`projects/${project.slug}/index.html`)));
     const {taptapGames} = await import('../src/taptap-games.mjs');
     const taptapPages = await Promise.all(taptapGames.map(game => page(`projects/taptap-${game.slug}/index.html`)));
+    const {hubGames} = await import('../src/hub-tools.mjs');
+    const {hubGameSlug} = await import('../src/hub-game-stories.mjs');
+    const hubGamePages = await Promise.all(hubGames.map(game => page(`projects/${hubGameSlug(game)}/index.html`)));
     const notes = (await Promise.all(publicNotes.map(slug => page(`projects/sheep-match/${slug}/index.html`).catch(error => {
       if (error.code === 'ENOENT') return null;
       throw error;
@@ -101,7 +104,9 @@ function site() {
     const ringHaven=await page('projects/ring-haven/index.html');
     const nanjie=await page('projects/nanjie-repair-shop/index.html');
     const coffee=await page('projects/yujiang-coffee/index.html');
-    return { content, home, companies, projects, notes, projectRecords, taptapPages, pages: [home, ...companies, ...projects, ...notes, ...taptapPages, collaboration, pocket, ringHaven, nanjie, coffee] };
+    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows'].map(slug => page(`projects/${slug}/index.html`)));
+    const gamePages = [...taptapPages, ...hubGamePages, ringHaven, nanjie, coffee, ...moreGames];
+    return { content, home, companies, projects, notes, projectRecords, taptapPages, hubGamePages, gamePages, pages: [home, ...companies, ...projects, ...notes, ...gamePages, collaboration, pocket] };
   })();
   return sitePromise;
 }
@@ -418,7 +423,9 @@ test('TapTap details retain real media, version context and verified public game
     assert.equal(textOf(one(doc,n=>n.tag==='h1','Project title')).replace(/\s+\.$/u,'.'),game.title+'.');
     if (game.tapUrl) assert.ok(nodes(doc,n=>n.tag==='a'&&n.attrs.href===game.tapUrl).length>=1);
     one(doc,n=>n.tag==='a'&&n.attrs.href===`../../index.html#work-${game.slug}`&&textOf(n).includes('返回个人作品 ↑'),'Exact return anchor');
-    for(const id of ['gameplay-title','screenshots-title','design-title','practice-title','play-title']) one(doc,n=>n.attrs.id===id,id);
+    for(const id of ['gameplay-title','screenshots-title','design-title','play-title']) one(doc,n=>n.attrs.id===id,id);
+    const design=one(doc,n=>n.attrs.id==='design','System design');
+    assert.ok(nodes(design,n=>n.tag==='figure').length>0,game.title);
     assert.ok(game.shots.length>=2);
     for(const shot of game.shots) {
       const img=one(doc,n=>n.tag==='img'&&originalSource(n)==='../../'+shot.src,'Real game screenshot');
@@ -463,7 +470,8 @@ test('Throne War appears in personal works with reviewed captures and a playable
   const game = taptapGames.find(entry=>entry.slug==='throne-war');
   const detail = parseHtml(await readFile(join(root,'projects/taptap-throne-war/index.html'),'utf8'));
   const gallery = one(detail,n=>n.attrs.id==='screenshots','Game screenshots');
-  assert.equal(nodes(gallery,n=>n.tag==='img').length,8);
+  const design = one(detail,n=>n.attrs.id==='design','System design');
+  assert.equal(nodes(gallery,n=>n.tag==='img').length+nodes(design,n=>n.tag==='img').length,game.shots.length-1);
   assert.match(textOf(detail),/宣传插画.*生成/u);
   assert.match(textOf(detail),/Windows.*竖屏/u);
   const video = one(detail,n=>n.tag==='video'&&Object.hasOwn(n.attrs,'controls'),'Battle playback');
@@ -502,12 +510,12 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(card,n=>n.tag==='a'&&n.attrs.href==='projects/fading-shadows/','Project link');
   const detail=await page('projects/fading-shadows/index.html');
   one(detail.document,n=>n.tag==='h1'&&textOf(n).includes('影逝之境'),'Project title');
-  assert.match(textOf(detail.document),/起势.*收招.*路牌.*Windows 0\.23\.0/u);
+  assert.match(textOf(detail.document),/影之刃.*12 名角色各有 7 种普攻动作.*归锋横断.*穿步送剑.*撤步回削.*红光提示不可格挡.*路牌/u);
   assert.doesNotMatch(detail.html,/file:\/\/|[\w-]+\.ug\.link|已上线|已发行|[A-Z]:[\\/]/u);
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,8);
+  assert.equal(figures.length,14);
   assert.equal(images.length,figures.length);
   for(const image of images){
     const src='../../assets/fading-shadows/'+image.file;
@@ -519,6 +527,27 @@ test('Fading Shadows links the personal-works card to the verified game design c
     one(figure,n=>n.tag==='a'&&n.attrs.href===src,'Same public full image');
     const bytes=await readFile(join(root,'assets/fading-shadows',image.file));
     assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);
+  }
+});
+
+test('All AI game details show play and design without standalone role and version panels',async()=>{
+  const {home,gamePages,hubGamePages}=await site();
+  assert.equal(gamePages.length,26);
+  for(const detail of gamePages){
+    const main=one(detail.document,n=>n.tag==='main','Game details');
+    assert.ok(nodes(main,n=>n.tag==='h2').length>=2,detail.path);
+    assert.ok(nodes(main,n=>n.tag==='figure'&&nodes(n,child=>child.tag==='img').length>0).length,detail.path);
+    assert.doesNotMatch(textOf(main),/我的工作|画面与版本|我的实践|我的策划与版本推进|我怎么用 AI 做这个项目/u,detail.path);
+    assert.equal(nodes(main,n=>hasClass(n,'taptap-practice')||hasClass(n,'taptap-version')).length,0,detail.path);
+  }
+  const {hubGames}=await import('../src/hub-tools.mjs');
+  const {hubGameSlug}=await import('../src/hub-game-stories.mjs');
+  for(const game of hubGames){
+    const slug=hubGameSlug(game);
+    one(home.document,n=>n.tag==='a'&&n.attrs.href===`projects/${slug}/`,'Case link');
+    const detail=hubGamePages.find(candidate=>candidate.path===`projects/${slug}/index.html`);
+    one(detail.document,n=>n.tag==='a'&&hasClass(n,'button')&&n.attrs.href===game.entry,'Playable entry');
+    assert.ok(nodes(detail.document,n=>n.tag==='a'&&n.attrs.href===game.video).length);
   }
 });
 
@@ -539,7 +568,7 @@ test('TapTap reading starts with named projects, a complete jump index and an ea
     const nav=one(page.document,n=>n.tag==='nav'&&n.attrs['aria-label']==='本页内容','In-page reading navigation');
     const hasWindowsPreview=nodes(page.document,n=>n.attrs.id==='windows-preview').length===1;
     const hasProductionArt=nodes(page.document,n=>n.attrs.id==='production-art').length===1;
-    assert.equal(nodes(nav,n=>n.tag==='a').length,5+Number(hasWindowsPreview)+Number(hasProductionArt));
+    assert.equal(nodes(nav,n=>n.tag==='a').length,4+Number(hasWindowsPreview)+Number(hasProductionArt));
     for(const link of nodes(nav,n=>n.tag==='a'))one(page.document,n=>n.attrs.id===link.attrs.href.slice(1),'Reading section target');
   }
 });

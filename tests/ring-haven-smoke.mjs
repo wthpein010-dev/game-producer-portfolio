@@ -19,7 +19,7 @@ try{
   assert.equal(await entry.count(),1);assert.equal(await page.locator('.hub-tool-feature').count(),3);assert.equal(await page.locator('#hub-more').getAttribute('open'),null);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   await entry.screenshot({path:`${folder}/home-${width}.png`});
-  const caseLink=entry.getByRole('link',{name:'查看游戏与 AI 创作过程',exact:true});
+  const caseLink=entry.getByRole('link',{name:'查看解扣、特别关与每日挑战',exact:true});
   await caseLink.focus();await page.keyboard.press('Enter');await page.waitForURL('**/projects/ring-haven/');
   assert.match(await page.title(),/环环小憩/u);
   const images=page.locator('main figure img');assert.equal(await images.count(),8);
@@ -28,8 +28,8 @@ try{
   await page.locator('main > .detail-hero').screenshot({path:`${folder}/intro-${width}.png`});
   await page.locator('#ring-haven-modes').screenshot({path:`${folder}/modes-${width}.png`});
   const imageLink=page.locator('main figure > a').first();await imageLink.click();assert.equal(await page.locator('dialog[open]').count(),1);await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
-  const processLink=page.getByRole('link',{name:'我是怎么做的 ↓'});
-  await processLink.focus();await page.keyboard.press('Enter');await page.waitForURL('**/#ring-haven-ownership');
+  const processLink=page.getByRole('link',{name:'旋转解扣 ↓'});
+  await processLink.focus();await page.keyboard.press('Enter');await page.waitForURL('**/#ring-haven-loop');
   assert.equal(await page.locator('#ring-haven-delivery').count(),0);
   results.push({width,passed:true});await context.close();
  }

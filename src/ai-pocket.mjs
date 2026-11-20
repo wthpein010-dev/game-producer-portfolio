@@ -1,9 +1,9 @@
 export const aiPocketMedia = [
   {key:'home',file:'home.webp',width:1384,height:835,alt:'AI 随身舱首页：六类任务以插画卡片呈现，提供新手入口、教程和本地工具',caption:''},
-  {key:'office',file:'office.webp',width:752,height:314,alt:'CSV 教学样例的真实分类计数结果：市场四项、运营三项、客服三项',caption:'教学样例的真实结果 · 市场 4 项、运营 3 项、客服 3 项，不含真实人员资料。'},
-  {key:'commerce',file:'commerce.webp',width:1384,height:835,alt:'AI 随身舱电商图片任务分类，按商品主图、海报等用途提供工具与说明入口',caption:'实际应用渲染 · 电商任务分类界面，非已生成的商品图。'},
-  {key:'novel',file:'novel.webp',width:1384,height:835,alt:'AI 随身舱小说创作任务分类，以大纲和写作需求组织工具入口',caption:'实际应用渲染 · 小说创作任务分类，文字生成需另行连接服务。'},
-  {key:'video',file:'video.webp',width:1540,height:920,alt:'本地视频助手的双栏界面，展示当前电脑的环境连接状态、推荐规格和生成入口',caption:'本地视频助手 · 归档本机验收界面，RTX 4090D 24GB。'},
+  {key:'office',file:'office.webp',width:752,height:314,alt:'CSV 教学样例的真实分类计数结果：市场四项、运营三项、客服三项',caption:'CSV 教学样例结果 · 市场 4 项、运营 3 项、客服 3 项。'},
+  {key:'commerce',file:'commerce.webp',width:1384,height:835,alt:'AI 随身舱电商图片任务分类，按商品主图、海报等用途提供工具与说明入口',caption:'应用截图 · 电商图片任务和工具入口。'},
+  {key:'novel',file:'novel.webp',width:1384,height:835,alt:'AI 随身舱小说创作任务分类，以大纲和写作需求组织工具入口',caption:'应用截图 · 小说创作任务和工具入口。'},
+  {key:'video',file:'video.webp',width:1540,height:920,alt:'本地视频助手的双栏界面，展示当前电脑的环境连接状态、推荐规格和生成入口',caption:'本地视频助手界面 · 显示连接状态与生成规格。'},
   {key:'result',file:'result.webp',width:608,height:352,alt:'本地视频助手经实际操作生成的狐狸雪地五秒样片中的一帧',caption:'真实生成的成片帧 · 608 × 352，81 帧、16fps，约 5 秒，无原生音频。'},
 ];
 
@@ -14,19 +14,95 @@ function figure(key,e,base='../../') {
 }
 
 export function renderAiPocketEntry(e=escaped) {
-  return `<section class="ai-pocket-entry wrap section" id="ai-pocket" aria-labelledby="ai-pocket-title"><div class="section-head"><div><p class="eyebrow">AI PRACTICE / 工具运用与场景实践</p><h4 id="ai-pocket-title">AI 随身舱<span class="title-dot">.</span></h4></div><p>Windows 桌面工具</p></div><div class="ai-pocket-entry-grid"><div><p class="ai-pocket-thesis">围绕实际任务，<br>选择并组合 AI 工具。</p><p>将 AI 工具运用到资料整理、内容构思与视频制作：先明确目标，再选择工具、准备输入、检查产物，并把操作方法整理成新手可复用的步骤。</p><ul class="collaboration-tags"><li>场景拆解</li><li>工具选择与组合</li><li>产物检查</li></ul><p class="record-source">我负责应用场景、工具使用路径与效果判断；通过 Codex 辅助实现和验证，将零散工具整理为面向实际问题的工作流。</p><a class="text-link" href="projects/ai-pocket/">查看 AI 工具应用与真实成果 ↗</a></div>${figure('home',e,'')}</div></section>`;
+  return `<section class="ai-pocket-entry wrap section" id="ai-pocket" aria-labelledby="ai-pocket-title">
+    <div class="section-head"><div><p class="eyebrow">AI 应用 / 任务工具箱</p><h4 id="ai-pocket-title">AI 随身舱<span class="title-dot">.</span></h4></div><p>Windows 桌面工具</p></div>
+    <div class="ai-pocket-entry-grid">
+      <div>
+        <p class="ai-pocket-thesis">从手头的任务出发，找到能用的工具。</p>
+        <p>整理一张 CSV、构思商品海报，或在本机生成一段短片。按任务找到工具，跟着示例准备输入，再检查结果。</p>
+        <ul class="collaboration-tags"><li>本地办公</li><li>图文创作</li><li>本地视频</li></ul>
+        <a class="text-link" href="projects/ai-pocket/">查看任务流程与示例结果 ↗</a>
+      </div>
+      ${figure('home',e,'')}
+    </div>
+  </section>`;
 }
 
 export function renderAiPocketBody(e=escaped) {
   return `<main id="main" class="detail-main wrap ai-pocket-page">
     <nav class="breadcrumbs" aria-label="面包屑"><a href="../../index.html#ai-pocket">返回首页产品案例</a><span aria-hidden="true">/</span><span>AI 随身舱</span></nav>
-    <header class="detail-hero"><p class="eyebrow">AI APPLICATION / 从工具到实际任务</p><h1>AI 随身舱<span class="title-dot">.</span></h1><p class="detail-lede">从实际问题出发，选择工具、组织输入，再检查 AI 产物。</p><p>围绕办公整理、电商图片、文案小说与视频制作，探索不同工具适合解决什么问题，以及怎样把操作方法变成可复用的工作流。</p><ul class="ai-pocket-facts"><li>6 类任务</li><li>16 个子类</li><li>54 个任务入口</li><li>Windows 桌面</li></ul><nav class="collaboration-nav" aria-label="产品案例目录"><a href="#problem">设计问题 ↓</a><a href="#office">可检查的结果 ↓</a><a href="#video">本地视频 ↓</a><a href="#ownership">我的分工 ↓</a><a href="#delivery">方法与适用条件 ↓</a></nav></header>
-    ${figure('home',e)}
-    <section class="collaboration-section" id="problem" aria-labelledby="pocket-problem-title"><p class="eyebrow">PRODUCT JUDGMENT / 入口设计</p><h2 id="pocket-problem-title">从“找工具”，转向“我要做什么”</h2><div class="ai-pocket-three"><div><h3>先定义用户的事</h3><p>表格要清理，文案要整理，小说要续写。以期望结果组织入口，减少用户先理解工具名和模型名的成本。</p></div><div><h3>按场景逐层进入</h3><p>六类任务下再分子类，用插画和简短说明帮助识别；本地办公与需要第三方服务的生成任务说明各自使用条件。</p></div><div><h3>让首用路径更短</h3><p>当前版本免登录直接进入，不上传账号；为需登录或配置 API 的工具提供对应官网入口，保留用户自己的服务选择。</p></div></div></section>
-    <section class="collaboration-section" id="office" aria-labelledby="pocket-office-title"><p class="eyebrow">OFFICE / 从操作到结果</p><h2 id="pocket-office-title">先把办公小问题做成能检查的结果</h2><div class="ai-pocket-workflow"><div><h3>表格整理不止是一段提示词</h3><p>把逐行检查与手动分类，转成清理空行、去重和分类计数的明确动作；处理后先预览，再决定是否保存。</p><ol class="ai-pocket-path"><li>导入 CSV 教学样例</li><li>选择清理、去重或分类计数</li><li>检查预览中的结构与数量</li></ol><p class="record-source">本地 CSV 工具可独立使用；教学数据用于验证流程，未据此估算真实工作节省时长。</p></div>${figure('office',e)}</div></section>
-    <section class="collaboration-section" id="scenarios" aria-labelledby="pocket-scenarios-title"><p class="eyebrow">SCENARIOS / 面向不同用户</p><h2 id="pocket-scenarios-title">同一套入口，承接不同目标</h2><div class="ai-pocket-scenarios"><article>${figure('commerce',e)}<h3>电商运营：先明确图片用途</h3><p>以商品主图、海报等任务组织工具入口与使用说明，让用户从需要的产物开始找工具。</p></article><article>${figure('novel',e)}<h3>文字创作者：按创作阶段找帮助</h3><p>将文案与小说任务拆分到相应分类，从内容整理、大纲到写作需求逐步进入。</p></article></div><p class="record-source">两图展示任务组织与入口设计。在线图片、文字 AI 需连接用户的自有账号或 API；分类界面不代表所有第三方服务已连接。</p></section>
-    <section class="collaboration-section" id="video" aria-labelledby="pocket-video-title"><p class="eyebrow">LOCAL VIDEO / 提示词与生成实践</p><h2 id="pocket-video-title">把创作想法转成可执行的生成任务</h2><div class="ai-pocket-workflow"><div><p>结合 ComfyUI 与 Wan2.1 T2V 1.3B，将主题、主体动作、场景、运镜和光线整理为提示词，再用短片检查生成效果。</p><ol class="ai-pocket-path"><li>描述主体、动作与场景</li><li>补充运镜、光线与画面要求</li><li>生成短片，检查连续性与表现</li></ol><p>先用 5 秒、低分辨率检查主体是否清楚、运动是否自然，再调整描述与画面规格。</p><p class="record-source">本机生成流程已通过。视频依赖兼容的 NVIDIA 显卡，不能据此推定普通电脑都能直接生成。</p></div>${figure('video',e)}</div><div class="ai-pocket-result">${figure('result',e)}<div><h3>从助手操作，到真实成片</h3><p>归档验收使用 Windows 与 RTX 4090D 24GB，经助手实际生成狐狸雪地样片。展示生成结果的一帧，与任务界面及效果示意分开标注。</p><p class="record-source">这是已有本机验收证据，本轮未重新实跑生成；不代表跨设备性能或所有素材质量。</p></div></div></section>
-    <section class="collaboration-section" id="ownership" aria-labelledby="pocket-ownership-title"><p class="eyebrow">OWNERSHIP / 工具运用与 AI 协作</p><h2 id="pocket-ownership-title">把工具能力与实际任务连接起来</h2><div class="collaboration-columns"><div><h3>我的工作</h3><ul><li>按办公、图片、写作和视频场景拆解目标与操作步骤。</li><li>选择工具，区分本地处理与在线生成的适用条件。</li><li>组织输入与提示词，明确产物检查的重点。</li><li>结合实际反馈调整使用路径，沉淀教程和常见问题。</li></ul></div><div><h3>Codex 辅助</h3><ul><li>将需求转为应用代码、界面素材与交互实现。</li><li>辅助连接本地视频工具，记录测试与生成结果。</li><li>制作教程、说明资料并按反馈迭代。</li><li>核对操作流程与结果，帮助整理可复用方法。</li></ul></div></div><p class="record-source">这是 AI 工具运用与辅助研发实践，使用已有模型和第三方工具；个人职责不等同于手写全部代码或研发基础模型。</p></section>
-    <section class="collaboration-section" id="delivery" aria-labelledby="pocket-delivery-title"><p class="eyebrow">METHOD / 方法沉淀与使用条件</p><h2 id="pocket-delivery-title">把一次操作沉淀为可复用的方法</h2><div class="ai-pocket-three"><div><h3>按任务学习</h3><p>用 24 页 PPT、中文配音操作教程与练习资料，讲清楚输入什么、用哪个工具、如何检查结果。</p></div><div><h3>按问题查找</h3><p>将操作说明与常见问题分开整理，帮助新手判断服务配置、输入要求和结果不符合预期时的下一步。</p></div><div><h3>按产物验证</h3><p>用 CSV 结果预览和 5 秒视频样片核对流程；把已验证的结果与仅提供工具入口的场景分别说明。</p></div></div><details class="ai-pocket-limits"><summary>查看当前版本的使用条件与验证边界</summary><ul><li>当前版本免登录、不上传账号；不是已上线的云端注册服务。</li><li>另一台 Windows 尚未实测；未验证 Mac 使用流程。</li><li>本地视频需兼容硬件与足够空间，样片无原生音频。</li><li>在线 AI 需要自有服务配置，不包含付费额度。</li><li>当前实践已完成本机验证，未据此声明销售或用户增长成绩。</li></ul></details><p class="record-source">本页依据归档的本地应用渲染、教学样例及已有验收归档整理。本轮未重新实跑应用；仅公开审核后的界面与样片帧，不公开原始工程、私人配置或完整软件包。</p><a class="text-link" href="../../index.html#ai-pocket">返回首页产品案例 ↑</a></section>
+    <header class="detail-hero">
+      <p class="eyebrow">AI 应用 / Windows 桌面工具</p>
+      <h1>AI 随身舱<span class="title-dot">.</span></h1>
+      <p class="detail-lede">想整理表格、做张海报，还是先试一段短片？</p>
+      <p>按任务选择工具，照着示例准备输入，完成后就能对照要求检查结果。</p>
+      <ul class="ai-pocket-facts"><li>6 类任务</li><li>16 个子类</li><li>54 个任务入口</li></ul>
+      <nav class="collaboration-nav" aria-label="产品功能目录">
+        <a href="#problem">按任务找工具 ↓</a><a href="#office">整理表格 ↓</a><a href="#scenarios">电商与写作 ↓</a><a href="#video">本地视频 ↓</a><a href="#delivery">教程与练习 ↓</a>
+      </nav>
+    </header>
+
+    <section class="collaboration-section" id="problem" aria-labelledby="pocket-problem-title">
+      <h2 id="pocket-problem-title">打开首页就能选任务</h2>
+      <div class="ai-pocket-workflow">
+        <div>
+          <p>从办公、图片、写作或视频分类进入，选到具体任务，就能看到操作说明和工具入口。经常用的本地工具也可以从首页直接打开。</p>
+          <p>当前 Windows 应用免登录进入，不上传账号。需要第三方服务的任务会指向对应的官网和配置入口。</p>
+        </div>
+        ${figure('home',e)}
+      </div>
+    </section>
+
+    <section class="collaboration-section" id="office" aria-labelledby="pocket-office-title">
+      <h2 id="pocket-office-title">整理完一张表，先核对再保存</h2>
+      <div class="ai-pocket-workflow">
+        <div>
+          <p>本地 CSV 工具能清理空行、去掉重复项，也能按字段分类计数。用教学文件试一遍，就能对照原表核对分类和数量。</p>
+          <ol class="ai-pocket-path"><li>导入 CSV 教学样例。</li><li>选择清理、去重或分类计数。</li><li>预览处理结果，确认后保存。</li></ol>
+        </div>
+        ${figure('office',e)}
+      </div>
+    </section>
+
+    <section class="collaboration-section" id="scenarios" aria-labelledby="pocket-scenarios-title">
+      <h2 id="pocket-scenarios-title">做商品图、写小说，各自有入口</h2>
+      <div class="ai-pocket-scenarios">
+        <article>
+          ${figure('commerce',e)}
+          <h3>先选主图还是海报</h3>
+          <p>从商品主图、海报等用途进入，对照任务说明选择图片工具。</p>
+        </article>
+        <article>
+          ${figure('novel',e)}
+          <h3>写大纲还是接着写</h3>
+          <p>从小说任务里找大纲或写作入口，按当前要完成的一步选工具。</p>
+        </article>
+      </div>
+      <p class="record-source">在线图片和文字工具需连接自有账号或 API。</p>
+    </section>
+
+    <section class="collaboration-section" id="video" aria-labelledby="pocket-video-title">
+      <h2 id="pocket-video-title">先生成五秒，看看动作顺不顺</h2>
+      <div class="ai-pocket-workflow">
+        <div>
+          <p>视频助手连接本地 ComfyUI 与 Wan2.1 T2V 1.3B。把主体、动作和场景写进提示词，再补上运镜、光线与画面要求。</p>
+          <p>先用低分辨率生成短片，检查主体是否清楚、动作是否连贯，再调整提示词和生成规格。</p>
+        </div>
+        ${figure('video',e)}
+      </div>
+      <div class="ai-pocket-result">
+        ${figure('result',e)}
+        <div>
+          <h3>雪地狐狸样片</h3>
+          <p>样片由视频助手在 Windows 本机生成，使用 RTX 4090D 24GB。生成本地视频需要兼容的 NVIDIA 显卡及足够的存储空间。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="collaboration-section" id="delivery" aria-labelledby="pocket-delivery-title">
+      <h2 id="pocket-delivery-title">从例题开始做一遍</h2>
+      <p>24 页使用说明、中文配音教程和练习资料带着用户准备输入、选择工具和检查结果。遇到服务配置或输入问题，可以按常见问题查找操作步骤。</p>
+      <a class="text-link" href="../../index.html#ai-pocket">返回首页产品案例 ↑</a>
+    </section>
   </main>`;
 }

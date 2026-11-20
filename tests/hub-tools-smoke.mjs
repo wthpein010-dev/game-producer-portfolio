@@ -37,7 +37,7 @@ try{
     await page.locator('#hub-games > details > summary').press('Enter');
     assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
     await page.locator('#taptap-games > details > summary').press('Enter');
-    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),25);
+    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),26);
     assert.equal(await page.locator('#ai-pocket').locator('xpath=ancestor::section[@id="ai-tools"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-lunar-freight"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-my-life"]').count(),1);
@@ -52,7 +52,9 @@ try{
     assert.equal(await page.locator('#ai-supporting').getAttribute('open'),null);
     assert.notEqual(await page.locator('#case-workbench').getAttribute('open'),null);
     await page.goto(base+'index.html#case-lighthouse');
-    assert.notEqual(await page.locator('#case-lighthouse').getAttribute('open'),null);
+    assert.ok(await page.locator('#case-lighthouse').isVisible());
+    await page.locator('#hub-lighthouse-rescue a[href="projects/hub-lighthouse-rescue/"]').click();
+    assert.ok(await page.locator('#design').isVisible());
     await page.goto(base+'index.html#workflow');
     assert.notEqual(await page.locator('#ai-supporting').getAttribute('open'),null);
     const steps=page.locator('.step-tabs [role="tab"]');
