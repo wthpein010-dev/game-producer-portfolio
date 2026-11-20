@@ -62,7 +62,9 @@ test('Muyou evidence distinguishes signed growth design, town configuration and 
   assert.doesNotMatch(html,/mozhao_break|pet3_attr|曹博钧|陈伶俐/u);
  }
  for(const html of [pet,await read('projects/zuoyaoji-x/design-summary/index.html')]){
-  for(const id of ['zuoyao-shield','zuoyao-pet-growth','zuoyao-pet-formation'])assert.ok(html.includes(`id="${id}"`));
+  for(const id of ['zuoyao-shield','zuoyao-pet-growth','zuoyao-pet-formation','zuoyao-inn'])assert.ok(html.includes(`id="${id}"`));
+  assert.match(html,/inn-entry-flow\.png/u);
+  assert.doesNotMatch(html,/shield-ui\.png|pet-growth\.png|pet-formation\.png/u);
   assert.match(html,/文档撰写人：吴天昊/u);
   assert.match(html,/红点/u);
   assert.match(html,/历史/u);
@@ -72,7 +74,7 @@ test('Muyou evidence distinguishes signed growth design, town configuration and 
  assert.doesNotMatch(town,/id="zuoyao-design"/u);
  assert.match(company,/projects\/zuoyaoji-x\/#zuoyao-design/u);
  const {muyouAssets}=await import('../src/muyou-evidence.mjs');
- assert.equal(muyouAssets.length,4);
+ assert.equal(muyouAssets.length,5);
  for(const item of muyouAssets){
   const bytes=await readFile(new URL('../assets/project-design/'+item.path,import.meta.url));
   assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256);

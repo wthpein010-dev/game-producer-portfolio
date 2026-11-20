@@ -1436,63 +1436,65 @@
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/pet-formation.png": {
-      "sourceSha256": "60c6245622d60810b6fac32f4f8eee109bbc27421364f293655dbd91e5b9d659",
-      "width": 599,
-      "height": 648,
-      "bytes": 111687,
+    "assets/project-design/zuoyaoji-x/formation-preview.png": {
+      "sourceSha256": "8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054",
+      "width": 353,
+      "height": 299,
+      "bytes": 24873,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/pet-formation.png-60c6245622d60810-480.webp",
-          "width": 480,
-          "height": 519,
-          "bytes": 100270
-        },
-        {
-          "src": "assets/optimized/project-design/zuoyaoji-x/pet-formation.png-60c6245622d60810-599.webp",
-          "width": 599,
-          "height": 648,
-          "bytes": 75682
+          "src": "assets/optimized/project-design/zuoyaoji-x/formation-preview.png-8dcc1c10d9e83cae-353.webp",
+          "width": 353,
+          "height": 299,
+          "bytes": 18562
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/pet-growth.png": {
-      "sourceSha256": "60cf5fc82cd14062f8b540e1235debc18fefc435190058cffd9e828fdb2bcac2",
-      "width": 941,
-      "height": 703,
-      "bytes": 322919,
+    "assets/project-design/zuoyaoji-x/inn-entry-flow.png": {
+      "sourceSha256": "78562f163e9c3f4c1015b1b79c3f314c33372cec644a22a8ad6a0821e63066a7",
+      "width": 878,
+      "height": 513,
+      "bytes": 44186,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth.png-60cf5fc82cd14062-480.webp",
+          "src": "assets/optimized/project-design/zuoyaoji-x/inn-entry-flow.png-78562f163e9c3f4c-480.webp",
           "width": 480,
-          "height": 359,
-          "bytes": 137354
+          "height": 280,
+          "bytes": 32382
         },
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth.png-60cf5fc82cd14062-941.webp",
-          "width": 941,
-          "height": 703,
-          "bytes": 224358
+          "src": "assets/optimized/project-design/zuoyaoji-x/inn-entry-flow.png-78562f163e9c3f4c-878.webp",
+          "width": 878,
+          "height": 513,
+          "bytes": 18774
         }
       ]
     },
-    "assets/project-design/zuoyaoji-x/shield-ui.png": {
-      "sourceSha256": "548eaf00aa9e1103a3eed9157d73a2a782e4efe48f04e80eb0de0073297cfc3d",
-      "width": 814,
-      "height": 754,
-      "bytes": 308432,
+    "assets/project-design/zuoyaoji-x/pet-growth-preview.png": {
+      "sourceSha256": "d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d",
+      "width": 436,
+      "height": 338,
+      "bytes": 116058,
       "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/shield-ui.png-548eaf00aa9e1103-480.webp",
-          "width": 480,
-          "height": 445,
-          "bytes": 133894
-        },
+          "src": "assets/optimized/project-design/zuoyaoji-x/pet-growth-preview.png-d5f9c1ef66a5b050-436.webp",
+          "width": 436,
+          "height": 338,
+          "bytes": 92540
+        }
+      ]
+    },
+    "assets/project-design/zuoyaoji-x/shield-preview.png": {
+      "sourceSha256": "53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd",
+      "width": 434,
+      "height": 370,
+      "bytes": 194975,
+      "variants": [
         {
-          "src": "assets/optimized/project-design/zuoyaoji-x/shield-ui.png-548eaf00aa9e1103-814.webp",
-          "width": 814,
-          "height": 754,
-          "bytes": 233272
+          "src": "assets/optimized/project-design/zuoyaoji-x/shield-preview.png-53eae7fe8a4a85b0-434.webp",
+          "width": 434,
+          "height": 370,
+          "bytes": 158610
         }
       ]
     },

@@ -29,8 +29,9 @@
 | 网站资源 | 来源 | 尺寸 | SHA256 |
 | --- | --- | --- | --- |
 | my-town/system-framework.png | 系统框架 PDF 第 1 页忠实栅格渲染，非原文件内嵌 PNG | 1710×1467 | a81484b36b803923a54ed028beea82801287e607e3a5cb55387f037fc3f9df1a |
-| zuoyaoji-x/shield-ui.png | 魔罩原始嵌入 image5.png | 814×754 | 548eaf00aa9e1103a3eed9157d73a2a782e4efe48f04e80eb0de0073297cfc3d |
-| zuoyaoji-x/pet-growth.png | 魔宠原始嵌入 image1.png | 941×703 | 60cf5fc82cd14062f8b540e1235debc18fefc435190058cffd9e828fdb2bcac2 |
-| zuoyaoji-x/pet-formation.png | 魔宠原始嵌入 image13.png | 599×648 | 60c6245622d60810b6fac32f4f8eee109bbc27421364f293655dbd91e5b9d659 |
+| zuoyaoji-x/shield-preview.png | 用户追加的图 5，截取阵位与护盾预览 | 434×370 | 53eae7fe8a4a85b0ac5a517afaefd2ff6168012132b5258c43722384e02cb9bd |
+| zuoyaoji-x/pet-growth-preview.png | 用户追加的图 1，裁切并遮盖等级和对比数值 | 436×338 | d5f9c1ef66a5b05018fdcba112b1798ab285903e162ad6bfecc66bc52d34118d |
+| zuoyaoji-x/formation-preview.png | 用户追加的图 3，截取上阵弹窗并遮盖数量文本 | 353×299 | 8dcc1c10d9e83cae63acfe317a0601041cb5182f3a3e8fe7ef010160dbbb8054 |
+| zuoyaoji-x/inn-entry-flow.png | 用户追加的图 8，截取客栈双入口流程 | 878×513 | 78562f163e9c3f4c1015b1b79c3f314c33372cec644a22a8ad6a0821e63066a7 |
 
-图片已逐张目视审核；三个 DOCX 图片保持原始字节。数值与任务表为本站重组的语义表格，不冒充原始截图。团队 UI、美术和程序不归为本人执行，资料版本与最终上线范围分别说明。
+图片已逐张目视审核。商业化分层和内部发版流程只用于素材筛选。团队 UI、美术和程序为项目历史参考。
