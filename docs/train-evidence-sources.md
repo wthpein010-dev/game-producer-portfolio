@@ -20,6 +20,8 @@
 | （活动）铁轨拼图玩法说明.docx | b1123ab3afc88788a6d0fd37f931e48234f7e62ff398a0deee3188717d0bebf2 |
 | 每日任务系统文档.docx | 22f87b1aebd437a17f783cb679e90f73e071fa92a44469761fdb436091915a51 |
 | （分享4）免费升级火车功能文档说明.docx | 375a8e7f5f49f95372e089b864bc2adbb1e372b571bebd532d874dfbdffbcd43 |
+| 新手引导.pptx | 58d7ae65b37f324cc453ec5b083ab713a2440a9a5134654f73dbfe812e0d35ba |
+| 新手任务设计.pptx | c4878bd2448b3b3575c675744885dc2721e6ba7fd83d31be97fbb78f94e9d409 |
 
 ## 精选原始图片
 
@@ -34,3 +36,14 @@
 | puzzle-system.png | 铁轨拼图玩法说明 word/media/image1.png | 903×665 | 9d4d005daf35bf01a87dfcd862f65b300df6d5116e7526cbf9b5cf037de2b639 |
 
 已逐图检查，未见账号、内部链接或真人身份。解锁图中的金额是界面示例，不作为配置或经营数据。含真人头像的主界面与拼图 UI 未选用；竞品截图不公开。完整原件、读表、统计、程序及源美术均留在原目录。私有提取材料在被忽略的 `artifacts/train-source/`。
+
+## 2026-11-20 界面摘录
+
+从 Train 的 `美术/UI` 中核对四张效果稿，仅导出保留操作场景的 WebP 局部。去除头像及拼图原稿中的附加参考块，遮挡主界面的样例余额、产率和车站读数以及拼图计时。新手引导分镜用来核对拆盒、购买、合成和上轨的顺序，改版的材料阶段单独说明。
+
+| 公开资源 | 素材 | 大小 | SHA256 |
+| --- | --- | --- | --- |
+| ui-main.webp | 主界面效果图.png | 640 × 1102 | 32be07c0ef1ea3cd8b99c800bada02066f5dab5802a5d46630994455242932d7 |
+| ui-onboarding.webp | 新手引导.png | 640 × 605 | e77f04cbfa4a3a93035496ac341ff68e6a5205cf3248ad40d6efb140d01ad1e8 |
+| ui-map.webp | map.png | 611 × 1038 | 6d5b71908cd4fd098dbc19b9131175e8896c204d7ff46211d0e9a228ec1f018c |
+| ui-puzzle.webp | 活动UI.png | 598 × 575 | 533451dc81458fde39a7d74c8cab1115c2a5e704e050f57542d7f21a28c8e4bb |

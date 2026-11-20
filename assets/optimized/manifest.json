@@ -973,20 +973,6 @@
         }
       ]
     },
-    "assets/project-design/train-king/home-proposal.png": {
-      "sourceSha256": "04258942e860f5dd2285fcf25020f3b205f5fc3aad18a9be873cb85c2a5f7f9f",
-      "width": 359,
-      "height": 640,
-      "bytes": 160836,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/train-king/home-proposal.png-04258942e860f5dd-359.webp",
-          "width": 359,
-          "height": 640,
-          "bytes": 110950
-        }
-      ]
-    },
     "assets/project-design/train-king/location-flow.png": {
       "sourceSha256": "b32ed33895e384369948499e115108295139fa71a3b9291c438307dfd2092379",
       "width": 396,
@@ -1012,26 +998,6 @@
           "width": 903,
           "height": 665,
           "bytes": 14236
-        }
-      ]
-    },
-    "assets/project-design/train-king/social-flow.jpeg": {
-      "sourceSha256": "9564d910e6e488dd8774bf264bcce000d6ecadf6b910309eb0f16921be421fb6",
-      "width": 960,
-      "height": 912,
-      "bytes": 291346,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/train-king/social-flow.jpeg-9564d910e6e488dd-480.webp",
-          "width": 480,
-          "height": 456,
-          "bytes": 27328
-        },
-        {
-          "src": "assets/optimized/project-design/train-king/social-flow.jpeg-9564d910e6e488dd-960.webp",
-          "width": 960,
-          "height": 912,
-          "bytes": 61694
         }
       ]
     },
@@ -1240,40 +1206,6 @@
           "width": 1179,
           "height": 717,
           "bytes": 99642
-        }
-      ]
-    },
-    "assets/project-design/versatile-dog/home-proposal.png": {
-      "sourceSha256": "04258942e860f5dd2285fcf25020f3b205f5fc3aad18a9be873cb85c2a5f7f9f",
-      "width": 359,
-      "height": 640,
-      "bytes": 160836,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/versatile-dog/home-proposal.png-04258942e860f5dd-359.webp",
-          "width": 359,
-          "height": 640,
-          "bytes": 110950
-        }
-      ]
-    },
-    "assets/project-design/versatile-dog/social-flow.jpeg": {
-      "sourceSha256": "9564d910e6e488dd8774bf264bcce000d6ecadf6b910309eb0f16921be421fb6",
-      "width": 960,
-      "height": 912,
-      "bytes": 291346,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/versatile-dog/social-flow.jpeg-9564d910e6e488dd-480.webp",
-          "width": 480,
-          "height": 456,
-          "bytes": 27328
-        },
-        {
-          "src": "assets/optimized/project-design/versatile-dog/social-flow.jpeg-9564d910e6e488dd-960.webp",
-          "width": 960,
-          "height": 912,
-          "bytes": 61694
         }
       ]
     },

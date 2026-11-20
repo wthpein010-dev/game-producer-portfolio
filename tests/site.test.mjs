@@ -890,6 +890,41 @@ test('Goose evidence belongs to Versatile Dog, not Train, and retains reviewed o
   assert.equal(one(dog.document,n=>n.attrs.id==='work-value','Evidence-supported work').attrs['data-work-basis'],'document');
 });
 
+test('Train and Goose publish separate reviewed interface galleries with design context',async()=>{
+  const {projects}=await site();
+  const {trainUiViews}=await import('../src/train-design.mjs');
+  const {gooseUiViews}=await import('../src/goose-design.mjs');
+  for(const [slug,id,views] of [['train-king','train-ui',trainUiViews],['versatile-dog','goose-ui',gooseUiViews]]){
+    const project=projects.find(p=>p.path===`projects/${slug}/index.html`);
+    const gallery=one(project.document,n=>n.attrs.id===id,'Project interface gallery');
+    assert.ok(views.length>=3,slug);
+    assert.match(textOf(gallery),/历史界面/u);
+    assert.match(views[0].title,/主界面/u);
+    one(project.document,n=>n.tag==='a'&&n.attrs.href==='#'+id,'Interface shortcut');
+    for(const view of views){
+      const rootPath=`assets/project-design/${slug}/${view.file}`;
+      const image=one(gallery,n=>n.tag==='img'&&originalSource(n)==='../../'+rootPath,view.file);
+      assert.equal(image.attrs.alt,view.alt);
+      assert.equal(Number(image.attrs.width),view.width);
+      assert.equal(Number(image.attrs.height),view.height);
+      one(gallery,n=>n.tag==='a'&&n.attrs.href==='../../'+rootPath,'Open the reviewed image');
+      assert.match(textOf(gallery),/界面/u);
+      assert.equal(createHash('sha256').update(await readFile(join(root,rootPath))).digest('hex'),view.sha256);
+    }
+    for(const other of projects.filter(p=>p.path!==project.path)){
+      assert.equal(nodes(other.document,n=>n.attrs.id===id).length,0);
+    }
+  }
+  const manifest=JSON.parse(await readFile(join(root,'assets/optimized/manifest.json'),'utf8'));
+  for(const slug of ['train-king','versatile-dog']){
+    for(const name of ['home-proposal.png','social-flow.jpeg']){
+      const retired=`assets/project-design/${slug}/${name}`;
+      assert.ok(!manifest.images[retired],retired);
+      await assert.rejects(stat(join(root,retired)),{code:'ENOENT'});
+    }
+  }
+});
+
 test('home prioritizes three confirmed career cases before the full timeline', async()=>{
   const {home}=await site();
   const section=one(home.document,n=>n.attrs.id==='career-cases','Featured career cases');

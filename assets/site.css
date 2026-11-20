@@ -1230,6 +1230,29 @@ button:disabled { cursor: default; }
 .project-visual-overview { margin: 0 0 32px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
 .project-visual-overview img { width: 100%; max-height: 240px; object-fit: contain; object-position: left; }
 .project-visual-overview figcaption { font-size: 13px; color: var(--muted); }
+.career-ui-jumps { display: flex; grid-column: 1 / -1; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 4px 0 18px; }
+.career-ui-jumps > .text-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+.career-ui-gallery { margin-block: 36px; padding-block: 28px; border-block: 1px solid var(--line); scroll-margin-top: 96px; }
+.career-ui-gallery h2 { margin: 0 0 8px; font-size: clamp(24px, 2.8vw, 34px); }
+.career-ui-gallery header p { max-width: 50em; color: var(--muted); margin-bottom: 22px; }
+.career-ui-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 225px), 1fr)); gap: clamp(10px, 2vw, 22px); }
+.career-ui-grid figure { min-width: 0; margin: 0; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-small); background: var(--surface); }
+.career-ui-grid figure > a {
+  display: block;
+  height: clamp(180px, 25vw, 330px);
+  border-radius: calc(var(--radius-small) - 2px);
+  background: var(--surface-soft);
+}
+.career-ui-grid img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.career-ui-grid figcaption { padding: 8px 4px 0; color: var(--muted); font-size: .8125rem; line-height: 1.6; overflow-wrap: anywhere; }
+.career-ui-grid figcaption strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: .9375rem; }
+.career-ui-grid figcaption p { margin: 0 0 4px; font-size: inherit; }
+.career-ui-grid figcaption small { font-size: .75rem; }
+@media (max-width: 620px) {
+  .career-ui-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .career-ui-grid figure { padding: 5px; }
+  .career-ui-grid figure > a { height: clamp(170px, 50vw, 260px); }
+}
 .reading-source { margin-block: 12px; font-size: 13px; color: var(--muted); }
 .reading-source > summary { min-height: 36px; cursor: pointer; }
 .reading-source[open] > summary { color: var(--ink); }
