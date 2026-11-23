@@ -164,9 +164,8 @@ test('home presents the full timeline and semantic company, role, project, and s
   }
   assert.deepEqual(new Set(allProjectRoutes), new Set(projectRecords.map(project => `projects/${project.slug}/index.html`)));
   one(entries[0], node => node.tag === 'details' && node.attrs['data-priority'] === 'true', 'Latest project branch priority');
-  const teamNote = one(home.document, node => hasClass(node, 'team-note'), 'Total-team note');
-  assert.match(textOf(teamNote), /(?:6|六)\s*(?:人|位|名)/u);
-  assert.match(textOf(teamNote), /团队/u);
+  assert.equal(nodes(home.document, node => hasClass(node, 'team-note')).length, 0);
+  assert.doesNotMatch(textOf(entries[0]), /项目团队共\s*6\s*人/u);
   assert.match(textOf(entries[0]), /2026[.\-/]05[.\-/]18/u);
   assert.match(textOf(entries[0]), /至今|现在|present/iu);
   assert.match(textOf(entries[1]), /2026[.\-/]05[.\-/]15/u);
