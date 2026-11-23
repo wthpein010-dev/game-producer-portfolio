@@ -30,7 +30,7 @@ export function renderFadingShadowsBody(e){
         <p class="eyebrow">横版武侠动作 · Godot</p>
         <h1>${title}<span class="title-dot">.</span></h1>
         <p class="detail-lede">${e(fadingShadowsSummary)}</p>
-        <div class="taptap-hero-actions"><a class="button primary" href="#fading-combat">看三种收尾 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-campaign">探索主线 <span aria-hidden="true">↓</span></a></div>
+        <div class="taptap-hero-actions"><a class="button primary" href="#fading-combat">看三种收尾 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-campaign">看七章十四关 <span aria-hidden="true">↓</span></a></div>
       </header>
       ${screenshot('coop',e,{hero:true})}
       <div class="taptap-hero-context"><p class="taptap-hero-status">Windows 可玩开发版 · Steam 发行筹备</p></div>
@@ -63,11 +63,14 @@ export function renderFadingShadowsBody(e){
     </section>
 
     <section class="taptap-gallery" id="fading-campaign" aria-labelledby="fading-campaign-title">
-      <header><h2 id="fading-campaign-title">跟着路牌走，从街巷一路打到首领</h2></header>
+      <header><h2 id="fading-campaign-title">七章十四关：路牌、机关与首领战</h2></header>
       <div class="game-design-stories">
         <article><div class="game-design-copy"><h3>清敌之后，把路线选择交给玩家</h3><p>清完当前敌人后，路牌提示接下来的支路。场景移镜让玩家看清新位置与对手，再开下一波战斗。章节选择页把关卡预览、阵容和解锁进度放在一起，方便朋友选好同一趟行程。</p></div>${shot('campaign')}</article>
+        <article><div class="game-design-copy"><h3>后段关卡让场景道具影响走位</h3><p>盐签作证把药品藏进可破坏物，玩家要决定何时清出安全空间拿补给。截闸反潮把闸坠放进战斗场景，击落时可砸到下方敌人，让玩家根据站位决定先触发机关还是继续进攻。</p></div><div class="fading-move-pair">${shot('salt-cache')}${shot('sluice-weight')}</div></article>
         <article><div class="game-design-copy"><h3>首领战把空间压力交给两个人分担</h3><p>队友可以分走不同纵深，一人牵制正面的威胁，另一人换线找出手机会。章节末把剧情、增益选择和解锁接回下一轮闯关。</p></div>${shot('boss')}</article>
+        <article><div class="game-design-copy"><h3>通关第十二关，才把对手变成可选角色</h3><p>截潮监使作为首领登场，顺序通关后解锁。贴地水浪压住一条纵深，折返刃要求再判断一次回程，红光终结技则靠分段预警提示走位。第十一关燧盐师的三束火砂可格挡或换线躲开，两场战斗各自给防守方不同选择。</p></div>${shot('tide-warden')}</article>
       </div>
+      <p class="record-source">新增关卡、补给和招式的画面来自 Godot 开发版原生验证，尚未打进正式发行包。</p>
     </section>
 
     <section class="taptap-gallery" id="fading-input" aria-labelledby="fading-input-title">

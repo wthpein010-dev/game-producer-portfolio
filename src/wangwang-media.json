@@ -1,8 +1,7 @@
 {
-  "captureDate": "2026-10-28",
-  "gameVersion": "0.5.0",
-  "runtimeBuild": "926eed4",
-  "source": "TapTap Maker native preview captures and separately prepared promotional art",
+  "captureDate": "2026-11-24",
+  "gameVersion": "0.6.0",
+  "source": "Maker Windows native validation on 2026-11-23/24, earlier interface captures and separate promotional art",
   "media": [
     {
       "src": "assets/taptap/wangwang-stack/cover.webp",
@@ -21,20 +20,20 @@
       "sourceSha256": "21fba0e4ca8e99984c42e95077ca1c6d5689f5ba4b38a95324173f3a4ae5ee64"
     },
     {
-      "src": "assets/taptap/wangwang-stack/board.webp",
-      "width": 720,
-      "height": 1280,
+      "src": "assets/taptap/wangwang-stack/board-202611.webp",
       "kind": "native-preview",
-      "sha256": "02ebf258c0aa791a5a1b88019e4e43eb40d2dd3495d8a11b4c2455202b5bb207",
-      "sourceSha256": "6b569205a05dece5bba921314f96ad4a083dcb3eca5847f096a89b5961221cf9"
+      "width": 666,
+      "height": 1184,
+      "sha256": "ef4d1c10702c74e56ffdb0045ca28be636920e3a3fb4cf5715b730056dd673b1",
+      "sourceSha256": "f72d694d542b3a1c98935091933238f64a201a44a6008be46c897b9aeb7d9c92"
     },
     {
-      "src": "assets/taptap/wangwang-stack/camp.webp",
-      "width": 720,
-      "height": 1280,
+      "src": "assets/taptap/wangwang-stack/camp-202611.webp",
       "kind": "native-preview",
-      "sha256": "c8b00515dbdb66fdd9530edf1619df582c382b35822a0a2efdad6a56bb9bb0d6",
-      "sourceSha256": "a676a1db0eeea2931a08c66c5baf3b9cebc6e6c19f5625e1e40f96b243d7308d"
+      "width": 320,
+      "height": 568,
+      "sha256": "982abf0f89f00ef86ceec37fd979d577c52c7e565b2ef1e4d28d035e4f75b953",
+      "sourceSha256": "207afd27437c20b5173166fbd477d2262694aabaab42664034ade8589eca8e0e"
     },
     {
       "src": "assets/taptap/wangwang-stack/training.webp",
@@ -51,6 +50,22 @@
       "kind": "native-preview",
       "sha256": "68796fb46a52e071bed4494c6ceec3b94c3ff37b64def06cb176b26cef82518a",
       "sourceSha256": "6959ff216ae670e0ffb768558b5a0ffd89e6c62aaa77e10e19123a87d56c477a"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/tool-preview.webp",
+      "kind": "native-preview",
+      "width": 320,
+      "height": 568,
+      "sha256": "eedfda06a760f00231de97c0116ded2fd3a7971ee0a1e34022708acfd259b548",
+      "sourceSha256": "e3e7b428e6ccf8976a92ec69c31cfd3e915c1fcd39e6243ff829d5e46dc202e3"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/route-settlement.webp",
+      "kind": "native-preview",
+      "width": 390,
+      "height": 844,
+      "sha256": "448eab6a00555c657aff2ad5fd77d34204baee774df4e36a16731b90e3ebab6a",
+      "sourceSha256": "e9d4d83f9c88e2d7dc8b769f9a81d061b0453895cb19fec2c7d56d8a47cdfaa6"
     }
   ]
 }

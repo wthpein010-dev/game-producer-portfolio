@@ -139,6 +139,36 @@
       "caption": "水岸战斗中的同屏站位。近处是可参与攻防的场景物件。",
       "source": "2026-11-17 Windows 0.23.0 受控实机验收",
       "sha256": "2b8e190cbcab6191e95b1d2a32a8aeeacf5d227f9defd6c7b4060d572ebb4d29"
+    },
+    {
+      "id": "salt-cache",
+      "file": "salt-cache.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "盐签作证关卡中，角色在砸开的藏药点旁",
+      "caption": "盐签作证：打破场景物件寻找补给。",
+      "source": "Windows 开发版受控实机",
+      "sha256": "420788ed962fa4e72e6928cdab26dedeb381bbeaedcf9ba7ec246bc07f06e6b5"
+    },
+    {
+      "id": "sluice-weight",
+      "file": "sluice-weight.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "截闸反潮关卡中可击落的闸坠以及关内敌人",
+      "caption": "截闸反潮：观察敌人与闸坠的位置，再决定何时触发。",
+      "source": "Windows 开发版受控实机",
+      "sha256": "8388bf22f74c893b0f83a1f9491739b06956d1b7bcdc8c8a4bf4c9e86842da8c"
+    },
+    {
+      "id": "tide-warden",
+      "file": "tide-warden.webp",
+      "alt": "截潮监使在水闸场景蓄起水浪，与对手近距离对峙",
+      "caption": "截潮监使：水闸场景中的施招实机。",
+      "source": "Windows 开发版受控实机",
+      "width": 1280,
+      "height": 719,
+      "sha256": "91bdb56a5e7fdc49c7313988593d16de12c1d6a059292980919a440b2ae327fa"
     }
   ]
 }

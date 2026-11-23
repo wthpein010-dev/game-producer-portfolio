@@ -447,7 +447,7 @@ test('汪汪叠宝 shows attributed preview captures and availability in persona
   assert.match(textOf(detail.document),/暂无公开试玩入口/u);
   assert.doesNotMatch(detail.html, /1001884|tapcode-sce|待审核/u);
   const proof=JSON.parse(await readFile(join(root,'src/wangwang-media.json'),'utf8'));
-  assert.deepEqual(proof.media.map(media=>media.kind),['promotional-art',...Array(5).fill('native-preview')]);
+  assert.deepEqual(proof.media.map(media=>media.kind),['promotional-art',...Array(7).fill('native-preview')]);
   for(const media of proof.media) {
     const img=one(detail.document,n=>n.tag==='img'&&originalSource(n)==='../../'+media.src,media.src);
     assert.deepEqual([Number(img.attrs.width),Number(img.attrs.height)],[media.width,media.height]);
@@ -514,7 +514,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,14);
+  assert.equal(figures.length,17);
   assert.equal(images.length,figures.length);
   for(const image of images){
     const src='../../assets/fading-shadows/'+image.file;
