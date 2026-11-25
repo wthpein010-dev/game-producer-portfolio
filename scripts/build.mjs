@@ -13,6 +13,8 @@ import {renderCollaborationPage,renderAiPocketPage,renderRingHavenPage,renderTok
 import {renderYujiangCoffeePage,renderFadingShadowsPage,renderHubGameDetail} from '../src/render.mjs';
 import {hubGames} from '../src/hub-tools.mjs';
 import {hubGameSlug} from '../src/hub-game-stories.mjs';
+import {recentGames} from '../src/portfolio-recent-games.mjs';
+import {renderRecentGamePage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -50,6 +52,11 @@ export async function build() {
   const tokenGameDir=path.join(siteRoot,'projects','token-game');
   await mkdir(tokenGameDir,{recursive:true});
   await writeFile(path.join(tokenGameDir,'index.html'),renderTokenGamePage());
+  for(const game of recentGames) {
+    const directory=path.join(siteRoot,'projects',game.slug);
+    await mkdir(directory,{recursive:true});
+    await writeFile(path.join(directory,'index.html'),renderRecentGamePage(game));
+  }
   const zhuyinDir=path.join(siteRoot,'projects','zhuyin-jianghu');
   await mkdir(zhuyinDir,{recursive:true});
   await writeFile(path.join(zhuyinDir,'index.html'),renderZhuyinPage());

@@ -1,63 +1,84 @@
 {
-  "version": "0.11.8",
+  "version": "0.14.2",
   "platform": "Windows",
-  "source": "Godot 导出包隔离测试场景",
+  "source": "2026-11-24 Windows 导出构建实机验收",
   "images": [
     {
       "id": "workbench",
       "width": 1280,
       "height": 800,
-      "bytes": 187908,
-      "sha256": "f17d7eaa0ab1c90a61d506e83845c98b5bd53e0550f507956f94ed94424c7f18"
+      "bytes": 236840,
+      "sha256": "46d286f81b9a507c6a49523510dcc82701b5d2b603c3afdbb6a3c6bbe8c933d0"
     },
     {
       "id": "threads",
       "width": 1024,
-      "height": 768,
-      "bytes": 185856,
-      "sha256": "a7625743c3560bc83aa3817d82658184387aae732aec5383be29fcbe58bd2742"
+      "height": 640,
+      "bytes": 173226,
+      "sha256": "196732c7860008e999af08825a7b39fa080d8204350674014e5e3264622729c6"
+    },
+    {
+      "id": "commission",
+      "width": 1024,
+      "height": 640,
+      "bytes": 101538,
+      "sha256": "299a3cab81fbb01bc5314eb081f95949f1a1a1b2b83a321b8b675f7f26b08b3c"
     },
     {
       "id": "revision",
       "width": 1280,
       "height": 800,
-      "bytes": 112790,
-      "sha256": "399fdfd7b296dbfef8283aa7bfc9546a144e2d8210c98f14a6f4f77689f5f4dc"
-    },
-    {
-      "id": "commission",
-      "width": 1024,
-      "height": 768,
-      "bytes": 111620,
-      "sha256": "49168442c394407d68976e796befc3eb14ee38a5ab24d14b489ff9c3709126f9"
+      "bytes": 184032,
+      "sha256": "bf6393fe35986f1e5c8b32e45cc1a0f74a5dc5773a3e27628ede0300528188f4"
     },
     {
       "id": "settlement",
       "width": 1280,
       "height": 800,
-      "bytes": 48566,
-      "sha256": "301520c303f1f2775ebedf893a96e3735d54abb862886a4040d9b5192ee3597e"
+      "bytes": 76776,
+      "sha256": "a1a1e64af48cab8b616e2b98923432d650e34ed854dac53478ab8ab9f0cac49c"
     },
     {
       "id": "collection",
       "width": 1280,
       "height": 800,
-      "bytes": 155566,
-      "sha256": "d6b3261ad46ca192fee03f271b52203e4b6830ff373bc94a17cd8a9c8b2d6f66"
+      "bytes": 246238,
+      "sha256": "e051661b70aad72f192e5ed0787f1170d9827d43862b9de3272825d2e623ba29"
     },
     {
       "id": "ending",
       "width": 1280,
       "height": 800,
-      "bytes": 91818,
-      "sha256": "9321b3f68abbe3a7c04e18e87a9239a1a1a59c42527c9c4f10a340faf544b5cf"
+      "bytes": 316106,
+      "sha256": "3fa1db2b8d820de82766abd366e6b6e6a38af60d0b526b38d6ce29c7eca46545"
+    },
+    {
+      "id": "phone-home",
+      "width": 1280,
+      "height": 800,
+      "bytes": 190422,
+      "sha256": "3c807546ec57eaacd3acece55adbdb603e497a087636bf60d4ad3c52044ac321"
+    },
+    {
+      "id": "phone-buzz",
+      "width": 1280,
+      "height": 800,
+      "bytes": 155762,
+      "sha256": "92c0dac3c3096f63608cfb16acf1b615568b00a0eccd4539d15e275c32007c2d"
+    },
+    {
+      "id": "phone-album",
+      "width": 1280,
+      "height": 800,
+      "bytes": 133598,
+      "sha256": "4508559be68ba6e9a0b36a1383b8c328c035cf30ee65847ec70f2b36ec6649bb"
     }
   ],
   "cover": {
     "id": "main-menu",
     "width": 1600,
     "height": 900,
-    "bytes": 398630,
-    "sha256": "b187809bc7a94977c0c7e4cdc368f71ae97f74fad30569ab589e87f666528c62"
+    "bytes": 906204,
+    "sha256": "d4fb22bf28f3b907d83381f1276b286015e082c12db425f67c571195707c48a3"
   }
 }

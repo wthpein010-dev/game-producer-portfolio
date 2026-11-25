@@ -28,12 +28,12 @@
       "sourceSha256": "f72d694d542b3a1c98935091933238f64a201a44a6008be46c897b9aeb7d9c92"
     },
     {
-      "src": "assets/taptap/wangwang-stack/camp-202611.webp",
+      "src": "assets/taptap/wangwang-stack/camp-forecast.webp",
       "kind": "native-preview",
+      "sourceSha256": "fe520bd827320673b6ce1a54d3f6f162c6c80b56b1b8aa7c518bc81eba878259",
       "width": 320,
       "height": 568,
-      "sha256": "982abf0f89f00ef86ceec37fd979d577c52c7e565b2ef1e4d28d035e4f75b953",
-      "sourceSha256": "207afd27437c20b5173166fbd477d2262694aabaab42664034ade8589eca8e0e"
+      "sha256": "2934d84ae354a7bcce9d0760c99a9e1fc8c577249e5a56fb33d1f440f5df7bb8"
     },
     {
       "src": "assets/taptap/wangwang-stack/training.webp",

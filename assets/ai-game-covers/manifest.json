@@ -192,11 +192,11 @@
       "src": "assets/token-game/main-menu.webp",
       "width": 1600,
       "height": 900,
-      "alt": "重置之神按住按钮的 Windows 原型主菜单画面",
+      "alt": "新版主菜单，阳光工作室里的创作者、机器人和重置按钮",
       "sources": [
         "assets/token-game/main-menu.webp"
       ],
-      "sha256": "b187809bc7a94977c0c7e4cdc368f71ae97f74fad30569ab589e87f666528c62"
+      "sha256": "d4fb22bf28f3b907d83381f1276b286015e082c12db425f67c571195707c48a3"
     },
     "nanjie-repair-shop": {
       "src": "assets/nanjie-repair-shop/cover.webp",
@@ -279,6 +279,39 @@
         "https://wthpein010-dev.github.io/ai-application-hub/projects/lighthouse-rescue/assets/key-art-wide.png"
       ],
       "sha256": "f5d6b113f0fe5c93aab6a91205a676c463c4bbdc519f88c66ea3a906d0656e61"
+    },
+    "poetry-letters": {
+      "src": "assets/poetry-letters/cover.webp",
+      "alt": "填字、定点提示和读信的实机流程",
+      "sources": [
+        "assets/poetry-letters/interface-overview.webp"
+      ],
+      "width": 960,
+      "height": 540,
+      "bytes": 98194,
+      "sha256": "d91f31e09888a5c2bb22c95f85032a0ddd69afbb6be484f7ded4931515ea1c30"
+    },
+    "laurel-arena": {
+      "src": "assets/laurel-arena/cover.webp",
+      "alt": "两位角斗士在竞技场交锋",
+      "sources": [
+        "assets/laurel-arena/exchange.webp"
+      ],
+      "width": 960,
+      "height": 540,
+      "bytes": 67204,
+      "sha256": "f9c9e3a099ab13814258bafdd88a387e734ad50cbc544d8670ec1ee0f098d2e3"
+    },
+    "monster-workshop": {
+      "src": "assets/monster-workshop/cover.webp",
+      "alt": "横屏观众画面的成品亮相",
+      "sources": [
+        "assets/monster-workshop/reveal.webp"
+      ],
+      "width": 960,
+      "height": 540,
+      "bytes": 76890,
+      "sha256": "cd514a7417b29afb78da1f6b490e29f5a1ee9d006894ef6248062550dcee2c95"
     }
   }
 }

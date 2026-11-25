@@ -8,11 +8,14 @@ const illustrations = {
   'main-menu': ['《又没Token了！》主菜单，重置之神按住按钮，右侧显示开始游戏等入口', 'Windows 原型主菜单。'],
   workbench: ['工作台显示存款、欠款、Token 与三镜头漫剧预览', '第一天的工作台，预览三镜头漫剧试片。'],
   threads: ['工作台同时运行三个制作线程，各自显示剩余时间和已扣额度', '三个线程同时制作，进度和已扣额度列在预览下方。'],
-  revision: ['漫剧返工回执显示已花额度、三格分镜和处理选项', '这份漫剧回执显示已花 116 Token。'],
+  revision: ['漫剧返工回执显示三格分镜、实际消耗和处理选项', '翻车回执把问题、成本和可选操作放在一起。'],
   commission: ['委托详情并排展示普通与加急两种选项及各自的额度区间', '同一份短句委托的普通与加急预计消耗。'],
   settlement: ['日结账单显示实际到账金额与计算过程', '结束当天才揭晓到账金额，玩家可以核对存款变化。'],
   collection: ['成就界面显示分类、解锁状态和本局进度', '里程碑记录本局尝试，为下一局提供不同的目标。'],
   ending: ['工作室关停结算显示本局记录和新解锁项', '工作室关停后结算本局履历，将已达成的奖励收进收藏。'],
+  'phone-home': ['工作台中的手机桌面与应用图标', '手机把动态、作品和额度集中在一个入口。'],
+  'phone-buzz': ['手机风声页列出工作室动态和交付回执', '「风声」把情报和实际交稿回执放进同一条动态流。'],
+  'phone-album': ['手机作品相册以两列呈现作品卡片', '作品相册可以回看已交付、库存及带预览的试片。'],
 };
 
 function figure(id, base) {
@@ -40,13 +43,13 @@ export function renderTokenGameBody() {
       <p class="detail-lede">开工作室的第一天，存款只有 12 美元，会员费已经欠了 200 美元。</p>
       <p>从漫剧试片、宣传短句到提示词模板，每件活都要花 Token。今天能做几单、要留多少给返工，都得在看到到账金额之前决定。</p>
       <p class="token-game-source">Godot / GDScript · Windows 可玩原型 ${media.version} · 画面取自同版本导出包的测试场景</p>
-      <nav class="collaboration-nav" aria-label="游戏玩法目录"><a href="#token-game-production">委托与制作 ↓</a><a href="#token-game-day">返工与日结 ↓</a><a href="#token-game-progression">成就与收藏 ↓</a></nav>
+      <nav class="collaboration-nav" aria-label="游戏玩法目录"><a href="#token-game-production">委托与制作 ↓</a><a href="#token-game-day">返工与日结 ↓</a><a href="#token-game-phone">工作室手机 ↓</a><a href="#token-game-progression">成就与收藏 ↓</a></nav>
     </header>
     ${figure('workbench', base)}
     <section class="token-game-section" id="token-game-production" aria-labelledby="token-game-design-title">
       <h2 id="token-game-design-title">接什么单，留多少 Token</h2>
       <div class="token-game-pair">
-        <article><h3>普通委托还是加急</h3><p>接了委托就得当天交。以阿林的促销短句为例，普通单预计花 70–120 Token，加急单预计花 88–150 Token，验收也更难。两边收入都要到日结才揭晓。</p>${figure('commission', base)}</article>
+        <article><h3>普通委托还是加急</h3><p>接了委托就得当天交。委托面板并排给出两档预计用量，加急占用更多预算，验收也更难。两边收入都要到日结才揭晓。</p>${figure('commission', base)}</article>
         <article><h3>最多三单同时开工</h3><p>选好项目，点执行才扣 Token。工作台并排显示线程倒计时、已花额度和作品预览。可以把三个线程开满，也可以留一笔额度，给意外返工用。</p>${figure('threads', base)}</article>
       </div>
     </section>
@@ -55,6 +58,15 @@ export function renderTokenGameBody() {
       <div class="token-game-pair">
         <article><h3>角色变脸了，这版还救不救</h3><p>返工回执列出出错的分镜、实际支出和修复报价。挑一处补救、整份重跑，或者止损，把还能用的片段存成图像素材。</p>${figure('revision', base)}</article>
         <article><h3>收入要等日结才知道</h3><p>委托验收和自营销售在日结入账。结束当天后只向前推进。「重置之神」有机会补满额度，手动重置则可以留到急需开工时再用。</p>${figure('settlement', base)}</article>
+      </div>
+    </section>
+    <section class="token-game-section" id="token-game-phone" aria-labelledby="token-game-phone-title">
+      <h2 id="token-game-phone-title">制作线程继续跑，拿起手机看进展</h2>
+      <p>顶栏用未读角标提醒玩家打开手机。看动态、翻作品相册或查额度时，已经开工的线程仍会继续处理；退出手机后可以接着做经营决策。</p>
+      ${figure('phone-home', base)}
+      <div class="token-game-pair">
+        <article><h3>从「风声」区分情报和交稿</h3><p>动态把工作室情报与实际交稿回执按时间列出。玩家可以先读消息，再决定是否采用对应情报。</p>${figure('phone-buzz', base)}</article>
+        <article><h3>用作品相册回看本局成果</h3><p>相册以双列展示作品，可以区分已交付、已上架和库存内容，也能回看有预览的试片。</p>${figure('phone-album', base)}</article>
       </div>
     </section>
     <section class="token-game-section" id="token-game-progression" aria-labelledby="token-game-progression-title">

@@ -17,17 +17,17 @@ test('Token game links from Personal Projects and returns to the same entry', as
   assert.match(entry, /href="assets\/token-game\/main-menu\.webp"/u);
   assert.match(detail, /src="\.\.\/\.\.\/assets\/token-game\/workbench\.webp"/u);
   assert.match(detail, /href="\.\.\/\.\.\/index\.html#token-game"/u);
-  assert.match(detail, /Windows 可玩原型 0\.11\.8 · 画面取自同版本导出包的测试场景/u);
+  assert.match(detail, /Windows 可玩原型 0\.14\.2 · 画面取自同版本导出包的测试场景/u);
   assert.match(detail, /普通委托还是加急/u);
   assert.match(detail, /收入要等日结才知道/u);
   assert.doesNotMatch(detail, /已上线 Steam|Steam 商店|<a[^>]+ download|file:\/\/|localhost|[A-F]:[\\/]/u);
 });
 
-test('Seven reviewed screenshots keep their declared dimensions and public original links', async () => {
+test('Ten reviewed screenshots keep their declared dimensions and public original links', async () => {
   const {images} = JSON.parse(await read('assets/token-game/media.json'));
   const detail = (await read('projects/token-game/index.html')).toString();
-  assert.equal(new Set(images.map(image => image.id)).size, 7);
-  assert.equal((detail.match(/<figure class="token-game-figure">/gu) || []).length, 7);
+  assert.equal(new Set(images.map(image => image.id)).size, 10);
+  assert.equal((detail.match(/<figure class="token-game-figure">/gu) || []).length, 10);
   for (const {id, width, height, bytes, sha256} of images) {
     const path = `assets/token-game/${id}.webp`;
     const source = await read(path);

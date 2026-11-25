@@ -104,7 +104,7 @@ function site() {
     const ringHaven=await page('projects/ring-haven/index.html');
     const nanjie=await page('projects/nanjie-repair-shop/index.html');
     const coffee=await page('projects/yujiang-coffee/index.html');
-    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows'].map(slug => page(`projects/${slug}/index.html`)));
+    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows','poetry-letters','laurel-arena','monster-workshop'].map(slug => page(`projects/${slug}/index.html`)));
     const gamePages = [...taptapPages, ...hubGamePages, ringHaven, nanjie, coffee, ...moreGames];
     return { content, home, companies, projects, notes, projectRecords, taptapPages, hubGamePages, gamePages, pages: [home, ...companies, ...projects, ...notes, ...gamePages, collaboration, pocket] };
   })();
@@ -489,7 +489,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
   const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
   const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
   const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
-  assert.equal(cards.length,26);
+  assert.equal(cards.length,29);
   for(const card of cards){
     const children=card.children.filter(child=>typeof child!=='string');
     assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);
@@ -514,7 +514,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,17);
+  assert.equal(figures.length,18);
   assert.equal(images.length,figures.length);
   for(const image of images){
     const src='../../assets/fading-shadows/'+image.file;
@@ -531,7 +531,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
 
 test('All AI game details show play and design without standalone role and version panels',async()=>{
   const {home,gamePages,hubGamePages}=await site();
-  assert.equal(gamePages.length,26);
+  assert.equal(gamePages.length,29);
   for(const detail of gamePages){
     const main=one(detail.document,n=>n.tag==='main','Game details');
     assert.ok(nodes(main,n=>n.tag==='h2').length>=2,detail.path);

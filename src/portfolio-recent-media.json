@@ -1,0 +1,98 @@
+{
+  "poetry-letters": [
+    {
+      "id": "overview",
+      "src": "assets/poetry-letters/interface-overview.webp",
+      "alt": "填字、定点提示和读信的实机流程",
+      "width": 1080,
+      "height": 640,
+      "bytes": 130728,
+      "sha256": "b184744ce373e23d1521968265f143d01332ebe688bdc4af4131a70094806a2b"
+    },
+    {
+      "id": "letter",
+      "src": "assets/poetry-letters/letter.webp",
+      "alt": "首封信的候选字引导",
+      "width": 720,
+      "height": 1280,
+      "bytes": 122860,
+      "sha256": "922eb745f66badc09af5e90533a63a0d0947081576a6e3a7cd69d4b2579a7e45"
+    },
+    {
+      "id": "solution",
+      "src": "assets/poetry-letters/solution.webp",
+      "alt": "答对后显示完整信纸与邮戳",
+      "width": 720,
+      "height": 1280,
+      "bytes": 123996,
+      "sha256": "fd30c3f9d1cc3a615e5c50d2170bff7108e0eca51a4d0c3c5d36d7f484de2d5a"
+    },
+    {
+      "id": "dawn",
+      "src": "assets/poetry-letters/dawn.webp",
+      "alt": "序章终关结尾的邮局晨景",
+      "width": 720,
+      "height": 1280,
+      "bytes": 127626,
+      "sha256": "c5511c6a7a761d42e957885ad593552e13d2a1677002a8d4af4d254b4824ba60"
+    },
+    {
+      "id": "shelf",
+      "src": "assets/poetry-letters/shelf.webp",
+      "alt": "按主题选择接下来的来信",
+      "width": 720,
+      "height": 1280,
+      "bytes": 178272,
+      "sha256": "00e9dcd9273a8b83f95025196c81cb5944ee1c9c341902c33888369ffea85203"
+    }
+  ],
+  "laurel-arena": [
+    {
+      "id": "exchange",
+      "src": "assets/laurel-arena/exchange.webp",
+      "alt": "两位角斗士在竞技场交锋",
+      "width": 1600,
+      "height": 900,
+      "bytes": 124092,
+      "sha256": "00d350a4d0f561d4b0f57922a114bc2e887b789da3aebb89746b13c6f76f39c6"
+    },
+    {
+      "id": "shield",
+      "src": "assets/laurel-arena/shield.webp",
+      "alt": "逐帧对照盾牌朝向与近身交锋",
+      "width": 880,
+      "height": 310,
+      "bytes": 49708,
+      "sha256": "5045be08d24be7015ba580acdc14120311fbdcc1eb9f67c4848853de7b3783d5"
+    }
+  ],
+  "monster-workshop": [
+    {
+      "id": "reveal",
+      "src": "assets/monster-workshop/reveal.webp",
+      "alt": "横屏观众画面的成品亮相",
+      "width": 960,
+      "height": 540,
+      "bytes": 76890,
+      "sha256": "cd514a7417b29afb78da1f6b490e29f5a1ee9d006894ef6248062550dcee2c95"
+    },
+    {
+      "id": "vote",
+      "src": "assets/monster-workshop/vote.webp",
+      "alt": "竖屏采集的首票反馈",
+      "width": 360,
+      "height": 640,
+      "bytes": 46748,
+      "sha256": "4a226d122533b63d192f394746f4798c98c7f7bccebdddce625e572ecefbe4da"
+    },
+    {
+      "id": "receipts",
+      "src": "assets/monster-workshop/receipts.webp",
+      "alt": "主播台和同场采集画面，本地联调",
+      "width": 1140,
+      "height": 800,
+      "bytes": 128750,
+      "sha256": "9919b4cef450117bb89aa7bbfe65f2e6c8ad5f9a797812c03696758c38a258a7"
+    }
+  ]
+}

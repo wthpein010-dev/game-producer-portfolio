@@ -70,13 +70,13 @@ export function renderFadingShadowsBody(e){
         <article><div class="game-design-copy"><h3>首领战把空间压力交给两个人分担</h3><p>队友可以分走不同纵深，一人牵制正面的威胁，另一人换线找出手机会。章节末把剧情、增益选择和解锁接回下一轮闯关。</p></div>${shot('boss')}</article>
         <article><div class="game-design-copy"><h3>通关第十二关，才把对手变成可选角色</h3><p>截潮监使作为首领登场，顺序通关后解锁。贴地水浪压住一条纵深，折返刃要求再判断一次回程，红光终结技则靠分段预警提示走位。第十一关燧盐师的三束火砂可格挡或换线躲开，两场战斗各自给防守方不同选择。</p></div>${shot('tide-warden')}</article>
       </div>
-      <p class="record-source">新增关卡、补给和招式的画面来自 Godot 开发版原生验证，尚未打进正式发行包。</p>
+      <p class="record-source">新增关卡和招式的画面来自 Godot 开发验证。11 月 24 日的 Windows 开发包已完成导出验收，Steam 发行仍处于筹备阶段。</p>
     </section>
 
     <section class="taptap-gallery" id="fading-input" aria-labelledby="fading-input-title">
       <header><h2 id="fading-input-title">先练一套，朋友到场就能对招</h2></header>
       <div class="game-design-stories">
-        <article><div class="game-design-copy"><h3>从一局快速对战开始</h3><p>「江湖恩怨」把阵容、胜负规则和快速开局放在一起。多人键盘和手柄可以分别调整按键，同一套招式逻辑适用于不同输入。</p></div>${shot('rivalries')}</article>
+        <article><div class="game-design-copy"><h3>从一局快速对战开始</h3><p>「江湖恩怨」把阵容、胜负规则和快速开局放在一起。多人键盘和手柄可以分别调整按键，同一套招式逻辑适用于不同输入。</p></div><div class="fading-move-pair">${shot('rivalries')}${shot('roster')}</div></article>
         <article><div class="game-design-copy"><h3>把连段拆成能验证的小目标</h3><p>训练先练命中，再接连击、防守和侧闪。提示紧跟着输入和完成结果，玩家能看出问题出在距离、按键顺序还是时机。</p></div>${shot('training')}</article>
       </div>
       <details class="fading-menu-preview"><summary>查看游戏入口画面</summary>${shot('title')}</details>

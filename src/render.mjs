@@ -24,6 +24,7 @@ import {gooseUiViews} from './goose-design.mjs';
 import {renderAiPocketEntry,renderAiPocketBody} from './ai-pocket.mjs';
 import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
+import {recentGames,renderRecentGameEntry,renderRecentGameBody} from './portfolio-recent-games.mjs';
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
 import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
@@ -62,6 +63,9 @@ export function renderRingHavenPage() {
 }
 export function renderTokenGamePage() {
   return shell({title:'又没Token了！ · AI 工作室经营',description:'用有限 Token 经营 AI 工作室。接单、排进制作队列，再判断返工、重跑或保留素材哪条路最划算。',body:renderTokenGameBody(),base:'../../',page:'document',stylesheet:tokenGameStyles});
+}
+export function renderRecentGamePage(game) {
+  return shell({title:game.title, description:game.summary,body:renderRecentGameBody(game,e),base:'../../',page:'document'});
 }
 export function renderZhuyinPage() {
   return shell({title:'竹隐江湖2D · 竖屏武侠 RPG',description:'穿过竹林与村镇，在竖屏里体验探索、交锋和侠客成长。',body:renderZhuyinBody(),base:'../../',page:'document'});
@@ -132,6 +136,7 @@ export function renderHome(aiHtml='') {
     renderZhuyinEntry(),
     renderYujiangCoffeeEntry(),
     renderFadingShadowsEntry(),
+    ...recentGames.map(renderRecentGameEntry),
   ];
   const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
     <h3 id="ai-games-title">AI 游戏</h3>

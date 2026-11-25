@@ -5,10 +5,10 @@
       "file": "title.webp",
       "width": 1280,
       "height": 719,
-      "alt": "开发版标题界面与初入江湖入口",
-      "caption": "开发版主菜单，区分初次进入与再次进入。",
-      "source": "2026-11-19 Windows 0.23.0 受控运行",
-      "sha256": "18df579a5002e912a62ab5ba9eba33ac0d6f64e0bb41e3f2ff3dda0269ac9573"
+      "alt": "新版主菜单中两名侠客并立，右侧为闯关和对战入口",
+      "caption": "招式特效更新后的开发版主菜单。",
+      "source": "2026-11-24 Windows 0.23.0 导出包实跑",
+      "sha256": "c4f0d57b49a3e18549a6b3151e9a19fbe271b24ad9d55eb5596297fadfd3a588"
     },
     {
       "id": "melee",
@@ -169,6 +169,16 @@
       "width": 1280,
       "height": 719,
       "sha256": "91bdb56a5e7fdc49c7313988593d16de12c1d6a059292980919a440b2ae327fa"
+    },
+    {
+      "id": "roster",
+      "file": "roster.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "双人选角界面，展示左右玩家资料和锁定角色",
+      "caption": "选角时可对比角色能力，并看到随主线解锁的角色位置。",
+      "source": "2026-11-24 Windows 0.23.0 导出包实跑",
+      "sha256": "fb4dc94f399ffb821c0e66fe526d0eda79736e4a188d1daa55aaf04664dd7211"
     }
   ]
 }
