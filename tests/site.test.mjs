@@ -559,9 +559,9 @@ test('TapTap reading starts with named projects, a complete jump index and an ea
   const {home,taptapPages}=await site();
   const {taptapGames}=await import('../src/taptap-games.mjs');
   const collection=one(home.document,n=>n.attrs.id==='mobile-games','Mobile game collection');
-  const index=one(collection,n=>n.tag==='nav'&&n.attrs['aria-label']==='快速查看游戏','Project jump index');
+  const expanded=one(collection,n=>n.tag==='details'&&hasClass(n,'work-catalog-toggle'),'Expanded mobile catalog');
+  assert.deepEqual(expanded.children.filter(n=>typeof n!=='string').map(n=>n.tag),['summary','div']);
   const mobileCards=nodes(collection,n=>hasClass(n,'ai-game-card'));
-  assert.deepEqual(nodes(index,n=>n.tag==='a').map(n=>n.attrs.href),mobileCards.map(card=>'#'+card.attrs.id));
   assert.equal(mobileCards.filter(card=>hasClass(card,'taptap-card')).length,taptapGames.length);
   for(const card of nodes(collection,n=>hasClass(n,'taptap-card'))) {
     const children=card.children.filter(n=>typeof n!=='string');

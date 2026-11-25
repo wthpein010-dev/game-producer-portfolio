@@ -29,7 +29,7 @@ import {recentGames,renderRecentGameEntry,renderRecentGameBody} from './portfoli
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
 import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
-import {renderHubGameBody,hubGameSummary,hubGameSlug} from './hub-game-stories.mjs';
+import {renderHubGameBody,hubGameSummary} from './hub-game-stories.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -131,12 +131,12 @@ function renderHomeIntro() {
 export function renderHome(aiHtml='') {
   const recent = slug => recentGames.find(game => game.slug === slug);
   const mobile = new Map([
-    ...taptapGames.map(game => [game.slug, {id:'work-'+game.slug, title:game.title, card:renderTapTapCard(game)}]),
-    ...hubGames.map(game => [game.id, {id:hubGameSlug(game), title:game.name, card:renderHubGames([game])}]),
-    ['ring-haven', {id:'ring-haven', title:'环环小憩', card:renderRingHavenEntry()}],
-    ['poetry-letters', {id:'poetry-letters', title:'为你赋诗', card:renderRecentGameEntry(recent('poetry-letters'))}],
-    ['nanjie-repair-shop', {id:'nanjie-repair-shop', title:'南街修物志', card:renderNanjieEntry()}],
-    ['zhuyin-jianghu', {id:'zhuyin-jianghu', title:'竹隐江湖2D', card:renderZhuyinEntry()}],
+    ...taptapGames.map(game => [game.slug,renderTapTapCard(game)]),
+    ...hubGames.map(game => [game.id,renderHubGames([game])]),
+    ['ring-haven',renderRingHavenEntry()],
+    ['poetry-letters',renderRecentGameEntry(recent('poetry-letters'))],
+    ['nanjie-repair-shop',renderNanjieEntry()],
+    ['zhuyin-jianghu',renderZhuyinEntry()],
   ]);
   const mobileOrder = [
     'jigmeme','sticker-scenery','ring-haven','after-hours-stall','fill-what','poetry-letters',
@@ -144,15 +144,13 @@ export function renderHome(aiHtml='') {
     'wangwang-stack','coin-forge','nanjie-repair-shop','repair-day','your-child','my-life',
     'lunar-freight','throne-war','daynight-fate','fengshen-duel','tiankeng','zhuyin-jianghu',
   ].map(slug => mobile.get(slug));
-  const mobileCards = items => items.map(item=>item.card).join('');
   const mobileMarkup = `<section class="taptap-collection" id="mobile-games" aria-labelledby="mobile-games-title">
     <span id="taptap-games" aria-hidden="true"></span>
     <header class="section-head"><h3 id="mobile-games-title">手游</h3><p>从拼图、收纳与填字，到模拟经营、策略和角色扮演。</p></header>
-    <div class="ai-game-grid">${mobileCards(mobileOrder.slice(0,6))}</div>
+    <div class="ai-game-grid">${mobileOrder.slice(0,6).join('')}</div>
     <details class="work-catalog-toggle">
       <summary><span>查看全部 ${mobileOrder.length} 款</span><span>收起手游列表</span></summary>
-      <nav class="taptap-project-index" aria-label="快速查看游戏"><span aria-hidden="true">快速查看</span><ul>${mobileOrder.map(item=>`<li><a href="#${e(item.id)}">${e(item.title)}</a></li>`).join('')}</ul></nav>
-      <div class="ai-game-grid">${mobileCards(mobileOrder.slice(6))}</div>
+      <div class="ai-game-grid">${mobileOrder.slice(6).join('')}</div>
     </details>
   </section>`;
   const steamDemos = `<section class="ai-game-section" aria-labelledby="steam-dev-title">
