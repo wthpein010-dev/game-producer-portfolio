@@ -3,12 +3,12 @@
     {
       "id": "title",
       "file": "title.webp",
-      "width": 1280,
-      "height": 719,
-      "alt": "新版主菜单中两名侠客并立，右侧为闯关和对战入口",
-      "caption": "招式特效更新后的开发版主菜单。",
-      "source": "2026-11-24 Windows 0.23.0 导出包实跑",
-      "sha256": "c4f0d57b49a3e18549a6b3151e9a19fbe271b24ad9d55eb5596297fadfd3a588"
+      "width": 1366,
+      "height": 768,
+      "alt": "群像夜色主界面，右侧列出初入江湖、江湖恩怨、兵器谱和设置",
+      "caption": "夜色群像主题，左侧呈现主要角色，操作集中到右侧菜单。",
+      "source": "2026-11-25 主界面实机验收",
+      "sha256": "3df758ccfc1190bc7c111e8608ac329d05edb3aadc26179799b5a8d006d151d9"
     },
     {
       "id": "melee",
@@ -133,12 +133,12 @@
     {
       "id": "coop",
       "file": "coop.webp",
-      "width": 1440,
-      "height": 810,
-      "alt": "几名侠客在灯火倒映的码头交锋，场上散落可拾取物件",
-      "caption": "水岸战斗中的同屏站位。近处是可参与攻防的场景物件。",
-      "source": "2026-11-17 Windows 0.23.0 受控实机验收",
-      "sha256": "2b8e190cbcab6191e95b1d2a32a8aeeacf5d227f9defd6c7b4060d572ebb4d29"
+      "width": 1920,
+      "height": 1080,
+      "alt": "夜间码头的本地组队实机，场上有可拾取的器具和兵器",
+      "caption": "夜渡码头。队友可以各走一条纵深，也能用场景道具打断追击。",
+      "source": "Steam 筹备实机素材",
+      "sha256": "527f0c2d5cd375daed12de654f9fa2eb5b798c0c9cedeecbbe58d473420d5032"
     },
     {
       "id": "salt-cache",
@@ -179,6 +179,26 @@
       "caption": "选角时可对比角色能力，并看到随主线解锁的角色位置。",
       "source": "2026-11-24 Windows 0.23.0 导出包实跑",
       "sha256": "fb4dc94f399ffb821c0e66fe526d0eda79736e4a188d1daa55aaf04664dd7211"
+    },
+    {
+      "id": "title-courtyard",
+      "file": "title-courtyard.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "山门主题主界面，两位侠客与右侧游戏入口",
+      "caption": "山门主题以两位侠客开场。",
+      "source": "2026-11-25 主界面实机验收",
+      "sha256": "7cb1dd8a76c6925c13863784b723b8f1b46a9c577ccaa8a6eb35122edfd5bd2c"
+    },
+    {
+      "id": "stage-catalog",
+      "file": "stage-catalog.webp",
+      "width": 844,
+      "height": 390,
+      "alt": "横屏章节选择界面，含十四道关卡的进度和当前关卡预览",
+      "caption": "从关卡预览确认路线、场景和已解锁进度。",
+      "source": "2026-11-25 Web 开发构建实机验收",
+      "sha256": "65a4c58ce03d589d30978c87b4e5e23ea1b5f9b26b371896c002889621f71880"
     }
   ]
 }

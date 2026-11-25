@@ -1,0 +1,22 @@
+.fading-shadows-detail .taptap-hero {
+  background: #202028;
+}
+
+.fading-shadows-detail .taptap-hero .button.primary {
+  background: #f2d5b3;
+  color: #31252b;
+}
+
+.fading-trailer {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: #202028;
+}
+
+.fading-trailer video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}

@@ -4,12 +4,12 @@ import {renderAiGameCard} from './ai-game-card.mjs';
 const {images}=JSON.parse(readFileSync(new URL('../assets/fading-shadows/media.json',import.meta.url),'utf8'));
 const title='影逝之境';
 const home='../../index.html#fading-shadows';
-export const fadingShadowsSummary='读招、换线，用第三击决定追上去还是退半步。这款横版武侠动作游戏既能与朋友同屏对招，也能结伴闯过主线。';
+export const fadingShadowsSummary='一封烧残的求援信，把你引到雨夜山门。读招、换线，用第三击决定追上去还是退半步。可以独闯七章十四关，也可以拉上朋友同屏闯关或对招。';
 
 export function renderFadingShadowsEntry(){
   return renderAiGameCard({id:'fading-shadows',title,description:fadingShadowsSummary,
     tags:['武侠动作','同屏对战','合作闯关'],status:'Godot · Windows 可玩开发版',
-    href:'projects/fading-shadows/',detailLabel:'查看策划与实机画面'});
+    href:'projects/fading-shadows/',detailLabel:'看玩法与实机预告'});
 }
 
 function screenshot(id,e,{hero=false}={}){
@@ -30,12 +30,22 @@ export function renderFadingShadowsBody(e){
         <p class="eyebrow">横版武侠动作 · Godot</p>
         <h1>${title}<span class="title-dot">.</span></h1>
         <p class="detail-lede">${e(fadingShadowsSummary)}</p>
-        <div class="taptap-hero-actions"><a class="button primary" href="#fading-combat">看三种收尾 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-campaign">看七章十四关 <span aria-hidden="true">↓</span></a></div>
+        <div class="taptap-hero-actions"><a class="button primary" href="#fading-play">看实机预告 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-combat">看战斗设计 <span aria-hidden="true">↓</span></a></div>
       </header>
-      ${screenshot('coop',e,{hero:true})}
+      ${screenshot('title',e,{hero:true})}
       <div class="taptap-hero-context"><p class="taptap-hero-status">Windows 可玩开发版 · Steam 发行筹备</p></div>
     </div>
-    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-combat">普攻与连段</a><a href="#fading-techniques">招式与反制</a><a href="#fading-campaign">主线关卡</a><a href="#fading-input">对战与练习</a></nav>
+    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-play">实机预告</a><a href="#fading-combat">普攻与连段</a><a href="#fading-techniques">招式与反制</a><a href="#fading-campaign">主线关卡</a><a href="#fading-input">对战与练习</a><a href="#fading-publishing">发行合作</a></nav>
+
+    <section class="taptap-gallery" id="fading-play" aria-labelledby="fading-play-title">
+      <header><h2 id="fading-play-title">看一场实机交锋</h2><p>先看玩家怎样在一条线上交手，再看侧闪、投掷和双人配合如何改变局面。</p></header>
+      <div class="fading-trailer">
+        <video controls playsinline preload="none" width="1280" height="720" poster="../../assets/fading-shadows/trailer-poster.webp" aria-label="影逝之境实机预告">
+          <source src="../../assets/fading-shadows/gameplay-trailer.mp4" type="video/mp4">
+          <a href="../../assets/fading-shadows/gameplay-trailer.mp4">打开实机预告</a>
+        </video>
+      </div>
+    </section>
 
     <section class="taptap-gallery" id="fading-combat" aria-labelledby="fading-combat-title">
       <header><h2 id="fading-combat-title">前两刀探路，第三刀决定进退</h2>
@@ -47,7 +57,7 @@ export function renderFadingShadowsBody(e){
         <article><h3>向前 ＋ 攻击</h3>${shot('advance')}</article>
         <article><h3>向后 ＋ 攻击</h3>${shot('withdraw')}</article>
       </div>
-      <p>连击允许提前输入，角色打完当前动作才接下一击。较长的进身收势让对手有机会反打，退身收尾则给双方留出重新站位的空间。</p>
+      <p>前两击共用同一套起手，降低第一局的操作门槛。第三击才让玩家选择。常规收尾消耗最少的位移，向前追击能把退开的敌人留在压力里，也会因收势较长露出反打窗口。退身收尾能保住距离，却可能放弃继续压制的机会。连击可提前输入，角色会先打完当前动作。</p>
     </section>
 
     <section class="taptap-gallery" id="fading-techniques" aria-labelledby="fading-techniques-title">
@@ -65,9 +75,9 @@ export function renderFadingShadowsBody(e){
     <section class="taptap-gallery" id="fading-campaign" aria-labelledby="fading-campaign-title">
       <header><h2 id="fading-campaign-title">七章十四关：路牌、机关与首领战</h2></header>
       <div class="game-design-stories">
-        <article><div class="game-design-copy"><h3>清敌之后，把路线选择交给玩家</h3><p>清完当前敌人后，路牌提示接下来的支路。场景移镜让玩家看清新位置与对手，再开下一波战斗。章节选择页把关卡预览、阵容和解锁进度放在一起，方便朋友选好同一趟行程。</p></div>${shot('campaign')}</article>
+        <article><div class="game-design-copy"><h3>清完一段，再选择下一条路</h3><p>清敌后用路牌给出支路，把赶路与交锋分开。移镜先交代新场景、站位与敌人，然后再开下一波战斗。章节选择把场景预览与解锁进度放在一起，方便队友知道今天要从哪一关继续。</p></div><div class="fading-move-pair">${shot('campaign')}${shot('stage-catalog')}</div></article>
         <article><div class="game-design-copy"><h3>后段关卡让场景道具影响走位</h3><p>盐签作证把药品藏进可破坏物，玩家要决定何时清出安全空间拿补给。截闸反潮把闸坠放进战斗场景，击落时可砸到下方敌人，让玩家根据站位决定先触发机关还是继续进攻。</p></div><div class="fading-move-pair">${shot('salt-cache')}${shot('sluice-weight')}</div></article>
-        <article><div class="game-design-copy"><h3>首领战把空间压力交给两个人分担</h3><p>队友可以分走不同纵深，一人牵制正面的威胁，另一人换线找出手机会。章节末把剧情、增益选择和解锁接回下一轮闯关。</p></div>${shot('boss')}</article>
+        <article><div class="game-design-copy"><h3>双人闯关，把正面的压力分开</h3><p>一人留在正面接招，另一人换线打断追击；也可以先清掉杂兵，再对付首领。两个人共享场地，谁先去捡补给、谁继续牵制，都会改变这一波的节奏。章节末把剧情、增益选择和解锁接回下一次出发。</p></div><div class="fading-move-pair">${shot('boss')}${shot('coop')}</div></article>
         <article><div class="game-design-copy"><h3>通关第十二关，才把对手变成可选角色</h3><p>截潮监使作为首领登场，顺序通关后解锁。贴地水浪压住一条纵深，折返刃要求再判断一次回程，红光终结技则靠分段预警提示走位。第十一关燧盐师的三束火砂可格挡或换线躲开，两场战斗各自给防守方不同选择。</p></div>${shot('tide-warden')}</article>
       </div>
       <p class="record-source">新增关卡和招式的画面来自 Godot 开发验证。11 月 24 日的 Windows 开发包已完成导出验收，Steam 发行仍处于筹备阶段。</p>
@@ -79,7 +89,16 @@ export function renderFadingShadowsBody(e){
         <article><div class="game-design-copy"><h3>从一局快速对战开始</h3><p>「江湖恩怨」把阵容、胜负规则和快速开局放在一起。多人键盘和手柄可以分别调整按键，同一套招式逻辑适用于不同输入。</p></div><div class="fading-move-pair">${shot('rivalries')}${shot('roster')}</div></article>
         <article><div class="game-design-copy"><h3>把连段拆成能验证的小目标</h3><p>训练先练命中，再接连击、防守和侧闪。提示紧跟着输入和完成结果，玩家能看出问题出在距离、按键顺序还是时机。</p></div>${shot('training')}</article>
       </div>
-      <details class="fading-menu-preview"><summary>查看游戏入口画面</summary>${shot('title')}</details>
+      <details class="fading-menu-preview"><summary>查看山门主题主界面</summary>${shot('title-courtyard')}</details>
+    </section>
+
+    <section class="taptap-gallery" id="fading-publishing" aria-labelledby="fading-publishing-title">
+      <header><h2 id="fading-publishing-title">发行合作</h2><p>面向横版动作和本地合作玩家，先用一场看得懂的交锋建立兴趣，再用分支连段和场景解法说明重玩价值。</p></header>
+      <div class="fading-finish-grid">
+        <article><h3>商店首屏先讲一个决策</h3><p>用追击、退身和换线的前后对照开场。再接一段双人牵制或机关打断，让短视频也能看清动作和结果。</p></article>
+        <article><h3>试玩切片先验证上手</h3><p>建议串起一次短教学、一场能借地形取胜的战斗和一位有清晰预警的首领。试玩重点观察玩家能否说出自己为什么受击，以及何时开始主动切换路线或收尾。</p></article>
+        <article><h3>当前可交付的物料</h3><p>Windows 开发版、实机预告、商店截图和中英文物料草案已备。与发行方协作时，优先对齐试玩范围、手柄与本地双人验收、测试反馈和宣发档期。Steam 商店与试玩仍在筹备。</p></article>
+      </div>
     </section>
 
     <nav class="taptap-next" aria-label="继续浏览作品"><a class="text-link" href="${home}" data-return-home>返回个人作品 ↑</a></nav>

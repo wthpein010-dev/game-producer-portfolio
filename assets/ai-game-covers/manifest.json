@@ -1,14 +1,14 @@
 {
   "covers": {
     "fading-shadows": {
-      "src": "assets/fading-shadows/melee.webp",
-      "width": 1920,
-      "height": 1080,
-      "alt": "两位侠客在地面同纵深位置近身交手",
+      "src": "assets/fading-shadows/menu-cover.webp",
+      "width": 1280,
+      "height": 720,
+      "alt": "影逝之境新版夜色群像主界面",
       "sources": [
-        "assets/fading-shadows/melee.webp"
+        "assets/fading-shadows/title.webp"
       ],
-      "sha256": "fd334b765bbfa6b051b3d68da247f93147c87d9b0ed02380df68191c41a72511"
+      "sha256": "5bb84f1889c8a400366ca5b2f5f838b6f7daf236dc4d3680f43686a05ee504bd"
     },
     "daynight-fate": {
       "src": "assets/taptap/daynight-fate/day.webp",

@@ -79,7 +79,7 @@ export function renderYujiangCoffeePage() {
   return shell({title:'渔江咖啡 · 海上经营',description:'白天出海打捞，回船冲一杯咖啡，听来客把故事讲下去。',body:renderYujiangCoffeeBody(e),base:'../../',page:'document'});
 }
 export function renderFadingShadowsPage() {
-  return shell({title:'影逝之境 · 同屏武侠动作',description:fadingShadowsSummary,body:renderFadingShadowsBody(e),base:'../../',page:'document'});
+  return shell({title:'影逝之境 · 同屏武侠动作',description:fadingShadowsSummary,body:renderFadingShadowsBody(e),base:'../../',page:'document',stylesheet:'assets/fading-shadows/portfolio.css'});
 }
 export function renderHubGameDetail(game) {
   return shell({title:game.name+' · 玩法与设计',description:hubGameSummary(game),body:renderHubGameBody(game),base:'../../',page:'document'});

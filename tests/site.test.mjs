@@ -519,7 +519,12 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,18);
+  assert.equal(figures.length,20);
+  const trailer=one(detail.document,n=>n.tag==='video','Playable gameplay trailer');
+  assert.ok(Object.hasOwn(trailer.attrs,'controls'));
+  assert.equal(trailer.attrs.preload,'none');
+  one(trailer,n=>n.tag==='source'&&n.attrs.src.endsWith('/gameplay-trailer.mp4'),'Public trailer source');
+  one(detail.document,n=>n.attrs.id==='fading-publishing','Publisher overview');
   assert.equal(images.length,figures.length);
   for(const image of images){
     const src='../../assets/fading-shadows/'+image.file;
