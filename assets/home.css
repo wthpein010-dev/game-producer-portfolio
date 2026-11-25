@@ -271,23 +271,6 @@ body[data-page="home"] {
   [data-page="home"] .chapter-rail { display: none; }
 }
 
-[data-page="home"] .intro-current-project {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 12px;
-  max-width: 380px;
-  margin-top: 18px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line);
-  font-size: .875rem;
-}
-
-[data-page="home"] .intro-current-project > span { color: var(--muted); font-size: var(--home-meta); }
-[data-page="home"] .intro-current-project a { color: var(--plum); font-weight: 700; text-decoration: none; }
-[data-page="home"] .intro-current-project a:hover { text-decoration: underline; }
-[data-page="home"] .intro-current-project a span { margin-left: 3px; color: var(--accent); }
-
 [data-page="home"] .producer-skills {
   --tree-line: rgb(181 219 223 / 44%);
   min-width: 0;

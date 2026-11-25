@@ -19,8 +19,8 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-tools',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),0);
-    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),0);
-    assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),6);
+    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
+    assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
     await page.locator('.hub-catalog > details > summary').press('Enter');
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
     const appCards=page.locator('#hub-more .hub-catalog-item');
@@ -34,7 +34,6 @@ try{
       '.hub-app-heading','.hub-app-banner','.hub-app-description','.hub-app-category','.hub-app-links'
     ].map(selector=>card.querySelector(selector))].map(element=>element.getBoundingClientRect().top)));
     for(const row of appRows)for(const sibling of appRows.filter(card=>card[0]===row[0]))assert.deepEqual(sibling,row);
-    await page.locator('#hub-games > details > summary').press('Enter');
     await page.locator('#mobile-games > details > summary').press('Enter');
     assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
     assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),29);
@@ -69,7 +68,7 @@ try{
   await page.goto(base+'index.html#ai-tools');
   await page.locator('.hub-catalog > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
-  await page.locator('#hub-games > details > summary').press('Enter');
+  assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
   await page.locator('#mobile-games > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
   assert.ok(await page.evaluate(()=>document.querySelector('#career-cases').getBoundingClientRect().top < document.querySelector('#producer-skills').getBoundingClientRect().top));

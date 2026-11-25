@@ -5,19 +5,20 @@ import {createHash} from 'node:crypto';
 import {jobs} from '../src/content.mjs';
 const read = file => readFile(new URL('../'+file,import.meta.url),'utf8');
 
-test('confirmed May departure and entry dates remain consistent across resume routes',async()=>{
+test('confirmed Hero Games and Jianyou dates remain consistent across resume routes',async()=>{
  const hero=jobs.find(j=>j.slug==='hero-games');
  const jianyou=jobs.find(j=>j.slug==='jianyou');
  assert.equal(hero.end,'2026-05-15');
  assert.equal(hero.period,'2025.07—2026.05.15');
  assert.equal(jianyou.start,'2026-05-18');
- assert.equal(jianyou.period,'2026.05.18—至今');
+ assert.equal(jianyou.end,'2026-11-17');
+ assert.equal(jianyou.period,'2026.05.18—2026.11.17');
  for(const file of ['index.html','experience/jianyou/index.html','experience/hero-games/index.html','projects/sheep-match/index.html','projects/crisis-dawn/index.html']){
   const html=await read(file);
   assert.doesNotMatch(html,/2026[.-]07[.-](?:23|27)/u);
-  assert.match(html,file.includes('hero-games')||file.includes('crisis-dawn')?/2026\.05\.15/u:/2026\.05\.18/u);
+  assert.match(html,file.includes('hero-games')||file.includes('crisis-dawn')?/2026\.05\.15/u:/2026\.05\.18—2026\.11\.17/u);
  }
- assert.match(await read('index.html'),/<article class="company-entry" id="company-jianyou"[^>]*><div class="timeline-date"><time datetime="2026-05-18">2026\.05\.18—至今/u);
+ assert.match(await read('index.html'),/<article class="company-entry" id="company-jianyou"[^>]*><div class="timeline-date"><time datetime="2026-05-18">2026\.05\.18—2026\.11\.17/u);
 });
 
 test('corrected Muyou tenure removes Quwan and retains two separately sourced projects',async()=>{

@@ -34,7 +34,8 @@ try {
   for(const width of [320,360,390,620,700,701,760,761,768,820,821,1024,1100,1101,1440]) {
     await page.setViewportSize({width,height:1000});
     await page.goto(base+`index.html?viewport=${width}#mobile-games`,{waitUntil:'networkidle'});
-    await page.locator('#hub-games > details > summary').press('Enter');
+    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
+    assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
     await page.locator('#mobile-games > details > summary').click();
     await page.locator('#mobile-games > details[open] .ai-game-card').first().waitFor({state:'visible'});
     await fit();await decode();
@@ -42,9 +43,9 @@ try {
     assert.equal(columns,width<=620?1:width<=1000?2:3);
     assert.equal(await page.locator('#mobile-games article.taptap-card').count(),taptapGames.length);
     const expandedCards=page.locator('#mobile-games > details > .ai-game-grid > .ai-game-card:visible');
-    assert.equal(await expandedCards.count(),17);
-    assert.equal(await expandedCards.locator('figure img:visible').count(),17);
-    assert.equal(await expandedCards.locator('.ai-game-description:visible').count(),17);
+    assert.equal(await expandedCards.count(),14);
+    assert.equal(await expandedCards.locator('figure img:visible').count(),14);
+    assert.equal(await expandedCards.locator('.ai-game-description:visible').count(),14);
     assert.equal(await page.locator('#mobile-games > details > nav').count(),0);
     const rows=await page.locator('#ai-games .ai-game-card').evaluateAll(cards=>cards.map(card=>{
       const rect=selector=>card.querySelector(selector).getBoundingClientRect();

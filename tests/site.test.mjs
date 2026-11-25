@@ -163,11 +163,12 @@ test('home presents the full timeline and semantic company, role, project, and s
     }
   }
   assert.deepEqual(new Set(allProjectRoutes), new Set(projectRecords.map(project => `projects/${project.slug}/index.html`)));
-  one(entries[0], node => node.tag === 'details' && node.attrs['data-priority'] === 'true', 'Latest project branch priority');
+  assert.equal(nodes(entries[0], node => node.attrs['data-priority'] === 'true').length, 0);
   assert.equal(nodes(home.document, node => hasClass(node, 'team-note')).length, 0);
   assert.doesNotMatch(textOf(entries[0]), /项目团队共\s*6\s*人/u);
-  assert.match(textOf(entries[0]), /2026[.\-/]05[.\-/]18/u);
-  assert.match(textOf(entries[0]), /至今|现在|present/iu);
+  assert.match(textOf(entries[0]), /2026\.05\.18—2026\.11\.17/u);
+  assert.doesNotMatch(textOf(entries[0]), /CURRENT CHAPTER|至今/u);
+  assert.doesNotMatch(textOf(home.document), /当前项目|当前制作职责|6 人项目团队/u);
   assert.match(textOf(entries[1]), /2026[.\-/]05[.\-/]15/u);
 });
 
@@ -362,8 +363,8 @@ test('public pages exclude contacts, private artifacts, local placeholders, and 
   }
   const jianyou = [companies[0], ...projects.filter(detail => nodes(detail.document, node => node.tag === 'body' && node.attrs['data-company'] === 'jianyou').length)];
   for (const current of jianyou) {
-    assert.match(textOf(current.document), /2026[.\-/]05[.\-/]18/u, `${current.path} latest start date`);
-    assert.match(textOf(current.document), /至今|现在|present/iu, `${current.path} latest position is current`);
+    assert.match(textOf(current.document), /2026\.05\.18—2026\.11\.17/u, `${current.path} confirmed Jianyou tenure`);
+    assert.doesNotMatch(textOf(current.document), /2026\.05\.18—至今/u);
     assert.doesNotMatch(textOf(current.document), /(?:负责|主导|统筹|管理|承担)[^。；]{0,25}(?:美术|投放|上线运营)|(?:美术|上线运营)[^。；]{0,25}(?:负责|主导|统筹)/u, `${current.path} makes no unsupported art or launch-duty claim`);
   }
   assert.match(textOf(companies[1].document), /2026[.\-/]05[.\-/]15/u, 'Hero Games corrected end date');
@@ -566,6 +567,10 @@ test('TapTap reading starts with named projects, a complete jump index and an ea
   const collection=one(home.document,n=>n.attrs.id==='mobile-games','Mobile game collection');
   const expanded=one(collection,n=>n.tag==='details'&&hasClass(n,'work-catalog-toggle'),'Expanded mobile catalog');
   assert.deepEqual(expanded.children.filter(n=>typeof n!=='string').map(n=>n.tag),['summary','div']);
+  const defaultGrid=collection.children.find(n=>typeof n!=='string'&&hasClass(n,'ai-game-grid'));
+  assert.equal(nodes(defaultGrid,n=>hasClass(n,'ai-game-card')).length,9);
+  const desktopCatalog=one(home.document,n=>n.attrs.id==='hub-games','Computer and web games');
+  one(desktopCatalog,n=>n.tag==='details'&&'open' in n.attrs,'Computer and web games visible by default');
   const mobileCards=nodes(collection,n=>hasClass(n,'ai-game-card'));
   assert.equal(mobileCards.filter(card=>hasClass(card,'taptap-card')).length,taptapGames.length);
   for(const card of nodes(collection,n=>hasClass(n,'taptap-card'))) {

@@ -90,7 +90,7 @@ function chapterRail() {
     beta: '贝塔', haoteng: '豪腾嘉科', iceshi: '冰狮',
   };
   return `<nav class="chapter-rail" aria-label="职业章节快捷导航"><span>经历索引</span><ol>${jobs.map((job,index)=>`
-    <li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${index===0?'class="current-chapter"':''}>${counter(index+1)}<span class="chapter-name" aria-hidden="true">${e(labels[job.slug] ?? job.employer)}</span></a></li>`).join('')}</ol></nav>`;
+    <li><a href="#company-${job.slug}" aria-label="第 ${counter(index+1)} 章：${e(job.employer)}，${e(job.period)}" ${!job.end?'class="current-chapter"':''}>${counter(index+1)}<span class="chapter-name" aria-hidden="true">${e(labels[job.slug] ?? job.employer)}</span></a></li>`).join('')}</ol></nav>`;
 }
 export function renderPublicNote(note) {
   return shell({title:`${note.title} · 公开职责摘要`,description:note.lead,
@@ -104,9 +104,8 @@ function shell({title,description,body,base='',page='home',attrs='',stylesheet})
     + (page==='home' ? `<link rel="stylesheet" href="${homeStyles}?v=${homeStyleVersion}">` : '');
   return `<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${e(description)}"><meta name="color-scheme" content="light"><title>${e(title)} · ${profile.name}</title><link rel="icon" href="${base}assets/app-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/legacy.css?v=${sharedAssetVersion}"><link rel="stylesheet" href="${base}assets/site.css?v=${sharedAssetVersion}">${extraStyle}<script src="${base}assets/app.js?v=${sharedAssetVersion}" defer></script><script src="${base}assets/reading.js?v=${sharedAssetVersion}" defer></script></head><body data-page="${page}" ${attrs}>${header(base,page)}${decorateImageMarkup(body,imageManifest)}${footer(base)}</body></html>\n`;
 }
-function timeline(job,i) {const companyHref=`experience/${job.slug}/`;return `<article class="company-entry" id="company-${job.slug}" data-company="${job.slug}"><div class="timeline-date"><time datetime="${job.start}">${e(job.period)}</time><span class="entry-count">${counter(i+1)} / ${i===0?'CURRENT CHAPTER':'CAREER CHAPTER'}</span></div><div class="company-map"><div class="company-root"><span class="role-label">${e(job.role)}</span><h3><a class="company-title" href="${companyHref}">${e(job.employer)} <span aria-hidden="true">↗</span></a></h3><p class="company-projects">${job.projects.map(p=>e(p.title)).join(' · ')}</p><p class="entry-lede">${e(job.lead)}</p><a class="role-node" href="${companyHref}?section=role">查看我的角色 ↗</a></div><div class="map-branches"><details class="branch-group" id="branch-${job.slug}-projects" open ${i===0?'data-priority="true"':''}><summary>项目节点 <span>${counter(job.projects.length)}</span></summary><ul class="branch-nodes">${job.projects.map(p=>`<li><a class="mindmap-node" data-kind="project" href="projects/${p.slug}/"><span>PROJECT</span>${e(p.title)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details><details class="branch-group" id="branch-${job.slug}-scope" open><summary>${job.scope.length?'职责节点':'经历节点'} <span>${counter(job.scope.length||1)}</span></summary><ul class="branch-nodes">${(job.scope.length?job.scope:['项目与任职记录']).map(s=>`<li><a class="mindmap-node" data-kind="scope" href="${companyHref}?section=scope"><span>${job.scope.length?'SCOPE':'RECORD'}</span>${e(s)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details></div></div></article>`;}
+function timeline(job,i) {const companyHref=`experience/${job.slug}/`;return `<article class="company-entry" id="company-${job.slug}" data-company="${job.slug}"><div class="timeline-date"><time datetime="${job.start}">${e(job.period)}</time><span class="entry-count">${counter(i+1)} / ${!job.end?'CURRENT CHAPTER':'CAREER CHAPTER'}</span></div><div class="company-map"><div class="company-root"><span class="role-label">${e(job.role)}</span><h3><a class="company-title" href="${companyHref}">${e(job.employer)} <span aria-hidden="true">↗</span></a></h3><p class="company-projects">${job.projects.map(p=>e(p.title)).join(' · ')}</p><p class="entry-lede">${e(job.lead)}</p><a class="role-node" href="${companyHref}?section=role">查看我的角色 ↗</a></div><div class="map-branches"><details class="branch-group" id="branch-${job.slug}-projects" open ${!job.end?'data-priority="true"':''}><summary>项目节点 <span>${counter(job.projects.length)}</span></summary><ul class="branch-nodes">${job.projects.map(p=>`<li><a class="mindmap-node" data-kind="project" href="projects/${p.slug}/"><span>PROJECT</span>${e(p.title)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details><details class="branch-group" id="branch-${job.slug}-scope" open><summary>${job.scope.length?'职责节点':'经历节点'} <span>${counter(job.scope.length||1)}</span></summary><ul class="branch-nodes">${(job.scope.length?job.scope:['项目与任职记录']).map(s=>`<li><a class="mindmap-node" data-kind="scope" href="${companyHref}?section=scope"><span>${job.scope.length?'SCOPE':'RECORD'}</span>${e(s)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details></div></div></article>`;}
 function renderHomeIntro() {
-  const currentProject = jobs[0].projects[0];
   return `<section class="home-intro" id="top" aria-labelledby="intro-title">
     <div class="intro-main">
       <p class="eyebrow">游戏研发 · 职业简历</p>
@@ -115,10 +114,6 @@ function renderHomeIntro() {
       <div class="intro-facts">
         <span><strong>${e(profile.experience)}</strong>游戏研发经验</span>
         <span><strong>${e(profile.projectExperience)}</strong>完整项目经验</span>
-      </div>
-      <div class="intro-current-project">
-        <span>当前项目</span>
-        <a href="projects/${e(currentProject.slug)}/">${e(currentProject.title)} <span aria-hidden="true">↗</span></a>
       </div>
       <nav class="intro-reading-links" aria-label="作品直达">
         <a class="button primary" href="#career-cases">代表项目 <span aria-hidden="true">↓</span></a>
@@ -144,20 +139,21 @@ export function renderHome(aiHtml='') {
     'wangwang-stack','coin-forge','nanjie-repair-shop','repair-day','your-child','my-life',
     'lunar-freight','throne-war','daynight-fate','fengshen-duel','tiankeng','zhuyin-jianghu',
   ].map(slug => mobile.get(slug));
+  const visibleMobileCount = 9;
   const mobileMarkup = `<section class="taptap-collection" id="mobile-games" aria-labelledby="mobile-games-title">
     <span id="taptap-games" aria-hidden="true"></span>
     <header class="section-head"><h3 id="mobile-games-title">手游</h3><p>从拼图、收纳与填字，到模拟经营、策略和角色扮演。</p></header>
-    <div class="ai-game-grid">${mobileOrder.slice(0,6).join('')}</div>
+    <div class="ai-game-grid">${mobileOrder.slice(0,visibleMobileCount).join('')}</div>
     <details class="work-catalog-toggle">
       <summary><span>查看全部 ${mobileOrder.length} 款</span><span>收起手游列表</span></summary>
-      <div class="ai-game-grid">${mobileOrder.slice(6).join('')}</div>
+      <div class="ai-game-grid">${mobileOrder.slice(visibleMobileCount).join('')}</div>
     </details>
   </section>`;
   const steamDemos = `<section class="ai-game-section" aria-labelledby="steam-dev-title">
     <h4 id="steam-dev-title">Steam 发行筹备</h4><div class="ai-game-grid">${renderTokenGameEntry()}${renderFadingShadowsEntry()}</div>
   </section>
   <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
-    <details class="work-catalog-toggle"><summary id="hub-games-title">其他电脑与网页试玩</summary>
+    <details class="work-catalog-toggle" open><summary id="hub-games-title">其他电脑与网页试玩</summary>
       <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}</div>
     </details>
   </section>`;

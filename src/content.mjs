@@ -7,7 +7,7 @@ export const profile = {
   education: '北京联合大学 · 计算机科学与技术 · 本科 · 2015.09—2017.07'
 };
 export const jobs = [
-  {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.05.18—至今', start:'2026-05-18', layout:'producer', teamSize:6,
+  {slug:'jianyou', employer:'北京简游科技有限公司', role:'游戏制作人', period:'2026.05.18—2026.11.17', start:'2026-05-18', end:'2026-11-17', layout:'producer', teamSize:6,
     projects:[{slug:'sheep-match',title:'羊了个羊：对对碰',description:'担任游戏制作人，负责玩法与系统设计、任务拆分、跨岗位协作及版本验收，推进微信、抖音平台的研发交付。'}],
     scope:['整体方向','玩法与系统','团队与排期','数据迭代'],
     lead:'负责玩法与系统设计，组织研发协作、任务拆分、排期与版本验收，结合体验反馈持续推进产品迭代。',
@@ -34,8 +34,8 @@ export const jobs = [
     scope:['测试管理','关卡调优','资源整理','文案与主支线任务'],lead:'结合 QA 管理与游戏策划，承担测试管理、关卡调优、资源整理及主支线任务文案，形成从质量检查到内容设计的工作基础。'}
 ];
 export const skills = [
-  {title:'玩法与系统',text:'从关卡、任务到系统规则，用职业项目串联设计经验。',links:[['当前制作职责','experience/jianyou/?section=scope'],['从 0 到 1 的系统','experience/muyou/?section=scope'],['任务与经营设计','projects/my-town/#town-delivery']]},
-  {title:'制作与推进',text:'项目排期、任务拆分、组内验收与文档交付，连接策划、程序、美术和剧情。',links:[['协作方法与管理实践','skills/ai-collaboration/#ownership'],['6 人项目团队','experience/jianyou/'],['跨组协作与 PM','experience/beta/#work-value']]},
+  {title:'玩法与系统',text:'从关卡、任务到系统规则，用职业项目串联设计经验。',links:[['简游任职职责','experience/jianyou/?section=scope'],['从 0 到 1 的系统','experience/muyou/?section=scope'],['任务与经营设计','projects/my-town/#town-delivery']]},
+  {title:'制作与推进',text:'项目排期、任务拆分、组内验收与文档交付，连接策划、程序、美术和剧情。',links:[['协作方法与管理实践','skills/ai-collaboration/#ownership'],['项目统筹与交付','experience/jianyou/'],['跨组协作与 PM','experience/beta/#work-value']]},
   {title:'交互与体验',text:'PC 端操作、UI/UE 与新手流程，沿着问题调整体验。',links:[['PC 端移植与重构','experience/hero-games/'],['新手留存分析','experience/beta/?section=scope']]},
   {title:'测试与质量',text:'职业测试管理经历，以及个人工具中的验收与一致性检查。',links:[['QA 与游戏策划','experience/iceshi/'],['需求验收实践','#case-gamespec']]},
   {title:'AI 协作与原型',text:'用于文档撰写与检验、表格与数值工具、项目管理，以及个人工具和小游戏开发；独立游戏中也探索 UI、角色、配音与音乐音效制作。',links:[['AI 辅助研发工作流','skills/ai-collaboration/'],['小团队完整策划','#indie-games'],['多线程工作台','#case-workbench'],['本地模拟玩法','#case-lighthouse']]},
