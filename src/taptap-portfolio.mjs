@@ -41,7 +41,7 @@ function playSection(game, base, note) {
   return `<section class="taptap-play" id="play" aria-labelledby="play-title"><div><p class="eyebrow">${eyebrow}</p><h2 id="play-title">${e(title)}</h2><p>${e(note)}</p>${video ? tapLink(game, '打开 TapTap 游戏页', 'text-link') : ''}</div>${action}</section>`;
 }
 
-function card(game) {
+export function renderTapTapCard(game) {
   const edition = hubEditionForGame(game.slug);
   const legacyAnchor = edition ? 'hub-'+edition.id : game === myLifeGame ? 'my-life-showcase' : '';
   const detail = 'projects/taptap-'+game.slug+'/'+(game.slug === 'jigmeme' ? '#android-preview' : '');
@@ -51,21 +51,6 @@ function card(game) {
     href: detail, detailLabel: '玩法与设计详情', taptap: true, legacyAnchor,
     secondaryLink: game.tapUrl ? {href: game.tapUrl, label: game.tapLabel || 'TapTap 游戏页'} : undefined,
   });
-}
-
-export function renderTapTapCollection() {
-  const count = taptapGames.reduce((sum,game)=>sum+game.shots.length,0);
-  const featured = taptapGames.slice(0,3);
-  const more = taptapGames.slice(featured.length);
-  return `<section class="taptap-collection" id="taptap-games" aria-labelledby="taptap-title">
-    <header class="taptap-intro"><div><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h3 id="taptap-title">TapTap 游戏实践<span class="title-dot">.</span></h3><p>从玩法策划、关卡与数值设计，到界面、美术整合和版本迭代。每款作品附展示图与玩法说明。已开放的作品提供 TapTap 入口。</p></div><p class="taptap-collection-meta">${taptapGames.length} 款游戏<span aria-hidden="true"> / </span>${count} 张公开展示图</p></header>
-    <div class="taptap-grid ai-game-grid">${featured.map(card).join('')}</div>
-    <details class="work-catalog-toggle">
-      <summary><span>查看全部 ${taptapGames.length} 款 TapTap 游戏</span><span>收起 TapTap 游戏列表</span></summary>
-      <nav class="taptap-project-index" aria-label="快速查看游戏"><span>快速查看</span><ul>${taptapGames.map(game=>`<li><a href="#work-${e(game.slug)}">${e(game.title)}</a></li>`).join('')}</ul></nav>
-      <div class="taptap-grid ai-game-grid">${more.map(card).join('')}</div>
-    </details>
-  </section>`;
 }
 
 export function renderTapTapBody(game) {
@@ -88,7 +73,7 @@ export function renderTapTapBody(game) {
   const videoLabel=game.video?.title?'玩法实录':'战斗录制';
   sections.push(['play',game.video?videoLabel:game.tapUrl?'游戏入口':'体验状态']);
   return `<main id="main" class="detail-main wrap taptap-detail">
-    <nav class="breadcrumbs" aria-label="面包屑"><a href="${base}index.html#work-${e(game.slug)}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><a href="${base}index.html#taptap-games">TapTap 游戏实践</a></nav>
+    <nav class="breadcrumbs" aria-label="面包屑"><a href="${base}index.html#work-${e(game.slug)}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><a href="${base}index.html#mobile-games">手游</a></nav>
     <div class="taptap-hero">
       <header class="detail-hero"><p class="eyebrow">TAPTAP MAKER / 个人 AI 游戏实践</p><h1>${e(game.title)}<span class="title-dot">.</span></h1><p class="taptap-genre">${e(game.genre)}</p><p class="detail-lede">${e(overview.hook)}</p><div class="taptap-hero-actions"><a class="button primary" href="#gameplay">了解核心玩法 <span aria-hidden="true">↓</span></a>${game.video?`<a class="text-link" href="#play">看${videoLabel} <span aria-hidden="true">↓</span></a>`:game.tapUrl?`<a class="text-link" href="${e(game.tapUrl)}">TapTap 游戏页 <span aria-hidden="true">↗</span></a>`:''}</div></header>
       ${screenshot(game.shots[0],base,'taptap-hero-shot',true)}

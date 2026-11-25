@@ -4,7 +4,8 @@ import {createHash} from 'node:crypto';
 import {decorateImageMarkup} from './responsive-images.mjs';
 import {renderCareerCases,renderProjectGallery,renderProducerSkills} from './home-showcase.mjs';
 const imageManifest=JSON.parse(readFileSync(new URL('../assets/optimized/manifest.json',import.meta.url),'utf8'));
-import {renderTapTapBody,renderTapTapCollection} from './taptap-portfolio.mjs';
+import {renderTapTapBody,renderTapTapCard} from './taptap-portfolio.mjs';
+import {taptapGames} from './taptap-games.mjs';
 import {renderZuoyaoDesign,renderZuoyaoCompanyEntry} from './muyou-evidence.mjs';
 import {renderBetaDesign} from './beta-design.mjs';
 import {renderWordExcerpts} from './word-excerpts.mjs';
@@ -28,7 +29,7 @@ import {recentGames,renderRecentGameEntry,renderRecentGameBody} from './portfoli
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
 import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
-import {renderHubGameBody,hubGameSummary} from './hub-game-stories.mjs';
+import {renderHubGameBody,hubGameSummary,hubGameSlug} from './hub-game-stories.mjs';
 export const escapeHtml = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sharedAssetVersion = ['legacy.css','site.css','app.js','reading.js']
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../assets/'+name,import.meta.url))),createHash('sha256'))
@@ -128,35 +129,41 @@ function renderHomeIntro() {
   </section>`;
 }
 export function renderHome(aiHtml='') {
-  const featuredWebGame = hubGames.find(game => game.id === 'lighthouse-rescue');
-  const personalGames = [
-    renderRingHavenEntry(),
-    renderTokenGameEntry(),
-    renderNanjieEntry(),
-    renderZhuyinEntry(),
-    renderYujiangCoffeeEntry(),
-    renderFadingShadowsEntry(),
-    ...recentGames.map(renderRecentGameEntry),
-  ];
-  const aiGames = `<section class="ai-game-works" id="ai-games" aria-labelledby="ai-games-title">
-    <h3 id="ai-games-title">AI 游戏</h3>
-    <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
-      <h4 id="hub-games-title">个人开发与网页试玩</h4>
-      <div class="ai-game-grid">
-        ${personalGames.slice(0,2).join('')}
-        ${renderHubGames([featuredWebGame])}
-      </div>
-      <details class="work-catalog-toggle">
-        <summary><span>查看全部 ${hubGames.length+personalGames.length} 款个人开发游戏</span><span>收起个人开发游戏列表</span></summary>
-        <div class="ai-game-grid">
-          ${renderHubGames(hubGames.filter(game => game !== featuredWebGame))}
-          ${personalGames.slice(2).join('')}
-        </div>
-      </details>
-    </section>
-    ${renderTapTapCollection()}
+  const recent = slug => recentGames.find(game => game.slug === slug);
+  const mobile = new Map([
+    ...taptapGames.map(game => [game.slug, {id:'work-'+game.slug, title:game.title, card:renderTapTapCard(game)}]),
+    ...hubGames.map(game => [game.id, {id:hubGameSlug(game), title:game.name, card:renderHubGames([game])}]),
+    ['ring-haven', {id:'ring-haven', title:'环环小憩', card:renderRingHavenEntry()}],
+    ['poetry-letters', {id:'poetry-letters', title:'为你赋诗', card:renderRecentGameEntry(recent('poetry-letters'))}],
+    ['nanjie-repair-shop', {id:'nanjie-repair-shop', title:'南街修物志', card:renderNanjieEntry()}],
+    ['zhuyin-jianghu', {id:'zhuyin-jianghu', title:'竹隐江湖2D', card:renderZhuyinEntry()}],
+  ]);
+  const mobileOrder = [
+    'jigmeme','sticker-scenery','ring-haven','after-hours-stall','fill-what','poetry-letters',
+    'xiang-le-ge-xiang','zhuanglege-sha','nang-keng-pai-pai-xiang','icecream-master','food-car',
+    'wangwang-stack','coin-forge','nanjie-repair-shop','repair-day','your-child','my-life',
+    'lunar-freight','throne-war','daynight-fate','fengshen-duel','tiankeng','zhuyin-jianghu',
+  ].map(slug => mobile.get(slug));
+  const mobileCards = items => items.map(item=>item.card).join('');
+  const mobileMarkup = `<section class="taptap-collection" id="mobile-games" aria-labelledby="mobile-games-title">
+    <span id="taptap-games" aria-hidden="true"></span>
+    <header class="section-head"><h3 id="mobile-games-title">手游</h3><p>从拼图、收纳与填字，到模拟经营、策略和角色扮演。</p></header>
+    <div class="ai-game-grid">${mobileCards(mobileOrder.slice(0,6))}</div>
+    <details class="work-catalog-toggle">
+      <summary><span>查看全部 ${mobileOrder.length} 款</span><span>收起手游列表</span></summary>
+      <nav class="taptap-project-index" aria-label="快速查看游戏"><ul>${mobileOrder.map(item=>`<li><a href="#${e(item.id)}">${e(item.title)}</a></li>`).join('')}</ul></nav>
+      <div class="ai-game-grid">${mobileCards(mobileOrder.slice(6))}</div>
+    </details>
   </section>`;
-  aiHtml=aiHtml.replace('<!-- AI_GAMES -->',aiGames);
+  const steamDemos = `<section class="ai-game-section" aria-labelledby="steam-dev-title">
+    <h4 id="steam-dev-title">Steam 发行筹备</h4><div class="ai-game-grid">${renderTokenGameEntry()}${renderFadingShadowsEntry()}</div>
+  </section>
+  <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
+    <details class="work-catalog-toggle"><summary id="hub-games-title">其他电脑与网页试玩</summary>
+      <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}</div>
+    </details>
+  </section>`;
+  aiHtml=aiHtml.replace('<!-- MOBILE_GAMES -->',mobileMarkup).replace('<!-- STEAM_DEMOS -->',steamDemos);
   aiHtml=aiHtml.replace('<!-- HUB_TOOLS -->',renderHubTools(renderAiPocketEntry(e)));
   return shell({title:'职业时间轴与项目实践',description:profile.description,stylesheet:tokenGameStyles,body:`<main id="main">
     <div class="home-front wrap">
@@ -179,7 +186,7 @@ export function renderHome(aiHtml='') {
     ${aiHtml}</main>`});
 }
 export function renderTapTapDetail(game) {
-  return shell({title:game.title+' · TapTap 游戏实践',description:game.summary,body:renderTapTapBody(game),base:'../../',page:'document'});
+  return shell({title:game.title+' · 手游作品',description:game.summary,body:renderTapTapBody(game),base:'../../',page:'document'});
 }
 const layoutNames={producer:'制作任务档案',workbench:'PC 体验工作台',duology:'双项目记录',quest:'关卡与任务地图',blueprint:'系统设计蓝图',board:'系统与推进看板',storyboard:'体验路径分镜',archive:'项目卡带档案',lab:'质量与内容实验室'};
 function scopeMarkup(job){if(!job.scope.length)return `<p>以${e(job.role)}身份参与${job.projects.map(p=>`《${e(p.title)}》`).join('、')}。</p><p>这里保留任职角色与项目记录。</p>`;return `<ol class="scope-list">${job.scope.map((s,i)=>`<li><span>${counter(i+1)}</span><strong>${e(s)}</strong></li>`).join('')}</ol>`;}

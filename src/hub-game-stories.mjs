@@ -116,7 +116,7 @@ export function renderHubGameBody(game, base = '../../') {
   const home = `${base}index.html#${escape(slug)}`;
 
   return `<main id="main" class="detail-main wrap taptap-detail hub-game-detail">
-    <nav class="breadcrumbs" aria-label="面包屑"><a href="${home}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><a href="${base}index.html#hub-games">网页试玩作品</a></nav>
+    <nav class="breadcrumbs" aria-label="面包屑"><a href="${home}" data-return-home>返回个人作品</a><span aria-hidden="true">/</span><a href="${base}index.html#${game.id==='lighthouse-rescue'?'hub-games':'mobile-games'}">网页试玩作品</a></nav>
     <div class="taptap-hero">
       <header class="detail-hero">
         <h1>${escape(game.name)}<span class="title-dot">.</span></h1><p class="taptap-genre">${escape(story.genre)}</p><p class="detail-lede">${escape(story.hook)}</p>

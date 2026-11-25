@@ -372,17 +372,22 @@ test('public pages exclude contacts, private artifacts, local placeholders, and 
 test('TapTap works follow the independent games and replace the retired stall prototype', async () => {
   const { home } = await site();
   const selected = one(home.document, n => n.attrs.id === 'selected', 'Personal works');
-  const collection = one(selected, n => n.attrs.id === 'taptap-games', 'TapTap games');
+  const collection = one(selected, n => n.attrs.id === 'mobile-games', 'Mobile games');
   const games = one(selected, n => n.attrs.id === 'ai-games', 'AI games');
-  one(games, n => n === collection, 'TapTap group inside AI games');
+  one(games, n => n === collection, 'Mobile game group');
+  const steam=one(games, n => n.attrs.id === 'steam-games', 'Steam game group');
+  one(steam, n => n.attrs.id === 'indie-games', 'Steam releases');
+  assert.doesNotMatch(textOf(games), /TapTap 游戏实践/u);
   one(games, n => n.attrs.id === 'ring-haven', 'Ring Haven personal prototype');
   one(games, n => n.attrs.id === 'token-game', 'Token game personal prototype');
   one(collection, n => n.attrs.id === 'my-life-showcase', 'My Life legacy anchor');
   for (const id of ['hub-lunar-freight','hub-icecream']) one(collection, n => n.attrs.id === id, id);
-  assert.ok(home.html.indexOf('id="indie-games"') < home.html.indexOf('id="ai-games"'));
-  const cards = nodes(collection, n => n.tag === 'article');
+  assert.ok(home.html.indexOf('id="mobile-games"') < home.html.indexOf('id="steam-games"'));
+  const cards = nodes(collection, n => n.tag === 'article' && hasClass(n,'taptap-card'));
   assert.equal(cards.length, 15, 'Thirteen public games and two Maker test projects');
-  assert.equal(cards[0].attrs.id, 'work-daynight-fate');
+  assert.equal(cards[0].attrs.id, 'work-jigmeme');
+  assert.equal(cards.at(-1).attrs.id, 'work-tiankeng');
+  assert.equal(nodes(collection,n=>hasClass(n,'ai-game-card')).at(-1).attrs.id,'zhuyin-jianghu');
   for (const title of ['昼夜命运：塔罗之城','拼拼不烧心','下班收摊','砸钱搞点事','开饭啦！餐车','冰激凌大师','天坑','月面货运','修好这一天','造景贴纸：贴了不烧心','你的孩子','封神对决','我的一生']) {
     const card = one(collection, n => n.tag === 'article' && textOf(n).includes(title), title);
     assert.ok(nodes(card, n => n.tag === 'img' && n.attrs.alt && Number(n.attrs.width) > 0 && Number(n.attrs.height) > 0).length >= 1);
@@ -504,7 +509,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
 
 test('Fading Shadows links the personal-works card to the verified game design case',async()=>{
   const {home}=await site();
-  const works=one(home.document,n=>n.attrs.id==='hub-games','Personal game projects');
+  const works=one(home.document,n=>n.attrs.id==='steam-games','Steam game projects');
   const card=one(works,n=>n.attrs.id==='fading-shadows','Fading Shadows card');
   one(card,n=>n.tag==='a'&&n.attrs.href==='projects/fading-shadows/','Project link');
   const detail=await page('projects/fading-shadows/index.html');
@@ -553,9 +558,11 @@ test('All AI game details show play and design without standalone role and versi
 test('TapTap reading starts with named projects, a complete jump index and an early game image', async () => {
   const {home,taptapPages}=await site();
   const {taptapGames}=await import('../src/taptap-games.mjs');
-  const collection=one(home.document,n=>n.attrs.id==='taptap-games','TapTap collection');
+  const collection=one(home.document,n=>n.attrs.id==='mobile-games','Mobile game collection');
   const index=one(collection,n=>n.tag==='nav'&&n.attrs['aria-label']==='快速查看游戏','Project jump index');
-  assert.deepEqual(nodes(index,n=>n.tag==='a').map(n=>n.attrs.href),taptapGames.map(g=>'#work-'+g.slug));
+  const mobileCards=nodes(collection,n=>hasClass(n,'ai-game-card'));
+  assert.deepEqual(nodes(index,n=>n.tag==='a').map(n=>n.attrs.href),mobileCards.map(card=>'#'+card.attrs.id));
+  assert.equal(mobileCards.filter(card=>hasClass(card,'taptap-card')).length,taptapGames.length);
   for(const card of nodes(collection,n=>hasClass(n,'taptap-card'))) {
     const children=card.children.filter(n=>typeof n!=='string');
     assert.equal(children[0].tag,'header','Project name precedes its screenshot in the reading order');
@@ -590,7 +597,8 @@ test('homepage independent games retain original screenshots and confirmed two-p
   const indie = one(selected, node => node.attrs.id === 'indie-games', 'Independent games');
   const contentBlocks = selected.children.filter(node => typeof node !== 'string');
   assert.equal(contentBlocks[1].tag, 'nav', 'Personal works provides category shortcuts');
-  assert.equal(contentBlocks[2], indie, 'Independent games lead the three work groups');
+  assert.equal(indie.parent?.attrs.id,'steam-games');
+  assert.deepEqual(nodes(contentBlocks[1],node=>node.tag==='a').map(node=>node.attrs.href),['#mobile-games','#steam-games','#ai-tools']);
   assert.match(textOf(indie), /参与《中国式相亲》期间[^。]*闲暇时间[^。]*一位程序员[^。]*两人团队/u);
   assert.doesNotMatch(textOf(indie), /AI 协作|负责美术|独立完成/u);
   const games = nodes(indie, node => node.tag === 'article');

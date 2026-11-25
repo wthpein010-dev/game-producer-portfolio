@@ -235,7 +235,7 @@ body[data-page="home"] {
 [data-page="home"] #selected .indie-games { margin-block: 0 10px; }
 [data-page="home"] #selected .indie-project .secondary-copy { padding: var(--home-card-padding); }
 
-[data-page="home"] #selected #taptap-games { margin: 16px 0; padding-block: 24px; }
+[data-page="home"] #selected #mobile-games { margin: 16px 0; padding-block: 24px; }
 [data-page="home"] #selected .taptap-project-index { padding-block: 8px; }
 [data-page="home"] #selected .taptap-project-index a { background: var(--surface); border-color: var(--line); }
 [data-page="home"] #selected .taptap-project-index a:hover { border-color: var(--plum); }
@@ -558,6 +558,7 @@ body[data-page="home"] {
 [data-page="home"] .work-catalog-toggle[open] > summary span:first-child { display: none; }
 [data-page="home"] .work-catalog-toggle[open] > summary span:last-child { display: inline; }
 
+[data-page="home"] #steam-games > .section-head { margin-bottom: 24px; }
 [data-page="home"] .ai-game-works {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -565,7 +566,7 @@ body[data-page="home"] {
   align-items: start;
 }
 [data-page="home"] #ai-games-title { margin: 0; font-size: var(--home-group-title); line-height: 1.34; }
-[data-page="home"] #selected #taptap-games { margin-block: 0; }
+[data-page="home"] #selected #mobile-games { margin-block: 0; }
 [data-page="home"] #ai-tools .hub-tool-heading { margin-bottom: var(--home-gap); align-items: baseline; }
 [data-page="home"] #ai-tools .hub-tool-heading h3 { margin: 0; }
 [data-page="home"] #ai-tools #ai-pocket {

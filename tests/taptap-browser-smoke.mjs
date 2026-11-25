@@ -33,14 +33,14 @@ const decode=async()=>{
 try {
   for(const width of [320,360,390,620,700,701,760,761,768,820,821,1024,1100,1101,1440]) {
     await page.setViewportSize({width,height:1000});
-    await page.goto(base+'index.html#taptap-games',{waitUntil:'networkidle'});
+    await page.goto(base+'index.html#mobile-games',{waitUntil:'networkidle'});
     await page.locator('#hub-games > details > summary').press('Enter');
-    await page.locator('#taptap-games > details > summary').press('Enter');
+    await page.locator('#mobile-games > details > summary').press('Enter');
     await fit();await decode();
-    const columns=await page.locator('.taptap-grid').first().evaluate(grid=>getComputedStyle(grid).gridTemplateColumns.split(' ').length);
+    const columns=await page.locator('#mobile-games .ai-game-grid').first().evaluate(grid=>getComputedStyle(grid).gridTemplateColumns.split(' ').length);
     assert.equal(columns,width<=620?1:width<=1000?2:3);
-    assert.equal(await page.locator('#taptap-games article').count(),taptapGames.length);
-    assert.equal(await page.locator('.taptap-project-index a').count(),taptapGames.length);
+    assert.equal(await page.locator('#mobile-games article.taptap-card').count(),taptapGames.length);
+    assert.equal(await page.locator('.taptap-project-index a').count(),23);
     const rows=await page.locator('#ai-games .ai-game-card').evaluateAll(cards=>cards.map(card=>{
       const rect=selector=>card.querySelector(selector).getBoundingClientRect();
       return {top:card.getBoundingClientRect().top, heading:rect('h4').top,
@@ -48,7 +48,7 @@ try {
         description:rect('.ai-game-description').top,tags:rect('.ai-game-tags').top,
         status:rect('.ai-game-status').top,actions:rect('.ai-game-actions').top};
     }));
-    assert.equal(rows.length,taptapGames.length+11);
+    assert.equal(rows.length,taptapGames.length+14);
     for(const row of rows){
       assert.ok(Math.abs(row.aspect-16/9)<.02,'Landscape cover must use a 16:9 frame');
       assert.ok(row.heading<row.image&&row.image<row.description&&row.description<row.tags&&row.tags<row.actions);
@@ -57,7 +57,7 @@ try {
           assert.ok(Math.abs(sibling[key]-row[key])<1,'Same-row '+key+' must align');
       }
     }
-    await page.locator('#taptap-games').scrollIntoViewIfNeeded();
+    await page.locator('#mobile-games').scrollIntoViewIfNeeded();
     if(width===390||width===1440) await page.screenshot({path:path.join(artifacts,`collection-${width}.png`)});
     checks.push(`home ${width}: all current projects, images decoded, no horizontal overflow`);
   }

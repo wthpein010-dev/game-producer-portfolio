@@ -9,7 +9,7 @@ test('Token game links from Personal Projects and returns to the same entry', as
   const home = (await read('index.html')).toString();
   const detail = (await read('projects/token-game/index.html')).toString();
   const section = home.slice(home.indexOf('id="selected"'), home.indexOf('id="ai-tools"'));
-  assert.match(section, /id="indie-games"[\s\S]*id="token-game"[\s\S]*id="taptap-games"/u);
+  assert.match(section, /id="mobile-games"[\s\S]*id="steam-games"[\s\S]*id="token-game"/u);
   assert.match(section, /href="projects\/token-game\/"/u);
   const entry = /<article[^>]+id="token-game"[\s\S]*?<\/article>/u.exec(home)?.[0];
   assert.ok(entry);

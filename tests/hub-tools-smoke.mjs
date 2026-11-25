@@ -19,8 +19,8 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-tools',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),0);
-    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),3);
-    assert.equal(await page.locator('#taptap-games .ai-game-card:visible').count(),3);
+    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),0);
+    assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),6);
     await page.locator('.hub-catalog > details > summary').press('Enter');
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
     const appCards=page.locator('#hub-more .hub-catalog-item');
@@ -35,9 +35,9 @@ try{
     ].map(selector=>card.querySelector(selector))].map(element=>element.getBoundingClientRect().top)));
     for(const row of appRows)for(const sibling of appRows.filter(card=>card[0]===row[0]))assert.deepEqual(sibling,row);
     await page.locator('#hub-games > details > summary').press('Enter');
-    assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
-    await page.locator('#taptap-games > details > summary').press('Enter');
-    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),26);
+    await page.locator('#mobile-games > details > summary').press('Enter');
+    assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
+    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),29);
     assert.equal(await page.locator('#ai-pocket').locator('xpath=ancestor::section[@id="ai-tools"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-lunar-freight"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-my-life"]').count(),1);
@@ -70,7 +70,8 @@ try{
   await page.locator('.hub-catalog > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
   await page.locator('#hub-games > details > summary').press('Enter');
-  assert.equal(await page.locator('#hub-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
+  await page.locator('#mobile-games > details > summary').press('Enter');
+  assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
   assert.ok(await page.evaluate(()=>document.querySelector('#career-cases').getBoundingClientRect().top < document.querySelector('#producer-skills').getBoundingClientRect().top));
   const caseDetails=page.locator('#case-gamespec');
   assert.equal(await caseDetails.getAttribute('open'),null);
