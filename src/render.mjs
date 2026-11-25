@@ -151,7 +151,7 @@ export function renderHome(aiHtml='') {
     <div class="ai-game-grid">${mobileCards(mobileOrder.slice(0,6))}</div>
     <details class="work-catalog-toggle">
       <summary><span>查看全部 ${mobileOrder.length} 款</span><span>收起手游列表</span></summary>
-      <nav class="taptap-project-index" aria-label="快速查看游戏"><ul>${mobileOrder.map(item=>`<li><a href="#${e(item.id)}">${e(item.title)}</a></li>`).join('')}</ul></nav>
+      <nav class="taptap-project-index" aria-label="快速查看游戏"><span aria-hidden="true">快速查看</span><ul>${mobileOrder.map(item=>`<li><a href="#${e(item.id)}">${e(item.title)}</a></li>`).join('')}</ul></nav>
       <div class="ai-game-grid">${mobileCards(mobileOrder.slice(6))}</div>
     </details>
   </section>`;

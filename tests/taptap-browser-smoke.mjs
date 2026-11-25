@@ -41,6 +41,12 @@ try {
     assert.equal(columns,width<=620?1:width<=1000?2:3);
     assert.equal(await page.locator('#mobile-games article.taptap-card').count(),taptapGames.length);
     assert.equal(await page.locator('.taptap-project-index a').count(),23);
+    const indexWidth=await page.locator('.taptap-project-index').evaluate(index=>{
+      const list=index.querySelector('ul');
+      return {nav:index.clientWidth,list:list.clientWidth};
+    });
+    assert.ok(indexWidth.list>=indexWidth.nav-100,
+      `At ${width}px the game index must use the available row width: ${JSON.stringify(indexWidth)}`);
     const rows=await page.locator('#ai-games .ai-game-card').evaluateAll(cards=>cards.map(card=>{
       const rect=selector=>card.querySelector(selector).getBoundingClientRect();
       return {top:card.getBoundingClientRect().top, heading:rect('h4').top,
