@@ -533,6 +533,166 @@
         }
       ]
     },
+    "assets/project-design/matchmaking-inc/affinity-live.webp": {
+      "sourceSha256": "ebe24dfd385915a80392ba772ebbaf2751e2bd016e4d8fbc3cb807bf8ac01481",
+      "width": 1920,
+      "height": 1054,
+      "bytes": 233312,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/affinity-live.webp-ebe24dfd385915a8-480.webp",
+          "width": 480,
+          "height": 264,
+          "bytes": 24660
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/affinity-live.webp-ebe24dfd385915a8-960.webp",
+          "width": 960,
+          "height": 527,
+          "bytes": 69618
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/affinity-live.webp-ebe24dfd385915a8-1440.webp",
+          "width": 1440,
+          "height": 790,
+          "bytes": 122756
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/affinity-live.webp-ebe24dfd385915a8-1920.webp",
+          "width": 1920,
+          "height": 1054,
+          "bytes": 198104
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/city-calendar.webp": {
+      "sourceSha256": "43516e3984ad0480ddf2db42f1784e2cefa563c378769cf9d70e12de75e18733",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 119704,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/city-calendar.webp-43516e3984ad0480-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 17184
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/city-calendar.webp-43516e3984ad0480-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 44664
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/city-calendar.webp-43516e3984ad0480-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 73672
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/city-calendar.webp-43516e3984ad0480-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 109420
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/club-live.webp": {
+      "sourceSha256": "2945fbc632f5d99971691056214edbca2f90d664edcea181b55910475c790414",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 365436,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-live.webp-2945fbc632f5d999-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 42584
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-live.webp-2945fbc632f5d999-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 121044
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-live.webp-2945fbc632f5d999-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 208132
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-live.webp-2945fbc632f5d999-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 315726
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/club-scene.webp": {
+      "sourceSha256": "d43a84921718918cbb4cc12cd0a690e8bb49697ecbf703c89dddf6cb53822202",
+      "width": 2400,
+      "height": 975,
+      "bytes": 281748,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-scene.webp-d43a84921718918c-480.webp",
+          "width": 480,
+          "height": 195,
+          "bytes": 18840
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-scene.webp-d43a84921718918c-960.webp",
+          "width": 960,
+          "height": 390,
+          "bytes": 55126
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-scene.webp-d43a84921718918c-1440.webp",
+          "width": 1440,
+          "height": 585,
+          "bytes": 104716
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/club-scene.webp-d43a84921718918c-1920.webp",
+          "width": 1920,
+          "height": 780,
+          "bytes": 161932
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/date-dialogue.webp": {
+      "sourceSha256": "c09659d99bfd4250871887bf4ae0cbf56297e1c000d2efbd53ced3d39076b2da",
+      "width": 1671,
+      "height": 936,
+      "bytes": 189316,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/date-dialogue.webp-c09659d99bfd4250-480.webp",
+          "width": 480,
+          "height": 269,
+          "bytes": 25680
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/date-dialogue.webp-c09659d99bfd4250-960.webp",
+          "width": 960,
+          "height": 538,
+          "bytes": 68282
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/date-dialogue.webp-c09659d99bfd4250-1440.webp",
+          "width": 1440,
+          "height": 807,
+          "bytes": 120568
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/date-dialogue.webp-c09659d99bfd4250-1671.webp",
+          "width": 1671,
+          "height": 936,
+          "bytes": 164396
+        }
+      ]
+    },
     "assets/project-design/matchmaking-inc/decor-editor.png": {
       "sourceSha256": "3d0e80e246482e069ad02c06836d8708f3d33082fe3aea09848da165156cae8b",
       "width": 1280,
@@ -582,6 +742,166 @@
           "width": 1280,
           "height": 720,
           "bytes": 852156
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/invite-live.webp": {
+      "sourceSha256": "ce10b0f67e23a9f36623a169e6c10f20926724f4452e5c3d7f1778d51b6e1121",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 309954,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-live.webp-ce10b0f67e23a9f3-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 36938
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-live.webp-ce10b0f67e23a9f3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 101674
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-live.webp-ce10b0f67e23a9f3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 180830
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-live.webp-ce10b0f67e23a9f3-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 270416
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/invite-success.webp": {
+      "sourceSha256": "d8b7fb558e4880a2d621cf07d93f37e6870edf65a1fe7b8d922859318fa0f45a",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 146340,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-success.webp-d8b7fb558e4880a2-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 18014
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-success.webp-d8b7fb558e4880a2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 46670
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-success.webp-d8b7fb558e4880a2-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 78724
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/invite-success.webp-d8b7fb558e4880a2-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 122950
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/match-state.webp": {
+      "sourceSha256": "4c39ff26272fbf30d23ce6504f01fe050461dcccf79e892c9dcb1b2022dd435e",
+      "width": 1980,
+      "height": 1904,
+      "bytes": 164932,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/match-state.webp-4c39ff26272fbf30-480.webp",
+          "width": 480,
+          "height": 462,
+          "bytes": 24352
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/match-state.webp-4c39ff26272fbf30-960.webp",
+          "width": 960,
+          "height": 923,
+          "bytes": 61484
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/match-state.webp-4c39ff26272fbf30-1440.webp",
+          "width": 1440,
+          "height": 1385,
+          "bytes": 102144
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/match-state.webp-4c39ff26272fbf30-1920.webp",
+          "width": 1920,
+          "height": 1846,
+          "bytes": 149434
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/park-day.webp": {
+      "sourceSha256": "133ab18274fd68e30d3d6c50f516da3c9ef461c44d25d275d0b9d69443cdc45e",
+      "width": 2400,
+      "height": 1661,
+      "bytes": 631486,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-day.webp-133ab18274fd68e3-480.webp",
+          "width": 480,
+          "height": 332,
+          "bytes": 50428
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-day.webp-133ab18274fd68e3-960.webp",
+          "width": 960,
+          "height": 664,
+          "bytes": 145692
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-day.webp-133ab18274fd68e3-1440.webp",
+          "width": 1440,
+          "height": 997,
+          "bytes": 269100
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-day.webp-133ab18274fd68e3-1920.webp",
+          "width": 1920,
+          "height": 1329,
+          "bytes": 397730
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/park-night.webp": {
+      "sourceSha256": "980dedb6ad78bdd317cb7293a9b4b1c888fcc367dc484072ac5c721c401434cd",
+      "width": 2400,
+      "height": 1661,
+      "bytes": 521684,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-night.webp-980dedb6ad78bdd3-480.webp",
+          "width": 480,
+          "height": 332,
+          "bytes": 33648
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-night.webp-980dedb6ad78bdd3-960.webp",
+          "width": 960,
+          "height": 664,
+          "bytes": 98908
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-night.webp-980dedb6ad78bdd3-1440.webp",
+          "width": 1440,
+          "height": 997,
+          "bytes": 184206
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/park-night.webp-980dedb6ad78bdd3-1920.webp",
+          "width": 1920,
+          "height": 1329,
+          "bytes": 293986
         }
       ]
     },
@@ -680,6 +1000,38 @@
           "width": 1280,
           "height": 720,
           "bytes": 355820
+        }
+      ]
+    },
+    "assets/project-design/matchmaking-inc/street-dialogue.webp": {
+      "sourceSha256": "3fdfc4cf577e4a068bb3b99c1e3ae9b825d2bcb39ec9240686d2f46423d7048c",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 260332,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/street-dialogue.webp-3fdfc4cf577e4a06-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 24754
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/street-dialogue.webp-3fdfc4cf577e4a06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 81808
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/street-dialogue.webp-3fdfc4cf577e4a06-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 145548
+        },
+        {
+          "src": "assets/optimized/project-design/matchmaking-inc/street-dialogue.webp-3fdfc4cf577e4a06-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 229726
         }
       ]
     },

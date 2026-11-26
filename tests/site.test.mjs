@@ -726,6 +726,27 @@ test('Matchmaking prioritizes two reviewed system maps across project, company a
   }
 });
 
+test('Matchmaking details show sourced gameplay and scene visuals with full-size links', async () => {
+  const {projects, companies}=await site();
+  const project=projects.find(p=>p.path==='projects/matchmaking-inc/index.html');
+  const gallery=one(project.document,n=>n.attrs.id==='matchmaking-showcase','Core visuals');
+  const groups=nodes(gallery,n=>hasClass(n,'matchmaking-visual-group'));
+  assert.deepEqual(groups.map(group=>nodes(group,n=>n.tag==='figure').length),[4,3,2,2]);
+  assert.match(textOf(gallery),/Steam 官方商店截图/u);
+  assert.match(textOf(gallery),/团队界面效果图 · 设计阶段/u);
+  assert.match(textOf(gallery),/中心公园 · 白天.*中心公园 · 夜晚/u);
+  for (const figure of nodes(gallery,n=>n.tag==='figure')) {
+    const image=one(figure,n=>n.tag==='img','Landscape or design image');
+    const original=one(figure,n=>n.tag==='a','Full-size image');
+    assert.equal(original.attrs.href,originalSource(image));
+    assert.match(original.attrs.href,/^\.\.\/\.\.\/assets\/project-design\/matchmaking-inc\/[a-z-]+\.webp$/u);
+    assert.ok(Number(image.attrs.width)>0&&Number(image.attrs.height)>0);
+  }
+  for (const detail of [...companies,...projects.filter(p=>p!==project)]) {
+    assert.equal(nodes(detail.document,n=>n.attrs.id==='matchmaking-showcase').length,0);
+  }
+});
+
 test('My Town has curated evidence, summary and company entry without leaking shared duties or internal records', async () => {
   const {projects,companies}=await site();
   const project=projects.find(p=>p.path==='projects/my-town/index.html');

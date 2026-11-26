@@ -1,0 +1,50 @@
+.matchmaking-showcase {
+  margin-block: 40px 56px;
+  min-width: 0;
+  scroll-margin-top: 100px;
+}
+
+.matchmaking-showcase h2 {
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.matchmaking-showcase > header p,
+.matchmaking-visual-group > p {
+  max-width: 58em;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.matchmaking-visual-group {
+  padding-block: clamp(20px, 3vw, 36px);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+.matchmaking-visual-group h3 {
+  margin-bottom: 8px;
+  font-size: clamp(19px, 2vw, 25px);
+  line-height: 1.45;
+}
+
+.matchmaking-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(16px, 2.5vw, 28px);
+  margin-top: 20px;
+}
+
+.matchmaking-visual-wide { grid-column: 1 / -1; }
+.matchmaking-visual-grid figure > a { display: block; background: var(--surface-soft); }
+.matchmaking-visual-grid figure > a:focus-visible { outline-offset: -4px; }
+.matchmaking-visual-grid img { object-fit: contain; }
+.matchmaking-visual-grid figcaption strong { display: block; color: var(--ink); font-size: 16px; }
+.matchmaking-visual-grid figcaption p { margin: 5px 0; }
+.matchmaking-visual-grid figcaption small { color: var(--muted); }
+
+@media (max-width: 700px) {
+  .matchmaking-visual-grid { grid-template-columns: minmax(0, 1fr); }
+}
