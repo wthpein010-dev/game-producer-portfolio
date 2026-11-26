@@ -753,3 +753,72 @@ body[data-page="home"] {
 @media screen and (max-width: 620px) {
   [data-page="home"] #selected .ai-game-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+[data-page="home"] :is(.chapter-rail, .personal-work-nav) a[aria-current="location"]:not(:hover, :focus-visible) {
+  border-color: var(--plum);
+  background-color: var(--plum-soft);
+  color: var(--plum);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-page="home"] :is(.intro-main, .home-motion-in-view:not(.producer-skills)) {
+    animation: home-arrive 360ms cubic-bezier(.22, 1, .36, 1);
+  }
+
+  [data-page="home"] .producer-skills.home-motion-in-view .producer-branches::before {
+    transform-origin: top;
+    animation: home-skill-trunk 480ms ease-out;
+  }
+
+  [data-page="home"] .producer-branch:nth-child(1) { --skill-delay: 80ms; }
+  [data-page="home"] .producer-branch:nth-child(2) { --skill-delay: 180ms; }
+  [data-page="home"] .producer-branch:nth-child(3) { --skill-delay: 280ms; }
+
+  [data-page="home"] .producer-skills.home-motion-in-view .producer-branch::after {
+    transform-origin: left;
+    animation: home-skill-line 340ms ease-out var(--skill-delay) backwards;
+  }
+
+  [data-page="home"] .producer-skills.home-motion-in-view .producer-branch::before {
+    animation: home-skill-node 460ms ease-out var(--skill-delay);
+  }
+
+  [data-page="home"] .producer-skills.home-motion-in-view .producer-skill-links {
+    animation: home-arrive 340ms cubic-bezier(.22, 1, .36, 1) var(--skill-delay) backwards;
+  }
+
+  [data-page="home"] :is(.personal-work-nav a, .producer-skill-links a, .work-catalog-toggle > summary) {
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  }
+
+  [data-page="home"] .career-case-arrow { transition: translate 180ms ease; }
+  [data-page="home"] .career-case-link:is(:hover, :focus-visible) .career-case-arrow { translate: 2px -2px; }
+
+  @media (hover: hover) and (pointer: fine) {
+    [data-page="home"] :is(.career-case, .project-gallery-grid a, #selected .ai-game-card, #selected .hub-tool-feature, #hub-more .hub-catalog-item) {
+      transition: translate 200ms ease-out, box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    [data-page="home"] :is(.career-case, .project-gallery-grid a, #selected .ai-game-card, #selected .hub-tool-feature, #hub-more .hub-catalog-item):hover {
+      translate: 0 -3px;
+      border-color: var(--plum);
+      box-shadow: 0 7px 18px rgb(23 75 85 / 14%);
+    }
+  }
+}
+
+@keyframes home-arrive {
+  from { opacity: .78; translate: 0 6px; }
+}
+
+@keyframes home-skill-trunk {
+  from { transform: scaleY(.12); }
+}
+
+@keyframes home-skill-line {
+  from { transform: scaleX(0); }
+}
+
+@keyframes home-skill-node {
+  30% { border-color: var(--lime); background-color: var(--lime); box-shadow: 0 0 9px var(--lime); }
+}
