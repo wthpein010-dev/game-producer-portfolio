@@ -4,12 +4,30 @@ import {renderAiGameCard} from './ai-game-card.mjs';
 const {images}=JSON.parse(readFileSync(new URL('../assets/fading-shadows/media.json',import.meta.url),'utf8'));
 const title='影逝之境';
 const home='../../index.html#fading-shadows';
+const gameplaySection='projects/fading-shadows/#fading-play';
 export const fadingShadowsSummary='一封烧残的求援信，把你引到雨夜山门。读招、换线，用第三击决定追上去还是退半步。可以独闯七章十四关，也可以拉上朋友同屏闯关或对招。';
+
+function trailerVideo(base){
+  const media=base+'assets/fading-shadows/';
+  return `<video controls playsinline preload="none" width="1280" height="720" poster="${media}trailer-poster.webp" aria-label="${title}实机预告">
+    <source src="${media}gameplay-trailer.mp4" type="video/mp4">
+    <a href="${media}gameplay-trailer.mp4">打开实机预告</a>
+  </video>`;
+}
 
 export function renderFadingShadowsEntry(){
   return renderAiGameCard({id:'fading-shadows',title,description:fadingShadowsSummary,
     tags:['武侠动作','同屏对战','合作闯关'],status:'Godot · Windows 可玩开发版',
-    href:'projects/fading-shadows/',detailLabel:'看玩法与实机预告'});
+    href:'projects/fading-shadows/',detailLabel:'看玩法设计',
+    secondaryLink:{href:gameplaySection,label:'看实机'},
+    supplement:`<template id="fading-shadows-preview">
+      <dialog class="reading-lightbox gameplay-preview" aria-labelledby="fading-shadows-preview-title">
+        <h2 id="fading-shadows-preview-title">${title} · 实机预告</h2>
+        <form method="dialog"><button class="lightbox-close" type="submit" aria-label="关闭实机预告" autofocus>×</button></form>
+        ${trailerVideo('')}
+        <a class="text-link" href="${gameplaySection}">前往项目详情 <span aria-hidden="true">↗</span></a>
+      </dialog>
+    </template>`});
 }
 
 function screenshot(id,e,{hero=false}={}){
@@ -40,10 +58,7 @@ export function renderFadingShadowsBody(e){
     <section class="taptap-gallery" id="fading-play" aria-labelledby="fading-play-title">
       <header><h2 id="fading-play-title">看一场实机交锋</h2><p>先看玩家怎样在一条线上交手，再看侧闪、投掷和双人配合如何改变局面。</p></header>
       <div class="fading-trailer">
-        <video controls playsinline preload="none" width="1280" height="720" poster="../../assets/fading-shadows/trailer-poster.webp" aria-label="影逝之境实机预告">
-          <source src="../../assets/fading-shadows/gameplay-trailer.mp4" type="video/mp4">
-          <a href="../../assets/fading-shadows/gameplay-trailer.mp4">打开实机预告</a>
-        </video>
+        ${trailerVideo('../../')}
       </div>
     </section>
 

@@ -21,6 +21,21 @@ try{
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),0);
     assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
     assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
+    if(width===390){
+      await page.locator('#work-search-toggle').press('Enter');
+      const search=page.locator('#work-search-input');
+      assert.equal(await search.evaluate(input=>document.activeElement===input),true);
+      await search.fill('冰激凌大师');
+      assert.ok(await page.locator('#work-icecream-master .ai-game-cover img').isVisible());
+      assert.equal(await page.locator('#mobile-games > details').getAttribute('open'),'');
+      await search.fill('小游戏每日排行');
+      assert.ok(await page.locator('#hub-gamepulse-mini-radar .hub-app-banner img').isVisible());
+      await search.press('Escape');
+      assert.equal(await page.locator('#work-search').isVisible(),false);
+      assert.equal(await page.locator('#mobile-games > details').getAttribute('open'),null);
+      assert.equal(await page.locator('#hub-apps-title').getAttribute('open'),null);
+      assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
+    }
     await page.locator('.hub-catalog > details > summary').press('Enter');
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
     const appCards=page.locator('#hub-more .hub-catalog-item');
@@ -66,6 +81,7 @@ try{
   }
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},reducedMotion:'reduce'}),page=await context.newPage();
   await page.goto(base+'index.html#ai-tools');
+  assert.equal(await page.locator('#work-search-toggle').isVisible(),false);
   await page.locator('.hub-catalog > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
   assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);

@@ -9,7 +9,7 @@
     return readingLine => {
       const withinScope = scope.getBoundingClientRect().bottom > readingLine;
       const next = withinScope
-        ? links.findLast(({target}) => target.getBoundingClientRect().top <= readingLine)?.link
+        ? links.findLast(({target}) => target.getClientRects().length > 0 && target.getBoundingClientRect().top <= readingLine)?.link
         : undefined;
       if (next === active) return;
       active?.removeAttribute('aria-current');
@@ -32,7 +32,28 @@
   addEventListener('hashchange', refreshNavs);
   addEventListener('pageshow', refreshNavs);
   document.addEventListener('toggle', refreshNavs, true);
+  document.addEventListener('work-filter-change', refreshNavs);
   refreshNavs();
+
+  const preview = document.getElementById('fading-shadows-preview');
+  const previewLink = document.querySelector('#fading-shadows a[href="projects/fading-shadows/#fading-play"]');
+  if (preview && previewLink && typeof window.HTMLDialogElement?.prototype.showModal === 'function') {
+    let dialog;
+    let video;
+    previewLink.setAttribute('aria-haspopup', 'dialog');
+    previewLink.addEventListener('click', event => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      if (!dialog) {
+        dialog = preview.content.firstElementChild.cloneNode(true);
+        video = dialog.querySelector('video');
+        dialog.addEventListener('close', () => video.pause());
+        document.body.append(dialog);
+      }
+      dialog.showModal();
+      void video.play().catch(() => {});
+    });
+  }
 
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const observer = new IntersectionObserver(entries => {

@@ -4,7 +4,16 @@
         <a href="#mobile-games">手游</a>
         <a href="#steam-games">Steam 游戏</a>
         <a href="#ai-tools">AI 应用</a>
+        <button type="button" id="work-search-toggle" aria-controls="work-search" aria-expanded="false" hidden>查找作品</button>
       </nav>
+      <div class="work-search" id="work-search" hidden>
+        <label for="work-search-input">按名称、玩法或标签查找</label>
+        <div class="work-search-controls">
+          <input type="search" id="work-search-input" placeholder="例如：拼图、接单、排期" autocomplete="off">
+          <button type="button" id="work-search-clear" disabled>清空</button>
+        </div>
+        <p class="work-search-status" id="work-search-status" role="status"></p>
+      </div>
       <div class="ai-game-works" id="ai-games">
       <!-- MOBILE_GAMES -->
       <section id="steam-games" aria-labelledby="steam-games-title">

@@ -40,8 +40,8 @@ export function renderIdiomSummary() {
 const e = escapeHtml;
 const tokenGameStyles = 'assets/token-game/portfolio.css';
 const homeStyles = 'assets/home.css';
-const homeMotion = 'assets/home-motion.js';
-const homeAssetVersion = [homeStyles,homeMotion]
+const homeScripts = ['assets/home-motion.js','assets/home-search.js'];
+const homeAssetVersion = [homeStyles,...homeScripts]
   .reduce((hash,name)=>hash.update(readFileSync(new URL('../'+name,import.meta.url))),createHash('sha256'))
   .digest('hex').slice(0,12);
 export function renderZuoyaoSummary() {
@@ -103,7 +103,7 @@ function footer(base='') {return `<footer class="site-footer wrap"><div><span cl
 function shell({title,description,body,base='',page='home',attrs='',stylesheet}) {
   const extraStyle = (stylesheet ? `<link rel="stylesheet" href="${base}${e(stylesheet)}">` : '')
     + (page==='home' ? `<link rel="stylesheet" href="${homeStyles}?v=${homeAssetVersion}">` : '');
-  const extraScript = page==='home' ? `<script src="${homeMotion}?v=${homeAssetVersion}" defer></script>` : '';
+  const extraScript = page==='home' ? homeScripts.map(src=>`<script src="${src}?v=${homeAssetVersion}" defer></script>`).join('') : '';
   return `<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${e(description)}"><meta name="color-scheme" content="light"><title>${e(title)} · ${profile.name}</title><link rel="icon" href="${base}assets/app-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/legacy.css?v=${sharedAssetVersion}"><link rel="stylesheet" href="${base}assets/site.css?v=${sharedAssetVersion}">${extraStyle}<script src="${base}assets/app.js?v=${sharedAssetVersion}" defer></script><script src="${base}assets/reading.js?v=${sharedAssetVersion}" defer></script>${extraScript}</head><body data-page="${page}" ${attrs}>${header(base,page)}${decorateImageMarkup(body,imageManifest)}${footer(base)}</body></html>\n`;
 }
 function timeline(job,i) {const companyHref=`experience/${job.slug}/`;return `<article class="company-entry" id="company-${job.slug}" data-company="${job.slug}"><div class="timeline-date"><time datetime="${job.start}">${e(job.period)}</time><span class="entry-count">${counter(i+1)} / ${!job.end?'CURRENT CHAPTER':'CAREER CHAPTER'}</span></div><div class="company-map"><div class="company-root"><span class="role-label">${e(job.role)}</span><h3><a class="company-title" href="${companyHref}">${e(job.employer)} <span aria-hidden="true">↗</span></a></h3><p class="company-projects">${job.projects.map(p=>e(p.title)).join(' · ')}</p><p class="entry-lede">${e(job.lead)}</p><a class="role-node" href="${companyHref}?section=role">查看我的角色 ↗</a></div><div class="map-branches"><details class="branch-group" id="branch-${job.slug}-projects" open ${!job.end?'data-priority="true"':''}><summary>项目节点 <span>${counter(job.projects.length)}</span></summary><ul class="branch-nodes">${job.projects.map(p=>`<li><a class="mindmap-node" data-kind="project" href="projects/${p.slug}/"><span>PROJECT</span>${e(p.title)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details><details class="branch-group" id="branch-${job.slug}-scope" open><summary>${job.scope.length?'职责节点':'经历节点'} <span>${counter(job.scope.length||1)}</span></summary><ul class="branch-nodes">${(job.scope.length?job.scope:['项目与任职记录']).map(s=>`<li><a class="mindmap-node" data-kind="scope" href="${companyHref}?section=scope"><span>${job.scope.length?'SCOPE':'RECORD'}</span>${e(s)} <b aria-hidden="true">↗</b></a></li>`).join('')}</ul></details></div></div></article>`;}
