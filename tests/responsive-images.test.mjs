@@ -47,6 +47,12 @@ test('multi-image landscape gallery follows its single-column breakpoint and des
   const out=decorateImageMarkup('<div class="taptap-shot-grid" data-shot-count="2"><figure><img src="assets/screens/screenshot.png" width="1800" height="900" alt="作品截图"></figure></div>',manifest);
   assert.match(out,/sizes="[^"]*max-width: 760px[^\"]*560px"/);
 });
+test('Matchmaking visual cards request a two-column preview while the indoor panorama remains wide',()=>{
+  const img='<img src="assets/screens/screenshot.png" width="1800" height="900" loading="lazy" alt="场景效果图">';
+  const out=decorateImageMarkup('<div class="matchmaking-visual-grid"><figure>'+img+'</figure><figure class="matchmaking-visual-wide">'+img+'</figure></div>',manifest);
+  assert.match(out,/<figure><img[^>]*sizes="[^"]*max-width: 700px[^"]*584px"/);
+  assert.match(out,/<figure class="matchmaking-visual-wide"><img[^>]*sizes="[^"]*max-width: 700px[^"]*1198px"/);
+});
 test('native full resolution details retain originals while nested previews outside are optimized',()=>{
   const img='<img src="assets/screens/screenshot.png" loading="lazy" width="1800" height="900" alt="完整流程">';
   const out=decorateImageMarkup('<details class="matchmaking-inspect"><summary>原图</summary><div>'+img+'</div></details><figure>'+img+'</figure>',manifest);

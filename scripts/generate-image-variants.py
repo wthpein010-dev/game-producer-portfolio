@@ -11,6 +11,7 @@ from PIL import Image
 
 
 WIDTHS = (480, 960, 1440, 1920)
+MATCHMAKING_VISUAL_WIDTHS = (480, 720, 960, 1440, 1920)
 RASTER_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 
 
@@ -34,7 +35,13 @@ def generate(root):
             picture = original.convert("RGBA" if has_alpha else "RGB")
         width, height = picture.size
         entry = {"sourceSha256": source_hash, "width": width, "height": height, "bytes": len(source_bytes), "variants": []}
-        target_widths = sorted({candidate for candidate in WIDTHS if candidate <= width} | {min(width, WIDTHS[-1])})
+        relative_source = source.relative_to(assets)
+        widths = (
+            MATCHMAKING_VISUAL_WIDTHS
+            if relative_source.parent == Path("project-design/matchmaking-inc") and source.suffix.lower() == ".webp"
+            else WIDTHS
+        )
+        target_widths = sorted({candidate for candidate in widths if candidate <= width} | {min(width, widths[-1])})
         for target_width in target_widths:
             target_height = max(1, round(height * target_width / width))
             resized = picture if target_width == width else picture.resize((target_width, target_height), Image.Resampling.LANCZOS)
@@ -46,7 +53,6 @@ def generate(root):
             data = encoded.getvalue()
             if len(data) >= len(source_bytes):
                 continue
-            relative_source = source.relative_to(assets)
             # Mirrored directories plus the original extension prevent collisions
             # between equally named assets. The content hash busts preview caches.
             filename = "{}{}-{}-{}.webp".format(source.stem, source.suffix.lower(), source_hash[:16], target_width)

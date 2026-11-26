@@ -20,6 +20,12 @@ function imageSizes(nodes,entry) {
   }
   if(hasClass(nodes,'career-case-image'))return '(max-width: 620px) calc(100vw - 57px), 382px';
   if(hasClass(nodes,'career-ui-grid'))return '(max-width: 620px) calc(50vw - 30px), 325px';
+  if(hasClass(nodes,'matchmaking-visual-grid')) {
+    const mobile='(max-width: 700px) calc(100vw - 42px)';
+    return hasClass(nodes,'matchmaking-visual-wide')
+      ? `${mobile}, (max-width: 1304px) calc(92vw - 2px), 1198px`
+      : `${mobile}, (max-width: 1304px) calc(46vw - 16px), 584px`;
+  }
   if(hasClass(nodes,'project-visual-overview'))return '(max-width: 700px) calc(100vw - 57px), 550px';
   if(hasClass(nodes,'indie-project'))return '(max-width: 700px) calc(100vw - 57px), (max-width: 1200px) calc(50vw - 40px), 562px';
   return '(max-width: 700px) calc(100vw - 55px), (max-width: 1240px) calc(100vw - 48px), 1200px';
