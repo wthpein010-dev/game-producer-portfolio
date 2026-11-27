@@ -9,6 +9,8 @@ const captions = [
   ['宝物图鉴', '图鉴记录宝物与搭配。未解锁的宝物保留原色，通过角标标明状态。', '汪汪叠宝宝贝图鉴，展示彩色宝物图案和未解锁角标'],
   ['道具范围预览', '按住目标格显示炸弹影响范围，旋风飞盘额外标出同一行。拖离可放弃操作。', '道具范围实机，炸弹预览标出目标周围与所在行'],
   ['寻宝结算', '结算首先显示实际取得的饼干，再展开得分、带回宝贝与最高连消。', '步数用尽后的寻宝结算，含饼干、得分明细和培养入口'],
+  ['切回游戏先暂停', 'Android 0.7.0 模拟器验收画面。切回前台时，牌面盖好并保留继续探险入口，计时保持暂停。', '汪汪叠宝小屏 Android 试玩版的暂停面板和继续探险按钮'],
+  ['恢复棋盘后继续配对', 'Android 0.7.0 模拟器验收画面。重新启动后读回原进度，换成长屏也能继续配对。', '汪汪叠宝长屏 Android 试玩版恢复棋盘并配对后的画面'],
 ];
 
 export const wangwangStack = {
@@ -28,11 +30,11 @@ export const wangwangStack = {
     {title:'让手机上的一局可以中断',text:'把棋盘、未完成选择、营地进度和局外培养纳入保存流程。竖屏以棋盘和操作区为优先，触控与显示统一换算，窗口缩放期间取消未结束的触点。'},
   ],
   practice: '我确定了竖屏配对规则、难度节奏、角色展示和局内外成长，再用 AI 协作把规则、界面和素材做进 TapTap Maker。先用原生预览检查核心流程和小屏操作，再通过手机扫码验证续玩与培养进度，并据反馈调整叠宝尺寸、翻牌反馈和背景。',
-  shortStatus: 'TapTap Maker · 手机测试版本',
-  status: '已完成 TapTap Maker 测试构建，曾用手机扫码验证翻牌、续玩和进度同步。新版画面来自 Maker Windows 原生运行器，安卓新版实机验收待进行。',
-  captureNote: '首屏横图为宣传图。棋盘、营地、道具预览与结算来自较新的 Maker 原生验证，主页、培养与图鉴为此前的实跑画面。',
-  linkNote: '暂无公开试玩入口，当前可在本页查看玩法、设计取舍和测试版游戏画面。',
-  updatedAt: '2026-11-24',
+  shortStatus: 'Android 0.7.0 测试版本',
+  status: 'Android 0.7.0 独立构建已在 Android 15 模拟器验证小屏与长屏的记牌、配对、暂停和重启续局。TapTap Maker 0.7.0 已构建预览。',
+  captureNote: '首屏横图为项目宣传图。标注 Android 0.7.0 的画面来自 Android 15 模拟器实包验收，其余画面来自各阶段 Maker 原生验证。',
+  linkNote: '暂无公开试玩入口。Android 0.7.0 为本地独立测试版本，TapTap Maker 0.7.0 为开发预览。',
+  updatedAt: '2026-11-26',
   shots: mediaProof.media.map(({src,width,height},index)=>{
     const [label,caption,alt]=captions[index];
     return {src,width,height,label,caption,alt};

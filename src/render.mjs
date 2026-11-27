@@ -27,6 +27,7 @@ import {renderAiPocketEntry,renderAiPocketBody} from './ai-pocket.mjs';
 import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
 import {recentGames,renderRecentGameEntry,renderRecentGameBody} from './portfolio-recent-games.mjs';
+import {assemblySummary,renderAssemblyWorkshopBody,renderAssemblyWorkshopEntry} from './assembly-workshop.mjs';
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
 import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
@@ -69,6 +70,9 @@ export function renderTokenGamePage() {
 }
 export function renderRecentGamePage(game) {
   return shell({title:game.title, description:game.summary,body:renderRecentGameBody(game,e),base:'../../',page:'document'});
+}
+export function renderAssemblyWorkshopPage() {
+  return shell({title:'装配工坊 · 3D 岗位训练',description:assemblySummary,body:renderAssemblyWorkshopBody(),base:'../../',page:'document'});
 }
 export function renderZhuyinPage() {
   return shell({title:'竹隐江湖2D · 竖屏武侠 RPG',description:'穿过竹林与村镇，在竖屏里体验探索、交锋和侠客成长。',body:renderZhuyinBody(),base:'../../',page:'document'});
@@ -157,7 +161,7 @@ export function renderHome(aiHtml='') {
   </section>
   <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
     <details class="work-catalog-toggle" open><summary id="hub-games-title">其他电脑与网页试玩</summary>
-      <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}</div>
+      <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderAssemblyWorkshopEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}</div>
     </details>
   </section>`;
   aiHtml=aiHtml.replace('<!-- MOBILE_GAMES -->',mobileMarkup).replace('<!-- STEAM_DEMOS -->',steamDemos);

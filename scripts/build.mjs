@@ -14,7 +14,7 @@ import {renderYujiangCoffeePage,renderFadingShadowsPage,renderHubGameDetail} fro
 import {hubGames} from '../src/hub-tools.mjs';
 import {hubGameSlug} from '../src/hub-game-stories.mjs';
 import {recentGames} from '../src/portfolio-recent-games.mjs';
-import {renderRecentGamePage} from '../src/render.mjs';
+import {renderAssemblyWorkshopPage,renderRecentGamePage} from '../src/render.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -57,6 +57,9 @@ export async function build() {
     await mkdir(directory,{recursive:true});
     await writeFile(path.join(directory,'index.html'),renderRecentGamePage(game));
   }
+  const assemblyDir=path.join(siteRoot,'projects','assembly-workshop');
+  await mkdir(assemblyDir,{recursive:true});
+  await writeFile(path.join(assemblyDir,'index.html'),renderAssemblyWorkshopPage());
   const zhuyinDir=path.join(siteRoot,'projects','zhuyin-jianghu');
   await mkdir(zhuyinDir,{recursive:true});
   await writeFile(path.join(zhuyinDir,'index.html'),renderZhuyinPage());

@@ -292,15 +292,15 @@
       "sha256": "d91f31e09888a5c2bb22c95f85032a0ddd69afbb6be484f7ded4931515ea1c30"
     },
     "laurel-arena": {
-      "src": "assets/laurel-arena/cover.webp",
-      "alt": "两位角斗士在竞技场交锋",
+      "src": "assets/laurel-arena/match-040.webp",
+      "alt": "沙与桂冠0.4.0实机，罗马竞技场中两位角斗士交锋",
       "sources": [
-        "assets/laurel-arena/exchange.webp"
+        "assets/laurel-arena/match-040.webp"
       ],
-      "width": 960,
-      "height": 540,
-      "bytes": 67204,
-      "sha256": "f9c9e3a099ab13814258bafdd88a387e734ad50cbc544d8670ec1ee0f098d2e3"
+      "width": 1600,
+      "height": 900,
+      "bytes": 115854,
+      "sha256": "ecf23e3d9e8db2d2c3b27ab3b3fb65a8c906705592a493e346d4b0b8c4e18d42"
     },
     "monster-workshop": {
       "src": "assets/monster-workshop/cover.webp",
@@ -312,6 +312,17 @@
       "height": 540,
       "bytes": 76890,
       "sha256": "cd514a7417b29afb78da1f6b490e29f5a1ee9d006894ef6248062550dcee2c95"
+    },
+    "assembly-workshop": {
+      "src": "assets/assembly-workshop/factory.webp",
+      "alt": "装配工坊实机，3D电子工坊总览与七个可进入的工作台",
+      "sources": [
+        "assets/assembly-workshop/factory.webp"
+      ],
+      "width": 1600,
+      "height": 900,
+      "bytes": 155578,
+      "sha256": "189cfa685c75eec6b0a09f529c9f13463cfadeb02891ccf4f252a97d26dc9969"
     }
   }
 }

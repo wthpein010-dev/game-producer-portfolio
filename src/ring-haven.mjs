@@ -21,7 +21,7 @@ function figure(key,e,base='../../') {
 export function renderRingHavenEntry() {
   return renderAiGameCard({id: 'ring-haven', title: '环环小憩',
     description: '转动圆环对齐开口，把扣在一起的环一枚枚解开。主线穿插炸弹关和奖励关，赢下每日挑战还能给海狸换装。',
-    tags: ['旋转解扣', '两类特别关', '每日挑战'], status: 'Unity 原型 · Editor 演示',
+    tags: ['旋转解扣', '两类特别关', '每日挑战'], status: 'Unity · Android 0.5.0 本地构建',
     href: 'projects/ring-haven/', detailLabel: '查看解扣、特别关与每日挑战',
   });
 }
@@ -36,7 +36,7 @@ export function renderRingHavenBody(e=escaped) {
           <h1>环环小憩<span class="title-dot">.</span></h1>
           <p class="detail-lede">转一转，把扣在一起的圆环解开。</p>
           <p>沿着彩环的开口找解法，清空棋盘。主线穿插 30 个炸弹关和 30 个奖励关，每日挑战还会送出海狸换装奖励。</p>
-          <p class="record-source">Unity 原型 · 编辑器演示</p>
+          <p class="record-source">Android 0.5.0 已打成独立测试构建，支持离线主线、挑战和装扮，进度与旧应用分别保存。本页画面来自同版本 Unity Editor 演示。</p>
           <nav class="collaboration-nav" aria-label="游戏玩法目录">
             <a href="#ring-haven-loop">旋转解扣 ↓</a>
             <a href="#ring-haven-modes">特别关 ↓</a>

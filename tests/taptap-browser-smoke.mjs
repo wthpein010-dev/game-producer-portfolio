@@ -34,7 +34,7 @@ try {
   for(const width of [320,360,390,620,700,701,760,761,768,820,821,1024,1100,1101,1440]) {
     await page.setViewportSize({width,height:1000});
     await page.goto(base+`index.html?viewport=${width}#mobile-games`,{waitUntil:'networkidle'});
-    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
+    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),5);
     assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
     await page.locator('#mobile-games > details > summary').click();
     await page.locator('#mobile-games > details[open] .ai-game-card').first().waitFor({state:'visible'});
@@ -54,7 +54,7 @@ try {
         description:rect('.ai-game-description').top,tags:rect('.ai-game-tags').top,
         status:rect('.ai-game-status').top,actions:rect('.ai-game-actions').top};
     }));
-    assert.equal(rows.length,taptapGames.length+14);
+    assert.equal(rows.length,taptapGames.length+15);
     for(const row of rows){
       assert.ok(Math.abs(row.aspect-16/9)<.02,'Landscape cover must use a 16:9 frame');
       assert.ok(row.heading<row.image&&row.image<row.description&&row.description<row.tags&&row.tags<row.actions);

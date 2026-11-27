@@ -19,7 +19,7 @@ export function renderAiPocketEntry(e=escaped) {
     <div class="ai-pocket-entry-grid">
       <div>
         <p class="ai-pocket-thesis">从手头的任务出发，找到能用的工具。</p>
-        <p>整理一张 CSV、构思商品海报，或在本机生成一段短片。按任务找到工具，跟着示例准备输入，再检查结果。</p>
+        <p>整理一张 CSV、构思商品海报，或在本机生成一段短片。按任务找到工具，跟着示例准备输入，再检查结果。Windows 便携版原型还提供介质准备与启动指引。</p>
         <ul class="collaboration-tags"><li>本地办公</li><li>图文创作</li><li>本地视频</li></ul>
         <a class="text-link" href="projects/ai-pocket/">查看任务流程与示例结果 ↗</a>
       </div>
@@ -38,7 +38,7 @@ export function renderAiPocketBody(e=escaped) {
       <p>按任务选择工具，照着示例准备输入，完成后就能对照要求检查结果。</p>
       <ul class="ai-pocket-facts"><li>6 类任务</li><li>16 个子类</li><li>54 个任务入口</li></ul>
       <nav class="collaboration-nav" aria-label="产品功能目录">
-        <a href="#problem">按任务找工具 ↓</a><a href="#office">整理表格 ↓</a><a href="#scenarios">电商与写作 ↓</a><a href="#video">本地视频 ↓</a><a href="#delivery">教程与练习 ↓</a>
+        <a href="#problem">按任务找工具 ↓</a><a href="#office">整理表格 ↓</a><a href="#scenarios">电商与写作 ↓</a><a href="#video">本地视频 ↓</a><a href="#portable">Windows 便携版 ↓</a><a href="#delivery">教程与练习 ↓</a>
       </nav>
     </header>
 
@@ -47,7 +47,7 @@ export function renderAiPocketBody(e=escaped) {
       <div class="ai-pocket-workflow">
         <div>
           <p>从办公、图片、写作或视频分类进入，选到具体任务，就能看到操作说明和工具入口。经常用的本地工具也可以从首页直接打开。</p>
-          <p>当前 Windows 应用免登录进入，不上传账号。需要第三方服务的任务会指向对应的官网和配置入口。</p>
+          <p>页面展示的 CSV 示例在本机处理。需要第三方服务的任务会指向对应的官网和配置入口。</p>
         </div>
         ${figure('home',e)}
       </div>
@@ -97,6 +97,13 @@ export function renderAiPocketBody(e=escaped) {
           <p>样片由视频助手在 Windows 本机生成，使用 RTX 4090D 24GB。生成本地视频需要兼容的 NVIDIA 显卡及足够的存储空间。</p>
         </div>
       </div>
+    </section>
+
+    <section class="collaboration-section" id="portable" aria-labelledby="pocket-portable-title">
+      <h2 id="pocket-portable-title">从便携介质启动工作台</h2>
+      <p>Windows 便携版原型 0.38.6 将桌面应用与介质准备入口放在同一套交付中，让接收方按步骤启动工具箱。</p>
+      <ol class="ai-pocket-path"><li>准备应用文件与介质初始化入口。</li><li>按引导完成目标介质的准备。</li><li>从准备好的介质打开工作台，按任务选择工具。</li></ol>
+      <p class="record-source">已验证 Windows 本机打包和启动流程，也检查了硬盘副本的运行限制。实体 USB 介质与跨设备使用待实测。</p>
     </section>
 
     <section class="collaboration-section" id="delivery" aria-labelledby="pocket-delivery-title">

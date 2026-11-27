@@ -1,6 +1,36 @@
 {
   "images": [
     {
+      "id": "journey-roster",
+      "file": "journey-roster.webp",
+      "width": 1360,
+      "height": 764,
+      "alt": "主线同行侠客选人页，左侧显示照夜客资料，右侧用灰影标记未解锁侠客",
+      "caption": "出发前选择同行侠客，选择态与未解锁角色在同一屏显示。",
+      "source": "2026-11-27 Windows 0.23.0 实包验收",
+      "sha256": "e7369e4d0cb782dca7f7358edc038ebaf2b05cb265931d10f7ec4feadbabacf5"
+    },
+    {
+      "id": "journey-story",
+      "file": "journey-story.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "首章雨中余烬的剧情分镜，左侧插画，右侧故事，底部提供跳过和启程",
+      "caption": "首章〈雨中余烬〉。开场分镜交代来意，玩家也可跳过直接启程。",
+      "source": "2026-11-27 Windows 0.23.0 实包验收",
+      "sha256": "0fd01aa215308d69c5c9a6ef2e2bfe19803af1b5ac2cd15bbeabc417460fb15c"
+    },
+    {
+      "id": "bottle-toss",
+      "file": "bottle-toss.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "山门对战场景中白风把红色酒瓶掷向右侧对手",
+      "caption": "酒瓶投掷。出手方向和位置影响瓶子的飞行路线。",
+      "source": "2026-11-27 Windows 0.23.0 实包验收",
+      "sha256": "93c37682127bf430ad31ed86f58fb5c4831a2bc84c015f39f8032a2a65c7c62c"
+    },
+    {
       "id": "title",
       "file": "title.webp",
       "width": 1366,

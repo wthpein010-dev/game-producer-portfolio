@@ -171,12 +171,12 @@
   },
   "game-design-textbook": {
     "src": "assets/hub-app-banners/game-design-textbook.webp",
-    "width": 1056,
-    "height": 594,
-    "alt": "游戏设计研习册 · 游戏设计，按主题学",
-    "description": "从玩家动机、随机奖励等主题入手，按课程阅读游戏设计知识。",
-    "source": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/video/index.html",
+    "width": 1280,
+    "height": 720,
+    "alt": "游戏策划知识库首页，包含 50 课学习入口、视频书架和主题筛选",
+    "description": "沿原研习册 50 课拓展为资料库，按主题查找案例、文章与视频，并在当前浏览器保存收藏与笔记。",
+    "source": "https://wthpein010-dev.github.io/game-design-library/",
     "format": "public-demo",
-    "sha256": "e126b908e9bd64d60d4a3cf38d6544addd4d57c6e2f758fffd3b5faf746afc58"
+    "sha256": "93db227cd9787d2bebd5082471062879b18c8ccb788df5c6c0623911d13e99fa"
   }
 }

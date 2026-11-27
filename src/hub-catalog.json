@@ -709,13 +709,14 @@
     },
     {
       "id": "game-design-textbook",
-      "name": "游戏设计研习册",
+      "name": "游戏策划知识库",
       "category": "游戏策划学习",
       "status": "training",
-      "brief": "从玩家动机到随机奖励与虚拟交易，沿50课路线学习；当前19课可阅读全文。",
-      "aiUse": "原创教材、全文讲解、知识脑图和参数实验；逐课引用并核验参考来源。阅读与同内容音频可替代，学习记录仅存本地。",
-      "entry": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/index.html",
+      "brief": "把原《游戏设计研习册》的 50 课与公开文章、案例和视频整合进可搜索的游戏策划知识库。",
+      "aiUse": "沿用 AI 辅助整理的研习册课程与练习，支持按主题、类型和语言过滤资料，并在当前浏览器保存收藏和笔记。",
+      "entry": "https://wthpein010-dev.github.io/game-design-library/",
       "video": "https://wthpein010-dev.github.io/ai-application-hub/projects/game-design-textbook/video/index.html",
+      "videoLabel": "原版研习册演示",
       "tags": [
         "游戏策划",
         "玩家心理",

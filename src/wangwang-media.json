@@ -1,7 +1,7 @@
 {
-  "captureDate": "2026-11-24",
-  "gameVersion": "0.6.0",
-  "source": "Maker Windows native validation on 2026-11-23/24, earlier interface captures and separate promotional art",
+  "captureDate": "2026-11-26",
+  "gameVersion": "0.7.0 Android / 0.6.0 Maker",
+  "source": "Android 15 emulator APK acceptance on 2026-11-26, Maker Windows native preview, earlier interface captures and separate promotional art",
   "media": [
     {
       "src": "assets/taptap/wangwang-stack/cover.webp",
@@ -66,6 +66,22 @@
       "height": 844,
       "sha256": "448eab6a00555c657aff2ad5fd77d34204baee774df4e36a16731b90e3ebab6a",
       "sourceSha256": "e9d4d83f9c88e2d7dc8b769f9a81d061b0453895cb19fec2c7d56d8a47cdfaa6"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/android-070-pause.webp",
+      "width": 640,
+      "height": 1136,
+      "kind": "android-emulator",
+      "sha256": "2ee15a7285d64c0a1d1f8d86c84ab7c6e68cb466c83bdd1dca57f34352978b03",
+      "sourceSha256": "80fdddb2d05104576cc0b8b95d3f67b708a31552bde99d5553dda425730f3120"
+    },
+    {
+      "src": "assets/taptap/wangwang-stack/android-070-resume.webp",
+      "width": 780,
+      "height": 1688,
+      "kind": "android-emulator",
+      "sha256": "f5560f4ccd8ca3a17e371eb59b1ceaaff378db33094875c3b32e71b23756e01e",
+      "sourceSha256": "af81c3a85652c46161955b40025eb132e9b97d1504ec72646dbc90c33d4d247c"
     }
   ]
 }

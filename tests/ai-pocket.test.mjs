@@ -21,11 +21,11 @@ test('The standalone case explains task paths and actual use requirements',async
   const {renderAiPocketPage}=await import('../src/render.mjs');
   assert.equal(typeof renderAiPocketPage,'function');
   const html=renderAiPocketPage();
-  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV','Wan2.1','24 页','4090D','不上传账号','自有账号或 API','选择工具','提示词','检查结果'])assert.ok(html.includes(term),term);
+  for(const term of ['AI 随身舱','6 类任务','16 个子类','54 个任务入口','CSV 示例在本机处理','Wan2.1','24 页','4090D','自有账号或 API','选择工具','提示词','检查结果','便携版原型 0.38.6','实体 USB 介质与跨设备使用待实测'])assert.ok(html.includes(term),term);
   assert.doesNotMatch(html,/0\.36\.0-usb\.1|六类任务直接进入，免登录/u);
   assert.doesNotMatch(html,/U\s*盘|USB\s*交付|便携交付/iu);
   assert.match(html,/href="\.\.\/\.\.\/index.html#ai-pocket"/u);
-  for(const id of ['problem','office','scenarios','video','delivery'])assert.ok(html.includes(`id="${id}"`),id);
+  for(const id of ['problem','office','scenarios','video','portable','delivery'])assert.ok(html.includes(`id="${id}"`),id);
   assert.doesNotMatch(html,/id="ownership"|我的工作|画面与版本/u);
   assert.doesNotMatch(html,/自研大模型|商业化成功|全设备即插即用|效率提升\s*\d|service_role|localhost|file:\/\/|[A-F]:[\\/]/u);
   assert.doesNotMatch(html,/<a[^>]+(?:download|href="[^"]+\.(?:zip|exe))/u);

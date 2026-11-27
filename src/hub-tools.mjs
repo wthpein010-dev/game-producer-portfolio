@@ -92,7 +92,7 @@ function renderFeatured(project) {
 function renderCatalogCard(project) {
   const banner = appBanners[project.id];
   if (!banner) throw new Error('Missing homepage app banner for '+project.id);
-  const videoLink = project.video ? `<a class="text-link" href="${escape(project.video)}">演示视频 <span aria-hidden="true">↗</span></a>` : '';
+  const videoLink = project.video ? `<a class="text-link" href="${escape(project.video)}">${escape(project.videoLabel ?? '演示视频')} <span aria-hidden="true">↗</span></a>` : '';
   return `<article class="hub-catalog-item" id="hub-${escape(project.id)}">
     <header class="hub-app-heading"><h5>${escape(project.name)}</h5></header>
     <figure class="hub-app-banner">

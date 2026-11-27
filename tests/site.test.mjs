@@ -104,7 +104,7 @@ function site() {
     const ringHaven=await page('projects/ring-haven/index.html');
     const nanjie=await page('projects/nanjie-repair-shop/index.html');
     const coffee=await page('projects/yujiang-coffee/index.html');
-    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows','poetry-letters','laurel-arena','monster-workshop'].map(slug => page(`projects/${slug}/index.html`)));
+    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows','poetry-letters','laurel-arena','monster-workshop','assembly-workshop'].map(slug => page(`projects/${slug}/index.html`)));
     const gamePages = [...taptapPages, ...hubGamePages, ringHaven, nanjie, coffee, ...moreGames];
     return { content, home, companies, projects, notes, projectRecords, taptapPages, hubGamePages, gamePages, pages: [home, ...companies, ...projects, ...notes, ...gamePages, collaboration, pocket] };
   })();
@@ -453,7 +453,8 @@ test('汪汪叠宝 shows attributed preview captures and availability in persona
   assert.match(textOf(detail.document),/暂无公开试玩入口/u);
   assert.doesNotMatch(detail.html, /1001884|tapcode-sce|待审核/u);
   const proof=JSON.parse(await readFile(join(root,'src/wangwang-media.json'),'utf8'));
-  assert.deepEqual(proof.media.map(media=>media.kind),['promotional-art',...Array(7).fill('native-preview')]);
+  assert.deepEqual(proof.media.map(media=>media.kind),['promotional-art',...Array(7).fill('native-preview'),'android-emulator','android-emulator']);
+  assert.match(textOf(detail.document),/Android 0\.7\.0.*模拟器.*重启/u);
   for(const media of proof.media) {
     const img=one(detail.document,n=>n.tag==='img'&&originalSource(n)==='../../'+media.src,media.src);
     assert.deepEqual([Number(img.attrs.width),Number(img.attrs.height)],[media.width,media.height]);
@@ -495,7 +496,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
   const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
   const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
   const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
-  assert.equal(cards.length,29);
+  assert.equal(cards.length,30);
   for(const card of cards){
     const children=card.children.filter(child=>typeof child!=='string');
     assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);
@@ -520,7 +521,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,20);
+  assert.equal(figures.length,23);
   const trailer=one(detail.document,n=>n.tag==='video','Playable gameplay trailer');
   assert.ok(Object.hasOwn(trailer.attrs,'controls'));
   assert.equal(trailer.attrs.preload,'none');
@@ -529,7 +530,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
   assert.equal(images.length,figures.length);
   for(const image of images){
     const src='../../assets/fading-shadows/'+image.file;
-    const figure=one(detail.document,n=>n.tag==='figure'&&nodes(n,el=>el.tag==='img'&&el.attrs.src===src).length===1,image.file);
+    const figure=one(detail.document,n=>n.tag==='figure'&&nodes(n,el=>el.tag==='img'&&originalSource(el)===src).length===1,image.file);
     const view=one(figure,n=>n.tag==='img','Game screenshot');
     assert.equal(Number(view.attrs.width),image.width);
     assert.equal(Number(view.attrs.height),image.height);
@@ -542,7 +543,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
 
 test('All AI game details show play and design without standalone role and version panels',async()=>{
   const {home,gamePages,hubGamePages}=await site();
-  assert.equal(gamePages.length,29);
+  assert.equal(gamePages.length,30);
   for(const detail of gamePages){
     const main=one(detail.document,n=>n.tag==='main','Game details');
     assert.ok(nodes(main,n=>n.tag==='h2').length>=2,detail.path);
@@ -559,6 +560,20 @@ test('All AI game details show play and design without standalone role and versi
     one(detail.document,n=>n.tag==='a'&&hasClass(n,'button')&&n.attrs.href===game.entry,'Playable entry');
     assert.ok(nodes(detail.document,n=>n.tag==='a'&&n.attrs.href===game.video).length);
   }
+});
+
+test('Assembly Workshop has one browser-game card, a public demo and a visual design detail', async () => {
+  const {home,gamePages}=await site();
+  const catalog=one(home.document,n=>n.attrs.id==='hub-games','Computer and web works');
+  const card=one(catalog,n=>n.attrs.id==='assembly-workshop','Assembly Workshop card');
+  one(card,n=>n.tag==='a'&&n.attrs.href==='projects/assembly-workshop/','Workshop detail');
+  const publicDemo='https://wthpein010-dev.github.io/assembly-workshop/';
+  one(card,n=>n.tag==='a'&&n.attrs.href===publicDemo,'Public demo from the card');
+  assert.equal(nodes(home.document,n=>n.attrs.id==='assembly-workshop').length,1);
+  const detail=gamePages.find(page=>page.path==='projects/assembly-workshop/index.html');
+  assert.equal(nodes(detail.document,n=>n.tag==='figure').length,2);
+  one(detail.document,n=>n.tag==='a'&&n.attrs.href===publicDemo,'Public demo from the detail');
+  one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#assembly-workshop','Return to the card');
 });
 
 test('TapTap reading starts with named projects, a complete jump index and an early game image', async () => {

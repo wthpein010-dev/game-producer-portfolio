@@ -44,6 +44,46 @@
       "height": 1280,
       "bytes": 178272,
       "sha256": "00e9dcd9273a8b83f95025196c81cb5944ee1c9c341902c33888369ffea85203"
+    },
+    {
+      "id": "home-042",
+      "src": "assets/poetry-letters/home-042.webp",
+      "alt": "雨后邮局插画与首页答题、目录、主题集、活动入口",
+      "caption": "Unity 0.4.2 本地验证画面，首页将直达入口集中在底部。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 220016,
+      "sha256": "c95b34f17f216351bc530d017db446ff7e12c56b5665c1808d86212b06a24322"
+    },
+    {
+      "id": "directory-042",
+      "src": "assets/poetry-letters/directory-042.webp",
+      "alt": "主线来信目录显示信件组与页间导航",
+      "caption": "Unity 0.4.2 本地验证画面，来信目录每十封分组。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 114914,
+      "sha256": "5579b216401e11fc9303b51822348bea19d352dc24ff588f75117b7a7c569807"
+    },
+    {
+      "id": "later-letter-042",
+      "src": "assets/poetry-letters/later-letter-042.webp",
+      "alt": "主线第七十一封信的三行候选字与正文空位",
+      "caption": "Unity 0.4.2 本地验证画面，后期来信使用三行候选字。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 94728,
+      "sha256": "f25d0d6dc6eaa94c1ef4e2d87e207f3b9a778849671a1a933bcc684ece1b48da"
+    },
+    {
+      "id": "shelf-042",
+      "src": "assets/poetry-letters/shelf-042.webp",
+      "alt": "主题集界面提供多组带独立插画的来信",
+      "caption": "Unity 0.4.2 本地验证画面，主题卡片显示阅读进度。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 165442,
+      "sha256": "0ec8630024f381e9cb7cb703e7b91333f4d3d78b58927289f6be2418ecd49077"
     }
   ],
   "laurel-arena": [
@@ -64,6 +104,46 @@
       "height": 310,
       "bytes": 49708,
       "sha256": "5045be08d24be7015ba580acdc14120311fbdcc1eb9f67c4848853de7b3783d5"
+    },
+    {
+      "id": "match-040",
+      "src": "assets/laurel-arena/match-040.webp",
+      "alt": "两位选手在罗马竞技场交锋，右侧显示比分与双方状态",
+      "caption": "Windows 0.4.0 实机，固定比分与选手状态同时可见。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 115854,
+      "sha256": "ecf23e3d9e8db2d2c3b27ab3b3fb65a8c906705592a493e346d4b0b8c4e18d42"
+    },
+    {
+      "id": "roster-040",
+      "src": "assets/laurel-arena/roster-040.webp",
+      "alt": "六位选手的三组赛前肖像和角色展台对照",
+      "caption": "Windows 0.4.0 实机对照，三场赛前界面覆盖六位选手。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 202006,
+      "sha256": "ef2646b8f0ecc7e4ed3ed149d8c0a74d14db51cfa6973c5b398cd9e5b850783e"
+    },
+    {
+      "id": "showcase-040",
+      "src": "assets/laurel-arena/showcase-040.webp",
+      "alt": "并列的两位选手三维展台，右侧是赛前情报与预选区",
+      "caption": "Windows 0.4.0 实机，两个数据独立的三维展台并列呈现。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 105310,
+      "sha256": "09ea39376e4a98fdb2cb555fa9b6dca593868031da1af6229b5771080455e8d2"
+    },
+    {
+      "id": "replay-040",
+      "src": "assets/laurel-arena/replay-040.webp",
+      "alt": "竞技场赛后回放，底部有可拖动进度条",
+      "caption": "Windows 0.4.0 实机，底部进度条可回到关键交锋回合。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 118074,
+      "sha256": "8f62af33bae0a9b86fe598b9d3cea4609ab8ab27f325db6f574a59d3c6a20200"
     }
   ],
   "monster-workshop": [
@@ -93,6 +173,26 @@
       "height": 800,
       "bytes": 128750,
       "sha256": "9919b4cef450117bb89aa7bbfe65f2e6c8ad5f9a797812c03696758c38a258a7"
+    },
+    {
+      "id": "receipts-1126",
+      "src": "assets/monster-workshop/receipts-1126.webp",
+      "alt": "主播台上方分别显示评论、点赞和礼物已出画，中间保留装配台镜头",
+      "caption": "Windows 1.1.26 本机联调画面，评论、点赞与礼物分别核对是否已出画。",
+      "width": 1140,
+      "height": 800,
+      "bytes": 118304,
+      "sha256": "a77daa8463eea080276dec0e60e130a17d77abfc46e4ea43765887387e576efd"
+    },
+    {
+      "id": "queued-1126",
+      "src": "assets/monster-workshop/queued-1126.webp",
+      "alt": "主播台分别标识互动待出画和测试礼物，右侧显示赤焰亮相",
+      "caption": "Windows 1.1.26 本机联调画面，测试礼物有独立标识。",
+      "width": 800,
+      "height": 450,
+      "bytes": 47818,
+      "sha256": "a7feaada73f0f7bbb3d4ed5ee5d6ef8043c72afe3c74259fd0193ed52f8de693"
     }
   ]
 }

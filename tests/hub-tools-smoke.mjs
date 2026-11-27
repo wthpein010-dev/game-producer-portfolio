@@ -19,7 +19,7 @@ try{
     assert.equal((await page.goto(base+'index.html#ai-tools',{waitUntil:'networkidle'})).status(),200);
     assert.equal(await page.locator('.hub-tool-feature:visible').count(),3);
     assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),0);
-    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
+    assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),5);
     assert.equal(await page.locator('#mobile-games .ai-game-card:visible').count(),9);
     if(width===390){
       await page.locator('#work-search-toggle').press('Enter');
@@ -41,17 +41,20 @@ try{
     const appCards=page.locator('#hub-more .hub-catalog-item');
     const banners=await appCards.locator('img').evaluateAll(async images=>{
       images.forEach(image=>image.loading='eager');
-      return Promise.all(images.map(async image=>{await image.decode();return [image.naturalWidth,image.naturalHeight];}));
+      return Promise.all(images.map(async image=>{
+        await image.decode();
+        return [image.naturalWidth,image.naturalHeight,Number(image.getAttribute('width')),Number(image.getAttribute('height'))];
+      }));
     });
     assert.equal(banners.length,hubApps.length);
-    assert.ok(banners.every(([w,h])=>w*9===h*16));
+    assert.ok(banners.every(([w,h,declaredWidth,declaredHeight])=>w>0&&h>0&&Math.abs(w*9/16-h)<=1&&declaredWidth*9===declaredHeight*16));
     const appRows=await appCards.evaluateAll(cards=>cards.map(card=>[card,...[
       '.hub-app-heading','.hub-app-banner','.hub-app-description','.hub-app-category','.hub-app-links'
     ].map(selector=>card.querySelector(selector))].map(element=>element.getBoundingClientRect().top)));
     for(const row of appRows)for(const sibling of appRows.filter(card=>card[0]===row[0]))assert.deepEqual(sibling,row);
     await page.locator('#mobile-games > details > summary').press('Enter');
     assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
-    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),29);
+    assert.equal(await page.locator('#ai-games .ai-game-card:visible').count(),30);
     assert.equal(await page.locator('#ai-pocket').locator('xpath=ancestor::section[@id="ai-tools"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-lunar-freight"]').count(),1);
     assert.equal(await page.locator('.taptap-card[id="work-my-life"]').count(),1);
@@ -84,7 +87,7 @@ try{
   assert.equal(await page.locator('#work-search-toggle').isVisible(),false);
   await page.locator('.hub-catalog > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-tools .hub-catalog-item:visible').count(),hubApps.length);
-  assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),4);
+  assert.equal(await page.locator('#hub-games .ai-game-card:visible').count(),5);
   await page.locator('#mobile-games > details > summary').press('Enter');
   assert.equal(await page.locator('#ai-games .ai-game-card[id^="hub-"]:visible').count(),hubGames.length);
   assert.ok(await page.evaluate(()=>document.querySelector('#career-cases').getBoundingClientRect().top < document.querySelector('#producer-skills').getBoundingClientRect().top));

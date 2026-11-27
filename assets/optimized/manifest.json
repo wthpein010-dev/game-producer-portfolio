@@ -1,6 +1,162 @@
 {
   "version": 1,
   "images": {
+    "assets/assembly-workshop/bench.webp": {
+      "sourceSha256": "335889f1b8fb547fe55968f095d5276b10c579ffb4d3b5b439fe59a717a52c52",
+      "width": 1600,
+      "height": 900,
+      "bytes": 110744,
+      "variants": [
+        {
+          "src": "assets/optimized/assembly-workshop/bench.webp-335889f1b8fb547f-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 19426
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/bench.webp-335889f1b8fb547f-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 51600
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/bench.webp-335889f1b8fb547f-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 88096
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/bench.webp-335889f1b8fb547f-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 101476
+        }
+      ]
+    },
+    "assets/assembly-workshop/factory.webp": {
+      "sourceSha256": "189cfa685c75eec6b0a09f529c9f13463cfadeb02891ccf4f252a97d26dc9969",
+      "width": 1600,
+      "height": 900,
+      "bytes": 155578,
+      "variants": [
+        {
+          "src": "assets/optimized/assembly-workshop/factory.webp-189cfa685c75eec6-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 22500
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/factory.webp-189cfa685c75eec6-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 64502
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/factory.webp-189cfa685c75eec6-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 117496
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/factory.webp-189cfa685c75eec6-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 140006
+        }
+      ]
+    },
+    "assets/fading-shadows/bottle-toss.webp": {
+      "sourceSha256": "93c37682127bf430ad31ed86f58fb5c4831a2bc84c015f39f8032a2a65c7c62c",
+      "width": 1366,
+      "height": 768,
+      "bytes": 263194,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/bottle-toss.webp-93c37682127bf430-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 43392
+        },
+        {
+          "src": "assets/optimized/fading-shadows/bottle-toss.webp-93c37682127bf430-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 151802
+        }
+      ]
+    },
+    "assets/fading-shadows/journey-roster.webp": {
+      "sourceSha256": "e7369e4d0cb782dca7f7358edc038ebaf2b05cb265931d10f7ec4feadbabacf5",
+      "width": 1360,
+      "height": 764,
+      "bytes": 54680,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/journey-roster.webp-e7369e4d0cb782dc-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 13040
+        },
+        {
+          "src": "assets/optimized/fading-shadows/journey-roster.webp-e7369e4d0cb782dc-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 34954
+        }
+      ]
+    },
+    "assets/fading-shadows/journey-story.webp": {
+      "sourceSha256": "0fd01aa215308d69c5c9a6ef2e2bfe19803af1b5ac2cd15bbeabc417460fb15c",
+      "width": 1366,
+      "height": 768,
+      "bytes": 193426,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/journey-story.webp-0fd01aa215308d69-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 37764
+        },
+        {
+          "src": "assets/optimized/fading-shadows/journey-story.webp-0fd01aa215308d69-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 122414
+        },
+        {
+          "src": "assets/optimized/fading-shadows/journey-story.webp-0fd01aa215308d69-1366.webp",
+          "width": 1366,
+          "height": 768,
+          "bytes": 192474
+        }
+      ]
+    },
+    "assets/hub-app-banners/game-design-textbook.webp": {
+      "sourceSha256": "93db227cd9787d2bebd5082471062879b18c8ccb788df5c6c0623911d13e99fa",
+      "width": 1280,
+      "height": 720,
+      "bytes": 67556,
+      "variants": [
+        {
+          "src": "assets/optimized/hub-app-banners/game-design-textbook.webp-93db227cd9787d2b-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 12262
+        },
+        {
+          "src": "assets/optimized/hub-app-banners/game-design-textbook.webp-93db227cd9787d2b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 36594
+        },
+        {
+          "src": "assets/optimized/hub-app-banners/game-design-textbook.webp-93db227cd9787d2b-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 57992
+        }
+      ]
+    },
     "assets/hub-showcase/after-hours-stall.png": {
       "sourceSha256": "a3b5ddc6c30ce5911f66e841b53c8ebc270679f3cdffdacb0f044cf7ea762f71",
       "width": 1100,
@@ -52,6 +208,260 @@
           "width": 480,
           "height": 270,
           "bytes": 44740
+        }
+      ]
+    },
+    "assets/laurel-arena/match-040.webp": {
+      "sourceSha256": "ecf23e3d9e8db2d2c3b27ab3b3fb65a8c906705592a493e346d4b0b8c4e18d42",
+      "width": 1600,
+      "height": 900,
+      "bytes": 115854,
+      "variants": [
+        {
+          "src": "assets/optimized/laurel-arena/match-040.webp-ecf23e3d9e8db2d2-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 23284
+        },
+        {
+          "src": "assets/optimized/laurel-arena/match-040.webp-ecf23e3d9e8db2d2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 56854
+        },
+        {
+          "src": "assets/optimized/laurel-arena/match-040.webp-ecf23e3d9e8db2d2-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 93078
+        },
+        {
+          "src": "assets/optimized/laurel-arena/match-040.webp-ecf23e3d9e8db2d2-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 106760
+        }
+      ]
+    },
+    "assets/laurel-arena/replay-040.webp": {
+      "sourceSha256": "8f62af33bae0a9b86fe598b9d3cea4609ab8ab27f325db6f574a59d3c6a20200",
+      "width": 1600,
+      "height": 900,
+      "bytes": 118074,
+      "variants": [
+        {
+          "src": "assets/optimized/laurel-arena/replay-040.webp-8f62af33bae0a9b8-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 23410
+        },
+        {
+          "src": "assets/optimized/laurel-arena/replay-040.webp-8f62af33bae0a9b8-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 58172
+        },
+        {
+          "src": "assets/optimized/laurel-arena/replay-040.webp-8f62af33bae0a9b8-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 95314
+        },
+        {
+          "src": "assets/optimized/laurel-arena/replay-040.webp-8f62af33bae0a9b8-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 109626
+        }
+      ]
+    },
+    "assets/laurel-arena/roster-040.webp": {
+      "sourceSha256": "ef2646b8f0ecc7e4ed3ed149d8c0a74d14db51cfa6973c5b398cd9e5b850783e",
+      "width": 1600,
+      "height": 900,
+      "bytes": 202006,
+      "variants": [
+        {
+          "src": "assets/optimized/laurel-arena/roster-040.webp-ef2646b8f0ecc7e4-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 30288
+        },
+        {
+          "src": "assets/optimized/laurel-arena/roster-040.webp-ef2646b8f0ecc7e4-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 85900
+        },
+        {
+          "src": "assets/optimized/laurel-arena/roster-040.webp-ef2646b8f0ecc7e4-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 155450
+        },
+        {
+          "src": "assets/optimized/laurel-arena/roster-040.webp-ef2646b8f0ecc7e4-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 183244
+        }
+      ]
+    },
+    "assets/laurel-arena/showcase-040.webp": {
+      "sourceSha256": "09ea39376e4a98fdb2cb555fa9b6dca593868031da1af6229b5771080455e8d2",
+      "width": 1600,
+      "height": 900,
+      "bytes": 105310,
+      "variants": [
+        {
+          "src": "assets/optimized/laurel-arena/showcase-040.webp-09ea39376e4a98fd-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 17994
+        },
+        {
+          "src": "assets/optimized/laurel-arena/showcase-040.webp-09ea39376e4a98fd-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 48458
+        },
+        {
+          "src": "assets/optimized/laurel-arena/showcase-040.webp-09ea39376e4a98fd-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 86032
+        },
+        {
+          "src": "assets/optimized/laurel-arena/showcase-040.webp-09ea39376e4a98fd-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 96410
+        }
+      ]
+    },
+    "assets/monster-workshop/queued-1126.webp": {
+      "sourceSha256": "a7feaada73f0f7bbb3d4ed5ee5d6ef8043c72afe3c74259fd0193ed52f8de693",
+      "width": 800,
+      "height": 450,
+      "bytes": 47818,
+      "variants": [
+        {
+          "src": "assets/optimized/monster-workshop/queued-1126.webp-a7feaada73f0f7bb-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 20692
+        },
+        {
+          "src": "assets/optimized/monster-workshop/queued-1126.webp-a7feaada73f0f7bb-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 44050
+        }
+      ]
+    },
+    "assets/monster-workshop/receipts-1126.webp": {
+      "sourceSha256": "a77daa8463eea080276dec0e60e130a17d77abfc46e4ea43765887387e576efd",
+      "width": 1140,
+      "height": 800,
+      "bytes": 118304,
+      "variants": [
+        {
+          "src": "assets/optimized/monster-workshop/receipts-1126.webp-a77daa8463eea080-480.webp",
+          "width": 480,
+          "height": 337,
+          "bytes": 31200
+        },
+        {
+          "src": "assets/optimized/monster-workshop/receipts-1126.webp-a77daa8463eea080-960.webp",
+          "width": 960,
+          "height": 674,
+          "bytes": 84902
+        },
+        {
+          "src": "assets/optimized/monster-workshop/receipts-1126.webp-a77daa8463eea080-1140.webp",
+          "width": 1140,
+          "height": 800,
+          "bytes": 107444
+        }
+      ]
+    },
+    "assets/poetry-letters/directory-042.webp": {
+      "sourceSha256": "5579b216401e11fc9303b51822348bea19d352dc24ff588f75117b7a7c569807",
+      "width": 720,
+      "height": 1280,
+      "bytes": 114914,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/directory-042.webp-5579b216401e11fc-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 58590
+        },
+        {
+          "src": "assets/optimized/poetry-letters/directory-042.webp-5579b216401e11fc-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 107598
+        }
+      ]
+    },
+    "assets/poetry-letters/home-042.webp": {
+      "sourceSha256": "c95b34f17f216351bc530d017db446ff7e12c56b5665c1808d86212b06a24322",
+      "width": 720,
+      "height": 1280,
+      "bytes": 220016,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/home-042.webp-c95b34f17f216351-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 106056
+        },
+        {
+          "src": "assets/optimized/poetry-letters/home-042.webp-c95b34f17f216351-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 203560
+        }
+      ]
+    },
+    "assets/poetry-letters/later-letter-042.webp": {
+      "sourceSha256": "f25d0d6dc6eaa94c1ef4e2d87e207f3b9a778849671a1a933bcc684ece1b48da",
+      "width": 720,
+      "height": 1280,
+      "bytes": 94728,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/later-letter-042.webp-f25d0d6dc6eaa94c-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 54378
+        },
+        {
+          "src": "assets/optimized/poetry-letters/later-letter-042.webp-f25d0d6dc6eaa94c-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 87302
+        }
+      ]
+    },
+    "assets/poetry-letters/shelf-042.webp": {
+      "sourceSha256": "0ec8630024f381e9cb7cb703e7b91333f4d3d78b58927289f6be2418ecd49077",
+      "width": 720,
+      "height": 1280,
+      "bytes": 165442,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/shelf-042.webp-0ec8630024f381e9-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 79242
+        },
+        {
+          "src": "assets/optimized/poetry-letters/shelf-042.webp-0ec8630024f381e9-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 153034
         }
       ]
     },
@@ -3605,6 +4015,46 @@
           "width": 480,
           "height": 1039,
           "bytes": 60930
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/android-070-pause.webp": {
+      "sourceSha256": "2ee15a7285d64c0a1d1f8d86c84ab7c6e68cb466c83bdd1dca57f34352978b03",
+      "width": 640,
+      "height": 1136,
+      "bytes": 35630,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/android-070-pause.webp-2ee15a7285d64c0a-480.webp",
+          "width": 480,
+          "height": 852,
+          "bytes": 28414
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/android-070-pause.webp-2ee15a7285d64c0a-640.webp",
+          "width": 640,
+          "height": 1136,
+          "bytes": 35548
+        }
+      ]
+    },
+    "assets/taptap/wangwang-stack/android-070-resume.webp": {
+      "sourceSha256": "f5560f4ccd8ca3a17e371eb59b1ceaaff378db33094875c3b32e71b23756e01e",
+      "width": 780,
+      "height": 1688,
+      "bytes": 140734,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/android-070-resume.webp-f5560f4ccd8ca3a1-480.webp",
+          "width": 480,
+          "height": 1039,
+          "bytes": 71676
+        },
+        {
+          "src": "assets/optimized/taptap/wangwang-stack/android-070-resume.webp-f5560f4ccd8ca3a1-780.webp",
+          "width": 780,
+          "height": 1688,
+          "bytes": 136914
         }
       ]
     },
