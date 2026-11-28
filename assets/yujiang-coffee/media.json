@@ -101,6 +101,30 @@
       "source": "09-cabin-rain-night.png",
       "sourceSha256": "aee8507ba7e1a94148dc1cab9affd0f57cc203ffa41c66d05b1e87792d62dde6",
       "sha256": "8e60827c7a3f435053d048fe2799cd52fce5995589d2c402688f060314926933"
+    },
+    {
+      "id": "order-handoff-v26",
+      "file": "order-handoff-v26.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "渔江咖啡已有订单的交接画面，引导玩家先向原来客递杯",
+      "caption": "0.26.0 Windows 开发版，隔离存档运行。",
+      "version": "0.26.0",
+      "source": "01-递回原来客.png",
+      "sourceSha256": "b989af52ec70263963f4d2864e59a678de79436f6f804e6e4289583983a29576",
+      "sha256": "42ef6b65bf62e76f99e02e6930f6b16371ac4cd0e4e1cce1ab38800bc029c9fc"
+    },
+    {
+      "id": "cooperation-supplies-v26",
+      "file": "cooperation-supplies-v26.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "协作角的建设面板显示金币和材料差额，并提供日常订单和上甲板备料入口",
+      "caption": "0.26.0 Windows 开发版，隔离存档运行。",
+      "version": "0.26.0",
+      "source": "05-协作角备料.png",
+      "sourceSha256": "ab2e339c49f45680f7ef73b7e724186ae9ab7cccd376d7b4ffea5ef4d313371b",
+      "sha256": "c12211934bd169b7dff0cdd7005ba6afebf9a4944752b896e5209ceca0008126"
     }
   ],
   "video": {

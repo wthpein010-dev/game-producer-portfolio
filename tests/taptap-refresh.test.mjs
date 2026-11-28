@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import {readFile,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {taptapGames} from '../src/taptap-games.mjs';
+import tiankengCaseMedia from '../assets/taptap/tiankeng/case-media.json' with {type:'json'};
+import lunarCaseMedia from '../assets/taptap/lunar-freight/case-media.json' with {type:'json'};
+
+const caseMedia = {tiankeng:tiankengCaseMedia, 'lunar-freight':lunarCaseMedia};
 
 test('拼拼不烧心 uses only its Chinese Android 0.60.0 captures', async () => {
  const home=await readFile(new URL('../index.html',import.meta.url),'utf8');
@@ -84,14 +88,28 @@ test('refreshed TapTap images retain original bytes and public provenance',async
   assert.equal(entry.verifiedOn,hasNewGallery ? '2026-10-25' : game.updatedAt);
   assert.equal(entry.developerUrl,'https://www.taptap.cn/developer/486853');
   if(!hasNewGallery){
-   assert.deepEqual(entry.shots.map(({src,width,height})=>({src,width,height})),
-    game.shots.map(({src,width,height})=>({src,width,height})));
+   const recordedCases=caseMedia[game.slug]?.shots??[];
+   assert.deepEqual(game.shots.map(({src,width,height})=>({src,width,height})),
+    [...entry.shots,...recordedCases].map(({src,width,height})=>({src,width,height})));
   }
   for(const shot of entry.shots){
    const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
    assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);
    assert.ok(shot.source.startsWith('https://img-tc.tapimg.com/'));
    assert.ok((await stat(new URL('../'+shot.src,import.meta.url))).size>1000);
+  }
+ }
+});
+
+test('Tiankeng and Lunar Freight distinguish recorded cases from TapTap display images',async()=>{
+ for(const [slug,sourceLabel] of [['tiankeng','V2 本地开发预览'],['lunar-freight','历史 Maker 网页实机验收']]){
+  const detail=await readFile(new URL(`../projects/taptap-${slug}/index.html`,import.meta.url),'utf8');
+  for(const shot of caseMedia[slug].shots){
+   const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
+   assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);
+   const figure=detail.match(/<figure\b[\s\S]*?<\/figure>/gu)?.find(item=>item.includes(`href="../../${shot.src}"`));
+   assert.ok(figure?.includes(`width="${shot.width}" height="${shot.height}"`),shot.src);
+   assert.ok(figure.includes(sourceLabel),shot.src);
   }
  }
 });

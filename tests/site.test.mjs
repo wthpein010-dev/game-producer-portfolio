@@ -571,7 +571,8 @@ test('Assembly Workshop has one browser-game card, a public demo and a visual de
   one(card,n=>n.tag==='a'&&n.attrs.href===publicDemo,'Public demo from the card');
   assert.equal(nodes(home.document,n=>n.attrs.id==='assembly-workshop').length,1);
   const detail=gamePages.find(page=>page.path==='projects/assembly-workshop/index.html');
-  assert.equal(nodes(detail.document,n=>n.tag==='figure').length,2);
+  const originals=nodes(detail.document,n=>n.tag==='a'&&n.attrs.href?.startsWith('../../assets/assembly-workshop/'));
+  assert.deepEqual(originals.map(link=>link.attrs.href.split('/').at(-1)),['factory.webp','case-start.webp','case-retry.webp','case-result.webp']);
   one(detail.document,n=>n.tag==='a'&&n.attrs.href===publicDemo,'Public demo from the detail');
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#assembly-workshop','Return to the card');
 });
@@ -641,6 +642,33 @@ test('homepage independent games retain original screenshots and confirmed two-p
     assert.equal(link.attrs.href, originalSource(image));
     assert.ok(Number(image.attrs.width) > 0 && Number(image.attrs.height) > 0);
     assert.equal(createHash('sha256').update(await readFile(join(root, originalSource(image)))).digest('hex'), hash);
+  }
+});
+
+test('Steam project cards link to their illustrated case studies and back', async () => {
+  const { home } = await site();
+  for (const [slug, sections, count] of [
+    ['magicar', ['battle', 'cook', 'stall'], 4],
+    ['exorcism', ['track', 'boss', 'deck'], 3],
+  ]) {
+    const card = one(home.document, node => node.attrs.id === 'indie-' + slug, 'Steam project card');
+    one(card, node => node.tag === 'a' && node.attrs.href === 'projects/' + slug + '/', 'Case study link');
+    const detail = await page('projects/' + slug + '/index.html');
+    const main = one(detail.document, node => node.tag === 'main', 'Case study content');
+    for (const id of sections) {
+      one(main, node => node.tag === 'section' && node.attrs.id === id, 'Gameplay section ' + id);
+      one(main, node => node.tag === 'a' && node.attrs.href === '#' + id, 'Gameplay jump ' + id);
+    }
+    const figures = nodes(main, node => node.tag === 'figure' && hasClass(node, 'project-reference-image'));
+    assert.equal(figures.length, count);
+    for (const figure of figures) {
+      const img = one(figure, node => node.tag === 'img', 'Official screenshot');
+      assert.equal(img.attrs.loading, 'lazy');
+      assert.ok(img.attrs.srcset && img.attrs.alt);
+      one(figure, node => node.tag === 'a' && node.attrs.href === originalSource(img), 'Full screenshot link');
+      assert.match(textOf(figure), /Steam 官方商店截图/u);
+    }
+    assert.ok(nodes(main, node => node.tag === 'a' && node.attrs.href === '../../index.html#indie-' + slug).length);
   }
 });
 

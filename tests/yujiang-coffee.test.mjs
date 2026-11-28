@@ -22,7 +22,7 @@ test('Yujiang Coffee is listed once under Personal Works, after the two original
 
 test('Yujiang Coffee case explains a concrete design loop and offers truthful, accessible media',async()=>{
   const html=(await read(casePath)).toString('utf8');
-  for(const phrase of ['渔江咖啡','策划','打捞','冲泡','来信','升级','44 个任务节点','120 封系统来信','Windows 0.16.0','本机联调']){
+  for(const phrase of ['渔江咖啡','策划','打捞','冲泡','来信','升级','44 个任务节点','120 封系统来信','Windows 0.16.0','Windows 0.26.0','本机联调']){
     assert.ok(html.includes(phrase),phrase);
   }
   assert.match(html,/href="\.\.\/\.\.\/index\.html#yujiang-coffee"/u);
@@ -40,8 +40,8 @@ test('Yujiang Coffee case explains a concrete design loop and offers truthful, a
     const geometry=bytes.readUInt32LE(offset+1);
     assert.deepEqual([(geometry&0x3fff)+1,((geometry>>>14)&0x3fff)+1],[width,height],file);
     const asset='../../'+assets+file;
-    assert.ok(html.includes('href="'+asset+'"'),file);
-    assert.ok(html.includes('src="'+asset+'" width="'+width+'" height="'+height+'"'),file);
+    const figure=matches(html,/<figure\b[\s\S]*?<\/figure>/gu).find(([item])=>item.includes('href="'+asset+'"'))?.[0];
+    assert.ok(figure?.includes('width="'+width+'" height="'+height+'"'),file);
     assert.equal(bytes.readUInt32LE(offset-4)+offset+(bytes.readUInt32LE(offset-4)%2),bytes.length,'image must contain no extra metadata chunks');
   }
   const video=await read(assets+manifest.video.file);

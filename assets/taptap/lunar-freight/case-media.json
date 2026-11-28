@@ -1,0 +1,16 @@
+{
+  "sourceKind": "historical-maker",
+  "shots": [
+    {
+      "src": "assets/taptap/lunar-freight/test-delivery.webp",
+      "width": 1728,
+      "height": 1084,
+      "label": "车停稳后的补给签收",
+      "caption": "历史 Maker 网页实机验收。回执保留这次货物完整度和据点补电反馈。",
+      "alt": "补给签收弹窗显示生命支持组件完整度 82%，补给站为车辆补充电量",
+      "source": "实机_补给签收.png",
+      "sourceSha256": "27b059e7e613bac19d96fb6d60df9da484f0035822edf670a6f1d3dec0e86c76",
+      "sha256": "eb1640701968fdc7a522d3feb6b4cc3a71e1b3d512b7b5f9a729a52f5df8e9ad"
+    }
+  ]
+}

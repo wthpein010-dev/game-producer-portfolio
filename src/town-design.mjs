@@ -12,7 +12,18 @@ export function renderTownCompanyEntry() {
 }
 
 export function renderTownDesign(e,base='../../') {
-  return `<section class="matchmaking-design" id="town-design" aria-labelledby="town-design-title"><header><p class="eyebrow">SYSTEM / GAMEPLAY / UI·UE</p><h2 id="town-design-title">我的小镇 · 设计资料</h2><p class="matchmaking-intro">从小镇地图选址开店，安排货物生产与上架，再通过顾客招募和任务奖励推动经营。下面用历史界面稿展示各环节的操作。</p></header><p class="matchmaking-boundary">我的任职角色：主策划，2021.05—2022.07。资料来自用户指定的牧游科技项目目录与提供的历史截图；下方为本站整理的阅读摘要，不认定全部方案由个人独立完成，团队美术产出不归为个人美术执行。历史设计图不代表全部功能最终上线，示例数值不是经营成果。</p><nav class="idiom-jumps" aria-label="小镇设计资料">${[...townMaps,...townSupplementCases].map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}<a href="${base}projects/my-town/design-summary/">设计摘要 ↗</a></nav>${townMaps.map(item=>{
+  return `<section class="matchmaking-design" id="town-design" aria-labelledby="town-design-title"><header><p class="eyebrow">SYSTEM / GAMEPLAY / UI·UE</p><h2 id="town-design-title">我的小镇 · 设计资料</h2><p class="matchmaking-intro">从小镇地图选址开店，安排货物生产与上架，再通过顾客招募和任务奖励推动经营。下面用历史界面稿展示各环节的操作。</p></header><p class="matchmaking-boundary">我的任职角色：主策划，2021.05—2022.07。资料来自用户指定的牧游科技项目目录与提供的历史截图；下方为本站整理的阅读摘要，不认定全部方案由个人独立完成，团队美术产出不归为个人美术执行。历史设计图不代表全部功能最终上线，示例数值不是经营成果。</p><nav class="idiom-jumps" aria-label="小镇设计资料">${[...townMaps,...townSupplementCases].map(item=>`<a href="#${item.id}">${e(item.title)} ↓</a>`).join('')}<a href="${base}projects/my-town/design-summary/">设计摘要 ↗</a></nav>
+  <section class="idiom-chapter" id="town-player-path" aria-labelledby="town-player-path-title">
+    <h3 id="town-player-path-title">从开第一家店到领任务奖励</h3>
+    <p class="idiom-chapter-lead">第一轮经营依次让玩家认识地图入口、商品状态和任务回报。下列步骤可与各阶段的历史标注图对照阅读。</p>
+    <ol>
+      <li><a href="#town-navigation">从地图建店</a>。点空地挑选店铺，建成后点回同一位置查看店铺、顾客容量和在售货物，让地图成为后续操作入口。</li>
+      <li><a href="#town-shop-supply">制作并上货</a>。加工界面区分待加工材料和已产出货物，店铺则把待上架与正在出售分开。玩家能判断下一步是生产、补货还是等待。</li>
+      <li><a href="#town-task-states">完成任务并处理奖励</a>。任务面板显示进度，完成后进入领奖。宝箱依次显示待开启、倒计时和可领取，位置已满时先提示奖励取舍再让玩家确认。</li>
+    </ol>
+    <p class="matchmaking-boundary">以上按《游戏流程》及团队历史界面稿整理。本人的策划分工包含新手引导、任务与宝箱，以及配套数值。</p>
+  </section>
+  ${townMaps.map(item=>{
     const image=`${base}assets/project-design/my-town/${item.file}`;
     const attrs=`src="${image}" width="${item.width}" height="${item.height}" loading="lazy" decoding="async" alt="${e(item.alt)}"`;
     return `<article class="matchmaking-map" id="${item.id}" aria-labelledby="${item.id}-title"><h3 id="${item.id}-title">${e(item.title)}</h3><figure><a href="${image}" aria-label="放大${e(item.title)}配图"><img ${attrs}></a><figcaption>我的小镇 · 项目历史设计截图</figcaption></figure><div class="matchmaking-map-notes"><div><h4>设计问题</h4><p>${e(item.question)}</p><h4>图示产出</h4><p>${e(item.output)}</p></div><div><h4>关键方案</h4><ul>${item.points.map(point=>`<li>${e(point)}</li>`).join('')}</ul></div></div><a class="design-original" href="${image}">查看配图（可缩放）<span aria-hidden="true">↗</span></a><details class="matchmaking-inspect"><summary>在页面内阅读${e(item.title)}大图</summary><div class="matchmaking-scroll" tabindex="0" role="region" aria-label="${e(item.title)}大图阅读区域"><img ${attrs}></div></details></article>`;

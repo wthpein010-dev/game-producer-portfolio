@@ -84,6 +84,56 @@
       "height": 1280,
       "bytes": 165442,
       "sha256": "0ec8630024f381e9cb7cb703e7b91333f4d3d78b58927289f6be2418ecd49077"
+    },
+    {
+      "id": "home-050",
+      "src": "assets/poetry-letters/home-050.webp",
+      "alt": "为你赋诗首页，显示下一封来信、活动与主线目标",
+      "caption": "Unity 0.5.0 本地运行画面，首页可直接开始下一封。",
+      "width": 750,
+      "height": 1334,
+      "bytes": 165654,
+      "sha256": "47b803f1c9116e14ecc3c24e15c74c57f26b31d02d1534709824857d390cec29"
+    },
+    {
+      "id": "first-letter-050",
+      "src": "assets/poetry-letters/first-letter-050.webp",
+      "alt": "新版信纸上的分段题目、候选字和道具入口",
+      "caption": "Unity 0.5.0 本地运行画面，正在填写的段落清晰突出。",
+      "width": 750,
+      "height": 1334,
+      "bytes": 119194,
+      "sha256": "7a34590e409fb18a411493d4909307bb4901d73465211b3fa023ec91e9cd1d80"
+    },
+    {
+      "id": "letter-correction-042",
+      "src": "assets/poetry-letters/letter-correction-042.webp",
+      "alt": "信纸空格中不同颜色的候选字判定反馈",
+      "caption": "Unity 0.4.2 本地运行画面，错字与已确认字分色。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 129350,
+      "sha256": "de6921ecc9c70466ca85944d917ddee776fe52b908c9ff681e4a82ce7230b979"
+    },
+    {
+      "id": "target-hint-042",
+      "src": "assets/poetry-letters/target-hint-042.webp",
+      "alt": "信纸空格旁显示定点提示指引",
+      "caption": "Unity 0.4.2 本地运行画面，在对应空格使用提示。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 135796,
+      "sha256": "d27e4ac74b7896c9a777e58aa54bd745b77a2310d39cf8322b5f6c585450d665"
+    },
+    {
+      "id": "answer-reveal-042",
+      "src": "assets/poetry-letters/answer-reveal-042.webp",
+      "alt": "整段完成后显示连贯的来信正文",
+      "caption": "Unity 0.4.2 本地运行画面，从填字回到信件阅读。",
+      "width": 720,
+      "height": 1280,
+      "bytes": 154166,
+      "sha256": "06563672f1921aa728f75dc7ff18b9a4fae6fc5955174ffa15f49f2279b700d2"
     }
   ],
   "laurel-arena": [
@@ -144,6 +194,46 @@
       "height": 900,
       "bytes": 118074,
       "sha256": "8f62af33bae0a9b86fe598b9d3cea4609ab8ab27f325db6f574a59d3c6a20200"
+    },
+    {
+      "id": "approach-040",
+      "src": "assets/laurel-arena/approach-040.webp",
+      "alt": "双方收紧距离，右侧选手准备近身交锋",
+      "caption": "Windows 0.4.0 第一场，得分前的进步贴近。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 131922,
+      "sha256": "edc445be18f9a06edd1fd6d0f7f708a29d46683365d8ff654932594f60918cec"
+    },
+    {
+      "id": "shield-score-040",
+      "src": "assets/laurel-arena/shield-score-040.webp",
+      "alt": "右侧选手的武器在近身交锋中接触对手盾缘",
+      "caption": "同一场近身交锋，得分点和盾缘接触同步。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 132876,
+      "sha256": "5fc62f31991402685149473801a526699a3bd06d6a33c338d05a689608a41f17"
+    },
+    {
+      "id": "control-score-040",
+      "src": "assets/laurel-arena/control-score-040.webp",
+      "alt": "没有武器接触时的控场得分画面",
+      "caption": "同一场较早的控场得分，双方保持间距。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 137726,
+      "sha256": "fc69f681be875981be75ed8af8bc4947bdc74230e42d97cc3fc8316b4fe6953e"
+    },
+    {
+      "id": "result-040",
+      "src": "assets/laurel-arena/result-040.webp",
+      "alt": "本场终场比分和关键一分的回看入口",
+      "caption": "同一轮首场赛果，可查看比分走势及关键回放。",
+      "width": 1600,
+      "height": 900,
+      "bytes": 96866,
+      "sha256": "07356326f36373bfcf9dfc86048e9ae7520886d5d8fe2d1ea09abf2da25ee12f"
     }
   ],
   "monster-workshop": [

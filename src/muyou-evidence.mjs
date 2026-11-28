@@ -32,6 +32,16 @@ export function renderZuoyaoDesign(e,base='../../') {
   <header><p class="eyebrow">GROWTH / BATTLE / UI·UE</p><h2 id="zuoyao-design-title">作妖计 · 成长系统与界面交互</h2><p class="matchmaking-intro">从魔罩和魔宠培养，到阵容调整与客栈入口，展示玩家如何查看成长、调整出战组合并进入伙伴互动。</p></header>
   <p class="matchmaking-boundary">主策划任期为 2021.05—2022.07。《魔罩系统文档》和《魔宠系统文档（第2版）》正文均署名“文档撰写人：吴天昊”。配图保留团队历史设计稿中的界面、箭头和说明，部分示例数值已遮盖。</p>
   <nav class="idiom-jumps" aria-label="作妖计资料">${zuoyaoCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="${base}projects/zuoyaoji-x/design-summary/">设计摘要 ↗</a></nav>
+  <section class="idiom-chapter" id="zuoyao-player-path" aria-labelledby="zuoyao-player-path-title">
+    <h3 id="zuoyao-player-path-title">从挑选魔宠到战斗生效</h3>
+    <p class="idiom-chapter-lead">用一条路径串起图鉴、培养、出战和技能释放。配图和规则来自署名系统方案与历史界面设计稿。</p>
+    <ol>
+      <li><a href="#zuoyao-pet-growth">选宠并准备培养</a>。先在图鉴查看外观、当前属性和获取入口。选中已拥有的魔宠时，用当前与下一级属性对照判断该投入哪只。</li>
+      <li><a href="#zuoyao-pet-growth">处理升级条件</a>。升级和升星使用独立页签。点击材料可查看获取路径，材料不足时给出提示。等级达到上限后，面板引导玩家通过升星继续成长。</li>
+      <li><a href="#zuoyao-pet-formation">调整出战与施放次序</a>。空位可直接上阵，阵容满时打开调整界面，区分已上阵、可选和未获得。所排次序用于对应战斗中的魔宠技能释放。</li>
+    </ol>
+    <p class="matchmaking-boundary">个人贡献依据《魔宠系统文档（第2版）》署名和规则说明。技能释放属于方案中的战斗表现，随历史版本引用。</p>
+  </section>
   ${zuoyaoCases.map(c=>renderMuyouCase(c,e,base)).join('')}
  </section>`;
 }

@@ -31,7 +31,27 @@ const vanityCases=[
   {id:'vanity-storyline',title:'线路图绘制与摆放、分支线路参与设计',file:'storyline-guide.png',question:'怎样将复杂分支整理成可浏览、可定位、可回看的节点结构，而不提前泄露剧情？',output:'本人确认负责线路图绘制与摆放，参与分支剧情的线路设计，不包含剧本撰写或剧情创作。原始帮助贴图说明节点与连线的视觉规则，并非本人完整线路图或完整界面；具体剧情线路不公开。',points:['围绕节点关系与线路层级组织绘制、摆放及连接，衔接章节浏览和分支回看。','用节点、连线、锁定与点亮状态表达可探索路径；帮助图与文字共同说明状态，不只靠颜色识别。','线路拖动、定位当前节点与已解锁片段跳转服务重复探索，参与设计的是线路结构与系统呈现。','帮助贴图与图标为团队美术，不把线路图绘制职责扩大为美术资源制作或全部剧情独立设计。']},
   {id:'vanity-rewards',title:'数值奖励设计与配置的参与',question:'如何将选择产生的数值变化、探索进度和领奖条件连接为可配置的系统规则？',output:'本人确认参与数值奖励的设计与配置。策划案与附件2记载选择影响数值、章节探索奖励、结算统计及表格配置；材料支持关系摘要，不公开参数或完整配置，也不认定全部经济系统独立主导。',points:['区分选择产生的数值变化与探索进度奖励，使条件、结果和反馈各自有明确规则。','章节、选择跳转及角色数值在文档中由不同配置关系承接，体现功能需求与数据交付的连接。','探索奖励带有条件性描述，手机及部分扩展功能待定，不将需求条目写成最终上线清单。','展示非剧情向的数值和配置参与，不据此归属剧本、对白、剧情创作或程序实现。']},
 ];
+const vanitySteamScreens = [
+  {file:'steam-choice.jpg',width:1920,height:1080,sha256:'63d85f50b2ad9bf49db75fc4b6aeee50fad2292a20d06f13249ec326cfca772d',title:'在影片里做选择',alt:'名利游戏 Steam 截图，正在播放的真人影片下方出现两个选项',detail:'视频播到抉择点时，选项叠加在画面底部。确认选择后收起选项，切入对应片段。'},
+  {file:'steam-storyline.jpg',width:1920,height:1080,sha256:'f8d6977750d2e8f47d954b2e404c9f4c695dca95d4728e7de7cded63b5208a9c',title:'在线路图找到已走过的路',alt:'名利游戏 Steam 截图，横向故事线显示节点缩略图、多条连线和分支',detail:'故事线把当前进度放回整张图中。用节点缩略图定位场景，用连线辨认已经走过和仍可探索的分支。'},
+  {file:'steam-chapters.jpg',width:1920,height:1080,sha256:'33ebb575c94cabc163eb834021b16af4de2e31150bd5c84f804825ac5f2a1e4c',title:'从章节和已解锁节点回看',alt:'名利游戏 Steam 截图，章节界面以拼贴画面排列多个章节入口',detail:'章节入口帮助玩家先找到要回看的内容。历史方案允许从故事线进入已解锁片段，续播则承接当前存档。'}
+];
+
+function renderVanityPlaythrough(e, base) {
+  return `<section class="idiom-chapter" id="vanity-player-path" aria-labelledby="vanity-player-path-title">
+    <h3 id="vanity-player-path-title">玩家实机路径</h3>
+    <p class="idiom-chapter-lead">从影片里作出选择，在线路图理解它落在哪一段，再定位已解锁章节或节点重看。系统需要同时保留当前进度和可回看的路径。</p>
+    <div class="career-ui-grid">${vanitySteamScreens.map(screen => {
+      const src = base + 'assets/project-design/vanity-fair/' + screen.file;
+      return `<figure>
+        <a href="${src}" aria-label="放大${e(screen.title)}"><img src="${src}" width="${screen.width}" height="${screen.height}" loading="lazy" decoding="async" alt="${e(screen.alt)}"></a>
+        <figcaption><strong>${e(screen.title)}</strong><p>${e(screen.detail)}</p><small>Steam 商店公开画面</small></figcaption>
+      </figure>`;
+    }).join('')}</div>
+    <p class="matchmaking-boundary">画面展示三种交互，分别节选自商店图。系统路径结合公开画面及项目方案整理。 <a class="text-link" href="https://store.steampowered.com/app/2758000/?l=schinese">查看 Steam 商店来源 ↗</a></p>
+  </section>`;
+}
 export function renderVanityDesign(e,base='../../'){
   const cover=asset('menu-art.png');
-  return `<section class="matchmaking-design" id="vanity-design" aria-labelledby="vanity-design-title"><header><p class="eyebrow">SYSTEM / UI·UE / CONFIGURATION</p><h2 id="vanity-design-title">名利游戏：系统界面与线路设计</h2><p class="matchmaking-intro">负责全部系统界面功能、线路图绘制与摆放；参与分支剧情线路及数值奖励的设计与配置。重点是非剧情向的系统、交互与数据工作。</p></header><p class="matchmaking-boundary">个人职责由本人明确确认，不包含剧本撰写或剧情创作。项目文档未署名，不据此认定全部文档独立作者；美术与程序由团队相应岗位承担。历史需求和待定事项不作为最终上线范围或量化业绩证明。功能文档来自用户指定“名利游戏/文档”目录，保留此前已审核项目贴图，不公开完整剧情、视频或配置，不采用第三方竞品截图。</p><figure class="project-reference-image"><a href="${path(cover,base)}" aria-label="查看名利游戏主菜单原始底图">${image(cover,e,base)}</a><figcaption><span>${e(cover.source)} · 非完整运行界面</span><a href="${path(cover,base)}">查看原图 ↗</a></figcaption></figure><nav class="idiom-jumps" aria-label="名利游戏设计资料">${vanityCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="${base}projects/vanity-fair/design-summary/">设计摘要 ↗</a></nav>${vanityCases.map(c=>article(c,e,base)).join('')}</section>`;
+  return `<section class="matchmaking-design" id="vanity-design" aria-labelledby="vanity-design-title"><header><p class="eyebrow">SYSTEM / UI·UE / CONFIGURATION</p><h2 id="vanity-design-title">名利游戏：系统界面与线路设计</h2><p class="matchmaking-intro">负责全部系统界面功能、线路图绘制与摆放；参与分支剧情线路及数值奖励的设计与配置。重点是非剧情向的系统、交互与数据工作。</p></header><p class="matchmaking-boundary">个人职责由本人明确确认，不包含剧本撰写或剧情创作。项目文档未署名，不据此认定全部文档独立作者；美术与程序由团队相应岗位承担。历史需求和待定事项不作为最终上线范围或量化业绩证明。功能文档来自用户指定“名利游戏/文档”目录，保留此前已审核项目贴图，不公开完整剧情、视频或配置，不采用第三方竞品截图。</p>${renderVanityPlaythrough(e,base)}<figure class="project-reference-image"><a href="${path(cover,base)}" aria-label="查看名利游戏主菜单原始底图">${image(cover,e,base)}</a><figcaption><span>${e(cover.source)} · 非完整运行界面</span><a href="${path(cover,base)}">查看原图 ↗</a></figcaption></figure><nav class="idiom-jumps" aria-label="名利游戏设计资料">${vanityCases.map(c=>`<a href="#${c.id}">${e(c.title)} ↓</a>`).join('')}<a href="${base}projects/vanity-fair/design-summary/">设计摘要 ↗</a></nav>${vanityCases.map(c=>article(c,e,base)).join('')}</section>`;
 }

@@ -11,10 +11,16 @@ const stories = {
     design: [
       ['同一只包，三种检查视图', '人工复核、X 光和灰度片都围绕同一件行李。遇到拿不准的物品，玩家可以来回切换，对照外观和轮廓再作决定。'],
       ['找到物品只是第一步', '刀具、火种和压力罐各有对应的关卡规则，液体还要核对 100 毫升限制。玩家既要看出装了什么，也要判断它是否符合当关条件。'],
+      ['从第一件行李认识检查界面', '「入职第一天」的第 1 件行李先用颜色和轮廓容易辨认的衣服、书来介绍检查画面。切换视图后仍在检查原来那件行李，底部始终保留两种判定按钮，玩家可以先看清再决定。'],
     ],
     hero: {
       alt: '安检台上的行李、衣物和蓝色书本，右侧完整游戏界面显示三种检查工具',
       label: '行李检查台', caption: '工具和规则提示放在传送带下方，底部提供放行与复检两种判定。', credit: '公开网页试玩画面',
+    },
+    detailShot: {
+      src: mediaBase + 'bag-review.webp', width: 642, height: 1395, fromGame: true,
+      alt: '第一关托盘中的衣物和蓝书，下方并列显示三种视图和判定按钮',
+      label: '第一件行李的人工复核', caption: '同一屏可以查看物品、切换检查工具并决定下一步。', credit: '公开网页试玩截图',
     },
   },
   'fill-what': {
@@ -25,6 +31,7 @@ const stories = {
     design: [
       ['前后句也是提示', '题目把空格留在一段完整的话里。除了认出常用搭配，玩家还要联系上下句，判断哪个词更贴近写信人的语气。'],
       ['答对就翻页', '点字、核验、翻页的操作保持一致，变化来自每封信的插画、语境和缺字位置。过关的反馈落在读完这段话、继续往下读的瞬间。'],
+      ['试着补完窗边那句话', '窗边翻书的一封信将「缓慢」留作空缺。先结合前文判断写信人的语气，再按句子的顺序落字。录制中，补完空格后可以在原位置读到完整句子，随后才换到下一封信。'],
     ],
     hero: { label: '两封待补完的来信', caption: '插画交代场景，信中标出空格，候选字集中在同一张信纸下方。', credit: '公开演示画面拼图' },
     detailShot: {
@@ -41,10 +48,16 @@ const stories = {
     design: [
       ['先看全局，再解眼前', '第一关只摆一个箱子和一个落点。第二关开场扫过 38 × 24 格的地图，随后把视野拉回角色，让玩家知道终点在哪，也能专心处理面前的箱子。'],
       ['留箱开门，送箱归位', '机关箱留在星钮上，对应的门才会保持打开，终点则另有三个归位格。玩家需要先想清哪些箱子留在路上，哪些箱子送到终点。'],
+      ['教会归位，再用同一次推动开门', '第一关向右推一次就能归位，结算直接给出第二关入口。第二关先把最近的箱子留在星钮上开门，再走进下一段。到终点区可先处理上层两个目标，随后绕回中段打开下层门，送进最后一箱。'],
     ],
     hero: {
       alt: '左边是有四扇机关门的第二关地图，右边是只摆一个箱子与一个目标的第一关',
       label: '一推入门，一图到底', caption: '右侧是第一关的单箱教学，左侧展示第二关相连的房间与机关门。', credit: '公开网页试玩画面拼图',
+    },
+    detailShot: {
+      src: mediaBase + 'box-first-clear.webp', width: 582, height: 1065, fromGame: true,
+      alt: '单箱教学过关弹窗和第二关入口',
+      label: '一箱归位后的反馈', caption: '第一关成功后直接进入第二关，沿用相同的推箱操作。', credit: '公开网页试玩截图',
     },
     rules: { path: 'src/levels.mjs', label: '公开关卡配置' },
   },
@@ -56,6 +69,11 @@ const stories = {
     design: [
       ['火候按回合推进', '「等一回合」把升温变成玩家主动选择的步骤。放入薄馕后，可以先看烤位的状态，等到刚好再动手取出。'],
       ['烤位和订单一起安排', '同一炉有不同温区，订单又有交付先后。选烤位时要连同出炉顺序一起想，才能把烤好的馕及时送进订单区。'],
+      ['拿第一张薄馕走一遍', '托盘里只有一张待烤薄馕。先拖进烤位，再按「等一回合」，观察外观变金黄后送到上方订单区。第一关先练这套操作，后续才需要同时盯住几张馕的火候与交付顺序。', {
+        src: mediaBase + 'nang-keng-order.webp', width: 720, height: 1280,
+        alt: '薄馕教学中的托盘、烤位、订单和金黄时取出的提示',
+        label: '薄馕订单与火候提示', caption: '底部在实际烤位旁说明拖入、加热和取出的时机。', credit: '公开玩法视频截帧 · 00:23',
+      }],
     ],
     hero: { label: '第一炉薄馕', caption: '上方是当前订单，中间是烤位，下方是待烤托盘和「等一回合」按钮。', credit: '公开演示画面拼图' },
     detailShot: {
@@ -72,6 +90,11 @@ const stories = {
     design: [
       ['同一趟任务，两种压力', '礁石短路更快、也更伤船，队伍需要多分精力修船。迷雾长路船损较轻，救人却需要更多照明。选路决定整局要优先照顾哪项资源。'],
       ['每段都能看到自己的贡献', '修理决定船能承受多少损伤，照明决定能否在段末救起一人。点赞可以补光，有效操作会短时显示在画面上，礼物烟花只提供外观效果。'],
+      ['从迷雾长路走到三人获救', '公开模拟试玩选择右侧长路。队伍每段要先守住船体，再补足照明；船撑到段末且照明达标，才能救起这一段的人。演示终局救起 3 人，船体剩 82，并把修理、照明和点赞补光分别记在回执上。', {
+        src: mediaBase + 'lighthouse-rescue-result.webp', width: 520, height: 1050,
+        alt: '本地模拟试玩的完美救援结算，三人获救，船体剩 82',
+        label: '三段救援后的结算', caption: '网页演示使用模拟观众按钮，结算显示本局贡献和剩余船体。', credit: '公开试玩回放 · 03:38',
+      }],
     ],
     hero: {
       src: mediaBase + 'lighthouse-rescue-deck.webp', width: 520, height: 904,
@@ -126,9 +149,10 @@ export function renderHubGameBody(game, base = '../../') {
     </div>
     <nav class="taptap-section-nav" aria-label="本页内容"><a href="#gameplay">怎么玩</a><a href="#design">玩法设计</a></nav>
     <section class="taptap-overview" id="gameplay" aria-labelledby="gameplay-title"><div><h2 id="gameplay-title">怎么玩</h2><p>${escape(story.gameplay)}</p>${rules}</div><ol class="taptap-loop">${story.loop.map(step => `<li>${escape(step)}</li>`).join('')}</ol></section>
-    <section class="taptap-design" id="design" aria-labelledby="design-title"><header><h2 id="design-title">玩法设计</h2></header><div class="game-design-stories">${story.design.map(([title, copy], index) =>
-      `<article><div class="game-design-copy"><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>${index === 0 && detailShot ? renderShot(detailShot, game.video, base) : ''}</article>`
-    ).join('')}</div></section>
+    <section class="taptap-design" id="design" aria-labelledby="design-title"><header><h2 id="design-title">玩法设计</h2></header><div class="game-design-stories">${story.design.map(([title, copy, figure], index) => {
+      const shot = figure ?? (index === 0 ? detailShot : null);
+      return `<article><div class="game-design-copy"><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>${shot ? renderShot(shot, shot.fromGame ? game.entry : game.video, base) : ''}</article>`;
+    }).join('')}</div></section>
     <nav class="taptap-next" aria-label="继续浏览作品"><a class="text-link" href="${home}" data-return-home>返回个人作品 ↑</a></nav>
   </main>`;
 }

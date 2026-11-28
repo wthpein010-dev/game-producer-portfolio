@@ -1,6 +1,8 @@
 import {daynightFate} from './daynight-fate.mjs';
 import {wangwangStack} from './wangwang-stack.mjs';
 import jigmemePreview from '../assets/taptap/jigmeme/android-060/media.json' with {type:'json'};
+import tiankengCaseMedia from '../assets/taptap/tiankeng/case-media.json' with {type:'json'};
+import lunarCaseMedia from '../assets/taptap/lunar-freight/case-media.json' with {type:'json'};
 
 // Public games and Maker case studies, with media provenance retained separately.
 export const taptapGames = [
@@ -687,7 +689,8 @@ export const taptapGames = [
         "label": "九宫格炼药",
         "caption": "天坑 · TapTap 公开展示图，2026.10.25 收录；保留平台原图。",
         "alt": "天坑：九宫格炼药，来自 TapTap 公开游戏页"
-      }
+      },
+      ...tiankengCaseMedia.shots
     ],
     "updatedAt": "2026-10-25"
   },
@@ -756,7 +759,8 @@ export const taptapGames = [
         "label": "据点导航与装卸",
         "caption": "月面货运 · TapTap 公开展示图，2026.10.25 收录；保留平台原图。",
         "alt": "月面货运：据点导航与装卸，来自 TapTap 公开游戏页"
-      }
+      },
+      ...lunarCaseMedia.shots
     ],
     "updatedAt": "2026-10-25"
   },

@@ -24,13 +24,13 @@ export const jobs = [
     projects:[{slug:'my-town',title:'我的小镇',description:'负责任务与宝箱、图鉴、新手引导、数值设计及角色美术需求；将经营系统框架、资源产消和策划任务交付连接起来。'}, {slug:'zuoyaoji-x',title:'作妖计',description:'参与小游戏项目，撰写并修订魔罩、魔宠系统方案，连接成长规则、战斗表现、UI/UE、配置需求与引导红点。'}],
     scope:['从 0 到 1 的玩法与系统','经营数值与配置','任务、宝箱与新手引导','魔罩与魔宠成长系统','UI/UE与美术需求交付'],lead:'主策划负责《我的小镇》的任务、宝箱、图鉴、新手与数值设计，并参与《作妖计》小游戏的魔罩、魔宠系统；以框架、配置、交互和版本化文档连接设计与研发交付。'},
   {slug:'beta',employer:'北京贝塔科技股份有限公司',role:'高级系统策划',period:'2020.03—2021.02',start:'2020-03',end:'2021-02',layout:'board',
-    projects:[{slug:'word-villas',title:'Wordvillas',description:'将分支剧情、锦标赛、多类型活动和投骰子玩法从 0 到 1 推进至上线，完成方案与 UI/UE 设计、跨组对齐和开发测试跟进。'}, {slug:'words-with-colors',title:'Words with Colors',description:'以高级系统策划身份参与；贝塔阶段重点承担系统调优、新手留存分析、活动与项目推进，具体贡献与 Wordvillas 署名资料分开说明。'}],
+    projects:[{slug:'word-villas',title:'Wordvillas',description:'将分支剧情、锦标赛、多类型活动和投骰子玩法从 0 到 1 推进至上线，完成方案与 UI/UE 设计、跨组对齐和开发测试跟进。'}, {slug:'words-with-colors',title:'Words with Colors',description:'参与颜色目标拼词游戏，负责图鉴收集系统设计，把关卡收集、主题照片解锁和奖励反馈连成一条成长路径。'}],
     scope:['系统调优','新手留存分析','锦标赛与分支剧情','运营活动','立项及项目进度管理'],lead:'在约百人规模项目中协作程序、美术与剧情组，推进 Wordvillas 分支剧情、锦标赛、活动及投骰子玩法上线，承接排期、任务拆分、组内验收与项目文档等部分 PM 工作。'},
   {slug:'haoteng',employer:'北京豪腾嘉科科技有限公司（疯狂游戏）',role:'主策划',period:'2018.02—2020.03',start:'2018-02',end:'2020-03',layout:'archive',
     projects:[{slug:'idiom-scholar',title:'成语小秀才',description:'作为项目唯一策划，主导成语答题玩法、科举升官题材包装与养成线，将文字关卡和角色成长连接为持续参与的目标。'}, {slug:'train-king',title:'谁是火车王',description:'以主策划身份参与；通过 Train 项目的合成经营、轨道控制、阶段引导与拼图活动资料，展示规则、界面状态和交付表达。'}, {slug:'versatile-dog',title:'百变汪星人',description:'以主策划身份参与；Goose 署名立项资料展示养成经营的系统结构、资源循环、社交操作和 UI/UE 交付，历史方案与最终版本分开阅读。'}],
     scope:[],lead:'作为《成语小秀才》项目唯一策划，主导玩法、科举题材包装与养成线；同时保留《谁是火车王》《百变汪星人》的主策划项目经历。'},
   {slug:'iceshi',employer:'北京冰狮科技有限公司',role:'QA 经理 / 游戏策划',period:'2017.03—2018.01',start:'2017-03',end:'2018-01',layout:'lab',
-    projects:[{slug:'paper-girl',title:'纸片少女',description:'以 QA 经理 / 游戏策划身份参与；冰狮阶段承担测试管理、关卡调优、资源整理及任务文案工作，连接质量检查与内容设计。'}, {slug:'creation-factory',title:'造物梦工厂',description:'以 QA 经理 / 游戏策划身份参与；从同阶段的测试、关卡、资源和任务职责说明工作价值，具体项目分工不作未经确认的拆分。'}],
+    projects:[{slug:'paper-girl',title:'纸片少女',description:'参与关卡调优。玩家通过拖动多层纸片重组路线，再操控角色通过机关和场景。'}, {slug:'creation-factory',title:'造物梦工厂',description:'参与主线与支线任务设计。游戏围绕玩偶收集、DIY 组装、生产上架和潮玩店经营展开。'}],
     scope:['测试管理','关卡调优','资源整理','文案与主支线任务'],lead:'结合 QA 管理与游戏策划，承担测试管理、关卡调优、资源整理及主支线任务文案，形成从质量检查到内容设计的工作基础。'}
 ];
 export const skills = [

@@ -44,7 +44,7 @@ const featuredCopy = {
     note: '完整示例可离线体验，模型连接可选。',
   },
   planmap: {
-    category: '思考与结构',
+    category: '思考与结构', caseId: 'case-planmap',
     summary: '用对话重组脑图，切换树状、鱼骨或横向结构，自动整理节点。',
     note: '项目演示展示对话改图和结构切换。',
   },
@@ -55,11 +55,17 @@ const featuredCopy = {
   },
 };
 
-function renderCase(caseId) {
-  return caseId ? '\n    '+`<details class="hub-case-detail" id="${caseId}">
-    <summary>查看案例拆解</summary>
+const catalogCaseIds = { 'game-design-textbook': 'case-game-design-library' };
+
+function renderCase(caseId, name) {
+  return `<details class="hub-case-detail" id="${caseId}">
+    <summary>${escape(name)} · 案例拆解</summary>
     ${caseDetails[caseId]}
-  </details>` : '';
+  </details>`;
+}
+
+function renderCaseLink(caseId, name) {
+  return caseId ? `<a class="text-link" href="#${caseId}" aria-label="查看${escape(name)}案例拆解">查看案例拆解 <span aria-hidden="true">↓</span></a>` : '';
 }
 
 function renderActions(project) {
@@ -68,12 +74,13 @@ function renderActions(project) {
     const label = { windows: 'Windows', mac: 'Mac' }[platform] ?? platform;
     return `<a href="${escape(url)}">${escape(label)} 下载 ↗</a>`;
   });
-  return `<div class="hub-tool-actions"><a href="${escape(project.entry)}">打开项目 ↗</a>${video}${downloads.join('')}</div>`;
+  const caseLink = renderCaseLink(featuredCopy[project.id].caseId, project.name);
+  return `<div class="hub-tool-actions"><a href="${escape(project.entry)}">打开项目 ↗</a>${video}${downloads.join('')}${caseLink}</div>`;
 }
 
 function renderFeatured(project) {
   const { image } = project;
-  const { category, summary, note, caseId } = featuredCopy[project.id];
+  const { category, summary, note } = featuredCopy[project.id];
   return `<article class="hub-tool-feature" id="hub-${escape(project.id)}">
     <figure>
       <a href="${escape(image.src)}" aria-label="放大${escape(project.name)}界面"><img src="${escape(image.src)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async" alt="${escape(image.alt)}"></a>
@@ -84,7 +91,7 @@ function renderFeatured(project) {
       <h4>${escape(project.name)}</h4>
       <p>${escape(summary)}</p>
       <p class="record-source">${escape(note)}</p>
-      ${renderActions(project)}${renderCase(caseId)}
+      ${renderActions(project)}
     </div>
   </article>`;
 }
@@ -100,7 +107,7 @@ function renderCatalogCard(project) {
     </figure>
     <p class="hub-app-description">${escape(banner.description)}</p>
     <p class="hub-app-category"><span>${escape(project.category)}</span></p>
-    <footer class="hub-app-links"><a class="text-link" href="${escape(project.entry)}">打开项目 <span aria-hidden="true">↗</span></a>${videoLink}</footer>
+    <footer class="hub-app-links"><a class="text-link" href="${escape(project.entry)}">打开项目 <span aria-hidden="true">↗</span></a>${videoLink}${renderCaseLink(catalogCaseIds[project.id], project.name)}</footer>
   </article>`;
 }
 
@@ -129,12 +136,14 @@ export function renderHubTools(personalApp = '') {
       <a class="text-link" id="hub-hub" href="${escape(snapshot.source)}">完整 Hub ↗</a>
     </header>
     <div class="hub-featured-grid">${featuredHubIds.map(id => renderFeatured(byId.get(id))).join('\n')}</div>
+    ${featuredHubIds.map(id => renderCase(featuredCopy[id].caseId, byId.get(id).name)).join('\n')}
     ${personalApp}
     <section class="hub-catalog" aria-labelledby="hub-apps-heading">
       <h4 id="hub-apps-heading">更多应用</h4>
       <details class="work-catalog-toggle" id="hub-apps-title">
         <summary><span>查看全部 ${hubApps.length} 个应用</span><span>收起应用列表</span></summary>
         <div class="hub-catalog-list" id="hub-more">${hubApps.map(renderCatalogCard).join('\n')}</div>
+        ${Object.entries(catalogCaseIds).map(([id, caseId]) => renderCase(caseId, byId.get(id).name)).join('\n')}
       </details>
     </section>
   </section>`;

@@ -1,0 +1,28 @@
+{
+  "sourceKind": "local-preview",
+  "version": "V2",
+  "shots": [
+    {
+      "src": "assets/taptap/tiankeng/test-route.webp",
+      "width": 720,
+      "height": 1280,
+      "label": "灯光里的可走地格",
+      "caption": "V2 本地开发预览。角色状态、灯油和可探索范围同时显示。",
+      "alt": "第一层的地格图显示角色位置、黄色事件标记和上方灯油状态",
+      "source": "v2-探索.jpg",
+      "sourceSha256": "34fa7a3e2503c2ee53535806ac2bb5130621f24e389806354631eacfd409efbc",
+      "sha256": "393a5cabc0c892ee95d9d8f1891b187fef6d0f676fd74b03ae0aa8d1da451962"
+    },
+    {
+      "src": "assets/taptap/tiankeng/test-combat.webp",
+      "width": 720,
+      "height": 1280,
+      "label": "回声猎影的意图和三回合记录",
+      "caption": "V2 本地开发预览。上方显示敌人弱点和下一招，中央留存观察、用药和守护的反馈。",
+      "alt": "回声猎影试炼显示下一招汲取、三回合文字记录和底部战斗操作",
+      "source": "v2-文字战斗.jpg",
+      "sourceSha256": "39605b8c6f3bed0725e85786f532a1ec6c5b5941f7c3d63e4ff1feaccffa21ea",
+      "sha256": "0b1911a96cc3759de7c1578846008c7929e7ac9bb3384368208b480408a9024c"
+    }
+  ]
+}

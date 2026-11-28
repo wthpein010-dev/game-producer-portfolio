@@ -37,10 +37,10 @@ export function renderYujiangCoffeeBody(e) {
         <div class="taptap-hero-actions"><a class="button primary" href="#coffee-video">看冲泡实录 <span aria-hidden="true">↓</span></a></div>
       </header>
       ${shot('home',{className:'taptap-hero-shot',eager:true})}
-      <div class="taptap-hero-context"><p class="taptap-hero-status">Unity · Windows 0.16.0 可玩开发版</p><p class="record-source">截图与录屏采用同版隔离测试存档。</p></div>
+      <div class="taptap-hero-context"><p class="taptap-hero-status">Unity · Windows 可玩开发版</p><p class="record-source">开场、冲泡实录与常规玩法图来自 Windows 0.16.0。订单与备料案例来自 Windows 0.26.0。均采用隔离测试存档。</p></div>
     </div>
     <nav class="taptap-section-nav" aria-label="本页内容">
-      <a href="#coffee-loop">打捞与改船</a><a href="#coffee-video">冲泡实录</a><a href="#coffee-stories">来客与来信</a><a href="#coffee-cabin">在船舱休息</a>
+      <a href="#coffee-loop">打捞与改船</a><a href="#coffee-video">冲泡实录</a><a href="#coffee-order-case">订单与备料</a><a href="#coffee-stories">来客与来信</a><a href="#coffee-cabin">在船舱休息</a>
     </nav>
 
     <section class="taptap-gallery" id="coffee-loop" aria-labelledby="coffee-loop-title">
@@ -63,6 +63,19 @@ export function renderYujiangCoffeeBody(e) {
         <figcaption id="coffee-video-caption">约 39 秒静音实录。画面依次展示放置滤杯、拿壶注水、归还器具和搅拌。<a href="${videoUrl}">打开原视频 <span aria-hidden="true">↗</span></a></figcaption>
       </figure>
       <div class="taptap-shot-grid" data-shot-count="1">${shot('pour',{label:'给海风拿铁加奶',description:'倾倒时可以看到杯口和液流，左上角的配方进度告诉你还要做什么。'})}</div>
+    </section>
+
+    <section class="taptap-gallery" id="coffee-order-case" aria-labelledby="coffee-order-case-title">
+      <header>
+        <h2 id="coffee-order-case-title">先完成手里的订单，再把收入投回渔船</h2>
+        <p>以阿澄的奶咖任务为例。遇到一张未完成的订单，手记会引导玩家先找原来的客人。还没开做就回到原配方，成品已在手里就直接递杯。按原订单收款后，可以从回执继续找阿澄，亲手做完他想喝的海风拿铁。</p>
+        <p>建造协作角时，面板会指出缺的是钱还是材料。少钱可以接日常订单，缺材料就上甲板打捞，也可以先听望仔的故事。装好设施并约好第一份活后，望仔能帮忙收普通海漂，玩家仍亲自处理稀有漂浮物和漂流瓶。</p>
+        <p class="record-source">下方两张图来自 0.26.0 Windows 开发版隔离存档。</p>
+      </header>
+      <div class="taptap-shot-grid">
+        ${shot('order-handoff-v26',{label:'从新任务返回已有订单',description:'来客页面先提供原订单的继续入口，交付之后再接着走阿澄的故事。'})}
+        ${shot('cooperation-supplies-v26',{label:'根据所缺资源决定先做什么',description:'建设页列出材料差额，把订单、打捞和望仔的故事放在同一处。'})}
+      </div>
     </section>
 
     <section class="taptap-gallery" id="coffee-stories" aria-labelledby="coffee-stories-title">

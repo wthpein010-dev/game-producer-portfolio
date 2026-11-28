@@ -14,7 +14,8 @@ import {renderYujiangCoffeePage,renderFadingShadowsPage,renderHubGameDetail} fro
 import {hubGames} from '../src/hub-tools.mjs';
 import {hubGameSlug} from '../src/hub-game-stories.mjs';
 import {recentGames} from '../src/portfolio-recent-games.mjs';
-import {renderAssemblyWorkshopPage,renderRecentGamePage} from '../src/render.mjs';
+import {renderAssemblyWorkshopPage,renderIndieCaseStudyPage,renderRecentGamePage} from '../src/render.mjs';
+import {indieCaseStudies} from '../src/indie-case-studies.mjs';
 export const siteRoot=fileURLToPath(new URL('../',import.meta.url));
 
 function graphicTheme(css) {
@@ -56,6 +57,11 @@ export async function build() {
     const directory=path.join(siteRoot,'projects',game.slug);
     await mkdir(directory,{recursive:true});
     await writeFile(path.join(directory,'index.html'),renderRecentGamePage(game));
+  }
+  for(const project of indieCaseStudies) {
+    const directory=path.join(siteRoot,'projects',project.slug);
+    await mkdir(directory,{recursive:true});
+    await writeFile(path.join(directory,'index.html'),renderIndieCaseStudyPage(project));
   }
   const assemblyDir=path.join(siteRoot,'projects','assembly-workshop');
   await mkdir(assemblyDir,{recursive:true});

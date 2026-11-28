@@ -30,7 +30,7 @@ export function renderAssemblyWorkshopBody() {
       <p class="detail-lede">${assemblySummary}</p>
       <a class="button primary" href="${play}">在线试玩 <span aria-hidden="true">↗</span></a>
       <nav class="collaboration-nav" aria-label="玩法设计目录">
-        <a href="#workshop-map">厂区与工位 ↓</a><a href="#workshop-practice">工序操作 ↓</a><a href="#workshop-progress">收集与协作 ↓</a>
+        <a href="#workshop-map">厂区与工位 ↓</a><a href="#workshop-practice">主板工单 ↓</a><a href="#workshop-progress">收集与协作 ↓</a>
       </nav>
     </header>
     <section class="ring-haven-section" id="workshop-map" aria-labelledby="workshop-map-title">
@@ -39,15 +39,21 @@ export function renderAssemblyWorkshopBody() {
       ${figure('factory','工坊地图的三维总览与七张工作台')}
     </section>
     <section class="ring-haven-section" id="workshop-practice" aria-labelledby="workshop-practice-title">
-      <h2 id="workshop-practice-title">把装配拆成能操作、能纠错的步骤</h2>
-      <p>主板练习先选内存条，再放入相应插槽。电脑可拖放，键盘与触屏可以先选物料再选槽位。工单提示当前步骤，错装可就地重试，结算反馈准确率、返工和用时。</p>
-      ${figure('bench','主板装配工作台的第一人称视角与工序面板')}
+      <h2 id="workshop-practice-title">从领到主板工单，到完成一轮装配</h2>
+      <p>以「装配底板 A12」为例，工单先让玩家从托盘选 B16 内存条，核对 DIMM 插槽。内存入位后，再装固态硬盘，最后固定螺丝。鼠标可直接拖放，键盘和触屏可以先选物料，再选槽位。</p>
+      ${figure('case-start','工单第一步提示当前物料和目标插槽')}
+      <h3>放错时重试当前工序</h3>
+      <p>把 B16 放到硬盘位，工位会标出错处并提示查看 DIMM 丝印。重试只回到当前工序，已完成的步骤仍然保留。三道工序结束后，结算同时显示得分、返工次数和用时，方便下一轮对照。</p>
+      <div class="ring-haven-pair">
+        ${figure('case-retry','错放到硬盘位时，面板提示查看 DIMM 丝印并重试')}
+        ${figure('case-result','同一轮纠错后完成装配，结算记录 1 次返工')}
+      </div>
     </section>
     <section class="ring-haven-section" id="workshop-progress" aria-labelledby="workshop-progress-title">
       <h2 id="workshop-progress-title">给每次回到工坊一个目标</h2>
       <div class="ring-haven-pair">
-        <article><h3>从回收到组装</h3><p>沿厂区寻找零件，回到对应工位安装，装满后设备亮起指示灯。日程在已有练习中选出当日委托，把进度与游戏内奖励接回工坊。</p></article>
-        <article><h3>从单人练习到双人训练</h3><p>联机大厅可以邀请工友一起完成质检，世界频道、赠礼和排行榜提供场外交流。工位认证与兑换流程属于游戏内模拟。</p></article>
+        <article><h3>回收物有明确的去处</h3><p>在厂区找到的零件，可拿到主板装配台或校准台的「零件组装」页安装。装满后，设备在场景中亮起指示灯。日程从已有练习中挑出当天委托，完成后可回到工坊查看进度和奖励。</p></article>
+        <article><h3>把单人技法用到双人交接</h3><p>两位玩家可从联机大厅进入交接工位。工单、质检记录和当前进度构成交接内容，让合作围绕双方可核对的信息展开。工位认证与兑换流程属于游戏内模拟。</p></article>
       </div>
     </section>
   </main>`;
