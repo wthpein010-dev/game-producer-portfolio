@@ -939,72 +939,6 @@
         }
       ]
     },
-    "assets/project-design/creation-factory/diy-test.jpg": {
-      "sourceSha256": "18054638afd29f94cd0d1484e5e825524fd9da96c7cda2d9107e87107dbd07bd",
-      "width": 1080,
-      "height": 2400,
-      "bytes": 321223,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/creation-factory/diy-test.jpg-18054638afd29f94-480.webp",
-          "width": 480,
-          "height": 1067,
-          "bytes": 112284
-        },
-        {
-          "src": "assets/optimized/project-design/creation-factory/diy-test.jpg-18054638afd29f94-960.webp",
-          "width": 960,
-          "height": 2133,
-          "bytes": 271070
-        },
-        {
-          "src": "assets/optimized/project-design/creation-factory/diy-test.jpg-18054638afd29f94-1080.webp",
-          "width": 1080,
-          "height": 2400,
-          "bytes": 320204
-        }
-      ]
-    },
-    "assets/project-design/creation-factory/production-test.jpg": {
-      "sourceSha256": "322de568bc88de00064fb5aff640cb05a36ecd6591eb90f3f4e7dc20b648ec86",
-      "width": 1080,
-      "height": 2400,
-      "bytes": 252851,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/creation-factory/production-test.jpg-322de568bc88de00-480.webp",
-          "width": 480,
-          "height": 1067,
-          "bytes": 82880
-        },
-        {
-          "src": "assets/optimized/project-design/creation-factory/production-test.jpg-322de568bc88de00-960.webp",
-          "width": 960,
-          "height": 2133,
-          "bytes": 206506
-        },
-        {
-          "src": "assets/optimized/project-design/creation-factory/production-test.jpg-322de568bc88de00-1080.webp",
-          "width": 1080,
-          "height": 2400,
-          "bytes": 234612
-        }
-      ]
-    },
-    "assets/project-design/creation-factory/shelf-test.jpg": {
-      "sourceSha256": "fb10bef85376e98b5c3c806acae153b226a81a4d2b3afe8b48fda363b7c99a5e",
-      "width": 544,
-      "height": 860,
-      "bytes": 60799,
-      "variants": [
-        {
-          "src": "assets/optimized/project-design/creation-factory/shelf-test.jpg-fb10bef85376e98b-480.webp",
-          "width": 480,
-          "height": 759,
-          "bytes": 53404
-        }
-      ]
-    },
     "assets/project-design/crisis-dawn/challenge-flow.jpeg": {
       "sourceSha256": "14e0089290e74a8b909debc33bba07ab280d235facb68e5256eaa5e8f74d4af0",
       "width": 2560,
@@ -5399,6 +5333,134 @@
           "width": 576,
           "height": 768,
           "bytes": 406468
+        }
+      ]
+    },
+    "assets/project-design/creation-factory/blueprint-gallery.webp": {
+      "sourceSha256": "47effff59d6628c1d1437ea952d577b759064501a03378b6c5ccc3509ff77d50",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 2644740,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/creation-factory/blueprint-gallery.webp-47effff59d6628c1-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 47414
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/blueprint-gallery.webp-47effff59d6628c1-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 172948
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/blueprint-gallery.webp-47effff59d6628c1-1440.webp",
+          "width": 1440,
+          "height": 1080,
+          "bytes": 321036
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/blueprint-gallery.webp-47effff59d6628c1-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 457640
+        }
+      ]
+    },
+    "assets/project-design/creation-factory/diy-design.webp": {
+      "sourceSha256": "deabe6c70e6cb3bae4212c89f303cab469d42cffd99774ed9d87712f6c073b93",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 2455396,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-design.webp-deabe6c70e6cb3ba-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 46030
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-design.webp-deabe6c70e6cb3ba-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 165446
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-design.webp-deabe6c70e6cb3ba-1440.webp",
+          "width": 1440,
+          "height": 1080,
+          "bytes": 312184
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-design.webp-deabe6c70e6cb3ba-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 445540
+        }
+      ]
+    },
+    "assets/project-design/creation-factory/diy-saved.webp": {
+      "sourceSha256": "168be9492a17c77a62598a6de7115704a46c48b2d353b298c80844926736654b",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 1987856,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-saved.webp-168be9492a17c77a-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 33942
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-saved.webp-168be9492a17c77a-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 113934
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-saved.webp-168be9492a17c77a-1440.webp",
+          "width": 1440,
+          "height": 1080,
+          "bytes": 198874
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/diy-saved.webp-168be9492a17c77a-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 287026
+        }
+      ]
+    },
+    "assets/project-design/creation-factory/npc-order.webp": {
+      "sourceSha256": "ecac9416e79780bbc81465cd28c6d58a03b34c771c525f47674932a399fed949",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 2715752,
+      "variants": [
+        {
+          "src": "assets/optimized/project-design/creation-factory/npc-order.webp-ecac9416e79780bb-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 58560
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/npc-order.webp-ecac9416e79780bb-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 182494
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/npc-order.webp-ecac9416e79780bb-1440.webp",
+          "width": 1440,
+          "height": 1080,
+          "bytes": 342064
+        },
+        {
+          "src": "assets/optimized/project-design/creation-factory/npc-order.webp-ecac9416e79780bb-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 519800
         }
       ]
     }

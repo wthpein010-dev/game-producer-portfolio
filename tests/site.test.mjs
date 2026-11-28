@@ -259,6 +259,24 @@ test('all career pages lead with work value and distinguish project evidence fro
   for(const job of content.jobs){const entry=one(home.document,n=>n.attrs.id===`company-${job.slug}`,'Timeline work summary');assert.ok(textOf(entry).includes(job.lead));}
 });
 
+test('Creation Factory pairs its historical interface art with the design cases', async () => {
+  const detail = await page('projects/creation-factory/index.html');
+  const section = one(detail.document, node => node.attrs.id === 'career-project-detail', 'Creation Factory portfolio');
+  const files = nodes(section, node => node.tag === 'img');
+  assert.deepEqual(files.map(image => originalSource(image).split('/').at(-1)), [
+    'diy-design.webp', 'blueprint-gallery.webp', 'npc-order.webp', 'diy-saved.webp',
+  ]);
+  for (const img of files) {
+    assert.equal(img.attrs.width, '1920');
+    assert.equal(img.attrs.height, '1440');
+    assert.ok(img.attrs.alt && img.attrs.srcset);
+    const figure = one(section, node => node.tag === 'figure' && nodes(node, child => child === img).length, 'Interface figure');
+    one(figure, node => node.tag === 'a' && node.attrs.href === originalSource(img), 'Open full interface');
+    assert.match(textOf(figure), /团队历史界面效果稿/u);
+  }
+  assert.doesNotMatch(detail.html, /diy-test\.jpg|production-test\.jpg|shelf-test\.jpg|甜蜜测试季/u);
+});
+
 test('skills show six concrete evidence groups without empty or placeholder anchors', async () => {
   const { home } = await site();
   const cards = nodes(home.document, node => hasClass(node, 'skill-card'));

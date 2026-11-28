@@ -53,12 +53,11 @@ const earlyCareerProjects = {
       '售卖与补货：成品摆进货架，玩家可吸引顾客加快售卖，也可启用补货助手接续陈列。'
     ],
     images: [
-      {file:'diy-test.jpg',width:1080,height:2400,sha256:'18054638afd29f94cd0d1484e5e825524fd9da96c7cda2d9107e87107dbd07bd',alt:'造物梦工厂历史测试版 DIY 界面，顶部显示组装的玩偶，下方展示部件列表',caption:'把收集的部件组合成玩偶'},
-      {file:'production-test.jpg',width:1080,height:2400,sha256:'322de568bc88de00064fb5aff640cb05a36ecd6591eb90f3f4e7dc20b648ec86',alt:'造物梦工厂历史测试版生产窗口，展示玩偶列表及制作相关状态',caption:'选择要生产的玩偶'},
-      {file:'shelf-test.jpg',width:544,height:860,sha256:'fb10bef85376e98b5c3c806acae153b226a81a4d2b3afe8b48fda363b7c99a5e',alt:'造物梦工厂历史测试版货架界面，展示已上架的玩偶及可选商品',caption:'将生产的玩偶加入货架'}
+      {file:'diy-design.webp',width:1920,height:1440,sha256:'deabe6c70e6cb3bae4212c89f303cab469d42cffd99774ed9d87712f6c073b93',alt:'设计生产图纸界面，右侧按部位列出部件，左侧画板展示轮廓和属性',caption:'按部位挑选图纸，在画板预览搭配'},
+      {file:'blueprint-gallery.webp',width:1920,height:1440,sha256:'47effff59d6628c1d1437ea952d577b759064501a03378b6c5ccc3509ff77d50',alt:'方案图鉴以卡片展示已保存的生物方案，底部有设计和制造入口',caption:'浏览已存方案，继续设计或前往制造'}
     ],
-    imageSource: '玉米游戏工作室「甜蜜测试季」公开配图',
-    sourceUrl: 'https://www.taptap.cn/moment/144843023287585795?group_id=66338',
+    imageSource: '团队历史界面效果稿',
+    wideImages: true,
     caseStudy: {
       title: '把主线与支线任务放进店铺经营',
       intro: '我参与主线与支线任务设计。主线用人物和事件交代世界背景，支线给不同 NPC 留出成长空间。任务条件取自玩家已经在做的事，让剧情能接回接单、组装和经营。',
@@ -66,31 +65,40 @@ const earlyCareerProjects = {
         '主线可要求交材料、完成指定 NPC 订单、场景互动或达到经营目标。以指定订单为例，玩家在任务页核对要求和进度，再直接前往订单界面处理。',
         '支线可让 NPC 提出造物要求，再引导玩家进入 DIY 组合。任务把外观或部件条件写成可执行的目标，玩家在常用界面完成创作。',
         '人物信息随任务推进逐步出现。阶段回馈和来信承接玩家已完成的行动，也给下一次遇到同一个人留下线索。'
+      ],
+      images: [
+        {file:'npc-order.webp',width:1920,height:1440,sha256:'ecac9416e79780bbc81465cd28c6d58a03b34c771c525f47674932a399fed949',alt:'订单左页显示 NPC 列表，右页显示部件要求和星级不足提示，交付按钮置灰',caption:'核对 NPC 订单和部件条件，条件不足时暂缓交付'},
+        {file:'diy-saved.webp',width:1920,height:1440,sha256:'168be9492a17c77a62598a6de7115704a46c48b2d353b298c80844926736654b',alt:'保存成功弹窗展示已设计的生物，并提供继续设计和去制造入口',caption:'确认图纸保存成功，从结果界面进入制造'}
       ]
     },
-    note: '个人分工依据本人确认。任务案例依据历史主支线界面与叙事方案整理；配图为开发商公开测试版的经营画面。'
+    note: '个人分工依据本人确认。任务案例根据历史主支线方案整理。配图为团队历史界面效果稿，画面中的数值用于示意界面状态。'
   }
 };
 
 export function renderEarlyCareerDesign(project) {
   if (!project || !Object.hasOwn(earlyCareerProjects, project.slug)) return '';
-  const {title, intro, heading, steps, images, imageSource, sourceUrl, caseStudy, note} = earlyCareerProjects[project.slug];
-  const figures = images?.map(({file, width, height, alt, caption}) => {
-    const src = `../../assets/project-design/${project.slug}/${file}`;
-    return `<figure>
-      <a href="${src}" aria-label="放大${caption}"><img src="${src}" width="${width}" height="${height}" loading="lazy" decoding="async" alt="${alt}"></a>
+  const {title, intro, heading, steps, images, imageSource, wideImages, sourceUrl, caseStudy, note} = earlyCareerProjects[project.slug];
+  const renderGallery = screenshots => {
+    if (!screenshots?.length) return '';
+    const figures = screenshots.map(({file, width, height, alt, caption}) => {
+      const src = `../../assets/project-design/${project.slug}/${file}`;
+      return `<figure${wideImages ? ' class="project-reference-image"' : ''}>
+      <a${wideImages ? ' class="taptap-image-link"' : ''} href="${src}" aria-label="放大${caption}"><img src="${src}" width="${width}" height="${height}" loading="lazy" decoding="async" alt="${alt}"></a>
       <figcaption><strong>${caption}</strong><small>${imageSource}</small></figcaption>
     </figure>`;
-  }).join('');
+    }).join('');
+    const layout = wideImages ? 'taptap-shot-grid' : 'career-ui-grid';
+    return `<div class="${layout}">${figures}</div>
+    `;
+  };
   const example = caseStudy ? `<section class="idiom-chapter">
       <h3>${caseStudy.title}</h3>
       <p class="idiom-chapter-lead">${caseStudy.intro}</p>
       <ul>${caseStudy.points.map(point => `<li>${point}</li>`).join('')}</ul>
-    </section>` : '';
+    ${renderGallery(caseStudy.images)}</section>` : '';
   return `<section class="matchmaking-design idiom-chapter" id="career-project-detail" aria-labelledby="career-project-detail-title">
     <header><h2 id="career-project-detail-title">${title}</h2><p class="matchmaking-intro">${intro}</p></header>
-    ${figures ? `<div class="career-ui-grid">${figures}</div>
-    ` : ''}<div class="matchmaking-map-notes">
+    ${renderGallery(images)}<div class="matchmaking-map-notes">
       <div><h3>${heading}</h3><ol>${steps.map(step => `<li>${step}</li>`).join('')}</ol></div>
       <div><h3>职责与资料依据</h3><p>${note}</p>${sourceUrl ? `
         <a class="text-link" href="${sourceUrl}">查看公开来源 ↗</a>` : ''}
