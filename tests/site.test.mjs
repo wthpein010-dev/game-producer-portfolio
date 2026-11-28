@@ -104,7 +104,7 @@ function site() {
     const ringHaven=await page('projects/ring-haven/index.html');
     const nanjie=await page('projects/nanjie-repair-shop/index.html');
     const coffee=await page('projects/yujiang-coffee/index.html');
-    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows','poetry-letters','laurel-arena','monster-workshop','assembly-workshop'].map(slug => page(`projects/${slug}/index.html`)));
+    const moreGames = await Promise.all(['token-game','zhuyin-jianghu','fading-shadows','poetry-letters','laurel-arena','monster-workshop','assembly-workshop','before-sign-off'].map(slug => page(`projects/${slug}/index.html`)));
     const gamePages = [...taptapPages, ...hubGamePages, ringHaven, nanjie, coffee, ...moreGames];
     return { content, home, companies, projects, notes, projectRecords, taptapPages, hubGamePages, gamePages, pages: [home, ...companies, ...projects, ...notes, ...gamePages, collaboration, pocket] };
   })();
@@ -514,7 +514,7 @@ test('AI game cards use one attributable landscape cover and aligned content row
   const cards=nodes(section,n=>hasClass(n,'ai-game-card'));
   const {covers}=JSON.parse(await readFile(join(root,'assets/ai-game-covers/manifest.json'),'utf8'));
   const coversBySource=new Map(Object.values(covers).map(cover=>[cover.src,cover]));
-  assert.equal(cards.length,30);
+  assert.equal(cards.length,31);
   for(const card of cards){
     const children=card.children.filter(child=>typeof child!=='string');
     assert.deepEqual(children.map(n=>n.tag),['header','figure','p','ul','p','footer']);
@@ -539,7 +539,8 @@ test('Fading Shadows links the personal-works card to the verified game design c
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#fading-shadows'&&textOf(n)==='返回个人作品','Return to the same card');
   const {images}=JSON.parse(await readFile(join(root,'assets/fading-shadows/media.json'),'utf8'));
   const figures=nodes(detail.document,n=>n.tag==='figure');
-  assert.equal(figures.length,23);
+  assert.ok(figures.length>=26);
+  assert.match(textOf(detail.document),/人物传/u);
   const trailer=one(detail.document,n=>n.tag==='video','Playable gameplay trailer');
   assert.ok(Object.hasOwn(trailer.attrs,'controls'));
   assert.equal(trailer.attrs.preload,'none');
@@ -561,7 +562,7 @@ test('Fading Shadows links the personal-works card to the verified game design c
 
 test('All AI game details show play and design without standalone role and version panels',async()=>{
   const {home,gamePages,hubGamePages}=await site();
-  assert.equal(gamePages.length,30);
+  assert.equal(gamePages.length,31);
   for(const detail of gamePages){
     const main=one(detail.document,n=>n.tag==='main','Game details');
     assert.ok(nodes(main,n=>n.tag==='h2').length>=2,detail.path);
@@ -580,6 +581,23 @@ test('All AI game details show play and design without standalone role and versi
   }
 });
 
+test('Before Sign Off presents the Windows trial as a computer project', async () => {
+  const {home,gamePages}=await site();
+  const catalog=one(home.document,node=>node.attrs.id==='hub-games','Computer and web works');
+  const card=one(catalog,node=>node.attrs.id==='before-sign-off','Before Sign Off card');
+  assert.match(textOf(card), /Windows 0\.5\.5 本地试玩/u);
+  one(card,node=>node.tag==='a'&&node.attrs.href==='projects/before-sign-off/','Story case link');
+  const detail=gamePages.find(page=>page.path==='projects/before-sign-off/index.html');
+  for (const id of ['opening','choice','story-map','chapters']) {
+    const part=one(detail.document,node=>node.tag==='article'&&node.attrs.id===id,'Interactive story case');
+    const original='../../assets/before-sign-off/'+id+'.webp';
+    one(part,node=>node.tag==='a'&&node.attrs.href===original,'Public full image');
+    one(part,node=>node.tag==='img'&&originalSource(node)===original&&node.attrs.srcset,'Responsive preview');
+  }
+  assert.match(textOf(detail.document),/序章与第一章《回声登记处》/u);
+  one(detail.document,node=>node.tag==='a'&&node.attrs.href==='../../index.html#before-sign-off'&&hasClass(node,'button'),'Return to the card');
+});
+
 test('Assembly Workshop has one browser-game card, a public demo and a visual design detail', async () => {
   const {home,gamePages}=await site();
   const catalog=one(home.document,n=>n.attrs.id==='hub-games','Computer and web works');
@@ -590,7 +608,10 @@ test('Assembly Workshop has one browser-game card, a public demo and a visual de
   assert.equal(nodes(home.document,n=>n.attrs.id==='assembly-workshop').length,1);
   const detail=gamePages.find(page=>page.path==='projects/assembly-workshop/index.html');
   const originals=nodes(detail.document,n=>n.tag==='a'&&n.attrs.href?.startsWith('../../assets/assembly-workshop/'));
-  assert.deepEqual(originals.map(link=>link.attrs.href.split('/').at(-1)),['factory.webp','case-start.webp','case-retry.webp','case-result.webp']);
+  assert.deepEqual(originals.map(link=>link.attrs.href.split('/').at(-1)).sort(),[
+    'factory.webp','case-start.webp','case-retry.webp','case-result.webp',
+    'pc-hud-station.webp','pc-creator.webp','pc-activities.webp',
+  ].sort());
   one(detail.document,n=>n.tag==='a'&&n.attrs.href===publicDemo,'Public demo from the detail');
   one(detail.document,n=>n.tag==='a'&&n.attrs.href==='../../index.html#assembly-workshop','Return to the card');
 });

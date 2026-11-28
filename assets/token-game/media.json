@@ -80,5 +80,51 @@
     "height": 900,
     "bytes": 906204,
     "sha256": "d4fb22bf28f3b907d83381f1276b286015e082c12db425f67c571195707c48a3"
+  },
+  "currentBuild": {
+    "version": "0.32.0",
+    "platform": "Windows",
+    "validation": "导出包无界面验收",
+    "artwork": [
+      {
+        "id": "audio-orders-art",
+        "width": 1536,
+        "height": 1024,
+        "alt": "六张音频主题工单的原创插画图集，包含麦克风、游戏手柄和展会音响",
+        "caption": "0.31.2 已采用的工单原画，由 ImageGen 生成。",
+        "source": "work-order-atlas-source.png",
+        "sourceSha256": "ac359f02020202bddaa8cb98e9fce90d27ba5ec6e7aada6d1423a06f2de3d53e",
+        "sha256": "bf35cc2524252ff9713e6a7776235b6f666b9cecb974accf1137db7345bd5397",
+        "file": "audio-orders-art.webp",
+        "bytes": 2155980,
+        "version": "0.31.2"
+      },
+      {
+        "id": "music-covers-art",
+        "width": 1536,
+        "height": 1024,
+        "alt": "六张原创唱片封面，画有晨间咖啡、雨窗、城市巴士、像素游戏和磁带",
+        "caption": "0.31.2 已采用的唱片封面原画，由 ImageGen 生成。",
+        "source": "cover-atlas-source.png",
+        "sourceSha256": "adc26df277e73aad5c560aaf9572d938c8ce8e7fc1d8683ee219ca2aef6edeba",
+        "sha256": "61f4cc14f740d160b22c7ec165054f814be74e377151ab8a6fa489b58c44eaf6",
+        "file": "music-covers-art.webp",
+        "bytes": 2160902,
+        "version": "0.31.2"
+      },
+      {
+        "id": "radio-mini-games-art",
+        "file": "radio-mini-games-art.webp",
+        "version": "0.32.0",
+        "width": 1774,
+        "height": 887,
+        "alt": "电台小家与电台调频的双款游戏图标原画，左侧是小屋旁的收音机，右侧是带指针的电台",
+        "caption": "0.32.0 已采用的两款电台小游戏图标原画，由 ImageGen 生成。",
+        "source": "arcade-icons-source.png",
+        "sourceSha256": "06e288ba5b7364c2dbf6d406fef65333d06fed2aee7adc1143c1c08d9d1e77d3",
+        "sha256": "96bbf3551cea248ca0df70881a8fd91a73d96bed9885cf70d40d0b36233e5618",
+        "bytes": 1353838
+      }
+    ]
   }
 }

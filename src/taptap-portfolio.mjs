@@ -61,7 +61,7 @@ export function renderTapTapBody(game) {
   const editionLink=edition ? `<p><a class="text-link" href="${e(edition.entry)}">${edition.id==='icecream' ? '《吃了个冰》Unity 试玩' : '网页试玩版'} <span aria-hidden="true">↗</span></a></p>` : '';
   const pcShots=game===myLifeGame ? myLifePcShots : [];
   const detailShots=game.shots.slice(1);
-  const storyShots=new Set(overview.stories.map(item=>item.shot).filter(Boolean));
+  const storyShots=new Set(overview.stories.map(item=>item.shot).filter(shot=>typeof shot==='string'));
   const filename=shot=>shot.src.split('/').at(-1);
   const shotsByName=new Map([...detailShots,...pcShots].map(shot=>[filename(shot),shot]));
   const remaining=detailShots.filter(shot=>!storyShots.has(filename(shot)));
@@ -84,7 +84,7 @@ export function renderTapTapBody(game) {
     <section class="taptap-design" id="design" aria-labelledby="design-title">
       <header><h2 id="design-title">系统设计</h2><p>${e(overview.mediaNote ?? game.captureNote.replace(/^以下来自/u, '展示图来自'))}</p></header>
       <div class="game-design-stories">${overview.stories.map(item=>{
-        const shot=item.shot ? shotsByName.get(item.shot) : null;
+        const shot=typeof item.shot==='string' ? shotsByName.get(item.shot) : item.shot;
         const figure=shot && pcShots.includes(shot) ? {...shot,caption:`Windows 0.19 · ${shot.caption}`} : shot;
         return `<article><div class="game-design-copy"><h3>${e(item.title)}</h3><p>${e(item.text)}</p></div>${figure?screenshot(figure,base,'game-design-shot'):''}</article>`;
       }).join('')}</div>

@@ -1,3 +1,5 @@
+import jigmemeExhibit from '../assets/taptap/jigmeme/exhibit-review/media.json' with {type:'json'};
+
 export const taptapDesignStories = {
   'daynight-fate': {
     hook: '白天，你可以打出一张塔罗牌去工坊赚钱，也可以把它留到夜里对付梦魇。可一到夜晚，手里的牌会全部逆位，原本的好牌也可能要你付出新的代价。',
@@ -14,10 +16,13 @@ export const taptapDesignStories = {
   jigmeme: {
     hook: '橘猫的耳朵夹在蓝莓挞和手风琴之间。找对接缝，把连起来的碎片整组拖走，清掉一幅就能看见下一批。',
     gameplay: '一块棋盘同时铺开几幅生活插画。看纹理和边缘找邻片，拼好一幅就让它退场，接住按列落下的新碎片。把本关作品全部拼完，就能在结算里翻看完整插画。',
+    mediaNote: '拼图与结算保留 Android 试玩版 0.60.0 图。展厅地图与作品墙来自独立开发试玩 0.52.45 的 Android 模拟器验收。',
     stories: [
       { title: '拼好的碎片可以一起拖', text: '两片接上之后会组成可移动的小组。棋盘混着几幅图时，可以先找到容易辨认的接缝，再把小组拖去和其他碎片拼合。', shot: 'zh-level-one.webp' },
       { title: '每幅画都会腾出下一轮空间', text: '拼完一幅，画面退场，各列按剩余数量补进碎片。最后一批落稳后，棋盘再向上展开，让剩下的碎片有更多腾挪空间。', shot: 'zh-after-deal.webp' },
       { title: '通关后把插画带走', text: '结算记录用时、步数和连击，也能逐幅翻看刚拼好的原图。作品图鉴按主题和收集状态筛选，隐藏收藏则单独提示还需要解锁的关卡。', shot: 'zh-artwork.webp' },
+      { title: '在画廊地图上继续找下一幅', text: '独立展厅分支把作品按主题分布在三页参观路线。地图同时标明展区整体的上墙进度和单幅目标，玩家能从当前路线知道下一面墙有什么。', shot: jigmemeExhibit.shots[0] },
+      { title: '作品墙保留收集进度', text: '进入作品墙，看见实际收集的拼片与当前进度。要换一幅作品时可以回到路线，继续原来的展区，不用重新找入口。此处展示开发试玩的本地模拟器验收。', shot: jigmemeExhibit.shots[1] },
     ],
   },
   'your-child': {

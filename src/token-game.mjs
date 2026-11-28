@@ -28,7 +28,7 @@ function figure(id, base) {
 export function renderTokenGameEntry() {
   return renderAiGameCard({id: 'token-game', title,
     description: '靠 AI 接活养活工作室。玩家接单、分配 Token，决定遇到返工时继续修还是及时止损。',
-    tags: ['接单经营', 'Token 预算', '返工取舍'], status: 'Windows 可玩原型',
+    tags: ['接单经营', 'Token 预算', '返工取舍'], status: `Windows 开发版 ${media.currentBuild.version}`,
     href: 'projects/token-game/', detailLabel: '查看玩法设计',
   });
 }
@@ -43,7 +43,8 @@ export function renderTokenGameBody() {
       <p class="detail-lede">开工作室的第一天，存款只有 12 美元，会员费已经欠了 200 美元。</p>
       <p>从漫剧试片、宣传短句到提示词模板，每件活都要花 Token。今天能做几单、要留多少给返工，都得在看到到账金额之前决定。</p>
       <p class="token-game-source">Godot / GDScript · Windows 可玩原型 ${media.version} · 画面取自同版本导出包的测试场景</p>
-      <nav class="collaboration-nav" aria-label="游戏玩法目录"><a href="#token-game-production">委托与制作 ↓</a><a href="#token-game-day">返工与日结 ↓</a><a href="#token-game-phone">工作室手机 ↓</a><a href="#token-game-progression">成就与收藏 ↓</a></nav>
+      <p class="token-game-source">开发更新 · Windows ${media.currentBuild.version} 导出包已完成无界面验收。</p>
+      <nav class="collaboration-nav" aria-label="游戏玩法目录"><a href="#token-game-production">委托与制作 ↓</a><a href="#token-game-day">返工与日结 ↓</a><a href="#token-game-phone">工作室手机 ↓</a><a href="#token-game-current">工单、音乐与小游戏 ↓</a><a href="#token-game-progression">成就与收藏 ↓</a></nav>
     </header>
     ${figure('workbench', base)}
     <section class="token-game-section" id="token-game-production" aria-labelledby="token-game-design-title">
@@ -67,6 +68,16 @@ export function renderTokenGameBody() {
       <div class="token-game-pair">
         <article><h3>从「风声」区分情报和交稿</h3><p>动态把工作室情报与实际交稿回执按时间列出。玩家可以先读消息，再决定是否采用对应情报。</p>${figure('phone-buzz', base)}</article>
         <article><h3>用作品相册回看本局成果</h3><p>相册以双列展示作品，可以区分已交付、已上架和库存内容，也能回看有预览的试片。</p>${figure('phone-album', base)}</article>
+      </div>
+    </section>
+    <section class="token-game-section" id="token-game-current" aria-labelledby="token-game-current-title">
+      <h2 id="token-game-current-title">工单随营业阶段变化，手机可以边做边听</h2>
+      <p>不同营业阶段逐步增加播客开场铃、访谈逐字稿、像素音效包等专属工单。每日工单从当时已开放的品类中抽取，读档会保留当天已经抽到的内容。工单插画贯穿预览、交付回执与手机产物记录。</p>
+      <p>手机音乐把播放进度、随机、循环与收藏放在同一个入口。手动点选后，收起手机或换场景也能继续听。还可以选择随场景播放，让曲子与工作台或日结的节奏一起切换。</p>
+      <h3>用 Token 做一款自己的电台小游戏</h3>
+      <p>0.32.0 在手机的 AI 游戏工坊加入《电台小家》和《电台调频》。前者开播累积音符，用于布置小屋，摆设会影响挂机收益。后者用左右方向提示缩小频点范围，完成三轮再看成绩。生成初版会遇到缓存容量或信号显示问题，可再安排一个制作线程修补。</p>
+      <div class="token-game-pair">
+        ${media.currentBuild.artwork.map(({file,width,height,alt,caption})=>`<figure class="token-game-figure token-game-artwork"><a href="${base}assets/token-game/${file}" aria-label="放大查看${alt}"><img src="${base}assets/token-game/${file}" width="${width}" height="${height}" loading="lazy" decoding="async" alt="${alt}"></a><figcaption>${caption}</figcaption></figure>`).join('')}
       </div>
     </section>
     <section class="token-game-section" id="token-game-progression" aria-labelledby="token-game-progression-title">

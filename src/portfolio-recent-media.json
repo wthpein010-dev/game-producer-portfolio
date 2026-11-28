@@ -134,6 +134,54 @@
       "height": 1280,
       "bytes": 154166,
       "sha256": "06563672f1921aa728f75dc7ff18b9a4fae6fc5955174ffa15f49f2279b700d2"
+    },
+    {
+      "id": "chapter-home-win",
+      "width": 720,
+      "height": 1280,
+      "alt": "为你赋诗江南首页切换到第二章信笺，可查看章节阅读进度",
+      "caption": "Windows 开发版，主线信笺可以在已解锁的章节间切换。",
+      "source": "home-chapter-2.png",
+      "sourceSha256": "8caeaa0829855f60727b82ea9c339db01c3b2a65698756155734a15de82c4c6c",
+      "sha256": "a1cc6bd05b42682120dbde9cc7e4bf3b38be400e3e615b5544d4aa12122fe98f",
+      "src": "assets/poetry-letters/chapter-home-win.webp",
+      "bytes": 729432
+    },
+    {
+      "id": "theme-preview-win",
+      "width": 720,
+      "height": 1280,
+      "alt": "暖白色主题集弹窗显示多个带封面和已读进度的主题",
+      "caption": "Windows 开发版，主题集可预览主题并查看阅读进度。",
+      "source": "06-theme-shelf.png",
+      "sourceSha256": "6a7735220f16acc27b3a36552d78c3445f6de2c52f68fd68e0432f7dd42a0f30",
+      "sha256": "1c1fe3d735dedcd48a739a3e23efd41b805cff2665e590f8af28ab4cf93d8b0c",
+      "src": "assets/poetry-letters/theme-preview-win.webp",
+      "bytes": 593494
+    },
+    {
+      "id": "letter-scene-win",
+      "width": 720,
+      "height": 1280,
+      "alt": "雨后街景铺满竖屏，信纸与候选字块叠在同一张底图上",
+      "caption": "Windows 开发版，雨后场景、信纸和字盘使用一张连续背景。",
+      "source": "02-first-letter.png",
+      "sourceSha256": "0384e2fd814c2e2da8fc32063744a1e8b45bbd6a4b6898f7eea1826b48c8f835",
+      "sha256": "a5441bdc10b461a93a5815e2b0e733cea5c4057427e402a9ea88926673427c46",
+      "src": "assets/poetry-letters/letter-scene-win.webp",
+      "bytes": 732962
+    },
+    {
+      "id": "letter-turn-win",
+      "width": 540,
+      "height": 960,
+      "alt": "答对一段后，信纸右下角翻起进入下一段",
+      "caption": "Windows 开发版，段落确认后以翻纸动作衔接下一段。",
+      "source": "article-page-turn.png",
+      "sourceSha256": "3621c65fd46fa435634913b9d21b90e171d83a70405e133721151572b239652e",
+      "sha256": "6580908deb82d0d054c611e051434e1095f64f1d2dadf2fab3751113163fc39f",
+      "src": "assets/poetry-letters/letter-turn-win.webp",
+      "bytes": 484450
     }
   ],
   "laurel-arena": [

@@ -33,12 +33,12 @@
     {
       "id": "title",
       "file": "title.webp",
-      "width": 1366,
-      "height": 768,
-      "alt": "群像夜色主界面，右侧列出初入江湖、江湖恩怨、兵器谱和设置",
-      "caption": "夜色群像主题，左侧呈现主要角色，操作集中到右侧菜单。",
-      "source": "2026-11-25 主界面实机验收",
-      "sha256": "3df758ccfc1190bc7c111e8608ac329d05edb3aadc26179799b5a8d006d151d9"
+      "width": 1280,
+      "height": 719,
+      "alt": "影逝之境夜色群像主界面，右侧菜单在兵器谱和设置之间列出人物传",
+      "caption": "新版主界面可从兵器谱下方打开人物传。",
+      "source": "2026-11-28 Windows 0.23.0 实包验收",
+      "sha256": "239cad13778bbbe7eb32a05817b5358941b132cca441e48521dc2b47df7dea0c"
     },
     {
       "id": "melee",
@@ -229,6 +229,36 @@
       "caption": "从关卡预览确认路线、场景和已解锁进度。",
       "source": "2026-11-25 Web 开发构建实机验收",
       "sha256": "65a4c58ce03d589d30978c87b4e5e23ea1b5f9b26b371896c002889621f71880"
+    },
+    {
+      "id": "biography-reader",
+      "file": "biography-reader.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "人物传白风阅读页，左侧角色目录，中间半身立绘及同角色的 Q 版小像，右侧是传记正文",
+      "caption": "白风的人物传。半身立绘与沿用实战序列帧的动态小像同屏。",
+      "source": "2026-11-28 Windows 0.23.0 实包验收",
+      "sha256": "a9a999828b4dbc5dd7245b498a236df5f81cc02fe6f11b66749edc1c8dd9de9d"
+    },
+    {
+      "id": "biography-sealed",
+      "file": "biography-sealed.webp",
+      "width": 1366,
+      "height": 768,
+      "alt": "赤砧的人物传中，选中名为问号的锁定卷页，正文区给出处提示",
+      "caption": "未解锁的卷页保留标题问号，在详情中给出线索所在关卡。",
+      "source": "2026-11-28 Windows 0.23.0 实包验收",
+      "sha256": "a7e3de465a54e41183e9240a967b1d12c5ae2f47c8a6b121911914f2fe892c39"
+    },
+    {
+      "id": "biography-unlocked",
+      "file": "biography-unlocked.webp",
+      "width": 1280,
+      "height": 719,
+      "alt": "炉火场景的实机画面，侠客在破开的箱子附近收到人物传解锁提示",
+      "caption": "在关卡捡起线索后，战斗界面提示对应的人物传已解锁。",
+      "source": "2026-11-28 Windows 0.23.0 实包验收",
+      "sha256": "afc72239169880737bd9e208cd65eeef8fabde3053821cc0cf936e1b0e1cf6ec"
     }
   ]
 }

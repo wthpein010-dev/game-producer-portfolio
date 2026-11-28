@@ -5463,6 +5463,794 @@
           "bytes": 519800
         }
       ]
+    },
+    "assets/before-sign-off/chapters.webp": {
+      "sourceSha256": "9b3633efc0acccb56d37e8e55f5f39b73f1e22c88e3b5b11acd1975412ef2ce3",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 998880,
+      "variants": [
+        {
+          "src": "assets/optimized/before-sign-off/chapters.webp-9b3633efc0acccb5-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 28444
+        },
+        {
+          "src": "assets/optimized/before-sign-off/chapters.webp-9b3633efc0acccb5-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 94736
+        },
+        {
+          "src": "assets/optimized/before-sign-off/chapters.webp-9b3633efc0acccb5-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 176730
+        },
+        {
+          "src": "assets/optimized/before-sign-off/chapters.webp-9b3633efc0acccb5-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 285702
+        }
+      ]
+    },
+    "assets/before-sign-off/choice.webp": {
+      "sourceSha256": "747d543a6c88dfe45251427f80d0a4702340423e615a0cd3cb96b0fe00a06d39",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1622148,
+      "variants": [
+        {
+          "src": "assets/optimized/before-sign-off/choice.webp-747d543a6c88dfe4-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 37968
+        },
+        {
+          "src": "assets/optimized/before-sign-off/choice.webp-747d543a6c88dfe4-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 95560
+        },
+        {
+          "src": "assets/optimized/before-sign-off/choice.webp-747d543a6c88dfe4-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 157474
+        },
+        {
+          "src": "assets/optimized/before-sign-off/choice.webp-747d543a6c88dfe4-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 227508
+        }
+      ]
+    },
+    "assets/before-sign-off/opening.webp": {
+      "sourceSha256": "5eac89fe15088b7f53acde3b3d9868a778a17183549c8c63f035e861d780a0f0",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1413376,
+      "variants": [
+        {
+          "src": "assets/optimized/before-sign-off/opening.webp-5eac89fe15088b7f-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 33304
+        },
+        {
+          "src": "assets/optimized/before-sign-off/opening.webp-5eac89fe15088b7f-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88492
+        },
+        {
+          "src": "assets/optimized/before-sign-off/opening.webp-5eac89fe15088b7f-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 147044
+        },
+        {
+          "src": "assets/optimized/before-sign-off/opening.webp-5eac89fe15088b7f-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 198852
+        }
+      ]
+    },
+    "assets/before-sign-off/story-map.webp": {
+      "sourceSha256": "96059801337b395d4627ab970846b6e3088b3b8d19ccc21a05e45a54b01995d7",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 559994,
+      "variants": [
+        {
+          "src": "assets/optimized/before-sign-off/story-map.webp-96059801337b395d-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 14080
+        },
+        {
+          "src": "assets/optimized/before-sign-off/story-map.webp-96059801337b395d-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 39180
+        },
+        {
+          "src": "assets/optimized/before-sign-off/story-map.webp-96059801337b395d-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 71036
+        },
+        {
+          "src": "assets/optimized/before-sign-off/story-map.webp-96059801337b395d-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 99746
+        }
+      ]
+    },
+    "assets/fading-shadows/biography-reader.webp": {
+      "sourceSha256": "a9a999828b4dbc5dd7245b498a236df5f81cc02fe6f11b66749edc1c8dd9de9d",
+      "width": 1366,
+      "height": 768,
+      "bytes": 291492,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/biography-reader.webp-a9a999828b4dbc5d-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 17806
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-reader.webp-a9a999828b4dbc5d-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 51718
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-reader.webp-a9a999828b4dbc5d-1366.webp",
+          "width": 1366,
+          "height": 768,
+          "bytes": 90146
+        }
+      ]
+    },
+    "assets/fading-shadows/biography-sealed.webp": {
+      "sourceSha256": "a7e3de465a54e41183e9240a967b1d12c5ae2f47c8a6b121911914f2fe892c39",
+      "width": 1366,
+      "height": 768,
+      "bytes": 280146,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/biography-sealed.webp-a7e3de465a54e411-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 14024
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-sealed.webp-a7e3de465a54e411-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 41756
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-sealed.webp-a7e3de465a54e411-1366.webp",
+          "width": 1366,
+          "height": 768,
+          "bytes": 75410
+        }
+      ]
+    },
+    "assets/fading-shadows/biography-unlocked.webp": {
+      "sourceSha256": "afc72239169880737bd9e208cd65eeef8fabde3053821cc0cf936e1b0e1cf6ec",
+      "width": 1280,
+      "height": 719,
+      "bytes": 1062116,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/biography-unlocked.webp-afc7223916988073-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 41086
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-unlocked.webp-afc7223916988073-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 136418
+        },
+        {
+          "src": "assets/optimized/fading-shadows/biography-unlocked.webp-afc7223916988073-1280.webp",
+          "width": 1280,
+          "height": 719,
+          "bytes": 224652
+        }
+      ]
+    },
+    "assets/fading-shadows/menu-cover.webp": {
+      "sourceSha256": "ca4230c186b9786b805903497a72baad93b79ea87890b641f99504f177104c53",
+      "width": 1280,
+      "height": 720,
+      "bytes": 269206,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/menu-cover.webp-ca4230c186b9786b-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 40174
+        },
+        {
+          "src": "assets/optimized/fading-shadows/menu-cover.webp-ca4230c186b9786b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 134840
+        },
+        {
+          "src": "assets/optimized/fading-shadows/menu-cover.webp-ca4230c186b9786b-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 236048
+        }
+      ]
+    },
+    "assets/fading-shadows/title.webp": {
+      "sourceSha256": "239cad13778bbbe7eb32a05817b5358941b132cca441e48521dc2b47df7dea0c",
+      "width": 1280,
+      "height": 719,
+      "bytes": 1035532,
+      "variants": [
+        {
+          "src": "assets/optimized/fading-shadows/title.webp-239cad13778bbbe7-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 40290
+        },
+        {
+          "src": "assets/optimized/fading-shadows/title.webp-239cad13778bbbe7-960.webp",
+          "width": 960,
+          "height": 539,
+          "bytes": 137646
+        },
+        {
+          "src": "assets/optimized/fading-shadows/title.webp-239cad13778bbbe7-1280.webp",
+          "width": 1280,
+          "height": 719,
+          "bytes": 237168
+        }
+      ]
+    },
+    "assets/poetry-letters/chapter-home-win.webp": {
+      "sourceSha256": "a1cc6bd05b42682120dbde9cc7e4bf3b38be400e3e615b5544d4aa12122fe98f",
+      "width": 720,
+      "height": 1280,
+      "bytes": 729432,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/chapter-home-win.webp-a1cc6bd05b426821-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 98716
+        },
+        {
+          "src": "assets/optimized/poetry-letters/chapter-home-win.webp-a1cc6bd05b426821-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 188182
+        }
+      ]
+    },
+    "assets/poetry-letters/letter-scene-win.webp": {
+      "sourceSha256": "a5441bdc10b461a93a5815e2b0e733cea5c4057427e402a9ea88926673427c46",
+      "width": 720,
+      "height": 1280,
+      "bytes": 732962,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/letter-scene-win.webp-a5441bdc10b461a9-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 68008
+        },
+        {
+          "src": "assets/optimized/poetry-letters/letter-scene-win.webp-a5441bdc10b461a9-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 114892
+        }
+      ]
+    },
+    "assets/poetry-letters/letter-turn-win.webp": {
+      "sourceSha256": "6580908deb82d0d054c611e051434e1095f64f1d2dadf2fab3751113163fc39f",
+      "width": 540,
+      "height": 960,
+      "bytes": 484450,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/letter-turn-win.webp-6580908deb82d0d0-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 66624
+        },
+        {
+          "src": "assets/optimized/poetry-letters/letter-turn-win.webp-6580908deb82d0d0-540.webp",
+          "width": 540,
+          "height": 960,
+          "bytes": 78312
+        }
+      ]
+    },
+    "assets/poetry-letters/theme-preview-win.webp": {
+      "sourceSha256": "1c1fe3d735dedcd48a739a3e23efd41b805cff2665e590f8af28ab4cf93d8b0c",
+      "width": 720,
+      "height": 1280,
+      "bytes": 593494,
+      "variants": [
+        {
+          "src": "assets/optimized/poetry-letters/theme-preview-win.webp-1c1fe3d735dedcd4-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 83684
+        },
+        {
+          "src": "assets/optimized/poetry-letters/theme-preview-win.webp-1c1fe3d735dedcd4-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 159774
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/exhibit-review/artwork-wall.webp": {
+      "sourceSha256": "2e08274d9c52730b49811080d2d8e20eaab64d5bf4de01744f0265a1f10f1515",
+      "width": 540,
+      "height": 960,
+      "bytes": 485962,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/exhibit-review/artwork-wall.webp-2e08274d9c52730b-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 60340
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/exhibit-review/artwork-wall.webp-2e08274d9c52730b-540.webp",
+          "width": 540,
+          "height": 960,
+          "bytes": 70588
+        }
+      ]
+    },
+    "assets/taptap/jigmeme/exhibit-review/route-selection.webp": {
+      "sourceSha256": "fa1fcc6193984248fc2c297213e6da60b8d5bf3b1d2d1774721024166f2d2e1d",
+      "width": 540,
+      "height": 960,
+      "bytes": 577838,
+      "variants": [
+        {
+          "src": "assets/optimized/taptap/jigmeme/exhibit-review/route-selection.webp-fa1fcc6193984248-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 118020
+        },
+        {
+          "src": "assets/optimized/taptap/jigmeme/exhibit-review/route-selection.webp-fa1fcc6193984248-540.webp",
+          "width": 540,
+          "height": 960,
+          "bytes": 140570
+        }
+      ]
+    },
+    "assets/token-game/audio-orders-art.webp": {
+      "sourceSha256": "bf35cc2524252ff9713e6a7776235b6f666b9cecb974accf1137db7345bd5397",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2155980,
+      "variants": [
+        {
+          "src": "assets/optimized/token-game/audio-orders-art.webp-bf35cc2524252ff9-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 70318
+        },
+        {
+          "src": "assets/optimized/token-game/audio-orders-art.webp-bf35cc2524252ff9-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 210548
+        },
+        {
+          "src": "assets/optimized/token-game/audio-orders-art.webp-bf35cc2524252ff9-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 419738
+        },
+        {
+          "src": "assets/optimized/token-game/audio-orders-art.webp-bf35cc2524252ff9-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 474276
+        }
+      ]
+    },
+    "assets/token-game/music-covers-art.webp": {
+      "sourceSha256": "61f4cc14f740d160b22c7ec165054f814be74e377151ab8a6fa489b58c44eaf6",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2160902,
+      "variants": [
+        {
+          "src": "assets/optimized/token-game/music-covers-art.webp-61f4cc14f740d160-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 77838
+        },
+        {
+          "src": "assets/optimized/token-game/music-covers-art.webp-61f4cc14f740d160-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 234888
+        },
+        {
+          "src": "assets/optimized/token-game/music-covers-art.webp-61f4cc14f740d160-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 431306
+        },
+        {
+          "src": "assets/optimized/token-game/music-covers-art.webp-61f4cc14f740d160-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 481142
+        }
+      ]
+    },
+    "assets/yujiang-coffee/bean-arrow-v34.webp": {
+      "sourceSha256": "b1349081ab69f3df8061315e5015025b33f0ccbcf7249565750587c985f6684d",
+      "width": 1600,
+      "height": 900,
+      "bytes": 1593596,
+      "variants": [
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-arrow-v34.webp-b1349081ab69f3df-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 49376
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-arrow-v34.webp-b1349081ab69f3df-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 158074
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-arrow-v34.webp-b1349081ab69f3df-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 295738
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-arrow-v34.webp-b1349081ab69f3df-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 343910
+        }
+      ]
+    },
+    "assets/yujiang-coffee/bean-pour-v34.webp": {
+      "sourceSha256": "efec83f52e6033f6fe970593713b80461f30235240f650d44a4d9acf160dd2f7",
+      "width": 1600,
+      "height": 900,
+      "bytes": 1581526,
+      "variants": [
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-pour-v34.webp-efec83f52e6033f6-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 48092
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-pour-v34.webp-efec83f52e6033f6-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 153478
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-pour-v34.webp-efec83f52e6033f6-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 282522
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/bean-pour-v34.webp-efec83f52e6033f6-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 336896
+        }
+      ]
+    },
+    "assets/yujiang-coffee/deck-hint-v34.webp": {
+      "sourceSha256": "508121a4c057b6312b48b87bfb8ef697b97ca97b0df6d53c9b0fecd52ad08814",
+      "width": 1200,
+      "height": 900,
+      "bytes": 703560,
+      "variants": [
+        {
+          "src": "assets/optimized/yujiang-coffee/deck-hint-v34.webp-508121a4c057b631-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34568
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/deck-hint-v34.webp-508121a4c057b631-960.webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 106070
+        },
+        {
+          "src": "assets/optimized/yujiang-coffee/deck-hint-v34.webp-508121a4c057b631-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 151412
+        }
+      ]
+    },
+    "assets/assembly-workshop/pc-activities.webp": {
+      "sourceSha256": "6b3baf413270dc0630e8c3c250f2ca84ac185b0520758919837fb8db21283ef2",
+      "width": 1440,
+      "height": 910,
+      "bytes": 549486,
+      "variants": [
+        {
+          "src": "assets/optimized/assembly-workshop/pc-activities.webp-6b3baf413270dc06-480.webp",
+          "width": 480,
+          "height": 303,
+          "bytes": 21558
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-activities.webp-6b3baf413270dc06-960.webp",
+          "width": 960,
+          "height": 607,
+          "bytes": 59708
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-activities.webp-6b3baf413270dc06-1440.webp",
+          "width": 1440,
+          "height": 910,
+          "bytes": 107662
+        }
+      ]
+    },
+    "assets/assembly-workshop/pc-creator.webp": {
+      "sourceSha256": "fcf88e96f8df636269b882509ab9a44f3c80cafa95dae02298a0310d9f002eda",
+      "width": 1440,
+      "height": 910,
+      "bytes": 327446,
+      "variants": [
+        {
+          "src": "assets/optimized/assembly-workshop/pc-creator.webp-fcf88e96f8df6362-480.webp",
+          "width": 480,
+          "height": 303,
+          "bytes": 15896
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-creator.webp-fcf88e96f8df6362-960.webp",
+          "width": 960,
+          "height": 607,
+          "bytes": 45348
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-creator.webp-fcf88e96f8df6362-1440.webp",
+          "width": 1440,
+          "height": 910,
+          "bytes": 80650
+        }
+      ]
+    },
+    "assets/assembly-workshop/pc-hud-station.webp": {
+      "sourceSha256": "88c6e06f5ff327c787ae22097df1d8b9b0567d33c8fe467050c8c31fc573bd26",
+      "width": 1600,
+      "height": 900,
+      "bytes": 334134,
+      "variants": [
+        {
+          "src": "assets/optimized/assembly-workshop/pc-hud-station.webp-88c6e06f5ff327c7-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 19634
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-hud-station.webp-88c6e06f5ff327c7-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 53284
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-hud-station.webp-88c6e06f5ff327c7-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 91848
+        },
+        {
+          "src": "assets/optimized/assembly-workshop/pc-hud-station.webp-88c6e06f5ff327c7-1600.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 105030
+        }
+      ]
+    },
+    "assets/token-game/radio-mini-games-art.webp": {
+      "sourceSha256": "96bbf3551cea248ca0df70881a8fd91a73d96bed9885cf70d40d0b36233e5618",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1353838,
+      "variants": [
+        {
+          "src": "assets/optimized/token-game/radio-mini-games-art.webp-96bbf3551cea248c-480.webp",
+          "width": 480,
+          "height": 240,
+          "bytes": 31732
+        },
+        {
+          "src": "assets/optimized/token-game/radio-mini-games-art.webp-96bbf3551cea248c-960.webp",
+          "width": 960,
+          "height": 480,
+          "bytes": 80330
+        },
+        {
+          "src": "assets/optimized/token-game/radio-mini-games-art.webp-96bbf3551cea248c-1440.webp",
+          "width": 1440,
+          "height": 720,
+          "bytes": 136706
+        },
+        {
+          "src": "assets/optimized/token-game/radio-mini-games-art.webp-96bbf3551cea248c-1774.webp",
+          "width": 1774,
+          "height": 887,
+          "bytes": 173016
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/bag.webp": {
+      "sourceSha256": "1640c099614bb856396728ab3a1a8f1423d45c3019b11f1c705a6dd24658b4ae",
+      "width": 720,
+      "height": 1280,
+      "bytes": 592206,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/bag.webp-1640c099614bb856-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 43670
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/bag.webp-1640c099614bb856-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 89828
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/battle-pause.webp": {
+      "sourceSha256": "4b8a4a3e8fd3dda68e3377899347179b13d055ed4e93507670a2c0bc0f8d3aa2",
+      "width": 720,
+      "height": 1280,
+      "bytes": 495124,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/battle-pause.webp-4b8a4a3e8fd3dda6-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 55730
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/battle-pause.webp-4b8a4a3e8fd3dda6-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 95934
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/home.webp": {
+      "sourceSha256": "d20bf3c207c5c9fc2ae61d371b8b695cfd4152b855fea884d9f061ef47906618",
+      "width": 720,
+      "height": 1280,
+      "bytes": 763940,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/home.webp-d20bf3c207c5c9fc-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 87314
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/home.webp-d20bf3c207c5c9fc-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 156430
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/low-health.webp": {
+      "sourceSha256": "8e95a4fb9849989eb5a6174368910b0b719b39efdc47b6e9719ed51c8c4a13f4",
+      "width": 720,
+      "height": 1280,
+      "bytes": 871622,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/low-health.webp-8e95a4fb9849989e-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 104826
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/low-health.webp-8e95a4fb9849989e-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 199168
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/map.webp": {
+      "sourceSha256": "f92b17afc7cb52e79b101bc1e3242d9de6892eeeef168eed679d0f03ea1aeb78",
+      "width": 720,
+      "height": 1280,
+      "bytes": 520264,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/map.webp-f92b17afc7cb52e7-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 48086
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/map.webp-f92b17afc7cb52e7-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 87282
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/night-lantern.webp": {
+      "sourceSha256": "7a8706cd1ffdeccc100b3541c767d1e1e09f7acb3e5ffe6c240e820556916c90",
+      "width": 720,
+      "height": 1280,
+      "bytes": 726524,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/night-lantern.webp-7a8706cd1ffdeccc-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 52358
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/night-lantern.webp-7a8706cd1ffdeccc-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 99848
+        }
+      ]
+    },
+    "assets/zhuyin-jianghu/world.webp": {
+      "sourceSha256": "7cb9ae64956e0da1598a2d463ac645049c23d74fcd16dd067a74975ef19bee7c",
+      "width": 720,
+      "height": 1280,
+      "bytes": 546234,
+      "variants": [
+        {
+          "src": "assets/optimized/zhuyin-jianghu/world.webp-7cb9ae64956e0da1-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 60744
+        },
+        {
+          "src": "assets/optimized/zhuyin-jianghu/world.webp-7cb9ae64956e0da1-720.webp",
+          "width": 720,
+          "height": 1280,
+          "bytes": 109366
+        }
+      ]
     }
   }
 }

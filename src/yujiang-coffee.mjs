@@ -37,10 +37,10 @@ export function renderYujiangCoffeeBody(e) {
         <div class="taptap-hero-actions"><a class="button primary" href="#coffee-video">看冲泡实录 <span aria-hidden="true">↓</span></a></div>
       </header>
       ${shot('home',{className:'taptap-hero-shot',eager:true})}
-      <div class="taptap-hero-context"><p class="taptap-hero-status">Unity · Windows 可玩开发版</p><p class="record-source">开场、冲泡实录与常规玩法图来自 Windows 0.16.0。订单与备料案例来自 Windows 0.26.0。均采用隔离测试存档。</p></div>
+      <div class="taptap-hero-context"><p class="taptap-hero-status">Unity · Windows 可玩开发版 0.34.0</p><p class="record-source">开场、冲泡实录与常规玩法图来自 Windows 0.16.0。订单与备料案例来自 Windows 0.26.0。新版引导与倒豆采用 Windows 0.34.0 实机截图。均使用隔离测试存档。</p></div>
     </div>
     <nav class="taptap-section-nav" aria-label="本页内容">
-      <a href="#coffee-loop">打捞与改船</a><a href="#coffee-video">冲泡实录</a><a href="#coffee-order-case">订单与备料</a><a href="#coffee-stories">来客与来信</a><a href="#coffee-cabin">在船舱休息</a>
+      <a href="#coffee-loop">打捞与改船</a><a href="#coffee-video">冲泡实录</a><a href="#coffee-guidance">新手引导</a><a href="#coffee-order-case">订单与备料</a><a href="#coffee-stories">来客与来信</a><a href="#coffee-cabin">在船舱休息</a>
     </nav>
 
     <section class="taptap-gallery" id="coffee-loop" aria-labelledby="coffee-loop-title">
@@ -63,6 +63,19 @@ export function renderYujiangCoffeeBody(e) {
         <figcaption id="coffee-video-caption">约 39 秒静音实录。画面依次展示放置滤杯、拿壶注水、归还器具和搅拌。<a href="${videoUrl}">打开原视频 <span aria-hidden="true">↗</span></a></figcaption>
       </figure>
       <div class="taptap-shot-grid" data-shot-count="1">${shot('pour',{label:'给海风拿铁加奶',description:'倾倒时可以看到杯口和液流，左上角的配方进度告诉你还要做什么。'})}</div>
+    </section>
+
+    <section class="taptap-gallery" id="coffee-guidance" aria-labelledby="coffee-guidance-title">
+      <header>
+        <h2 id="coffee-guidance-title">把提示留在玩家接下来要做的动作旁</h2>
+        <p>0.34.0 把从上船到冲泡的引导合为四段。甲板上只留一行当前操作，完整说明可以在航行指南里重看。工作台的黄铜箭头指向下一件器具，尽量避开按钮、提示和可点击区域。用量和重做说明到倒豆时再出现。</p>
+        <p>普通豆与低因豆采用同一套抬起、侧倾与归位操作。倒豆时，豆粒从磨豆斗前侧落入，避开中心轴。玩家换用另一袋豆时可以沿用刚学会的动作。</p>
+      </header>
+      <div class="taptap-shot-grid">
+        ${shot('deck-hint-v34',{label:'甲板保留一行下一步提示'})}
+        ${shot('bean-arrow-v34',{label:'从文字提示找到对应豆袋'})}
+        ${shot('bean-pour-v34',{label:'把低因咖啡豆倒进磨豆斗'})}
+      </div>
     </section>
 
     <section class="taptap-gallery" id="coffee-order-case" aria-labelledby="coffee-order-case-title">

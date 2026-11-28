@@ -8,7 +8,7 @@ import lunarCaseMedia from '../assets/taptap/lunar-freight/case-media.json' with
 
 const caseMedia = {tiankeng:tiankengCaseMedia, 'lunar-freight':lunarCaseMedia};
 
-test('拼拼不烧心 uses only its Chinese Android 0.60.0 captures', async () => {
+test('拼拼不烧心 keeps its Chinese Android 0.60.0 gallery and labels the independent exhibit build', async () => {
  const home=await readFile(new URL('../index.html',import.meta.url),'utf8');
  const detail=await readFile(new URL('../projects/taptap-jigmeme/index.html',import.meta.url),'utf8');
  assert.equal((home.match(/id="work-jigmeme"/gu)||[]).length,1);
@@ -31,13 +31,25 @@ test('拼拼不烧心 uses only its Chinese Android 0.60.0 captures', async () =
  assert.ok(card.includes(cover.src));
  assert.ok(cover.sources.length>=2&&cover.sources.every(src=>manifest.shots.some(shot=>shot.src===src)));
  assert.equal(cover.width*9,cover.height*16);
- assert.equal([...detail.matchAll(/<img[^>]+src="\.\.\/\.\.\/assets\/taptap\/jigmeme\//gu)].length,8);
+ assert.equal([...detail.matchAll(/<a[^>]+href="\.\.\/\.\.\/assets\/taptap\/jigmeme\/android-060\//gu)].length,8);
  for(const shot of manifest.shots){
   const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
   assert.equal(bytes.toString('ascii',8,12),'WEBP');
   assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256,shot.src);
   assert.ok(detail.includes(`src="../../${shot.src}" width="${shot.width}" height="${shot.height}"`),shot.src);
   assert.ok(detail.includes(`href="../../${shot.src}"`),shot.src);
+ }
+ const exhibit=JSON.parse(await readFile(new URL('../assets/taptap/jigmeme/exhibit-review/media.json',import.meta.url),'utf8'));
+ assert.equal(exhibit.version,'0.52.45');
+ assert.equal(exhibit.versionCode,101);
+ assert.match(detail,/独立开发试玩 0\.52\.45/u);
+ for(const shot of exhibit.shots){
+  const bytes=await readFile(new URL('../'+shot.src,import.meta.url));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),shot.sha256);
+  const figure=detail.match(/<figure\b[\s\S]*?<\/figure>/gu)?.find(item=>item.includes(`href="../../${shot.src}"`));
+  assert.ok(figure?.includes(`width="${shot.width}" height="${shot.height}"`),shot.src);
+  assert.ok(figure.includes('0.52.45'),shot.src);
+  assert.ok(!gallery.includes(shot.src),shot.src);
  }
 });
 test('TapTap catalog matches verified studio entries and current project names',async()=>{

@@ -1,0 +1,32 @@
+{
+  "platform": "Android 模拟器",
+  "version": "0.52.45",
+  "versionCode": 101,
+  "source": "展厅独立开发试玩包",
+  "shots": [
+    {
+      "id": "route-selection",
+      "width": 540,
+      "height": 960,
+      "alt": "画廊地图第二页自然与光影，作品节点旁显示各自收集进度",
+      "caption": "Android 展厅开发试玩 0.52.45，Android 模拟器采集。",
+      "source": "15-final-route-2-preview.png",
+      "sourceSha256": "5f3022b854381f84ea00a84d371d84ed02f25037ffc7d2811487aaaeba22ffe9",
+      "sha256": "fa1fcc6193984248fc2c297213e6da60b8d5bf3b1d2d1774721024166f2d2e1d",
+      "src": "assets/taptap/jigmeme/exhibit-review/route-selection.webp",
+      "label": "按路线查看作品收集进度"
+    },
+    {
+      "id": "artwork-wall",
+      "width": 540,
+      "height": 960,
+      "alt": "暖心画廊的睡莲作品墙，作品拼片陈列在木质画框内",
+      "caption": "Android 展厅开发试玩 0.52.45，Android 模拟器采集。",
+      "source": "16-final-wall-04-preview.png",
+      "sourceSha256": "5c30c7ac6e6ec077e0066f0c171a0ca7121053776a4780d8d1a94278dd30c4bf",
+      "sha256": "2e08274d9c52730b49811080d2d8e20eaab64d5bf4de01744f0265a1f10f1515",
+      "src": "assets/taptap/jigmeme/exhibit-review/artwork-wall.webp",
+      "label": "从路线进入对应作品墙"
+    }
+  ]
+}

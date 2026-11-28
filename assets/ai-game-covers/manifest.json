@@ -8,7 +8,7 @@
       "sources": [
         "assets/fading-shadows/title.webp"
       ],
-      "sha256": "5bb84f1889c8a400366ca5b2f5f838b6f7daf236dc4d3680f43686a05ee504bd"
+      "sha256": "ca4230c186b9786b805903497a72baad93b79ea87890b641f99504f177104c53"
     },
     "daynight-fate": {
       "src": "assets/taptap/daynight-fate/day.webp",
@@ -314,15 +314,26 @@
       "sha256": "cd514a7417b29afb78da1f6b490e29f5a1ee9d006894ef6248062550dcee2c95"
     },
     "assembly-workshop": {
-      "src": "assets/assembly-workshop/factory.webp",
-      "alt": "装配工坊实机，3D电子工坊总览与七个可进入的工作台",
+      "src": "assets/assembly-workshop/pc-hud-station.webp",
+      "alt": "装配工坊新版 PC 试玩的第一人称工作台和操作键位",
       "sources": [
-        "assets/assembly-workshop/factory.webp"
+        "assets/assembly-workshop/pc-hud-station.webp"
       ],
       "width": 1600,
       "height": 900,
-      "bytes": 155578,
-      "sha256": "189cfa685c75eec6b0a09f529c9f13463cfadeb02891ccf4f252a97d26dc9969"
+      "bytes": 334134,
+      "sha256": "88c6e06f5ff327c787ae22097df1d8b9b0567d33c8fe467050c8c31fc573bd26"
+    },
+    "before-sign-off": {
+      "src": "assets/before-sign-off/opening.webp",
+      "alt": "停播之前 Windows 实机，末班车驶入雨夜站亭的影片画面",
+      "sources": [
+        "assets/before-sign-off/opening.webp"
+      ],
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1413376,
+      "sha256": "5eac89fe15088b7f53acde3b3d9868a778a17183549c8c63f035e861d780a0f0"
     }
   }
 }

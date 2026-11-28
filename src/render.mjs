@@ -30,6 +30,7 @@ import {renderRingHavenEntry,renderRingHavenBody} from './ring-haven.mjs';
 import {renderTokenGameEntry,renderTokenGameBody} from './token-game.mjs';
 import {recentGames,renderRecentGameEntry,renderRecentGameBody} from './portfolio-recent-games.mjs';
 import {assemblySummary,renderAssemblyWorkshopBody,renderAssemblyWorkshopEntry} from './assembly-workshop.mjs';
+import {beforeSignOffSummary,renderBeforeSignOffBody,renderBeforeSignOffEntry} from './before-sign-off.mjs';
 import {renderNanjieEntry,renderNanjieBody} from './nanjie-repair-shop.mjs';
 import {renderYujiangCoffeeEntry,renderYujiangCoffeeBody} from './yujiang-coffee.mjs';
 import {renderFadingShadowsEntry,renderFadingShadowsBody,fadingShadowsSummary} from './fading-shadows.mjs';
@@ -75,6 +76,9 @@ export function renderRecentGamePage(game) {
 }
 export function renderIndieCaseStudyPage(project) {
   return shell({title:project.title+' · 玩法与设计',description:project.lead,body:renderIndieCaseStudyBody(project,e),base:'../../',page:'document'});
+}
+export function renderBeforeSignOffPage() {
+  return shell({title:'停播之前 · 悬疑互动电影',description:beforeSignOffSummary,body:renderBeforeSignOffBody(),base:'../../',page:'document'});
 }
 export function renderAssemblyWorkshopPage() {
   return shell({title:'装配工坊 · 3D 岗位训练',description:assemblySummary,body:renderAssemblyWorkshopBody(),base:'../../',page:'document'});
@@ -165,8 +169,8 @@ export function renderHome(aiHtml='') {
     <h4 id="steam-dev-title">Steam 发行筹备</h4><div class="ai-game-grid">${renderTokenGameEntry()}${renderFadingShadowsEntry()}</div>
   </section>
   <section class="ai-game-section" id="hub-games" aria-labelledby="hub-games-title">
-    <details class="work-catalog-toggle" open><summary id="hub-games-title">其他电脑与网页试玩</summary>
-      <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderAssemblyWorkshopEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}</div>
+    <details class="work-catalog-toggle" open><summary id="hub-games-title">其他电脑与网页作品</summary>
+      <div class="ai-game-grid">${renderYujiangCoffeeEntry()}${renderAssemblyWorkshopEntry()}${renderRecentGameEntry(recent('monster-workshop'))}${renderHubGames(hubGames.filter(game=>game.id==='lighthouse-rescue'))}${renderRecentGameEntry(recent('laurel-arena'))}${renderBeforeSignOffEntry()}</div>
     </details>
   </section>`;
   aiHtml=aiHtml.replace('<!-- MOBILE_GAMES -->',mobileMarkup).replace('<!-- STEAM_DEMOS -->',steamDemos);

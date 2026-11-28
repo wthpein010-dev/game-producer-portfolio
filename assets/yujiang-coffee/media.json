@@ -125,6 +125,42 @@
       "source": "05-协作角备料.png",
       "sourceSha256": "ab2e339c49f45680f7ef73b7e724186ae9ab7cccd376d7b4ffea5ef4d313371b",
       "sha256": "c12211934bd169b7dff0cdd7005ba6afebf9a4944752b896e5209ceca0008126"
+    },
+    {
+      "id": "deck-hint-v34",
+      "width": 1200,
+      "height": 900,
+      "alt": "渔江咖啡甲板保留一行当前操作提示",
+      "caption": "Windows 0.34.0 的隔离存档实机，引导收为一行。",
+      "source": "01-甲板单行提示.png",
+      "sourceSha256": "d79ebec30127e993634d4caaa4301c5fc44c097f6676b90a5b90d917e7f4cdfe",
+      "sha256": "508121a4c057b6312b48b87bfb8ef697b97ca97b0df6d53c9b0fecd52ad08814",
+      "file": "deck-hint-v34.webp",
+      "version": "0.34.0"
+    },
+    {
+      "id": "bean-arrow-v34",
+      "width": 1600,
+      "height": 900,
+      "alt": "工作台黄铜指示箭头指向下一步要拿的咖啡豆袋",
+      "caption": "Windows 0.34.0 的隔离存档实机，箭头指向下一件器具。",
+      "source": "03-豆袋上方箭头.png",
+      "sourceSha256": "03217990789d733686f08bcf6b73f3b469271a0fef0f6dce7a4c390cdcbeec98",
+      "sha256": "b1349081ab69f3df8061315e5015025b33f0ccbcf7249565750587c985f6684d",
+      "file": "bean-arrow-v34.webp",
+      "version": "0.34.0"
+    },
+    {
+      "id": "bean-pour-v34",
+      "width": 1600,
+      "height": 900,
+      "alt": "低因咖啡豆从侧倾的豆袋落进磨豆斗的前侧",
+      "caption": "Windows 0.34.0 的隔离存档实机，低因豆可抬离、侧倾倒入磨豆斗。",
+      "source": "05-低因豆入磨豆斗.png",
+      "sourceSha256": "28a2f7677e405c1454d5ef79d0c1281149e19c7cb7790d0505ddd67572bb72ea",
+      "sha256": "efec83f52e6033f6fe970593713b80461f30235240f650d44a4d9acf160dd2f7",
+      "file": "bean-pour-v34.webp",
+      "version": "0.34.0"
     }
   ],
   "video": {

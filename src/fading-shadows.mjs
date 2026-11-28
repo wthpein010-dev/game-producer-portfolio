@@ -5,7 +5,7 @@ const {images}=JSON.parse(readFileSync(new URL('../assets/fading-shadows/media.j
 const title='影逝之境';
 const home='../../index.html#fading-shadows';
 const gameplaySection='projects/fading-shadows/#fading-play';
-export const fadingShadowsSummary='一封烧残的求援信，把你引到雨夜山门。选好同行侠客，从章前分镜启程，在交锋中读招、换线，决定是继续追击还是收招退身。可独闯七章十四关，也可和朋友同屏闯关或对招。';
+export const fadingShadowsSummary='一封烧残的求援信，把你引到雨夜山门。选好同行侠客，从章前分镜启程，在交锋中读招、换线，决定是继续追击还是收招退身。可独闯七章十四关，也可和朋友同屏闯关或对招。探索沿途的封签木箱，还能为人物传补齐江湖旧事。';
 
 function trailerVideo(base){
   const media=base+'assets/fading-shadows/';
@@ -17,7 +17,7 @@ function trailerVideo(base){
 
 export function renderFadingShadowsEntry(){
   return renderAiGameCard({id:'fading-shadows',title,description:fadingShadowsSummary,
-    tags:['武侠动作','同屏对战','合作闯关'],status:'Windows 可玩开发版 · 0.23.0',
+    tags:['武侠动作','同屏对战','合作闯关'],status:'Windows / 横屏 Web 开发试玩 · 0.23.0',
     href:'projects/fading-shadows/',detailLabel:'看玩法设计',
     secondaryLink:{href:gameplaySection,label:'看实机'},
     supplement:`<template id="fading-shadows-preview">
@@ -51,9 +51,9 @@ export function renderFadingShadowsBody(e){
         <div class="taptap-hero-actions"><a class="button primary" href="#fading-play">看实机预告 <span aria-hidden="true">↓</span></a><a class="text-link" href="#fading-combat">看战斗设计 <span aria-hidden="true">↓</span></a></div>
       </header>
       ${screenshot('title',e,{hero:true})}
-      <div class="taptap-hero-context"><p class="taptap-hero-status">Windows 可玩开发版 0.23.0 · Steam 发行筹备</p></div>
+      <div class="taptap-hero-context"><p class="taptap-hero-status">Windows / 横屏 Web 开发版 0.23.0 · Steam 发行筹备</p></div>
     </div>
-    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-play">实机预告</a><a href="#fading-combat">普攻与连段</a><a href="#fading-techniques">招式与反制</a><a href="#fading-campaign">主线关卡</a><a href="#fading-input">对战与练习</a><a href="#fading-publishing">发行合作</a></nav>
+    <nav class="taptap-section-nav" aria-label="本页内容"><a href="#fading-play">实机预告</a><a href="#fading-combat">普攻与连段</a><a href="#fading-techniques">招式与反制</a><a href="#fading-campaign">主线关卡</a><a href="#fading-biography">人物传</a><a href="#fading-input">对战与练习</a><a href="#fading-publishing">发行合作</a></nav>
 
     <section class="taptap-gallery" id="fading-play" aria-labelledby="fading-play-title">
       <header><h2 id="fading-play-title">看一场实机交锋</h2><p>先看玩家怎样在一条线上交手，再看侧闪、投掷和双人配合如何改变局面。</p></header>
@@ -96,9 +96,17 @@ export function renderFadingShadowsBody(e){
         <article><div class="game-design-copy"><h3>双人闯关，把正面的压力分开</h3><p>一人留在正面接招，另一人换线打断追击；也可以先清掉杂兵，再对付首领。两个人共享场地，谁先去捡补给、谁继续牵制，都会改变这一波的节奏。章节末把剧情、增益选择和解锁接回下一次出发。</p></div><div class="fading-move-pair">${shot('boss')}${shot('coop')}</div></article>
         <article><div class="game-design-copy"><h3>通关第十二关，才把对手变成可选角色</h3><p>截潮监使作为首领登场，顺序通关后解锁。贴地水浪压住一条纵深，折返刃要求再判断一次回程，红光终结技则靠分段预警提示走位。第十一关燧盐师的三束火砂可格挡或换线躲开，两场战斗各自给防守方不同选择。</p></div>${shot('tide-warden')}</article>
       </div>
-      <p class="record-source">11 月 27 日的 0.23.0 Windows 实包通过主线选人、剧情分镜与投掷验收。横屏 Web 构建已在本机验证，Steam 发行仍处于筹备阶段。</p>
+      <p class="record-source">本节主线选人、剧情分镜与投掷画面来自 11 月 27 日的 0.23.0 Windows 实包验收。</p>
     </section>
 
+    <section class="taptap-gallery" id="fading-biography" aria-labelledby="fading-biography-title">
+      <header><h2 id="fading-biography-title">人物传：在关卡里找回缺失的卷页</h2><p>人物传为十三名角色各编排三篇短传。每位已解锁的侠客先开放一篇简介，余下两篇由主线场景中的线索解锁。不同人的记载能互相补充同一段往事。</p></header>
+      <div class="game-design-stories">
+        <article><div class="game-design-copy"><h3>先读简介，再追查空白卷页</h3><p>画册将角色目录、半身立绘和正文放在同一屏。右下角的小像沿用实战帧，在待机和原地踏步间切换。阅读到封存的篇章时，提示会把玩家指向对应关卡。</p></div><div class="fading-move-pair">${shot('biography-reader')}${shot('biography-sealed')}</div></article>
+        <article><div class="game-design-copy"><h3>打破封签木箱，带着线索回画册</h3><p>线索掉落后，靠近并按攻击键拾取。卷页解锁提示随即出现在战斗场景中，进度写入存档。这样既给通关后的回访一个目标，也让人物故事由玩家在场景中的行动推进。</p></div>${shot('biography-unlocked')}</article>
+      </div>
+      <p class="record-source">11 月 28 日的 0.23.0 人物传线索与动态小像更新已通过 Windows 实包及横屏 Web 验证。Steam 发行筹备中。</p>
+    </section>
     <section class="taptap-gallery" id="fading-input" aria-labelledby="fading-input-title">
       <header><h2 id="fading-input-title">先练一套，朋友到场就能对招</h2></header>
       <div class="game-design-stories">
